@@ -15,8 +15,8 @@ SemiKong is an open-source, industry-specific large language model (LLM) tailore
 This project is the result of a collaborative effort involving multiple companies and individuals:
  
 - Tokyo Electron: Atsushi Suzuki, Daisuke Oku
-- Aitomatic: Daniel Guttierez, Vinh Luong, [Christopher Nguyen](https://github.com/ctn).
-- FPT Software AIC: Huy Vo, Thang Nguyen, Lan Nguyen
+- Aitomatic: [Daniel Guttierez](https://github.com/dgutierrez24), Vinh Luong, [Christopher Nguyen](https://github.com/ctn).
+- FPT Software AIC: [Huy Vo](https://github.com/sitloboi2012), Thang Nguyen, Lan Nguyen
 - AI Alliance members and researchers
 
 We would like to express our gratitude to the AI Alliance (https://thealliance.ai) for providing the impetus, resources, and platform for this work, and for collaboration in open science. We also extend our thanks to the member organizations of the AI Alliance, their researchers and engineers for their valuable contributions to this study, including:
