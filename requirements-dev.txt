@@ -1,0 +1,5 @@
+-r requirements.txt
+black
+pre-commit
+pylint
+tqdm

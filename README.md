@@ -1,6 +1,6 @@
-# SemiKong: The First Semiconductor Industry-Specific Large Language Model
+# SEMIKONG: The First Semiconductor Industry-Specific Large Language Model
 
-SemiKong is an open-source, industry-specific large language model (LLM) tailored to the semiconductor domain. It aims to address the unique challenges faced by the semiconductor industry, such as the physics and chemistry of semiconductor devices and processes, by incorporating domain-specific knowledge into the model.
+SEMIKONG is an open-source, industry-specific large language model (LLM) tailored to the semiconductor domain. It aims to address the unique challenges faced by the semiconductor industry, such as the physics and chemistry of semiconductor devices and processes, by incorporating domain-specific knowledge into the model.
 
 ## Key Features
 
@@ -13,7 +13,7 @@ SemiKong is an open-source, industry-specific large language model (LLM) tailore
 ## Contributions
 
 This project is the result of a collaborative effort involving multiple companies and individuals:
- 
+
 - Tokyo Electron: Atsushi Suzuki, Daisuke Oku
 - Aitomatic: [Daniel Guttierez](https://github.com/dgutierrez24), [Vinh Luong](https://github.com/LuongTheVinh), [Christopher Nguyen](https://github.com/ctn).
 - FPT Software AIC: [Huy Vo](https://github.com/sitloboi2012), Thang Nguyen, [Lan Nguyen](https://www.linkedin.com/in/lan-nguyen-b7bb2517/)
@@ -42,8 +42,8 @@ If you use SemiKong in your research or development work, please cite our paper:
 
 ```bibtex
 @article{semikong2024,
-  title={SemiKong: Curating, Training, and Evaluating the First Semiconductor Industry-Specific Large Language Model},
-  author={SemiKong Team},
+  title={SEMIKONG: Curating, Training, and Evaluating the First Semiconductor Industry-Specific Large Language Model},
+  author={SEMIKONG Team},
   journal={arXiv preprint arXiv:2024.00001},
   year={2024}
 }
@@ -51,4 +51,4 @@ If you use SemiKong in your research or development work, please cite our paper:
 
 ## Contact
 
-For questions, suggestions, or collaborations, please contact the SemiKong team at semikong@aitomatic.com.
+For questions, suggestions, or collaborations, please contact the SemiKong team at aic@fpt.com or semikong@aitomatic.com

@@ -1,0 +1,27 @@
+exclude: ^venv/.*|
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-ast
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: fix-encoding-pragma
+      - id: requirements-txt-fixer
+      - id: trailing-whitespace
+  - repo: https://github.com/myint/autoflake
+    rev: v2.2.1
+    hooks:
+      - id: autoflake
+        args:
+          - --in-place
+          - --expand-star-imports
+  - repo: https://github.com/dosisod/refurb
+    rev: 68a878e
+    hooks:
+      - id: refurb
+  - repo: https://github.com/psf/black
+    rev: 23.9.1
+    hooks:
+      - id: black
