@@ -42,13 +42,13 @@ If you use SemiKong in your research or development work, please cite our paper:
 
 ```bibtex
 @article{semikong2024,
-  title={SEMIKONG: Curating, Training, and Evaluating the First Semiconductor Industry-Specific Large Language Model},
-  author={SEMIKONG Team},
-  journal={arXiv preprint arXiv:2024.00001},
+  title={SemiKong: Curating, Training, and Evaluating A Semiconductor Industry-Specific Large Language Model},
+  author={Christopher Nguyen et al.},
+  journal={arXiv preprint arXiv:2024.xxxxx},
   year={2024}
 }
 ```
 
 ## Contact
 
-For questions, suggestions, or collaborations, please contact the SemiKong team at aic@fpt.com or semikong@aitomatic.com
+For questions, suggestions, or collaborations, please contact the SemiKong team at semikong@aitomatic.com
