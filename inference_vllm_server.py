@@ -1,3 +1,5 @@
+# For further development, please refer to this documentation from vLLM: https://docs.vllm.ai/en/stable/getting_started/examples/api_client.html
+
 import requests
 import time
 import json
@@ -8,13 +10,6 @@ import os
 BASE_URL = os.environ["PATH"]
 
 HEADERS = {"Content-Type": "application/json", "User-Agent": "Test Client"}
-
-"""
-You are an Expert Senior Semiconductor Engineer.
-        Your role is to answer the input in the most sophisticate, detail and technical ways.
-        This answer will be read by other Senior Semiconductor Engineer.
-        Your answer must be concise, precise and in-depth technical knowledge.
-"""
 
 
 def post_http_request(prompt: str) -> requests.Response:
@@ -27,14 +22,8 @@ def post_http_request(prompt: str) -> requests.Response:
         requests.Response: the response of the request
     """
     payload = {
-        "prompt": f"""
-        You are an Expert Senior Semiconductor Engineer who mastered the Semiconductor Manufacturing Process.
-        Your role is to use your's in-depth knowledge in the field of Semiconductor Manufacturing Process and answer the input in the most sophisticate, detail and technical ways.
-        Your answer will be reviewed by other Senior Semiconductor Engineer.
-        Your answer must be concise, precise and in-depth technical knowledge.
-        Now here is the input: {prompt}.
-        Your Answer: <your answer here>""",
-        "max_tokens": 200,
+        "prompt": prompt,
+        "max_tokens": 100,
         "temperature": 0,
         "presence_penalty": 0.5,
         "frequency_penalty": 0.5,

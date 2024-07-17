@@ -1,5 +1,6 @@
 -r requirements.txt
 black
+isort
 pre-commit
 pylint
 tqdm

@@ -31,5 +31,10 @@ pip install -r requirements.txt
 __TBA__
 
 ## Inference
-1. Using OpenAI Client
-2. Using vLLM API
+~~~
+1. Using OpenAI Client: 
+python -m vllm.entrypoints.openai.api_server --model <path_to_model_or_HF_model_card_name> --dtype auto --max-lora-rank 32 --api-key token-abc123
+
+2. Using vLLM Server: 
+python -m vllm.entrypoints.api_server --model <path_to_model_or_HF_model_card_name> --device cuda --max-lora-rank 32 --dtype auto --port 8080
+~~~
