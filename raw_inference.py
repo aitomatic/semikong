@@ -132,54 +132,71 @@ def load_model(model_name):
 
     return model, tokenizer, peft_config
 
-def format_dolly(sample):
-    instruction = f"<s>[INST] {sample['instruction']}"
-    context = f"Here's some context: {sample['input']}" if len(sample["input"]) > 0 else None
-    response = f" [/INST] {sample['output']}"
-    # join all the parts together
-    prompt = "".join([i for i in [instruction, context, response] if i is not None])
-    return prompt
+def text_gen_eval_wrapper(model, tokenizer, prompt, model_id=1, show_metrics=True, temp=0.7, max_length=200):
+    """
+    A wrapper function for inferencing, evaluating, and logging text generation pipeline.
 
-# template dataset to add prompt to each sample
-def template_dataset(sample):
-    sample["text"] = f"{format_dolly(sample)}{TOKENIZER.eos_token}"
-    return sample
+    Parameters:
+        model (str or object): The model name or the initialized text generation model.
+        tokenizer (str or object): The tokenizer name or the initialized tokenizer for the model.
+        prompt (str): The input prompt text for text generation.
+        model_id (int, optional): An identifier for the model. Defaults to 1.
+        show_metrics (bool, optional): Whether to calculate and show evaluation metrics.
+                                       Defaults to True.
+        max_length (int, optional): The maximum length of the generated text sequence.
+                                    Defaults to 200.
 
-MODEL, TOKENIZER, PEFT_CONFIG = load_model(model_name)
+    Returns:
+        generated_text (str): The generated text by the model.
+        metrics (dict): Evaluation metrics for the generated text (if show_metrics is True).
+    """
+    # Suppress Hugging Face pipeline logging
+    logging.set_verbosity(logging.CRITICAL)
 
-dataset = load_dataset("json", data_files=dataset_name, split="train")
-dataset_shuffled = dataset.shuffle(seed=42)
-# Select the first 50 rows from the shuffled dataset, comment if you want 15k
-dataset = dataset_shuffled.select(range(50))
-dataset = dataset.map(template_dataset, remove_columns=list(dataset.features))
+    # Initialize the pipeline
+    pipe = pipeline(task="text-generation",
+                    model=model,
+                    tokenizer=tokenizer,
+                    max_length=max_length,
+                    do_sample=True,
+                    temperature=temp)
 
-training_arguments = TrainingArguments(
-    output_dir=output_dir,
-    per_device_train_batch_size=per_device_train_batch_size,
-    gradient_accumulation_steps=gradient_accumulation_steps,
-    optim=optim,
-    save_steps=save_steps,
-    logging_steps=logging_steps,
-    learning_rate=learning_rate,
-    fp16=fp16,
-    bf16=bf16,
-    max_grad_norm=max_grad_norm,
-    max_steps=max_steps,
-    warmup_ratio=warmup_ratio,
-    group_by_length=group_by_length,
-    lr_scheduler_type=lr_scheduler_type,
+    # Generate text using the pipeline
+    pipe = pipeline(task="text-generation",
+                    model=model,
+                    tokenizer=tokenizer,
+                    max_length=200)
+    result = pipe(f"<s>[INST] {prompt} [/INST]")
+    generated_text = result[0]['generated_text']
+
+    # Find the index of "### Assistant" in the generated text
+    index = generated_text.find("[/INST] ")
+    if index != -1:
+        # Extract the substring after "### Assistant"
+        substring_after_assistant = generated_text[index + len("[/INST] "):].strip()
+    else:
+        # If "### Assistant" is not found, use the entire generated text
+        substring_after_assistant = generated_text.strip()
+
+    return substring_after_assistant
+
+
+# Reload model in FP16 and merge it with LoRA weights
+base_model = AutoModelForCausalLM.from_pretrained(
+    model_name,
+    low_cpu_mem_usage=True,
+    return_dict=True,
+    torch_dtype=torch.float16,
+    device_map=device_map,
 )
 
-trainer = SFTTrainer(
-    model=MODEL,
-    train_dataset=dataset,
-    peft_config=PEFT_CONFIG,
-    dataset_text_field="text",
-    max_seq_length=max_seq_length,
-    tokenizer=TOKENIZER,
-    args=training_arguments,
-    packing=packing,
-)
+model = PeftModel.from_pretrained(base_model, output_dir)
+model = model.merge_and_unload()
 
-trainer.train()
-trainer.model.save_pretrained(output_dir)
+# Reload tokenizer to save it
+tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
+tokenizer.pad_token = tokenizer.eos_token
+tokenizer.padding_side = "right"
+
+prompt="tell me about different type of etching in semiconductor"
+print(text_gen_eval_wrapper(model, tokenizer, prompt, show_metrics=False))
