@@ -28,7 +28,15 @@ pip install -r requirements.txt
 ~~~
 
 ## Training
-__TBA__
+~~~
+1. Download the Meta-LLaMA/Meta-LLaMA base model first on HuggingFace Hub
+2. Download the dataset for training semiconductor manufacturing process (should follow the alpaca style)
+3. Create a foler `model` which contains the base model
+4. Create a folder `data` which contains the dataset
+5. Replace the path to the model and dataset foldr in `training.py` and `raw_inference.py`
+6. Run `python training.py`
+7. Run `raw_inference.py`
+~~~
 
 ## Inference
 ~~~
