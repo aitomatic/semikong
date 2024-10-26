@@ -1,3 +1,12 @@
+import argparse
+import logging
+
+import torch
+import yaml
+from peft import LoraConfig
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, pipeline
+
+
 def load_config(config_file="./configs/inference-config.yaml"):
     """
     Load the configuration from a YAML file.
@@ -109,7 +118,7 @@ def main():
         device_map=config["model"]["device_map"],
     )
 
-    model = PeftModel.from_pretrained(base_model, config["model"]["output_dir"])
+    model = PeftModel1.from_pretrained(base_model, config["model"]["output_dir"])
     model = model.merge_and_unload()
 
     # Perform text generation
