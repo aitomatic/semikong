@@ -1,11 +1,12 @@
 # For further development, please refer to this documentation from vLLM: https://docs.vllm.ai/en/stable/getting_started/examples/api_client.html
 
-import requests
-import time
 import json
-from typing import Iterable, List
 import logging
 import os
+import time
+from typing import Iterable, List
+
+import requests
 
 BASE_URL = os.environ["PATH"]
 
@@ -40,7 +41,7 @@ def post_http_request(prompt: str) -> requests.Response:
 
 def get_streaming_response(response: requests.Response) -> Iterable[List[str]]:
     for chunk in response.iter_lines(
-        chunk_size=8192, decode_unicode=False, delimiter=b"\0"
+            chunk_size=8192, decode_unicode=False, delimiter=b"\0"
     ):
         if chunk:
             data = json.loads(chunk.decode("utf-8"))
