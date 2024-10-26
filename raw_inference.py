@@ -118,7 +118,7 @@ def main():
         device_map=config["model"]["device_map"],
     )
 
-    model = PeftModel1.from_pretrained(base_model, config["model"]["output_dir"])
+    model = PeftModel.from_pretrained(base_model, config["model"]["output_dir"])
     model = model.merge_and_unload()
 
     # Perform text generation
