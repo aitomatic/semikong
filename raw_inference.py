@@ -3,7 +3,7 @@ import logging
 
 import torch
 import yaml
-from peft import LoraConfig
+from peft import LoraConfig, PeftModel
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, pipeline
 
 
