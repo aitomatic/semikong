@@ -100,7 +100,7 @@ def main():
     model, tokenizer = load_model_and_tokenizer(config, bnb_config)
 
     # Load LoRA configuration and merge it with the model
-    lora_config = configure_lora(config)
+    configure_lora(config)
     base_model = AutoModelForCausalLM.from_pretrained(
         config["model"]["model_name"],
         low_cpu_mem_usage=True,
