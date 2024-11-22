@@ -3,7 +3,6 @@ import asyncio
 import logging
 import os
 import sys
-from threading import Thread
 
 import coloredlogs
 from loguru import logger
