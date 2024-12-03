@@ -473,7 +473,7 @@ For detailed capabilities of the SEMIKONG series model, see [SEMIKONG: Technical
 @article{semikong2024,
   title={SemiKong: Curating, Training, and Evaluating A Semiconductor Industry-Specific Large Language Model},
   author={Christopher Nguyen et al.},
-  journal={arXiv preprint arXiv:2024.xxxxx},
+  journal={arXiv preprint arXiv:2411.13802},
   year={2024}
 }
 ```
