@@ -16,9 +16,6 @@
 <div align="center">
   <h3 align="center">SEMIKONG - The Open Source Foundation Model for Semiconductor Manufacturing Process</h3>
 </div>
-<div align="center">
-  <h3 align="center">SEMIKONG - The Open Source Foundation Model for Semiconductor Manufacturing Process</h3>
-</div>
 <p align="center">
 🤗 <a href="https://huggingface.co/datasets/pentagoniac/SemiKong_Training_Datset" target="_blank">Hugging Face Dataset</a> • 🤖 <a href="https://huggingface.co/pentagoniac/SEMIKONG-70B" target="_blank">Hugging Face Model 70B</a>• 🤖 <a href="https://huggingface.co/pentagoniac/SEMIKONG-8b-GPTQ" target="_blank">Hugging Face Model 8B</a>
 </p> 
