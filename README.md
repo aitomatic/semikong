@@ -17,7 +17,7 @@
   <h3 align="center">SEMIKONG - The Open Source Foundation Model for Semiconductor Manufacturing Process</h3>
 </div>
 <p align="center">
-🤗 <a href="#" target="_blank">Hugging Face Dataset</a> • 🤖 <a href="#" target="_blank">Hugging Face Model</a>
+🤗 <a href="https://huggingface.co/datasets/pentagoniac/SemiKong_Training_Datset" target="_blank">Hugging Face Dataset</a> • 🤖 <a href="https://huggingface.co/pentagoniac/SEMIKONG-70B" target="_blank">Hugging Face Model 70B</a>• 🤖 <a href="https://huggingface.co/pentagoniac/SEMIKONG-8b-GPTQ" target="_blank">Hugging Face Model 8B</a>
 </p> 
 
 <p align="center">
@@ -472,8 +472,8 @@ For detailed capabilities of the SEMIKONG series model, see [SEMIKONG: Technical
 ```bibtex
 @article{semikong2024,
   title={SemiKong: Curating, Training, and Evaluating A Semiconductor Industry-Specific Large Language Model},
-  author={Christopher Nguyen et al.},
-  journal={arXiv preprint arXiv:2024.xxxxx},
+  author={Christopher Nguyen, William Nguyen, Atsushi Suzuki, Daisuke Oku, Hong An Phan, Sang Dinh, Zooey Nguyen, Anh Ha, Shruti Raghavan, Huy Vo, Thang Nguyen, Lan Nguyen, Yoshikuni Hirayama},
+  journal={arXiv preprint arXiv:2411.13802},
   year={2024}
 }
 ```
