@@ -56,14 +56,29 @@ def configure_lora(config):
 
 # Format data into the instruction template
 def format_dolly(sample):
+    # This function formats a given sample into a specific template for instructions.
+    # Parameters:
+    # - sample (dict): A dictionary containing 'instruction', 'input', and 'output' keys.
+    # Returns:
+    # - str: A formatted string combining the instruction, optional context, and the response.
+
     instruction = f"<s>[INST] {sample['instruction']}"
+    # If there is input context, include it; otherwise, set it to None.
     context = f"Here's some context: {sample['input']}" if len(sample["input"]) > 0 else None
     response = f" [/INST] {sample['output']}"
+    
+    # Join the instruction, context (if present), and response into a single string.
     return "".join([i for i in [instruction, context, response] if i is not None])
-
 
 # Template dataset mapping
 def template_dataset(sample, tokenizer):
+    # This function maps a dataset sample to a text template using a tokenizer.
+    # Parameters:
+    # - sample (dict): A dictionary containing 'instruction', 'input', and 'output' keys.
+    # - tokenizer: A tokenizer object that provides an end-of-sequence (eos) token.
+    # Returns:
+    # - dict: The input sample updated with a "text" key containing the formatted text.
+
     sample["text"] = f"{format_dolly(sample)}{tokenizer.eos_token}"
     return sample
 
