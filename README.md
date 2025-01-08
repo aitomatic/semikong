@@ -331,7 +331,7 @@ TBA
 
 ### Web demo
 
-You can build a web UI demo for SEMIKONG **chat** models (note that SEMIKONG base models are not supported in this senario).
+You can build a web UI demo for SEMIKONG **chat** models (note that SEMIKONG base models are not supported in this scenario).
 
 [Step 1: Prepare your environment](#step-1-prepare-your-environment). 
 
