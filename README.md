@@ -330,6 +330,11 @@ Please select "Reopen in Container."
 
 You should now be able to work with the SEMIKONG project inside the Docker container using VSCode.
 
+Run the following command to install all packages.
+```sh
+uv sync --all-extras
+```
+
 <p align="right"> [
   <a href="#top">Back to top ⬆️ </a>  ] 
 </p>
