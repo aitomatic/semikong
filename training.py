@@ -92,9 +92,9 @@ def main():
     dataset = dataset.shuffle(seed=42)
     dataset = dataset.map(
         lambda sample: template_dataset(sample, tokenizer),
-        remove_columns=["instruction", "input", "output"]  # 必要に応じて追加
+        remove_columns=["input"]
     )
-    
+
     # Set up training arguments
     training_arguments = TrainingArguments(
         output_dir=config["model"]["output_dir"],
