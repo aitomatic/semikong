@@ -1,0 +1,18 @@
+services:
+  semikong:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: semikong
+    container_name: semikong
+    tty: true
+    stdin_open: true
+    volumes:
+      - ./:/workspace
+    working_dir: /workspace
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
