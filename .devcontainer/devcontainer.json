@@ -1,0 +1,24 @@
+{
+    "name": "semikong",
+    "dockerComposeFile": "../compose.yaml",
+    "service": "semikong",
+    "workspaceFolder": "/workspace",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "GitHub.copilot-chat",
+                "codezombiech.gitignore",
+                "GitHub.copilot",
+                "saoudrizwan.claude-dev",
+                "njpwerner.autodocstring",
+                "ms-python.mypy-type-checker",
+                "ms-python.vscode-pylance",
+                "ms-python.python",
+                "ms-python.debugpy",
+                "ms-python.isort",
+                "ms-python.black-formatter"
+            ]
+        }
+    },
+  }
+  
