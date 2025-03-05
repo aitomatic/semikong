@@ -10,6 +10,7 @@ requires-python = ">=3.10"
 dependencies = [
     "bitsandbytes>=0.45.3",
     "datasets>=3.3.2",
+    "huggingface-hub>=0.29.1",
     "loguru>=0.7.3",
     "numpy>=2.2.3",
     "peft>=0.14.0",
