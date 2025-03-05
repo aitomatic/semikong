@@ -1,18 +1,18 @@
 model:
-  model_name: "model_path_folder_or_model_name_hf"
-  new_model: "semikong-8b"
+  model_name: "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
+  new_model: "semikong-1.1b"
   use_4bit: True
   use_nested_quant: False
   bnb_4bit_compute_dtype: "float16"
   bnb_4bit_quant_type: "nf4"
   device_map: {"": 0}
   output_dir: "./results"
-  dataset_name: "dataset_path_folder_or_dataset_name_hf"
+  dataset_name: "pentagoniac/SemiKong_Training_Datset"
 
 training:
   num_train_epochs: 2
-  per_device_train_batch_size: 4
-  per_device_eval_batch_size: 4
+  per_device_train_batch_size: 3
+  per_device_eval_batch_size: 3
   gradient_accumulation_steps: 1
   learning_rate: 2e-4
   max_grad_norm: 0.3

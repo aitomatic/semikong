@@ -4,7 +4,8 @@ import torch
 import yaml
 from datasets import load_dataset
 from peft import LoraConfig
-from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, TrainingArguments
+from transformers import (AutoModelForCausalLM, AutoTokenizer,
+                          BitsAndBytesConfig, TrainingArguments)
 from trl import SFTTrainer
 
 
@@ -51,6 +52,7 @@ def configure_lora(config):
         r=lora_params["lora_r"],
         bias="none",
         task_type="CAUSAL_LM",
+        target_modules=["q_proj", "v_proj"],
     )
 
 
@@ -85,11 +87,14 @@ def main():
 
     # Load and process the dataset
     dataset_name = config["model"]["dataset_name"]
-    dataset = load_dataset("json", data_files=dataset_name, split="train")
+    dataset_dict = load_dataset(dataset_name)
+    dataset = dataset_dict["train"] 
     dataset = dataset.shuffle(seed=42)
-    dataset = dataset.select(range(50))  # Optional: select first 50 rows for demo
-    dataset = dataset.map(lambda sample: template_dataset(sample, tokenizer), remove_columns=list(dataset.features))
-
+    dataset = dataset.map(
+        lambda sample: template_dataset(sample, tokenizer),
+        remove_columns=["instruction", "input", "output"]  # 必要に応じて追加
+    )
+    
     # Set up training arguments
     training_arguments = TrainingArguments(
         output_dir=config["model"]["output_dir"],
@@ -98,7 +103,7 @@ def main():
         optim=config["training"]["optim"],
         save_steps=config["training"]["save_steps"],
         logging_steps=config["training"]["logging_steps"],
-        learning_rate=config["training"]["learning_rate"],
+        learning_rate=float(config["training"]["learning_rate"]),
         fp16=config["training"]["fp16"],
         bf16=config["training"]["bf16"],
         max_grad_norm=config["training"]["max_grad_norm"],
@@ -113,11 +118,8 @@ def main():
         model=model,
         train_dataset=dataset,
         peft_config=peft_config,
-        dataset_text_field="text",
-        max_seq_length=config["training"]["max_seq_length"],
         tokenizer=tokenizer,
         args=training_arguments,
-        packing=config["training"]["packing"],
     )
 
     trainer.train()
