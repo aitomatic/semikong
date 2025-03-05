@@ -323,7 +323,12 @@ You can perform inference with SEMIKONG chat or base models as below.
 </p>
 
 ### Quick start - Docker 
-TBA
+You shold install Docker and VSCode.
+
+Install the Dev Containers extension.
+Please select "Reopen in Container."
+
+You should now be able to work with the SEMIKONG project inside the Docker container using VSCode.
 
 <p align="right"> [
   <a href="#top">Back to top ⬆️ </a>  ] 
