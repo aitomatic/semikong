@@ -8,6 +8,7 @@ authors = [
 ]
 requires-python = ">=3.10"
 dependencies = [
+    "bitsandbytes>=0.45.3",
     "datasets>=3.3.2",
     "loguru>=0.7.3",
     "numpy>=2.2.3",
@@ -17,6 +18,3 @@ dependencies = [
     "vllm>=0.5.0.post1",
 ]
 
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
