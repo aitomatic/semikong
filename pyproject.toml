@@ -1,0 +1,22 @@
+[project]
+name = "semikong"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "popiemon", email = "kryo.over@gmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "datasets>=3.3.2",
+    "loguru>=0.7.3",
+    "numpy>=2.2.3",
+    "peft>=0.14.0",
+    "transformers>=4.49.0",
+    "trl>=0.15.2",
+    "vllm>=0.5.0.post1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
