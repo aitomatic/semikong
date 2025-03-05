@@ -1,5 +1,5 @@
 model:
-  model_name: "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
+  model_name: "model_path_folder_or_model_name_hf"
   new_model: "semikong-1.1b"
   use_4bit: True
   use_nested_quant: False
