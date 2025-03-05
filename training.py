@@ -88,7 +88,7 @@ def main():
     # Load and process the dataset
     dataset_name = config["model"]["dataset_name"]
     dataset_dict = load_dataset(dataset_name)
-    dataset = dataset_dict["train"] 
+    dataset = dataset_dict["train"]
     dataset = dataset.shuffle(seed=42)
     dataset = dataset.map(
         lambda sample: template_dataset(sample, tokenizer),
