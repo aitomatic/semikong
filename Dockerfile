@@ -2,10 +2,6 @@ FROM pytorch/pytorch:2.3.0-cuda12.1-cudnn8-runtime
 
 # The installer requires curl (and certificates) to download the release archive
 RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates git vim && rm -rf /var/lib/apt/lists/*
-    curl \
-    ca-certificates \
-    git \
-    vim
 
 # Download the latest installer
 ADD https://astral.sh/uv/install.sh /uv-installer.sh
