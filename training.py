@@ -92,7 +92,7 @@ def main():
     dataset = dataset.shuffle(seed=42)
     if config["demo"]:
         dataset = dataset.select(range(50))  # Optional: select first 50 rows for demo
-    dataset = dataset.map(lambda sample: template_dataset(sample, tokenizer), remove_columns=config["model"]["remove_columns"])    
+    dataset = dataset.map(lambda sample: template_dataset(sample, tokenizer), remove_columns=config["model"]["remove_columns"])
     # Set up training arguments
     training_arguments = TrainingArguments(
         output_dir=config["model"]["output_dir"],
