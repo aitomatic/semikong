@@ -87,14 +87,13 @@ def main():
 
     # Load and process the dataset
     dataset_name = config["model"]["dataset_name"]
-    dataset_dict = load_dataset(dataset_name)
-    dataset = dataset_dict["train"]
+    extension = dataset_name.split(".")[-1]
+    dataset = load_dataset(extension, data_files=dataset_name, split="train")
     dataset = dataset.shuffle(seed=42)
-    dataset = dataset.map(
-        lambda sample: template_dataset(sample, tokenizer),
-        remove_columns=["input"]
-    )
-
+    if config["demo"]:
+        dataset = dataset.select(range(50))  # Optional: select first 50 rows for demo
+    dataset = dataset.map(lambda sample: template_dataset(sample, tokenizer), remove_columns=config["model"]["remove_columns"])
+    
     # Set up training arguments
     training_arguments = TrainingArguments(
         output_dir=config["model"]["output_dir"],
