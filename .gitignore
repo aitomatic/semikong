@@ -163,3 +163,4 @@ cython_debug/
 
 *.lock
 results*
+data/*
