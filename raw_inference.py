@@ -1,10 +1,11 @@
 import argparse
-import logging
 
 import torch
+import transformers
 import yaml
 from peft import LoraConfig, PeftModel
-from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, pipeline
+from transformers import (AutoModelForCausalLM, AutoTokenizer,
+                          BitsAndBytesConfig, pipeline)
 
 
 def load_config(config_file="./configs/inference-config.yaml"):
@@ -70,7 +71,7 @@ def text_gen_eval_wrapper(model, tokenizer, prompt, max_length=200, temperature=
     A wrapper function for inferencing, generating text based on a prompt.
     """
     # Suppress logging
-    logging.set_verbosity(logging.CRITICAL)
+    transformers.logging.set_verbosity(transformers.logging.CRITICAL)
 
     # Initialize text generation pipeline
     pipe = pipeline(
