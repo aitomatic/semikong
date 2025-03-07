@@ -73,7 +73,7 @@ def template_dataset(sample, tokenizer):
 def main():
     # Parse command-line arguments
     parser = argparse.ArgumentParser(description="Fine-tune a model with LoRA and 4-bit precision.")
-    parser.add_argument("--config", type=str, default="config.yaml", help="Path to the YAML config file.")
+    parser.add_argument("--config", type=str, default="configs/training-config.yaml", help="Path to the YAML config file.")
     args = parser.parse_args()
 
     # Load configuration
