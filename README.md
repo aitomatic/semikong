@@ -25,7 +25,7 @@
 </p> 
 
 <p align="center">
-    📝 Check out  <a href="#"> SEMIKONG Tech Report </a>
+    📝 Check out  <a href="https://arxiv.org/abs/2411.13802"> SemiKong Paper </a>
 </p> 
 
 <!-- DO NOT REMOVE ME -->
@@ -465,14 +465,14 @@ If you want to get up with SEMIKONG in a few minutes, you can use the following 
 
 ## Tech report
 
-For detailed capabilities of the SEMIKONG series model, see [SEMIKONG: Technical Report](#).
+For detailed capabilities of the SEMIKONG series model, see [SemiKong Paper](#).
 
 ### Citation
 
 ```bibtex
-@article{semikong2024,
+@article{nguyen2024semikong,
   title={SemiKong: Curating, Training, and Evaluating A Semiconductor Industry-Specific Large Language Model},
-  author={Christopher Nguyen, William Nguyen, Atsushi Suzuki, Daisuke Oku, Hong An Phan, Sang Dinh, Zooey Nguyen, Anh Ha, Shruti Raghavan, Huy Vo, Thang Nguyen, Lan Nguyen, Yoshikuni Hirayama},
+  author={Nguyen, Christopher and Nguyen, William and Suzuki, Atsushi and Oku, Daisuke and Phan, Hong An and Dinh, Sang and Nguyen, Zooey and Ha, Anh and Raghavan, Shruti and Vo, Huy and others},
   journal={arXiv preprint arXiv:2411.13802},
   year={2024}
 }
@@ -523,7 +523,7 @@ This project is the result of a collaborative effort involving multiple companie
 
 - Tokyo Electron: Atsushi Suzuki, Daisuke Oku
 - FPT Software AIC: [Huy Vo](https://github.com/sitloboi2012), Thang Nguyen, [Lan Nguyen](https://www.linkedin.com/in/lan-nguyen-b7bb2517/)
-- Aitomatic: [Daniel Guttierez](https://github.com/dgutierrez24), [Vinh Luong](https://github.com/LuongTheVinh), [Christopher Nguyen](https://github.com/ctn).
+- Aitomatic: [William Nguyen](https://github.com/nguyennm1024), [Vinh Luong](https://github.com/LuongTheVinh), [Christopher Nguyen](https://github.com/ctn).
 - AI Alliance members and researchers
 
 We would like to express our gratitude to the AI Alliance (https://thealliance.ai) for providing the impetus, resources, and platform for this work, and for collaboration in open science. We also extend our thanks to the member organizations of the AI Alliance, their researchers and engineers for their valuable contributions to this study, including:
