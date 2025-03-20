@@ -470,9 +470,9 @@ For detailed capabilities of the SEMIKONG series model, see [SemiKong Paper](#).
 ### Citation
 
 ```bibtex
-@article{nguyen2024semikong,
+@article{semikong2024,
   title={SemiKong: Curating, Training, and Evaluating A Semiconductor Industry-Specific Large Language Model},
-  author={Nguyen, Christopher and Nguyen, William and Suzuki, Atsushi and Oku, Daisuke and Phan, Hong An and Dinh, Sang and Nguyen, Zooey and Ha, Anh and Raghavan, Shruti and Vo, Huy and others},
+  author={Christopher Nguyen, William Nguyen, Atsushi Suzuki, Daisuke Oku, Hong An Phan, Sang Dinh, Zooey Nguyen, Anh Ha, Shruti Raghavan, Huy Vo, Thang Nguyen, Lan Nguyen, Yoshikuni Hirayama},
   journal={arXiv preprint arXiv:2411.13802},
   year={2024}
 }
