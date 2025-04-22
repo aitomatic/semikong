@@ -1,9 +1,9 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="#" width="200px">
-  <source media="(prefers-color-scheme: light)" srcset="#" width="200px"> 
-  <img alt="specify theme context for images" src="#" width="200px">
+  <source media="(prefers-color-scheme: dark)" srcset="figures/teaser.png" width="200px">
+  <source media="(prefers-color-scheme: light)" srcset="figures/teaser.png" width="200px"> 
+  <img alt="specify theme context for images" src="figures/teaser.png" width="200px">
 </picture>
 
 </br>
@@ -17,7 +17,7 @@
   <h3 align="center">SEMIKONG - The Open Source Foundation Model for Semiconductor Manufacturing Process</h3>
 </div>
 <p align="center">
- <a href="https://drive.google.com/drive/u/0/folders/1IjuVyP35-xBEe_i_KkG9MnE-4o7Eb7tq" target="_blank">Dataset and Benchmarks</a> • 🤖 <a href="https://huggingface.co/pentagoniac/SEMIKONG-70B" target="_blank">Hugging Face Model 70B</a>• 🤖 <a href="https://huggingface.co/pentagoniac/SEMIKONG-8b-GPTQ" target="_blank">Hugging Face Model 8B</a>
+ <a href="https://drive.google.com/drive/u/0/folders/1IjuVyP35-xBEe_i_KkG9MnE-4o7Eb7tq" target="_blank">Dataset and Benchmarks</a> • 🤖 <a href="https://huggingface.co/aitomatic/SEMIKONG-70B-Instruct" target="_blank">Hugging Face Model 70B-Instruct</a>• 🤖 <a href="https://huggingface.co/aitomatic/SEMIKONG-8B-Instruct" target="_blank">Hugging Face Model 8B-Instruct</a>
 </p> 
 
 <p align="center">
@@ -40,8 +40,6 @@
   - [Key Features](#features)
   - [Models](#models)
     - [Chat models](#chat-models)
-    - [Base models](#base-models)
-    - [Model info](#model-info)
 - [How to use SEMIKONG?](#how-to-use-semikong)
   - [Quick start](#quick-start)
     - [Choose your path](#choose-your-path)
@@ -62,7 +60,6 @@
       - [Fine-tuning](#fine-tuning-1)
       - [API](#api)
   - [Benchmarks](#benchmarks)
-    - [Base model performance](#base-model-performance)
     - [Chat model performance](#chat-model-performance)
   - [Tech report](#tech-report)
     - [Citation](#citation)
@@ -85,8 +82,6 @@
 - 🙌 Targeted as a bilingual language model and trained on 3T multilingual corpus, the SEMIKONG series models become one of the strongest LLM worldwide, showing promise in language understanding, commonsense reasoning, reading comprehension, and more. For example,
   
   - SEMIKONG-8B / 70B-Instruct model .
-
-  - SEMIKONG-8B / 70B model .
   
   - 🙏 (Credits to Llama) Thanks to the Transformer and Llama open-source communities, as they reduce the efforts required to build from scratch and enable the utilization of the same tools within the AI ecosystem.  
 </ul>
@@ -120,62 +115,8 @@ If you want to deploy SEMIKONG models, make sure you meet the [software and hard
 
 | Model | Download  |
 |---|---|
-|SEMIKONG-70B-Instruct	| • [🤗 Hugging Face](#) |
-|SEMIKONG-8B-Instruct | • [🤗 Hugging Face](#) |
-
-### Base models
-
-| Model | Download |
-|---|---|
-|SEMIKONG-70B| • [🤗 Hugging Face](#) |
-|SEMIKONG-8B|• [🤗 Hugging Face](#)|
-
-### Model info
-
-- For chat and base models
-
-<table>
-<thead>
-<tr>
-<th>Model</th>
-<th>Intro</th>
-<th>Default context window</th>
-<th>Pretrained tokens</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>70B series models</td>
-<td>A powerful version of SEMIKONG that suitable more complex task</td>
-<td>48k</td>
-<td>25T</td>
-</tr>
-<tr>
-<td>8B series models</td>
-<td>An economical version of SEMIKONG that able to perform general instruction and chat in semiconductor manufacturing process</td>
-<td>48k</td>
-<td>25T</td>
-</tr>
-</tbody></table>
-
-
-- For chat models
-  
-  <details style="display: inline;"><summary>For chat model limitations, see the explanations below. ⬇️</summary>
-   <ul>
-    <br>The released chat model has undergone exclusive training using Supervised Fine-Tuning (SFT). Compared to other standard chat models, our model produces more diverse responses, making it suitable for various downstream tasks, such as creative scenarios. Furthermore, this diversity is expected to enhance the likelihood of generating higher quality responses, which will be advantageous for subsequent Reinforcement Learning (RL) training.
-
-    <br>However, this higher diversity might amplify certain existing issues, including:
-      <li>Hallucination: This refers to the model generating factually incorrect or nonsensical information. With the model's responses being more varied, there's a higher chance of hallucination that are not based on accurate data or logical reasoning.</li>
-      <li>Non-determinism in re-generation: When attempting to regenerate or sample responses, inconsistencies in the outcomes may occur. The increased diversity can lead to varying results even under similar input conditions.</li>
-      <li>Cumulative Error: This occurs when errors in the model's responses compound over time. As the model generates more diverse responses, the likelihood of small inaccuracies building up into larger errors increases, especially in complex tasks like extended reasoning, mathematical problem-solving, etc.</li>
-      <li>To achieve more coherent and consistent responses, it is advisable to adjust generation configuration parameters such as temperature, top_p, or top_k. These adjustments can help in the balance between creativity and coherence in the model's outputs.</li>
-  </ul>
-  </details>
-
-<p align="right"> [
-  <a href="#top">Back to top ⬆️ </a>  ] 
-</p>
+|SEMIKONG-70B-Instruct	| • [🤗 Hugging Face](https://huggingface.co/aitomatic/SEMIKONG-70B-Instruct) |
+|SEMIKONG-8B-Instruct | • [🤗 Hugging Face](https://huggingface.co/aitomatic/SEMIKONG-8B-Instruct) |
 
 
 # How to use SEMIKONG?
@@ -245,11 +186,11 @@ pip install -r requirements.txt
 
 You can download the weights and tokenizer of SEMIKONG models from the following sources:
 
-- [Hugging Face](#)
+- [Hugging Face](https://huggingface.co/aitomatic)
 
 #### Step 3: Perform inference
 
-You can perform inference with SEMIKONG chat or base models as below.
+You can perform inference with SEMIKONG chat models as below.
 
 ##### Perform inference with SEMIKONG chat model
 
@@ -294,30 +235,6 @@ You can perform inference with SEMIKONG chat or base models as below.
     Hello! How can I assist you today?
     ```
 
-##### Perform inference with SEMIKONG base model
-
-- SEMIKONG-8B
-  
-  Input
-
-  ```bash
-  from transformers import AutoModelForCausalLM, AutoTokenizer
-  
-  MODEL_DIR = "pentagoniac/SEMIKONG-8B"
-  model = AutoModelForCausalLM.from_pretrained(MODEL_DIR, torch_dtype="auto")
-  tokenizer = AutoTokenizer.from_pretrained(MODEL_DIR, use_fast=False)
-  
-  input_text = "what is semiconductor ?"
-  inputs = tokenizer(input_text, return_tensors="pt").to(model.device)
-  outputs = model.generate(**inputs, max_length=256)
-  print(tokenizer.decode(outputs[0], skip_special_tokens=True))
-  ```
-
-  Output
-
-  ```Semiconductor is a ....```
-
-
 <p align="right"> [
   <a href="#top">Back to top ⬆️ </a>  ] 
 </p>
@@ -331,11 +248,11 @@ TBA
 
 ### Web demo
 
-You can build a web UI demo for SEMIKONG **chat** models (note that SEMIKONG base models are not supported in this scenario).
+You can build a web UI demo for SEMIKONG **chat** models.
 
 [Step 1: Prepare your environment](#step-1-prepare-your-environment). 
 
-[Step 2: Download the SEMIKONG model](#step-2-download-the-yi-model).
+[Step 2: Download the SEMIKONG model](#step-2-download-the-semikong-model).
 
 Step 3. To start a web service locally, run the following command.
 
@@ -357,7 +274,7 @@ You can access the web UI by entering the address provided in the console into y
 
 For the SEMIKONG-8B model, a node with 1 GPUs, each with GPU memory larger than 16GB, is recommended.
 
-For the SEMIKONG-70B model, because the usage of the zero-offload technique consumes a lot of CPU memory, please be careful to limit the number of GPUs in the 34B finetune training. Please use CUDA_VISIBLE_DEVICES to limit the number of GPUs (as shown in scripts/run_sft_Yi_34b.sh).
+For the SEMIKONG-70B model, because the usage of the zero-offload technique consumes a lot of CPU memory, please be careful to limit the number of GPUs in the 70B finetune training. Please use CUDA_VISIBLE_DEVICES to limit the number of GPUs (as shown in scripts/run_sft_SEMIKONG_70b.sh).
 
 A typical hardware setup for finetuning the 70B model is a node with 8 GPUs (limited to 4 in running by CUDA_VISIBLE_DEVICES=0,1,2,3), each with GPU memory larger than 80GB, and total CPU memory larger than 900GB.
 
@@ -387,13 +304,6 @@ Before deploying SEMIKONG in your environment, make sure your hardware meets the
 | SEMIKONG-70B-Instruct           | 170 GB         | 3 x A100 80GB <br> 5 x A100 40GB             |
 | SEMIKONG-8B-Instruct     | 16 GB          | 1 x RTX 3060 (12 GB)<br> 1 x RTX 4060 (8 GB)                   |
 
-##### Base models
-
-| Model                | Minimum VRAM |        Recommended GPU Example       |
-|----------------------|--------------|:-------------------------------------:|
-| SEMIKONG-8B                | 15 GB         | 1 x RTX 3090 (24 GB) <br> 1 x RTX 4090 (24 GB) <br> 1 x A10 (24 GB)  <br> 1 x A30 (24 GB)                |
-| SEMIKONG-70B       | 200 GB        | 4 x A800 (80 GB)                        |
-
 <p align="right"> [
   <a href="#top">Back to top ⬆️ </a>  ] 
 </p>
@@ -410,9 +320,6 @@ Before deploying SEMIKONG in your environment, make sure your hardware meets the
       - [API](#api)
   - [Benchmarks](#benchmarks)
     - [Chat model performance](#chat-model-performance)
-    - [Base model performance](#base-model-performance)
-      - [SEMIKONG-34B and SEMIKONG-34B-200K](#yi-34b-and-yi-34b-200k)
-      - [SEMIKONG-9B](#yi-9b)
 
 ## Ecosystem
 
@@ -434,9 +341,9 @@ For example, the SEMIKONG series models are saved in the format of the Llama mod
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-tokenizer = AutoTokenizer.from_pretrained("pentagoniac/SEMIKONG-8B-Instruct", use_fast=False)
+tokenizer = AutoTokenizer.from_pretrained("aitomatic/SEMIKONG-8B-Instruct", use_fast=False)
 
-model = AutoModelForCausalLM.from_pretrained("pentagoniac/SEMIKONG-8B-Instruct", device_map="auto")
+model = AutoModelForCausalLM.from_pretrained("aitomatic/SEMIKONG-8B-Instruct", device_map="auto")
 ```
 
 <p align="right"> [
@@ -456,7 +363,7 @@ model = AutoModelForCausalLM.from_pretrained("pentagoniac/SEMIKONG-8B-Instruct",
 If you want to get up with SEMIKONG in a few minutes, you can use the following services built upon SEMIKONG.
 
 - SEMIKONG-70B-Instruct: you can chat with SEMIKONG using one of the following platforms:
-  - [SEMIKONG-70B-Instruct | Hugging Face](#)
+  - [SEMIKONG-70B-Instruct | Hugging Face](https://huggingface.co/aitomatic/SEMIKONG-70B-Instruct)
   - [SEMIKONG-70B-Instruct | SEMIKONG Platform](#): 
 
 <p align="right"> [
@@ -481,7 +388,6 @@ For detailed capabilities of the SEMIKONG series model, see [SemiKong Paper](#).
 ## Benchmarks 
 
 - [Chat model performance](#chat-model-performance)
-- [Base model performance](#base-model-performance)
 
 ### Chat model performance
 
@@ -492,18 +398,6 @@ SEMIKONG-70B-Chat model demonstrates exceptional performance, ranking first amon
 <details>
 <summary> Evaluation methods and challenges. ⬇️ </summary>
 </details>
-
-### Base model performance
-
-
-
-#### SEMIKONG-9B
-
-
-
-<p align="right"> [
-  <a href="#top">Back to top ⬆️ </a>  ] 
-</p>
 
 # Who can use SEMIKONG?
 
@@ -560,7 +454,7 @@ The code and weights of the SEMIKONG series models are distributed under the [Ap
 
 If you create derivative works based on this model, please include the following attribution in your derivative works:
 
-    This work is a derivative of [The SEMIKONG Series Model You Base On] by AI Alliance, used under the Apache 2.0 License.
+    This work is a derivative of SEMIKONG by AI Alliance, used under the Apache 2.0 License.
 
 <p align="right"> [
   <a href="#top">Back to top ⬆️ </a>  ] 
