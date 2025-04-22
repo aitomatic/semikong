@@ -17,7 +17,7 @@
   <h3 align="center">SEMIKONG - The Open Source Foundation Model for Semiconductor Manufacturing Process</h3>
 </div>
 <p align="center">
- <a href="https://drive.google.com/drive/u/0/folders/1IjuVyP35-xBEe_i_KkG9MnE-4o7Eb7tq" target="_blank">Dataset and Benchmarks</a> • 🤖 <a href="https://huggingface.co/aitomatic/SEMIKONG-70B-Instruct" target="_blank">Hugging Face Model 70B-Instruct</a>• 🤖 <a href="https://huggingface.co/aitomatic/SEMIKONG-8B-Instruct" target="_blank">Hugging Face Model 8B-Instruct</a>
+ <a href="https://drive.google.com/drive/u/0/folders/1IjuVyP35-xBEe_i_KkG9MnE-4o7Eb7tq" target="_blank">Dataset and Benchmarks</a> • 🤖 <a href="https://huggingface.co/pentagoniac/SEMIKONG-70B" target="_blank">Hugging Face Model 70B-Instruct</a>• 🤖 <a href="https://huggingface.co/pentagoniac/SEMIKONG-8b-GPTQ" target="_blank">Hugging Face Model 8B-Instruct</a>
 </p> 
 
 <p align="center">
@@ -115,8 +115,8 @@ If you want to deploy SEMIKONG models, make sure you meet the [software and hard
 
 | Model | Download  |
 |---|---|
-|SEMIKONG-70B-Instruct	| • [🤗 Hugging Face](https://huggingface.co/aitomatic/SEMIKONG-70B-Instruct) |
-|SEMIKONG-8B-Instruct | • [🤗 Hugging Face](https://huggingface.co/aitomatic/SEMIKONG-8B-Instruct) |
+|SEMIKONG-70B-Instruct	| • [🤗 Hugging Face](https://huggingface.co/pentagoniac/SEMIKONG-70B) |
+|SEMIKONG-8B-Instruct | • [🤗 Hugging Face](https://huggingface.co/pentagoniac/SEMIKONG-8b-GPTQ) |
 
 
 # How to use SEMIKONG?
@@ -186,7 +186,7 @@ pip install -r requirements.txt
 
 You can download the weights and tokenizer of SEMIKONG models from the following sources:
 
-- [Hugging Face](https://huggingface.co/aitomatic)
+- [Hugging Face](https://huggingface.co/pentagoniac)
 
 #### Step 3: Perform inference
 
@@ -341,9 +341,9 @@ For example, the SEMIKONG series models are saved in the format of the Llama mod
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-tokenizer = AutoTokenizer.from_pretrained("aitomatic/SEMIKONG-8B-Instruct", use_fast=False)
+tokenizer = AutoTokenizer.from_pretrained("pentagoniac/SEMIKONG-8b-GPTQ", use_fast=False)
 
-model = AutoModelForCausalLM.from_pretrained("aitomatic/SEMIKONG-8B-Instruct", device_map="auto")
+model = AutoModelForCausalLM.from_pretrained("pentagoniac/SEMIKONG-8b-GPTQ", device_map="auto")
 ```
 
 <p align="right"> [
@@ -363,7 +363,7 @@ model = AutoModelForCausalLM.from_pretrained("aitomatic/SEMIKONG-8B-Instruct", d
 If you want to get up with SEMIKONG in a few minutes, you can use the following services built upon SEMIKONG.
 
 - SEMIKONG-70B-Instruct: you can chat with SEMIKONG using one of the following platforms:
-  - [SEMIKONG-70B-Instruct | Hugging Face](https://huggingface.co/aitomatic/SEMIKONG-70B-Instruct)
+  - [SEMIKONG-70B-Instruct | Hugging Face](https://huggingface.co/pentagoniac/SEMIKONG-70B)
   - [SEMIKONG-70B-Instruct | SEMIKONG Platform](#): 
 
 <p align="right"> [
