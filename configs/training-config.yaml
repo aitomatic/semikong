@@ -1,3 +1,5 @@
+demo: True
+
 model:
   model_name: "model_path_folder_or_model_name_hf"
   new_model: "semikong-8b"
@@ -7,7 +9,8 @@ model:
   bnb_4bit_quant_type: "nf4"
   device_map: {"": 0}
   output_dir: "./results"
-  dataset_name: "dataset_path_folder_or_dataset_name_hf"
+  dataset_name: /workspace/data/SemiKong_Training_Dataset/train-00000-of-00001.parquet
+  remove_columns: ["input"]
 
 training:
   num_train_epochs: 2
