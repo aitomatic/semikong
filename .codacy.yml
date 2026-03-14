@@ -1,0 +1,10 @@
+exclude_paths:
+  - "ontology/docs/**"
+  - "ontology/examples/**"
+  - "ontology/ontologist/01-docs/**"
+  - "ontology/ontologist/03-skills/**"
+  - "ontology/ontologist/04-context/**"
+  - "ontology/ontology/**"
+  - "ontology/shapes/**"
+  - "ontology/MANIFESTO.md"
+  - "ontology/README.md"
