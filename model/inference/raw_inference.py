@@ -1,5 +1,6 @@
 import argparse
 import logging
+from pathlib import Path
 
 import torch
 import yaml
@@ -7,10 +8,12 @@ from peft import LoraConfig, PeftModel
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, pipeline
 
 
-def load_config(config_file="./configs/inference-config.yaml"):
+def load_config(config_file=None):
     """
     Load the configuration from a YAML file.
     """
+    if config_file is None:
+        config_file = Path(__file__).resolve().parents[1] / "configs" / "inference-config.yaml"
     with open(config_file, 'r') as file:
         return yaml.safe_load(file)
 
@@ -92,9 +95,11 @@ def text_gen_eval_wrapper(model, tokenizer, prompt, max_length=200, temperature=
 
 
 def main():
+    default_config = Path(__file__).resolve().parents[1] / "configs" / "inference-config.yaml"
+
     # Setup argparse to receive the config file path
     parser = argparse.ArgumentParser(description="Model Inference Script")
-    parser.add_argument("--config", type=str, default="./configs/inference-config.yaml", help="Path to the config file")
+    parser.add_argument("--config", type=str, default=str(default_config), help="Path to the config file")
 
     # Parse the arguments
     args = parser.parse_args()

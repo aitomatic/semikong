@@ -1,4 +1,5 @@
 import argparse
+from pathlib import Path
 
 import torch
 import yaml
@@ -69,9 +70,11 @@ def template_dataset(sample, tokenizer):
 
 
 def main():
+    default_config = Path(__file__).resolve().parents[1] / "configs" / "training-config.yaml"
+
     # Parse command-line arguments
     parser = argparse.ArgumentParser(description="Fine-tune a model with LoRA and 4-bit precision.")
-    parser.add_argument("--config", type=str, default="config.yaml", help="Path to the YAML config file.")
+    parser.add_argument("--config", type=str, default=str(default_config), help="Path to the YAML config file.")
     args = parser.parse_args()
 
     # Load configuration
