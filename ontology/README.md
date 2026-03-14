@@ -38,10 +38,21 @@ This aligns with the original `semicont` direction and now serves as the ontolog
 ## Start Here
 
 - manifesto: [MANIFESTO.md](/Users/ctn/src/aitomatic/semikong/ontology/MANIFESTO.md)
+- commands: [Makefile](/Users/ctn/src/aitomatic/semikong/ontology/Makefile)
 - ontology source overview: [ontology/ontology/README.md](/Users/ctn/src/aitomatic/semikong/ontology/ontology/README.md)
 - architecture: [ontology/docs/architecture.md](/Users/ctn/src/aitomatic/semikong/ontology/docs/architecture.md)
 - industry hierarchy: [ontology/docs/semiconductor-industry-ontology-hierarchy.md](/Users/ctn/src/aitomatic/semikong/ontology/docs/semiconductor-industry-ontology-hierarchy.md)
 - ontologist workflow: [ontology/ontologist/README.md](/Users/ctn/src/aitomatic/semikong/ontology/ontologist/README.md)
+
+## How To Use
+
+From the repository root:
+
+```bash
+make -C ontology audit
+make -C ontology benchmark
+make -C ontology export-agentic
+```
 
 ## Current Shape
 
