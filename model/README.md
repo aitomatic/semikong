@@ -21,7 +21,7 @@ The top-level repository is being organized around two major areas:
   - Base 70B: <https://huggingface.co/pentagoniac/SEMIKONG-70B>
   - Quantized 8B GPTQ: <https://huggingface.co/pentagoniac/SEMIKONG-8b-GPTQ>
   - Quantized 8B instruct GPTQ: <https://huggingface.co/sitloboi2012/SEMIKONG-8B-Instruct-GPTQ>
-- Instruct chat API: launch with `python -m vllm.entrypoints.openai.api_server ...` as shown in [USAGE.md](/Users/ctn/src/aitomatic/semikong/model/USAGE.md)
+- Instruct chat API: launch with `python -m vllm.entrypoints.openai.api_server ...` as shown in [USAGE.md](USAGE.md)
 - Paper: <https://arxiv.org/abs/2411.13802>
 
 ## Papers
@@ -40,11 +40,11 @@ The top-level repository is being organized around two major areas:
 
 ## Start Here
 
-- Setup and environment: [INSTALL.md](/Users/ctn/src/aitomatic/semikong/model/INSTALL.md)
-- Usage and serving: [USAGE.md](/Users/ctn/src/aitomatic/semikong/model/USAGE.md)
-- Commands: [Makefile](/Users/ctn/src/aitomatic/semikong/model/Makefile)
-- Training config: [configs/training-config.yaml](/Users/ctn/src/aitomatic/semikong/model/configs/training-config.yaml)
-- Inference config: [configs/inference-config.yaml](/Users/ctn/src/aitomatic/semikong/model/configs/inference-config.yaml)
+- Setup and environment: [INSTALL.md](INSTALL.md)
+- Usage and serving: [USAGE.md](USAGE.md)
+- Commands: [Makefile](Makefile)
+- Training config: [configs/training-config.yaml](configs/training-config.yaml)
+- Inference config: [configs/inference-config.yaml](configs/inference-config.yaml)
 
 ## How To Use
 
@@ -58,14 +58,14 @@ make -C model infer
 
 If you need to change paths or parameters first, edit:
 
-- [configs/training-config.yaml](/Users/ctn/src/aitomatic/semikong/model/configs/training-config.yaml)
-- [configs/inference-config.yaml](/Users/ctn/src/aitomatic/semikong/model/configs/inference-config.yaml)
+- [configs/training-config.yaml](configs/training-config.yaml)
+- [configs/inference-config.yaml](configs/inference-config.yaml)
 
 ## Documentation
 
-- Project overview and model summary: [docs/overview.md](/Users/ctn/src/aitomatic/semikong/model/docs/overview.md)
-- Ecosystem, deployment, and references: [docs/ecosystem.md](/Users/ctn/src/aitomatic/semikong/model/docs/ecosystem.md)
-- Governance, contributions, disclaimer, and license notes: [docs/governance.md](/Users/ctn/src/aitomatic/semikong/model/docs/governance.md)
+- Project overview and model summary: [docs/overview.md](docs/overview.md)
+- Ecosystem, deployment, and references: [docs/ecosystem.md](docs/ecosystem.md)
+- Governance, contributions, disclaimer, and license notes: [docs/governance.md](docs/governance.md)
 
 ## License
 

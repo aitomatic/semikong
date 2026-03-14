@@ -14,8 +14,8 @@ make -C model infer
 
 Before running those commands, update:
 
-- [configs/training-config.yaml](/Users/ctn/src/aitomatic/semikong/model/configs/training-config.yaml)
-- [configs/inference-config.yaml](/Users/ctn/src/aitomatic/semikong/model/configs/inference-config.yaml)
+- [configs/training-config.yaml](configs/training-config.yaml)
+- [configs/inference-config.yaml](configs/inference-config.yaml)
 
 At minimum, set the paths for the base model, adapter output, and local dataset.
 

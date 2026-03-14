@@ -4,8 +4,8 @@
 
 SemiKong is an open-source semiconductor AI project that combines:
 
-- a semiconductor language model in [model/](/Users/ctn/src/aitomatic/semikong/model)
-- a semiconductor ontology and knowledge graph in [ontology/](/Users/ctn/src/aitomatic/semikong/ontology)
+- a semiconductor language model in [model/](model/)
+- a semiconductor ontology and knowledge graph in [ontology/](ontology/)
 
 SemiKong began as an early open effort to build a semiconductor-specific language model from real industry collaboration. Publicly, it was presented through the AI Alliance ecosystem with contributions from Aitomatic, Tokyo Electron, FPT, and others, and later described by the AI Alliance as its first domain-specific open model.
 
@@ -56,21 +56,21 @@ make -C model infer
 
 Key model entry points:
 
-- [model/README.md](/Users/ctn/src/aitomatic/semikong/model/README.md)
-- [model/INSTALL.md](/Users/ctn/src/aitomatic/semikong/model/INSTALL.md)
-- [model/USAGE.md](/Users/ctn/src/aitomatic/semikong/model/USAGE.md)
-- [model/Makefile](/Users/ctn/src/aitomatic/semikong/model/Makefile)
+- [model/README.md](model/README.md)
+- [model/INSTALL.md](model/INSTALL.md)
+- [model/USAGE.md](model/USAGE.md)
+- [model/Makefile](model/Makefile)
 
 If you want to work with the ontology:
 
-- [ontology/README.md](/Users/ctn/src/aitomatic/semikong/ontology/README.md)
-- [ontology/MANIFESTO.md](/Users/ctn/src/aitomatic/semikong/ontology/MANIFESTO.md)
-- [ontology/ontology/README.md](/Users/ctn/src/aitomatic/semikong/ontology/ontology/README.md)
+- [ontology/README.md](ontology/README.md)
+- [ontology/MANIFESTO.md](ontology/MANIFESTO.md)
+- [ontology/ontology/README.md](ontology/ontology/README.md)
 
 ## Repository Guide
 
-- [model/](/Users/ctn/src/aitomatic/semikong/model) contains the language model code, configs, docs, and references
-- [ontology/](/Users/ctn/src/aitomatic/semikong/ontology) contains the ontology modules, shapes, curation materials, and ontology docs
+- [model/](model/) contains the language model code, configs, docs, and references
+- [ontology/](ontology/) contains the ontology modules, shapes, curation materials, and ontology docs
 
 ## Why This Project Matters
 
@@ -85,7 +85,7 @@ SemiKong is aimed at that gap.
 
 ## License
 
-The repository code and checked-in contents are distributed under the [MIT License](/Users/ctn/src/aitomatic/semikong/LICENSE).
+The repository code and checked-in contents are distributed under the [MIT License](LICENSE).
 
 Some model weights, datasets, and imported ontology assets may also carry upstream licenses or provenance-specific terms.
 

@@ -4,7 +4,7 @@ This guide covers the current contents of the `model/` subtree.
 
 This documentation dedicated to instruct on how to setup the environment for training, evaluation and inference SEMIKONG model.
 
-For runnable commands after installation, see [USAGE.md](/Users/ctn/src/aitomatic/semikong/model/USAGE.md).
+For runnable commands after installation, see [USAGE.md](USAGE.md).
 
 ## Requirement Hardware
 
@@ -34,7 +34,7 @@ make -C model install
 
 ## Supported Package Versions
 
-The current dependency baseline in [requirements.txt](/Users/ctn/src/aitomatic/semikong/model/requirements.txt) includes:
+The current dependency baseline in [requirements.txt](requirements.txt) includes:
 
 - `torch==2.8.0`
 - `torchaudio==2.8.0`
@@ -69,6 +69,6 @@ python -m vllm.entrypoints.api_server --model <path_to_model_or_HF_model_card_na
 
 ## References
 
-- Usage guide: [USAGE.md](/Users/ctn/src/aitomatic/semikong/model/USAGE.md)
+- Usage guide: [USAGE.md](USAGE.md)
 - Dataset and benchmark resources: <https://drive.google.com/drive/u/0/folders/1IjuVyP35-xBEe_i_KkG9MnE-4o7Eb7tq>
 - Tech report / paper: <https://arxiv.org/abs/2411.13802>

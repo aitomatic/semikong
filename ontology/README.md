@@ -18,11 +18,11 @@ We intend to contribute the SemiKong ontology work into the broader SEMI standar
 
 ## What Is Here
 
-- ontology modules in Turtle under [ontology/ontology/](/Users/ctn/src/aitomatic/semikong/ontology/ontology)
-- architecture and methodology docs under [ontology/docs/](/Users/ctn/src/aitomatic/semikong/ontology/docs)
-- SHACL shapes under [ontology/shapes/](/Users/ctn/src/aitomatic/semikong/ontology/shapes)
-- examples under [ontology/examples/](/Users/ctn/src/aitomatic/semikong/ontology/examples)
-- curation and ontologist workflow materials under [ontology/ontologist/](/Users/ctn/src/aitomatic/semikong/ontology/ontologist)
+- ontology modules in Turtle under [ontology/ontology/](ontology/)
+- architecture and methodology docs under [ontology/docs/](docs/)
+- SHACL shapes under [ontology/shapes/](shapes/)
+- examples under [ontology/examples/](examples/)
+- curation and ontologist workflow materials under [ontology/ontologist/](ontologist/)
 
 ## Design Intent
 
@@ -37,12 +37,12 @@ This aligns with the original `semicont` direction and now serves as the ontolog
 
 ## Start Here
 
-- manifesto: [MANIFESTO.md](/Users/ctn/src/aitomatic/semikong/ontology/MANIFESTO.md)
-- commands: [Makefile](/Users/ctn/src/aitomatic/semikong/ontology/Makefile)
-- ontology source overview: [ontology/ontology/README.md](/Users/ctn/src/aitomatic/semikong/ontology/ontology/README.md)
-- architecture: [ontology/docs/architecture.md](/Users/ctn/src/aitomatic/semikong/ontology/docs/architecture.md)
-- industry hierarchy: [ontology/docs/semiconductor-industry-ontology-hierarchy.md](/Users/ctn/src/aitomatic/semikong/ontology/docs/semiconductor-industry-ontology-hierarchy.md)
-- ontologist workflow: [ontology/ontologist/README.md](/Users/ctn/src/aitomatic/semikong/ontology/ontologist/README.md)
+- manifesto: [MANIFESTO.md](MANIFESTO.md)
+- commands: [Makefile](Makefile)
+- ontology source overview: [ontology/ontology/README.md](ontology/README.md)
+- architecture: [ontology/docs/architecture.md](docs/architecture.md)
+- industry hierarchy: [ontology/docs/semiconductor-industry-ontology-hierarchy.md](docs/semiconductor-industry-ontology-hierarchy.md)
+- ontologist workflow: [ontology/ontologist/README.md](ontologist/README.md)
 
 ## How To Use
 
@@ -62,7 +62,7 @@ The imported ontology currently includes:
 - industry-layer modules such as integrators, EDA, foundry/IDM, OSAT, WFE, materials, and supply chain
 - validation shapes and curation assets
 
-The canonical semantic source remains the Turtle content under [ontology/ontology/](/Users/ctn/src/aitomatic/semikong/ontology/ontology).
+The canonical semantic source remains the Turtle content under [ontology/ontology/](ontology/).
 
 ## Contributor Signal
 
@@ -72,4 +72,4 @@ Initial contributor called out in the imported ontology materials:
 
 ## License Note
 
-The imported ontology subtree includes its own [ontology/LICENSE](/Users/ctn/src/aitomatic/semikong/ontology/LICENSE). The repository as a whole is MIT-licensed at the top level, but ontology assets may also carry their own preserved licensing and provenance context from the imported source.
+The imported ontology subtree includes its own [ontology/LICENSE](LICENSE). The repository as a whole is MIT-licensed at the top level, but ontology assets may also carry their own preserved licensing and provenance context from the imported source.
