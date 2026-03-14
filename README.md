@@ -1,12 +1,4 @@
-<div align="center">
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="model/figures/teaser.png" width="200px">
-  <source media="(prefers-color-scheme: light)" srcset="model/figures/teaser.png" width="200px">
-  <img alt="SEMIKONG teaser" src="model/figures/teaser.png" width="200px">
-</picture>
-
-</div>
+![SEMIKONG teaser](model/figures/teaser.png)
 
 # SemiKong
 
