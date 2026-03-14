@@ -28,6 +28,12 @@ The top-level repository is being organized around two major areas:
 - Model weights: <https://huggingface.co/pentagoniac/SEMIKONG-70B>, <https://huggingface.co/pentagoniac/SEMIKONG-8b-GPTQ>
 - Paper: <https://arxiv.org/abs/2411.13802>
 
+## Papers
+
+As of March 13, 2026, the public arXiv record appears to include one paper specifically on SemiKong:
+
+- [SemiKong: Curating, Training, and Evaluating A Semiconductor Industry-Specific Large Language Model](https://arxiv.org/abs/2411.13802)
+
 ## Start Here
 
 - Setup and environment: [INSTALL.md](/Users/ctn/src/aitomatic/semikong/model/INSTALL.md)

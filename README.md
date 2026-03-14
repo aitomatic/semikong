@@ -32,6 +32,12 @@ We also intend to contribute the SemiKong ontology work into the broader SEMI st
 
 - [Christopher Nguyen](https://github.com/ctn) (`ctn@aitomatic.com`)
 
+## Papers
+
+As of March 13, 2026, the public arXiv record appears to include one paper specifically on SemiKong:
+
+- [SemiKong: Curating, Training, and Evaluating A Semiconductor Industry-Specific Large Language Model](https://huggingface.co/papers/2411.13802), published on arXiv on November 21, 2024
+
 ## What You Can Do Here
 
 - use the model work under `model/` for training and inference experiments
@@ -86,4 +92,3 @@ Some model weights, datasets, and imported ontology assets may also carry upstre
 
 - AI Alliance domain-model story: <https://thealliance.ai/blog/from-semiconductor-to-maritime-a-blueprint-for-dom>
 - AI Alliance first-year retrospective: <https://thealliance.ai/blog/our-first-year>
-- SemiKong paper: <https://huggingface.co/papers/2411.13802>
