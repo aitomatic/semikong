@@ -34,9 +34,7 @@ We also intend to contribute the SemiKong ontology work into the broader SEMI st
 
 ## Papers
 
-As of March 13, 2026, the public arXiv record appears to include one paper specifically on SemiKong:
-
-- [SemiKong: Curating, Training, and Evaluating A Semiconductor Industry-Specific Large Language Model](https://huggingface.co/papers/2411.13802), published on arXiv on November 21, 2024
+- [SemiKong: Curating, Training, and Evaluating A Semiconductor Industry-Specific Large Language Model](https://arxiv.org/abs/2411.13802)
 
 ## What You Can Do Here
 

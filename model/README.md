@@ -30,8 +30,6 @@ The top-level repository is being organized around two major areas:
 
 ## Papers
 
-As of March 13, 2026, the public arXiv record appears to include one paper specifically on SemiKong:
-
 - [SemiKong: Curating, Training, and Evaluating A Semiconductor Industry-Specific Large Language Model](https://arxiv.org/abs/2411.13802)
 
 ## Start Here
