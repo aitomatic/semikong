@@ -1,7 +1,11 @@
 ---
 exclude_paths:
+  - "README.md"
+  - "model/README.md"
+  - "model/INSTALL.md"
   - "ontology/docs/**"
   - "ontology/examples/**"
+  - "ontology/ontologist/**/*.md"
   - "ontology/ontologist/01-docs/**"
   - "ontology/ontologist/03-skills/**"
   - "ontology/ontologist/04-context/**"
