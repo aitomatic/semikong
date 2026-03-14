@@ -1,0 +1,108 @@
+# Plasma Etch Branch Ontology
+
+@prefix semicont-07-wfe-etch-systems-plasma: <https://semicont.org/ontology/07-wfe/06-etch-systems/01-plasma-etch#> .
+@prefix semicont-07-wfe-etch-systems: <https://semicont.org/ontology/07-wfe/06-etch-systems#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-07-wfe-etch-systems-plasma: a owl:Ontology ;
+    rdfs:label "Plasma Etch Branch Ontology" ;
+    rdfs:comment "Branch-specific classes for plasma etch equipment and process subfamilies." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/07-wfe/06-etch-systems> ;
+    dc:source "Public plasma etch references from Oxford Instruments and Fraunhofer ISIT DRIE documentation." ;
+    dc:rights "Fair use: paraphrased industry-general plasma etch concepts." ;
+    prov:hadPrimarySource <https://plasma.oxinst.com/technology/icp-etching> ;
+    prov:hadPrimarySource <https://www.isit.fraunhofer.de/en/technology/micro-manufacturing-processes/processes-on-wafer-level/drie.html> ;
+    prov:wasInformedBy "Plasma architecture and DRIE subfamily decomposition used in wafer fabrication." ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+# Equipment hierarchy
+semicont-07-wfe-etch-systems:PlasmaEtchSystem a owl:Class ;
+    rdfs:label "Plasma Etch System" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:DryEtchSystem ;
+    dc:source "Public plasma etch equipment references." ;
+    prov:wasInformedBy "Branch parent for plasma etch equipment." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems-plasma: .
+
+semicont-07-wfe-etch-systems:ReactiveIonEtchSystem a owl:Class ;
+    rdfs:label "Reactive Ion Etch System" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:PlasmaEtchSystem ;
+    dc:source "Public RIE references." ;
+    prov:wasInformedBy "Ion-assisted reactive plasma etch branch." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems-plasma: .
+
+semicont-07-wfe-etch-systems:ParallelPlateRIESystem a owl:Class ;
+    rdfs:label "Parallel Plate RIE System" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:ReactiveIonEtchSystem ;
+    dc:source "Public RIE reactor architecture references." ;
+    prov:wasInformedBy "Parallel plate reactor subtype." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems-plasma: .
+
+semicont-07-wfe-etch-systems:ICPSystem a owl:Class ;
+    rdfs:label "Inductively Coupled Plasma Etch System" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:PlasmaEtchSystem ;
+    dc:source "Public ICP etch references." ;
+    prov:wasInformedBy "Independent plasma source/bias control subtype." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems-plasma: .
+
+semicont-07-wfe-etch-systems:DRIESystem a owl:Class ;
+    rdfs:label "Deep Reactive Ion Etch System" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:ICPSystem ;
+    dc:source "Fraunhofer DRIE references." ;
+    prov:wasInformedBy "High-aspect-ratio DRIE subtype." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems-plasma: .
+
+semicont-07-wfe-etch-systems:BoschDRIESystem a owl:Class ;
+    rdfs:label "Bosch DRIE System" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:DRIESystem ;
+    dc:source "Fraunhofer Bosch-cycle references." ;
+    prov:wasInformedBy "Alternating passivation/etch DRIE subtype." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems-plasma: .
+
+semicont-07-wfe-etch-systems:CryogenicDRIESystem a owl:Class ;
+    rdfs:label "Cryogenic DRIE System" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:DRIESystem ;
+    dc:source "Fraunhofer cryogenic DRIE references." ;
+    prov:wasInformedBy "Low-temperature DRIE subtype." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems-plasma: .
+
+semicont-07-wfe-etch-systems:IonBeamEtchSystem a owl:Class ;
+    rdfs:label "Ion Beam Etch System" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:DryEtchSystem ;
+    dc:source "Public ion-assisted dry etch references." ;
+    prov:wasInformedBy "Directional ion-assisted etch subtype." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems-plasma: .
+
+# Process hierarchy
+semicont-07-wfe-etch-systems:PlasmaEtchProcess a owl:Class ;
+    rdfs:label "Plasma Etch Process" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:DryEtchProcess ;
+    dc:source "Public plasma etch process references." ;
+    prov:wasInformedBy "Branch parent for plasma etch process semantics." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems-plasma: .
+
+semicont-07-wfe-etch-systems:ReactiveIonEtchProcess a owl:Class ;
+    rdfs:label "Reactive Ion Etch Process" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:PlasmaEtchProcess ;
+    dc:source "Public RIE process references." ;
+    prov:wasInformedBy "Ion-assisted reactive plasma process branch." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems-plasma: .
+
+semicont-07-wfe-etch-systems:DeepReactiveIonEtchProcess a owl:Class ;
+    rdfs:label "Deep Reactive Ion Etch Process" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:ReactiveIonEtchProcess ;
+    dc:source "Fraunhofer DRIE process references." ;
+    prov:wasInformedBy "High-aspect-ratio plasma process subtype." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems-plasma: .
+
+semicont-07-wfe-etch-systems:BoschCycleEtchProcess a owl:Class ;
+    rdfs:label "Bosch Cycle Etch Process" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:DeepReactiveIonEtchProcess ;
+    dc:source "Fraunhofer Bosch process references." ;
+    prov:wasInformedBy "Alternating passivation/etch cycle process subtype." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems-plasma: .

@@ -1,0 +1,265 @@
+# Photoresist Processing Ontology
+# Industry-general concepts for photoresist coating, baking, and developing equipment
+
+@prefix semicont-07-wfe-photoresist-processing: <https://semicont.org/ontology/07-wfe/03-photoresist-processing#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+# Module Metadata
+semicont-07-wfe-photoresist-processing: a owl:Ontology ;
+    rdfs:label "Photoresist Processing Ontology" ;
+    rdfs:comment "Industry-general concepts for photoresist coating, baking, and developing equipment" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+    dc:source "Public semiconductor lithography literature and industry-standard photoresist processing classifications" ;
+    dc:rights "Fair use: industry-general photoresist processing concepts" ;
+    prov:wasInformedBy "Model synthesis of public domain semiconductor lithography knowledge" ;
+    prov:hadPrimarySource <https://en.wikipedia.org/wiki/Photolithography> ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Photoresist Processing Equipment
+semicont-07-wfe-photoresist-processing:PhotoresistProcessingEquipment a owl:Class ;
+    rdfs:label "Photoresist Processing Equipment" ;
+    rdfs:comment "Equipment for photoresist coating, baking, and developing" ;
+    rdfs:subClassOf semicont-shared:Equipment ;
+    rdfs:isDefinedBy semicont-07-wfe-photoresist-processing: ;
+    dc:source "Public domain semiconductor lithography equipment taxonomy" ;
+    dc:rights "Fair use: generic photoresist processing equipment concept" ;
+    prov:wasInformedBy "Industry-standard photoresist processing equipment classifications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Coating Equipment
+semicont-07-wfe-photoresist-processing:CoaterEquipment a owl:Class ;
+    dc:source "Photolithography process references (https://en.wikipedia.org/wiki/Photolithography)" ;
+    prov:wasInformedBy "Industry-standard coat/bake/develop process flow semantics." ;
+    rdfs:label "Coater Equipment" ;
+    rdfs:comment "Equipment for applying photoresist to wafers" ;
+    rdfs:subClassOf semicont-07-wfe-photoresist-processing:PhotoresistProcessingEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-photoresist-processing: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-photoresist-processing:SpinCoater a owl:Class ;
+    dc:source "Photolithography process references (https://en.wikipedia.org/wiki/Photolithography)" ;
+    prov:wasInformedBy "Industry-standard coat/bake/develop process flow semantics." ;
+    rdfs:label "Spin Coater" ;
+    rdfs:comment "Equipment for spin coating photoresist" ;
+    rdfs:subClassOf semicont-07-wfe-photoresist-processing:CoaterEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-photoresist-processing: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-photoresist-processing:SprayCoater a owl:Class ;
+    dc:source "Photolithography process references (https://en.wikipedia.org/wiki/Photolithography)" ;
+    prov:wasInformedBy "Industry-standard coat/bake/develop process flow semantics." ;
+    rdfs:label "Spray Coater" ;
+    rdfs:comment "Equipment for spray coating photoresist" ;
+    rdfs:subClassOf semicont-07-wfe-photoresist-processing:CoaterEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-photoresist-processing: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Baking Equipment
+semicont-07-wfe-photoresist-processing:BakeEquipment a owl:Class ;
+    dc:source "Photolithography process references (https://en.wikipedia.org/wiki/Photolithography)" ;
+    prov:wasInformedBy "Industry-standard coat/bake/develop process flow semantics." ;
+    rdfs:label "Bake Equipment" ;
+    rdfs:comment "Equipment for baking photoresist after coating" ;
+    rdfs:subClassOf semicont-07-wfe-photoresist-processing:PhotoresistProcessingEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-photoresist-processing: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-photoresist-processing:Hotplate a owl:Class ;
+    dc:source "Photolithography process references (https://en.wikipedia.org/wiki/Photolithography)" ;
+    prov:wasInformedBy "Industry-standard coat/bake/develop process flow semantics." ;
+    rdfs:label "Hotplate" ;
+    rdfs:comment "Contact hotplate for baking photoresist" ;
+    rdfs:subClassOf semicont-07-wfe-photoresist-processing:BakeEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-photoresist-processing: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-photoresist-processing:ConvectionOven a owl:Class ;
+    dc:source "Photolithography process references (https://en.wikipedia.org/wiki/Photolithography)" ;
+    prov:wasInformedBy "Industry-standard coat/bake/develop process flow semantics." ;
+    rdfs:label "Convection Oven" ;
+    rdfs:comment "Convection oven for batch baking photoresist" ;
+    rdfs:subClassOf semicont-07-wfe-photoresist-processing:BakeEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-photoresist-processing: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Developing Equipment
+semicont-07-wfe-photoresist-processing:DeveloperEquipment a owl:Class ;
+    dc:source "Photolithography process references (https://en.wikipedia.org/wiki/Photolithography)" ;
+    prov:wasInformedBy "Industry-standard coat/bake/develop process flow semantics." ;
+    rdfs:label "Developer Equipment" ;
+    rdfs:comment "Equipment for developing exposed photoresist" ;
+    rdfs:subClassOf semicont-07-wfe-photoresist-processing:PhotoresistProcessingEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-photoresist-processing: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-photoresist-processing:ImmersionDeveloper a owl:Class ;
+    dc:source "Photolithography process references (https://en.wikipedia.org/wiki/Photolithography)" ;
+    prov:wasInformedBy "Industry-standard coat/bake/develop process flow semantics." ;
+    rdfs:label "Immersion Developer" ;
+    rdfs:comment "Immersion-based photoresist developer" ;
+    rdfs:subClassOf semicont-07-wfe-photoresist-processing:DeveloperEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-photoresist-processing: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-photoresist-processing:SprayDeveloper a owl:Class ;
+    dc:source "Photolithography process references (https://en.wikipedia.org/wiki/Photolithography)" ;
+    prov:wasInformedBy "Industry-standard coat/bake/develop process flow semantics." ;
+    rdfs:label "Spray Developer" ;
+    rdfs:comment "Spray-based photoresist developer" ;
+    rdfs:subClassOf semicont-07-wfe-photoresist-processing:DeveloperEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-photoresist-processing: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Track Systems
+semicont-07-wfe-photoresist-processing:TrackSystem a owl:Class ;
+    dc:source "Photolithography process references (https://en.wikipedia.org/wiki/Photolithography)" ;
+    prov:wasInformedBy "Industry-standard coat/bake/develop process flow semantics." ;
+    rdfs:label "Track System" ;
+    rdfs:comment "Integrated system for coating, baking, and developing" ;
+    rdfs:subClassOf semicont-07-wfe-photoresist-processing:PhotoresistProcessingEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-photoresist-processing: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Process Types
+semicont-07-wfe-photoresist-processing:PhotoresistProcess a owl:Class ;
+    dc:source "Photolithography process references (https://en.wikipedia.org/wiki/Photolithography)" ;
+    prov:wasInformedBy "Industry-standard coat/bake/develop process flow semantics." ;
+    rdfs:label "Photoresist Process" ;
+    rdfs:comment "Process for applying and patterning photoresist" ;
+    rdfs:subClassOf semicont-shared:ProcessStep ;
+    rdfs:isDefinedBy semicont-07-wfe-photoresist-processing: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-photoresist-processing:CoatingProcess a owl:Class ;
+    dc:source "Photolithography process references (https://en.wikipedia.org/wiki/Photolithography)" ;
+    prov:wasInformedBy "Industry-standard coat/bake/develop process flow semantics." ;
+    rdfs:label "Coating Process" ;
+    rdfs:comment "Process for applying photoresist to substrate" ;
+    rdfs:subClassOf semicont-07-wfe-photoresist-processing:PhotoresistProcess ;
+    rdfs:isDefinedBy semicont-07-wfe-photoresist-processing: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-photoresist-processing:SoftBakeProcess a owl:Class ;
+    dc:source "Photolithography process references (https://en.wikipedia.org/wiki/Photolithography)" ;
+    prov:wasInformedBy "Industry-standard coat/bake/develop process flow semantics." ;
+    rdfs:label "Soft Bake Process" ;
+    rdfs:comment "Process for removing solvents from photoresist after coating" ;
+    rdfs:subClassOf semicont-07-wfe-photoresist-processing:PhotoresistProcess ;
+    rdfs:isDefinedBy semicont-07-wfe-photoresist-processing: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-photoresist-processing:PostExposureBakeProcess a owl:Class ;
+    dc:source "Photolithography process references (https://en.wikipedia.org/wiki/Photolithography)" ;
+    prov:wasInformedBy "Industry-standard coat/bake/develop process flow semantics." ;
+    rdfs:label "Post Exposure Bake Process" ;
+    rdfs:comment "Process for baking photoresist after exposure" ;
+    rdfs:subClassOf semicont-07-wfe-photoresist-processing:PhotoresistProcess ;
+    rdfs:isDefinedBy semicont-07-wfe-photoresist-processing: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-photoresist-processing:DevelopingProcess a owl:Class ;
+    dc:source "Photolithography process references (https://en.wikipedia.org/wiki/Photolithography)" ;
+    prov:wasInformedBy "Industry-standard coat/bake/develop process flow semantics." ;
+    rdfs:label "Developing Process" ;
+    rdfs:comment "Process for removing exposed or unexposed photoresist" ;
+    rdfs:subClassOf semicont-07-wfe-photoresist-processing:PhotoresistProcess ;
+    rdfs:isDefinedBy semicont-07-wfe-photoresist-processing: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-photoresist-processing:HardBakeProcess a owl:Class ;
+    dc:source "Photolithography process references (https://en.wikipedia.org/wiki/Photolithography)" ;
+    prov:wasInformedBy "Industry-standard coat/bake/develop process flow semantics." ;
+    rdfs:label "Hard Bake Process" ;
+    rdfs:comment "Process for stabilizing photoresist after developing" ;
+    rdfs:subClassOf semicont-07-wfe-photoresist-processing:PhotoresistProcess ;
+    rdfs:isDefinedBy semicont-07-wfe-photoresist-processing: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Process Parameters
+semicont-07-wfe-photoresist-processing:hasSpinSpeed a owl:DatatypeProperty ;
+    rdfs:label "has spin speed" ;
+    rdfs:comment "Spin speed in RPM" ;
+    rdfs:domain semicont-07-wfe-photoresist-processing:CoatingProcess ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-photoresist-processing: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-photoresist-processing:hasBakeTemperature a owl:DatatypeProperty ;
+    rdfs:label "has bake temperature" ;
+    rdfs:comment "Bake temperature in Celsius" ;
+    rdfs:domain semicont-07-wfe-photoresist-processing:PhotoresistProcess ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-photoresist-processing: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-photoresist-processing:hasBakeTime a owl:DatatypeProperty ;
+    rdfs:label "has bake time" ;
+    rdfs:comment "Bake duration in minutes" ;
+    rdfs:domain semicont-07-wfe-photoresist-processing:PhotoresistProcess ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy semicont-07-wfe-photoresist-processing: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-photoresist-processing:hasFilmThickness a owl:DatatypeProperty ;
+    rdfs:label "has film thickness" ;
+    rdfs:comment "Photoresist film thickness in nanometers" ;
+    rdfs:domain semicont-07-wfe-photoresist-processing:CoatingProcess ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-photoresist-processing: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-photoresist-processing:hasDeveloperConcentration a owl:DatatypeProperty ;
+    rdfs:label "has developer concentration" ;
+    rdfs:comment "Developer concentration in percent" ;
+    rdfs:domain semicont-07-wfe-photoresist-processing:DevelopingProcess ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy semicont-07-wfe-photoresist-processing: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Equipment Properties
+semicont-07-wfe-photoresist-processing:hasCoatUniformity a owl:DatatypeProperty ;
+    rdfs:label "has coat uniformity" ;
+    rdfs:comment "Coating uniformity in percent" ;
+    rdfs:domain semicont-07-wfe-photoresist-processing:CoaterEquipment ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy semicont-07-wfe-photoresist-processing: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-photoresist-processing:hasWaferSize a owl:DatatypeProperty ;
+    rdfs:label "has wafer size" ;
+    rdfs:comment "Wafer diameter in millimeters" ;
+    rdfs:domain semicont-07-wfe-photoresist-processing:PhotoresistProcessingEquipment ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-photoresist-processing: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .

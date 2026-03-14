@@ -1,0 +1,70 @@
+# Structure-First Ontology Index
+# Machine-optimized organization for AI navigation
+
+ontology_meta:
+  name: "semicont-structure-first"
+  version: "0.1.0"
+  approach: "structure-first"
+  primary_format: "yaml"
+  navigation: "deterministic"
+  last_updated: "2026-03-08"
+  model: "kimi-k2-0905-preview"
+
+structure:
+  - section: "01-meta"
+    title: "Meta-ontology"
+    description: "Self-descriptive metadata"
+    path: "01-meta"
+    files:
+      - "meta.yaml"
+      - "namespaces.yaml"
+      - "provenance-rules.yaml"
+
+  - section: "02-core"
+    title: "Core Abstractions"
+    description: "Fundamental classes and properties"
+    path: "02-core"
+    files:
+      - "classes.yaml"
+      - "properties.yaml"
+      - "axioms.yaml"
+
+  - section: "03-domains"
+    title: "Domain Modules"
+    description: "Specific manufacturing areas"
+    path: "03-domains"
+    modules:
+      - "cmp-process"
+      - "lithography"
+      - "metrology"
+
+  - section: "04-constraints"
+    title: "Validation Rules"
+    description: "SHACL shapes and constraints"
+    path: "04-constraints"
+    files:
+      - "shapes/"
+      - "rules/"
+      - "sparql/"
+
+  - section: "05-instances"
+    title: "Example Instances"
+    description: "Concrete examples and test data"
+    path: "05-instances"
+    files:
+      - "examples.yaml"
+      - "test-cases.yaml"
+
+navigation:
+  traversal_order: "numerical"
+  dependency_resolution: "topological"
+  circular_reference: "error"
+  missing_reference: "warning"
+
+export_formats:
+  - format: "turtle"
+    target: "export/ontology.ttl"
+  - format: "json-ld"
+    target: "export/ontology.jsonld"
+  - format: "graphviz"
+    target: "export/ontology.dot"

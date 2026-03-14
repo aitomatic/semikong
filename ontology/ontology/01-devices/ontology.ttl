@@ -1,0 +1,368 @@
+# Semiconductor Device Physics Ontology
+# Device-level concepts and component relationships
+
+@prefix semicont-01-devices: <https://semicont.org/ontology/01-devices#> .
+@prefix semicont-00-physics: <https://semicont.org/ontology/00-physics#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix semicont-standards: <https://semicont.org/ontology/01-standards-reference#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+
+semicont-01-devices: a owl:Ontology ;
+    rdfs:label "Semiconductor Device Physics Ontology" ;
+    rdfs:comment "Device-level concepts and component relationships" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-physics> ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+    dc:source "Semiconductor device physics textbooks and device modeling" ;
+    dc:rights "Fair use: publicly known device physics concepts" ;
+    prov:wasInformedBy "Semiconductor device physics and component modeling" ;
+    prov:hadPrimarySource <https://www.semi.org/en/products-services/standards> ;
+    prov:wasGeneratedBy "semicont-device-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date ;
+    # Scope and maturity metadata
+    semicont-01-devices:scopeNote """
+        SCOPE: Semiconductor device physics and component relationships
+        - Includes: Diodes, transistors, junctions, device components
+        - Excludes: Advanced device models, proprietary structures
+        - Depth limit: Basic device physics, no cutting-edge devices
+        """@en ;
+    semicont-01-devices:maturityLevel semicont-01-devices:curated .
+
+# Scope Boundary Properties
+semicont-01-devices:scopeNote a owl:AnnotationProperty ;
+    rdfs:label "scope note" ;
+    rdfs:comment "Notes about the scope and boundaries of this ontology" .
+
+semicont-01-devices:maturityLevel a owl:AnnotationProperty ;
+    rdfs:label "maturity level" ;
+    rdfs:comment "Indicates the maturity stage of the ontology module" .
+
+semicont-01-devices:curated a owl:NamedIndividual ;
+    rdfs:label "curated" ;
+    rdfs:comment "Ontology module has been curated with industry-standard content" .
+
+# Core Device Classes
+semicont-01-devices:SemiconductorDevice a owl:Class ;
+    rdfs:label "Semiconductor Device" ;
+    rdfs:comment "Electronic device based on semiconductor materials" ;
+    rdfs:subClassOf semicont-shared:Thing ;
+    rdfs:isDefinedBy semicont-01-devices: ;
+    prov:wasInformedBy "Semiconductor device physics" ;
+    prov:wasGeneratedBy "semicont-device-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-01-devices:Diode a owl:Class ;
+    rdfs:label "Diode" ;
+    rdfs:comment "Two-terminal device with asymmetric conductance" ;
+    rdfs:subClassOf semicont-01-devices:SemiconductorDevice ;
+    rdfs:isDefinedBy semicont-01-devices: ;
+    prov:wasInformedBy "PN junction diode physics" ;
+    prov:wasGeneratedBy "semicont-device-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-01-devices:Transistor a owl:Class ;
+    rdfs:label "Transistor" ;
+    rdfs:comment "Three-terminal semiconductor device for amplification/switching" ;
+    rdfs:subClassOf semicont-01-devices:SemiconductorDevice ;
+    rdfs:isDefinedBy semicont-01-devices: ;
+    prov:wasInformedBy "Transistor physics and operation" ;
+    prov:wasGeneratedBy "semicont-device-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-01-devices:MOSFET a owl:Class ;
+    rdfs:label "MOSFET" ;
+    rdfs:comment "Metal-Oxide-Semiconductor Field-Effect Transistor" ;
+    rdfs:subClassOf semicont-01-devices:Transistor ;
+    rdfs:isDefinedBy semicont-01-devices: ;
+    prov:wasInformedBy "MOSFET device physics" ;
+    prov:wasGeneratedBy "semicont-device-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-01-devices:BJT a owl:Class ;
+    rdfs:label "BJT" ;
+    rdfs:comment "Bipolar Junction Transistor" ;
+    rdfs:subClassOf semicont-01-devices:Transistor ;
+    rdfs:isDefinedBy semicont-01-devices: ;
+    prov:wasInformedBy "BJT device physics" ;
+    prov:wasGeneratedBy "semicont-device-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+# Device Component Classes
+semicont-01-devices:DeviceComponent a owl:Class ;
+    rdfs:label "Device Component" ;
+    rdfs:comment "Functional part of a semiconductor device" ;
+    rdfs:subClassOf semicont-shared:Thing ;
+    rdfs:isDefinedBy semicont-01-devices: ;
+    prov:wasInformedBy "Device component modeling" ;
+    prov:wasGeneratedBy "semicont-device-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-01-devices:Terminal a owl:Class ;
+    rdfs:label "Terminal" ;
+    rdfs:comment "Electrical connection point of a device" ;
+    rdfs:subClassOf semicont-01-devices:DeviceComponent ;
+    rdfs:isDefinedBy semicont-01-devices: ;
+    prov:wasInformedBy "Device terminal definitions" ;
+    prov:wasGeneratedBy "semicont-device-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-01-devices:Source a owl:Class ;
+    rdfs:label "Source" ;
+    rdfs:comment "Source terminal of a FET" ;
+    rdfs:subClassOf semicont-01-devices:Terminal ;
+    rdfs:isDefinedBy semicont-01-devices: ;
+    prov:wasInformedBy "FET source terminal physics" ;
+    prov:wasGeneratedBy "semicont-device-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-01-devices:Drain a owl:Class ;
+    rdfs:label "Drain" ;
+    rdfs:comment "Drain terminal of a FET" ;
+    rdfs:subClassOf semicont-01-devices:Terminal ;
+    rdfs:isDefinedBy semicont-01-devices: ;
+    prov:wasInformedBy "FET drain terminal physics" ;
+    prov:wasGeneratedBy "semicont-device-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-01-devices:Gate a owl:Class ;
+    rdfs:label "Gate" ;
+    rdfs:comment "Gate terminal of a FET" ;
+    rdfs:subClassOf semicont-01-devices:Terminal ;
+    rdfs:isDefinedBy semicont-01-devices: ;
+    prov:wasInformedBy "FET gate terminal physics" ;
+    prov:wasGeneratedBy "semicont-device-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-01-devices:Channel a owl:Class ;
+    rdfs:label "Channel" ;
+    rdfs:comment "Region between source and drain where current flows" ;
+    rdfs:subClassOf semicont-01-devices:DeviceComponent ;
+    rdfs:isDefinedBy semicont-01-devices: ;
+    prov:wasInformedBy "FET channel physics" ;
+    prov:wasGeneratedBy "semicont-device-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-01-devices:Oxide a owl:Class ;
+    rdfs:label "Oxide" ;
+    rdfs:comment "Gate oxide in MOSFET structure" ;
+    rdfs:subClassOf semicont-01-devices:DeviceComponent ;
+    rdfs:isDefinedBy semicont-01-devices: ;
+    prov:wasInformedBy "MOSFET gate oxide physics" ;
+    prov:wasGeneratedBy "semicont-device-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+# Junction Classes
+semicont-01-devices:Junction a owl:Class ;
+    rdfs:label "Junction" ;
+    rdfs:comment "Interface between different semiconductor regions" ;
+    rdfs:subClassOf semicont-00-physics:SemiconductorPhysics ;
+    rdfs:isDefinedBy semicont-01-devices: ;
+    prov:wasInformedBy "Semiconductor junction physics" ;
+    prov:wasGeneratedBy "semicont-device-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-01-devices:PNJunction a owl:Class ;
+    rdfs:label "PN Junction" ;
+    rdfs:comment "Junction between p-type and n-type semiconductors" ;
+    rdfs:subClassOf semicont-01-devices:Junction ;
+    rdfs:isDefinedBy semicont-01-devices: ;
+    prov:wasInformedBy "PN junction physics" ;
+    prov:wasGeneratedBy "semicont-device-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-01-devices:MetalSemiconductorJunction a owl:Class ;
+    rdfs:label "Metal-Semiconductor Junction" ;
+    rdfs:comment "Junction between metal and semiconductor" ;
+    rdfs:subClassOf semicont-01-devices:Junction ;
+    rdfs:isDefinedBy semicont-01-devices: ;
+    prov:wasInformedBy "Metal-semiconductor junction physics" ;
+    prov:wasGeneratedBy "semicont-device-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+# Device Properties
+semicont-01-devices:hasComponent a owl:ObjectProperty ;
+    rdfs:label "has component" ;
+    rdfs:comment "Component that is part of the device" ;
+    rdfs:domain semicont-01-devices:SemiconductorDevice ;
+    rdfs:range semicont-01-devices:DeviceComponent ;
+    rdfs:isDefinedBy semicont-01-devices: ;
+    prov:wasGeneratedBy "semicont-device-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-01-devices:deviceHasMaterial a owl:ObjectProperty ;
+    rdfs:label "device has material" ;
+    rdfs:comment "Material used in the device structure" ;
+    rdfs:domain semicont-01-devices:SemiconductorDevice ;
+    rdfs:range semicont-00-physics:SemiconductorMaterial ;
+    rdfs:isDefinedBy semicont-01-devices: ;
+    prov:wasGeneratedBy "semicont-device-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-01-devices:componentHasMaterial a owl:ObjectProperty ;
+    rdfs:label "component has material" ;
+    rdfs:comment "Material used in the component" ;
+    rdfs:domain semicont-01-devices:DeviceComponent ;
+    rdfs:range semicont-00-physics:SemiconductorMaterial ;
+    rdfs:isDefinedBy semicont-01-devices: ;
+    prov:wasGeneratedBy "semicont-device-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-01-devices:formsJunction a owl:ObjectProperty ;
+    rdfs:label "forms junction" ;
+    rdfs:comment "Creates a junction with another material" ;
+    rdfs:domain semicont-00-physics:SemiconductorMaterial ;
+    rdfs:range semicont-01-devices:Junction ;
+    rdfs:isDefinedBy semicont-01-devices: ;
+    prov:wasGeneratedBy "semicont-device-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-01-devices:hasThresholdVoltage a owl:ObjectProperty ;
+    rdfs:label "has threshold voltage" ;
+    rdfs:comment "Threshold voltage for device turn-on" ;
+    rdfs:domain semicont-01-devices:Transistor ;
+    rdfs:range semicont-shared:UnitizedValue ;
+    rdfs:isDefinedBy semicont-01-devices: ;
+    prov:wasGeneratedBy "semicont-device-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-01-devices:hasBreakdownVoltage a owl:ObjectProperty ;
+    rdfs:label "has breakdown voltage" ;
+    rdfs:comment "Voltage at which device breaks down" ;
+    rdfs:domain semicont-01-devices:SemiconductorDevice ;
+    rdfs:range semicont-shared:UnitizedValue ;
+    rdfs:isDefinedBy semicont-01-devices: ;
+    prov:wasGeneratedBy "semicont-device-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-01-devices:hasChannelLength a owl:ObjectProperty ;
+    rdfs:label "has channel length" ;
+    rdfs:comment "Length of the channel in a FET" ;
+    rdfs:domain semicont-01-devices:MOSFET ;
+    rdfs:range semicont-shared:UnitizedValue ;
+    rdfs:isDefinedBy semicont-01-devices: ;
+    prov:wasGeneratedBy "semicont-device-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-01-devices:hasChannelWidth a owl:ObjectProperty ;
+    rdfs:label "has channel width" ;
+    rdfs:comment "Width of the channel in a FET" ;
+    rdfs:domain semicont-01-devices:MOSFET ;
+    rdfs:range semicont-shared:UnitizedValue ;
+    rdfs:isDefinedBy semicont-01-devices: ;
+    prov:wasGeneratedBy "semicont-device-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-01-devices:hasOxideThickness a owl:ObjectProperty ;
+    rdfs:label "has oxide thickness" ;
+    rdfs:comment "Thickness of the gate oxide" ;
+    rdfs:domain semicont-01-devices:Oxide ;
+    rdfs:range semicont-shared:UnitizedValue ;
+    rdfs:isDefinedBy semicont-01-devices: ;
+    prov:wasGeneratedBy "semicont-device-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+# OWL Axioms
+semicont-01-devices:Diode owl:disjointWith semicont-01-devices:Transistor ;
+    rdfs:comment "Diodes and transistors are distinct device types" .
+
+semicont-01-devices:MOSFET owl:disjointWith semicont-01-devices:BJT ;
+    rdfs:comment "MOSFET and BJT are distinct transistor types" .
+
+semicont-01-devices:Source owl:disjointWith semicont-01-devices:Drain ;
+    rdfs:comment "Source and drain are distinct terminals" .
+
+# Class Restrictions
+semicont-01-devices:Transistor rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty semicont-01-devices:hasComponent ;
+    owl:minCardinality "3"^^xsd:nonNegativeInteger
+] ;
+    rdfs:comment "Transistors must have at least 3 components (terminals)" .
+
+semicont-01-devices:MOSFET rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty semicont-01-devices:deviceHasMaterial ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger
+] ;
+    rdfs:comment "MOSFETs must have at least one semiconductor material" .
+
+# SHACL Shapes
+semicont-01-devices:SemiconductorDeviceShape a sh:NodeShape ;
+    sh:targetClass semicont-01-devices:SemiconductorDevice ;
+    sh:property [
+        sh:path semicont-01-devices:deviceHasMaterial ;
+        sh:minCount 1 ;
+        sh:message "Semiconductor device must have at least one material" ;
+        sh:severity sh:Violation
+    ] .
+
+semicont-01-devices:MOSFETShape a sh:NodeShape ;
+    sh:targetClass semicont-01-devices:MOSFET ;
+    sh:property [
+        sh:path semicont-01-devices:hasThresholdVoltage ;
+        sh:datatype xsd:double ;
+        sh:minInclusive -5.0 ;
+        sh:maxInclusive 5.0 ;
+        sh:message "MOSFET threshold voltage typically between -5V and +5V" ;
+        sh:severity sh:Warning
+    ] .
+
+# Example Individuals
+semicont-01-devices:Silicon_PN_Diode a owl:NamedIndividual , semicont-01-devices:Diode ;
+    rdfs:label "Silicon PN Diode" ;
+    rdfs:comment "Standard silicon PN junction diode" ;
+    semicont-01-devices:deviceHasMaterial semicont-00-physics:Silicon_Intrinsic ;
+    semicont-01-devices:formsJunction [
+        a semicont-01-devices:PNJunction ;
+        rdfs:label "Silicon PN Junction"
+    ] ;
+    semicont-01-devices:hasBreakdownVoltage [
+        a semicont-shared:UnitizedValue ;
+        semicont-shared:hasValue "50"^^xsd:double ;
+        semicont-shared:hasUnit unit:V
+    ] ;
+    prov:wasInformedBy "Standard silicon diode characteristics" ;
+    prov:wasGeneratedBy "semicont-device-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-01-devices:N_MOSFET a owl:NamedIndividual , semicont-01-devices:MOSFET ;
+    rdfs:label "n-channel MOSFET" ;
+    rdfs:comment "Standard n-channel enhancement mode MOSFET" ;
+    semicont-01-devices:deviceHasMaterial semicont-00-physics:N_Type_Silicon ;
+    semicont-01-devices:hasComponent [
+        a semicont-01-devices:Source ;
+        rdfs:label "MOSFET Source"
+    ] ;
+    semicont-01-devices:hasComponent [
+        a semicont-01-devices:Drain ;
+        rdfs:label "MOSFET Drain"
+    ] ;
+    semicont-01-devices:hasComponent [
+        a semicont-01-devices:Gate ;
+        rdfs:label "MOSFET Gate"
+    ] ;
+    semicont-01-devices:hasThresholdVoltage [
+        a semicont-shared:UnitizedValue ;
+        semicont-shared:hasValue "0.7"^^xsd:double ;
+        semicont-shared:hasUnit unit:V
+    ] ;
+    semicont-01-devices:hasChannelLength [
+        a semicont-shared:UnitizedValue ;
+        semicont-shared:hasValue "28"^^xsd:double ;
+        semicont-shared:hasUnit unit:NanoM
+    ] ;
+    prov:wasInformedBy "Modern MOSFET technology node" ;
+    prov:wasGeneratedBy "semicont-device-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+# External Mappings
+semicont-01-devices:SemiconductorDevice rdfs:seeAlso <https://www.semi.org/en/products-services/standards> .
+
+semicont-01-devices:PNJunction rdfs:seeAlso <https://www.nist.gov/pml/materials-data-repository> .

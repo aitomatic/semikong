@@ -1,0 +1,50 @@
+version: 1
+name: ontologist-control-plane
+entrypoints:
+  - path: AGENTS.md
+    purpose: canonical agent runbook
+  - path: README.md
+    purpose: directory overview
+  - path: 04-context/STATE.md
+    purpose: current handoff status
+sections:
+  - id: docs
+    path: 01-docs
+    includes:
+      - DECISIONS.md
+      - workflows/
+      - templates/
+      - templates/prompts/
+      - templates/prompts/agent-prompt-materials-chemicals-curation.md
+      - templates/prompts/08-materials-curation-sammy.md
+      - templates/prompts/facets-dimensions-template.md
+      - templates/prompts/07-wfe-06-etch-systems-curation-sammy.md
+  - id: rules
+    path: 02-rules
+    includes:
+      - curation-gates.yaml
+      - boundary-policy.yaml
+  - id: skills
+    path: 03-skills
+    includes:
+      - ttl-curation.md
+      - provenance-curation.md
+      - modeling-boundary.md
+      - provenance-documentation.md
+  - id: context
+    path: 04-context
+    includes:
+      - STATE.md
+      - TASKS.md
+      - SESSIONS.md
+      - WORKLOG.md
+  - id: analytics
+    path: 05-analytics
+    includes:
+      - tools/ontology_audit.py
+  - id: learning
+    path: 06-learning
+    includes: []
+contracts:
+  - ontology_source_of_truth: ontology/**/*.ttl (+ ontology/README.md)
+  - derived_operational_assets: ontologist/**

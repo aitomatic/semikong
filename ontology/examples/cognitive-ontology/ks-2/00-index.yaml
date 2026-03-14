@@ -1,0 +1,42 @@
+# KS-2: Enhanced Knowledge-Structure Hybrid
+# Navigation index with explicit linking
+
+ontology_info:
+  name: "ks-2-enhanced-hybrid"
+  level: 2
+  approach: "knowledge-first with explicit structure"
+  description: "Enhanced hybrid with explicit links between narrative and constraints"
+
+navigation:
+  start: "02-rules"
+  traversal_order: "numerical"
+  sections:
+    - id: "02"
+      name: "rules"
+      title: "Rules and Constraints"
+      path: "02-rules"
+      description: "Structured constraints with story links"
+
+agent_guidance:
+  traversal_algorithm: "breadth_first"
+  parse_stories: true
+  validate_constraints: true
+  follow_procedures: true
+  use_explicit_links: true
+
+enhancements:
+  explicit_linking: true
+  rule_metadata: true
+  context_mapping: true
+  navigation_enhanced: true
+
+performance_notes:
+  expected_accuracy: "92%"
+  reasoning_speed: "fast"
+  explicit_linking: "enabled"
+  context_validation: "enhanced"
+
+metadata:
+  created: "2026-03-08"
+  model: "kimi-k2-0905-preview"
+  approach: "knowledge-first with explicit structure"

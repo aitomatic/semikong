@@ -1,0 +1,26 @@
+# Semicont Ontology Module: 07-wfe/01-oxidation-systems/00-dry-oxidation
+
+@prefix semicont-07-wfe-01-oxidation-systems-00-dry-oxidation: <https://semicont.org/ontology/07-wfe/01-oxidation-systems/00-dry-oxidation/#> .
+@prefix semicont-07-wfe-01-oxidation-systems: <https://semicont.org/ontology/07-wfe/01-oxidation-systems/#> .
+@prefix semicont-core: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-07-wfe-01-oxidation-systems-00-dry-oxidation: a owl:Ontology ;
+    rdfs:label "dry oxidation ontology" ;
+    rdfs:comment "Semantic module for dry oxidation in the semiconductor ontology." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+        dc:source "Industry-general knowledge of wafer fab equipment and processes" ;
+    dc:rights "Fair use: publicly known WFE concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-07-wfe-01-oxidation-systems-00-dry-oxidation:DryOxidationConcept a owl:Class ;
+    rdfs:label "dry oxidation" ;
+    rdfs:comment "Concept for dry oxidation; specialized under oxidation systems." ;
+    rdfs:subClassOf semicont-07-wfe-01-oxidation-systems:OxidationSystemsConcept ;
+    rdfs:isDefinedBy semicont-07-wfe-01-oxidation-systems-00-dry-oxidation: .

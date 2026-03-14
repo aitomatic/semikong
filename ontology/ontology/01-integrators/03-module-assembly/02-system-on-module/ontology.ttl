@@ -1,0 +1,26 @@
+# Semicont Ontology Module: 01-integrators/03-module-assembly/02-system-on-module
+
+@prefix semicont-01-integrators-03-module-assembly-02-system-on-module: <https://semicont.org/ontology/01-integrators/03-module-assembly/02-system-on-module/#> .
+@prefix semicont-01-integrators-03-module-assembly: <https://semicont.org/ontology/01-integrators/03-module-assembly/#> .
+@prefix semicont-core: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-01-integrators-03-module-assembly-02-system-on-module: a owl:Ontology ;
+    rdfs:label "system on module ontology" ;
+    rdfs:comment "Semantic module for system on module in the semiconductor ontology." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+        dc:source "Public domain knowledge of system integration" ;
+    dc:rights "Fair use: general integrator concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-01-integrators-03-module-assembly-02-system-on-module:SystemOnModuleConcept a owl:Class ;
+    rdfs:label "system on module" ;
+    rdfs:comment "Concept for system on module; specialized under module assembly." ;
+    rdfs:subClassOf semicont-01-integrators-03-module-assembly:ModuleAssemblyConcept ;
+    rdfs:isDefinedBy semicont-01-integrators-03-module-assembly-02-system-on-module: .

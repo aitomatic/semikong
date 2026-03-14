@@ -1,0 +1,26 @@
+# Semicont Ontology Module: 03-fabless/05-verification-processes/00-emulation
+
+@prefix semicont-03-fabless-05-verification-processes-00-emulation: <https://semicont.org/ontology/03-fabless/05-verification-processes/00-emulation/#> .
+@prefix semicont-03-fabless-05-verification-processes: <https://semicont.org/ontology/03-fabless/05-verification-processes/#> .
+@prefix semicont-core: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-03-fabless-05-verification-processes-00-emulation: a owl:Ontology ;
+    rdfs:label "emulation ontology" ;
+    rdfs:comment "Semantic module for emulation in the semiconductor ontology." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+        dc:source "Industry-general knowledge of fabless semiconductor business models" ;
+    dc:rights "Fair use: publicly known fabless concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-03-fabless-05-verification-processes-00-emulation:EmulationConcept a owl:Class ;
+    rdfs:label "emulation" ;
+    rdfs:comment "Concept for emulation; specialized under verification processes." ;
+    rdfs:subClassOf semicont-03-fabless-05-verification-processes:VerificationProcessesConcept ;
+    rdfs:isDefinedBy semicont-03-fabless-05-verification-processes-00-emulation: .

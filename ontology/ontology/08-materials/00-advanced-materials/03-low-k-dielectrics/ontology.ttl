@@ -1,0 +1,26 @@
+# Semicont Ontology Module: 08-materials/00-advanced-materials/03-low-k-dielectrics
+
+@prefix semicont-08-materials-00-advanced-materials-03-low-k-dielectrics: <https://semicont.org/ontology/08-materials/00-advanced-materials/03-low-k-dielectrics/#> .
+@prefix semicont-08-materials-00-advanced-materials: <https://semicont.org/ontology/08-materials/00-advanced-materials/#> .
+@prefix semicont-core: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-08-materials-00-advanced-materials-03-low-k-dielectrics: a owl:Ontology ;
+    rdfs:label "low k dielectrics ontology" ;
+    rdfs:comment "Semantic module for low k dielectrics in the semiconductor ontology." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+        dc:source "Public domain knowledge of semiconductor materials and chemicals" ;
+    dc:rights "Fair use: publicly known material concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-08-materials-00-advanced-materials-03-low-k-dielectrics:LowKDielectricsConcept a owl:Class ;
+    rdfs:label "low k dielectrics" ;
+    rdfs:comment "Concept for low k dielectrics; specialized under advanced materials." ;
+    rdfs:subClassOf semicont-08-materials-00-advanced-materials:AdvancedMaterialsConcept ;
+    rdfs:isDefinedBy semicont-08-materials-00-advanced-materials-03-low-k-dielectrics: .

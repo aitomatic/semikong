@@ -1,0 +1,26 @@
+# Semicont Ontology Module: 05-foundry-idm/wafer_fabrication_processes/photolithography/pattern_transfer/hardmask_open
+
+@prefix semicont-05-foundry-idm-wafer_fabrication_processes-photolithography-pattern_transfer-hardmask_open: <https://semicont.org/ontology/05-foundry-idm/05-wafer-fabrication-processes/02-photolithography/02-pattern-transfer/00-hardmask-open/#> .
+@prefix semicont-05-foundry-idm-wafer_fabrication_processes-photolithography-pattern_transfer: <https://semicont.org/ontology/05-foundry-idm/05-wafer-fabrication-processes/02-photolithography/02-pattern-transfer/#> .
+@prefix semicont-core: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-05-foundry-idm-wafer_fabrication_processes-photolithography-pattern_transfer-hardmask_open: a owl:Ontology ;
+    rdfs:label "hardmask open ontology" ;
+    rdfs:comment "Semantic module for hardmask open in the semiconductor ontology." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+        dc:source "Industry-general knowledge of 05 foundry idm 05 wafer fabrication processes 02 photolithography 02 pattern transfer 00 hardmask open" ;
+    dc:rights "Fair use: publicly known industry concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-05-foundry-idm-wafer_fabrication_processes-photolithography-pattern_transfer-hardmask_open:HardmaskOpenProcess a owl:Class ;
+    rdfs:label "hardmask open" ;
+    rdfs:comment "Concept for hardmask open; specialized under pattern transfer." ;
+    rdfs:subClassOf semicont-05-foundry-idm-wafer_fabrication_processes-photolithography-pattern_transfer:PatternTransferProcess ;
+    rdfs:isDefinedBy semicont-05-foundry-idm-wafer_fabrication_processes-photolithography-pattern_transfer-hardmask_open: .

@@ -1,0 +1,45 @@
+# Atomic Layer Etch Branch Ontology
+
+@prefix semicont-07-wfe-etch-systems-ale: <https://semicont.org/ontology/07-wfe/06-etch-systems/00-atomic-layer-etch#> .
+@prefix semicont-07-wfe-etch-systems: <https://semicont.org/ontology/07-wfe/06-etch-systems#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-07-wfe-etch-systems-ale: a owl:Ontology ;
+    rdfs:label "Atomic Layer Etch Branch Ontology" ;
+    rdfs:comment "Branch-specific classes for atomic layer etch systems and process semantics." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/07-wfe/06-etch-systems> ;
+    dc:source "Public ALE references including Lam Research dielectric ALE announcement and general ALE process descriptions." ;
+    dc:rights "Fair use: paraphrased industry-general ALE concepts." ;
+    prov:hadPrimarySource <https://newsroom.lamresearch.com/2016-09-06-Lam-Research-Introduces-Dielectric-Atomic-Layer-Etching-Capability-for-Advanced-Logic> ;
+    prov:hadPrimarySource <https://www.sciencedirect.com/topics/engineering/atomic-layer-etching> ;
+    prov:wasInformedBy "Self-limiting cyclic etch mechanisms and branch-specific ALE control semantics." ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-07-wfe-etch-systems:AtomicLayerEtchSystem a owl:Class ;
+    rdfs:label "Atomic Layer Etch System" ;
+    rdfs:comment "Dry etch system supporting self-limiting cyclic ALE operation." ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:DryEtchSystem ;
+    dc:source "Public ALE equipment references." ;
+    prov:wasInformedBy "System class for atomic-scale etch control branch." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems-ale: .
+
+semicont-07-wfe-etch-systems:AtomicLayerEtchProcess a owl:Class ;
+    rdfs:label "Atomic Layer Etch Process" ;
+    rdfs:comment "Dry etch process using cyclic adsorption/modification/removal steps with self-limiting behavior." ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:DryEtchProcess ;
+    dc:source "Public ALE process references." ;
+    prov:wasInformedBy "Cyclic self-limiting process model for ALE." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems-ale: .
+
+semicont-07-wfe-etch-systems:PassivationDurationSetpoint a owl:Class ;
+    rdfs:label "Passivation Duration Setpoint" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchParameter ;
+    dc:source "Public cyclic etch stage timing references." ;
+    prov:wasInformedBy "Passivation stage timing parameter for ALE/DRIE-style cycles." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems-ale: .

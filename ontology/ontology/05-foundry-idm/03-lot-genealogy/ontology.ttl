@@ -1,0 +1,145 @@
+# Lot Genealogy Module
+# Tracks wafer lot relationships and history in semiconductor manufacturing
+
+@prefix semicont-lot: <https://semicont.org/ontology/05-foundry-idm/03-lot-genealogy/#> .
+@prefix semicont-05-foundry-idm-lot-genealogy: <https://semicont.org/ontology/05-foundry-idm/03-lot-genealogy/#> .
+@prefix semicont-core: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+# Module Metadata
+semicont-lot: a owl:Ontology ;
+    rdfs:label "Semicont Lot Genealogy Module" ;
+    rdfs:comment "Tracks wafer lot relationships and manufacturing history" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+        dc:source "Industry-general knowledge of 05 foundry idm 03 lot genealogy" ;
+    dc:rights "Fair use: publicly known industry concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-08"^^xsd:date .
+
+semicont-05-foundry-idm-lot-genealogy:LotGenealogyConcept a owl:Class ;
+    dc:source "SEMI E142 substrate mapping and traceability context (https://store-us.semi.org/products/e14200-semi-e142-specification-for-substrate-mapping)" ;
+    prov:wasInformedBy "SEMI substrate/lot traceability concepts for wafer genealogy and split/merge tracking." ;
+    rdfs:label "Lot Genealogy Concept" ;
+    rdfs:comment "Top-level concept for lot genealogy entities, events, and traceability relationships." ;
+    rdfs:subClassOf semicont-core:Process ;
+    rdfs:isDefinedBy semicont-05-foundry-idm-lot-genealogy: .
+
+# Lot-specific Classes
+semicont-lot:WaferLot a owl:Class ;
+    dc:source "SEMI E142 substrate mapping and traceability context (https://store-us.semi.org/products/e14200-semi-e142-specification-for-substrate-mapping)" ;
+    prov:wasInformedBy "SEMI substrate/lot traceability concepts for wafer genealogy and split/merge tracking." ;
+    rdfs:label "Wafer Lot" ;
+    rdfs:comment "Collection of wafers processed together" ;
+    rdfs:subClassOf semicont-core:Product ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty semicont-lot:hasLotId ;
+        owl:cardinality 1
+    ] .
+
+semicont-lot:Wafer a owl:Class ;
+    dc:source "SEMI E142 substrate mapping and traceability context (https://store-us.semi.org/products/e14200-semi-e142-specification-for-substrate-mapping)" ;
+    prov:wasInformedBy "SEMI substrate/lot traceability concepts for wafer genealogy and split/merge tracking." ;
+    rdfs:label "Wafer" ;
+    rdfs:comment "Single silicon wafer unit" ;
+    rdfs:subClassOf semicont-core:Product ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty semicont-lot:hasWaferId ;
+        owl:cardinality 1
+    ] .
+
+semicont-lot:LotSplit a owl:Class ;
+    dc:source "SEMI E142 substrate mapping and traceability context (https://store-us.semi.org/products/e14200-semi-e142-specification-for-substrate-mapping)" ;
+    prov:wasInformedBy "SEMI substrate/lot traceability concepts for wafer genealogy and split/merge tracking." ;
+    rdfs:label "Lot Split" ;
+    rdfs:comment "Event where a lot is divided into multiple child lots" ;
+    rdfs:subClassOf semicont-core:Process .
+
+semicont-lot:LotMerge a owl:Class ;
+    dc:source "SEMI E142 substrate mapping and traceability context (https://store-us.semi.org/products/e14200-semi-e142-specification-for-substrate-mapping)" ;
+    prov:wasInformedBy "SEMI substrate/lot traceability concepts for wafer genealogy and split/merge tracking." ;
+    rdfs:label "Lot Merge" ;
+    rdfs:comment "Event where multiple lots are combined" ;
+    rdfs:subClassOf semicont-core:Process .
+
+# Lot-specific Properties
+semicont-lot:hasLotId a owl:DatatypeProperty ;
+    rdfs:label "has lot ID" ;
+    rdfs:comment "Unique identifier for the wafer lot" ;
+    rdfs:domain semicont-lot:WaferLot ;
+    rdfs:range xsd:string .
+
+semicont-lot:hasWaferId a owl:DatatypeProperty ;
+    rdfs:label "has wafer ID" ;
+    rdfs:comment "Unique identifier for the wafer" ;
+    rdfs:domain semicont-lot:Wafer ;
+    rdfs:range xsd:string .
+
+semicont-lot:containsWafer a owl:ObjectProperty ;
+    rdfs:label "contains wafer" ;
+    rdfs:comment "Relates a lot to its wafers" ;
+    rdfs:domain semicont-lot:WaferLot ;
+    rdfs:range semicont-lot:Wafer .
+
+semicont-lot:parentLot a owl:ObjectProperty ;
+    rdfs:label "parent lot" ;
+    rdfs:comment "Relates a child lot to its parent" ;
+    rdfs:domain semicont-lot:WaferLot ;
+    rdfs:range semicont-lot:WaferLot .
+
+semicont-lot:childLot a owl:ObjectProperty ;
+    rdfs:label "child lot" ;
+    rdfs:comment "Relates a parent lot to its children" ;
+    owl:inverseOf semicont-lot:parentLot ;
+    rdfs:domain semicont-lot:WaferLot ;
+    rdfs:range semicont-lot:WaferLot .
+
+semicont-lot:splitFrom a owl:ObjectProperty ;
+    rdfs:label "split from" ;
+    rdfs:comment "Relates a lot to the split event that created it" ;
+    rdfs:domain semicont-lot:WaferLot ;
+    rdfs:range semicont-lot:LotSplit .
+
+semicont-lot:mergeInto a owl:ObjectProperty ;
+    rdfs:label "merge into" ;
+    rdfs:comment "Relates a lot to the merge event it participates in" ;
+    rdfs:domain semicont-lot:WaferLot ;
+    rdfs:range semicont-lot:LotMerge .
+
+semicont-lot:creationDate a owl:DatatypeProperty ;
+    rdfs:label "creation date" ;
+    rdfs:comment "Date when the lot was created" ;
+    rdfs:domain semicont-lot:WaferLot ;
+    rdfs:range xsd:dateTime .
+
+semicont-lot:waferCount a owl:DatatypeProperty ;
+    rdfs:label "wafer count" ;
+    rdfs:comment "Number of wafers in the lot" ;
+    rdfs:domain semicont-lot:WaferLot ;
+    rdfs:range xsd:positiveInteger .
+
+# Additional properties referenced in rules
+semicont-lot:memberOfLot a owl:ObjectProperty ;
+    rdfs:label "member of lot" ;
+    rdfs:comment "Relates a wafer to its containing lot" ;
+    rdfs:domain semicont-lot:Wafer ;
+    rdfs:range semicont-lot:WaferLot ;
+    owl:inverseOf semicont-lot:containsWafer .
+
+semicont-lot:status a owl:DatatypeProperty ;
+    rdfs:label "status" ;
+    rdfs:comment "Current status of the lot (active, inactive, etc.)" ;
+    rdfs:domain semicont-lot:WaferLot ;
+    rdfs:range xsd:string .
+
+semicont-lot:splitDate a owl:DatatypeProperty ;
+    rdfs:label "split date" ;
+    rdfs:comment "Date when the lot was split" ;
+    rdfs:domain semicont-lot:LotSplit ;
+    rdfs:range xsd:dateTime .

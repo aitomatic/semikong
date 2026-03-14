@@ -1,0 +1,231 @@
+# Developers Ontology
+# Photoresist developers and basic chemicals for semiconductor manufacturing
+
+@prefix semicont-08-materials-chemicals-developers: <https://semicont.org/ontology/08-materials/01-chemicals/00-developers#> .
+@prefix semicont-08-materials-chemicals: <https://semicont.org/ontology/08-materials/01-chemicals#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+# Module Metadata
+semicont-08-materials-chemicals-developers: a owl:Ontology ;
+    rdfs:label "Developers Ontology" ;
+    rdfs:comment "Photoresist developers and basic chemicals for semiconductor manufacturing" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/08-materials/01-chemicals> ;
+    dc:source "Industry knowledge of photoresist development chemistry" ;
+    dc:rights "Fair use: publicly known developer formulations" ;
+    prov:wasInformedBy "SEMI C1 Guide for Analysis of Liquid Chemicals and photoresist development references" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date ;
+    # Scope and maturity metadata
+    semicont-08-materials-chemicals:scopeNote """
+        SCOPE: Photoresist developers for semiconductor lithography
+        - Includes: TMAH, KOH, NaOH developers and their properties
+        - Excludes: Proprietary developer additives, supplier-specific formulations
+        - Depth limit: Standard industry concentrations, no trade secrets
+        """@en ;
+    semicont-08-materials-chemicals:maturityLevel semicont-08-materials-chemicals:validated .
+
+# Scope Boundary Properties
+semicont-08-materials-chemicals:scopeNote a owl:AnnotationProperty .
+semicont-08-materials-chemicals:maturityLevel a owl:AnnotationProperty .
+
+# Developer Classes
+semicont-08-materials-chemicals-developers:Developer a owl:Class ;
+    rdfs:label "Developer" ;
+    rdfs:comment "Basic solution used to develop exposed photoresist" ;
+    rdfs:subClassOf semicont-08-materials-chemicals:Base ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-developers: ;
+    prov:wasInformedBy "SEMI C1 Guide for Analysis of Liquid Chemicals" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-developers:MetalIonFreeDeveloper a owl:Class ;
+    rdfs:label "Metal Ion Free Developer" ;
+    rdfs:comment "Developer formulation free of metal ions for reduced contamination" ;
+    rdfs:subClassOf semicont-08-materials-chemicals-developers:Developer ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-developers: ;
+    prov:wasInformedBy "Industry requirements for ultra-low contamination developers" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-developers:NegativeDeveloper a owl:Class ;
+    dc:source "Photoresist developer context in photolithography references (https://en.wikipedia.org/wiki/Photolithography)" ;
+    prov:wasInformedBy "Industry-standard developer chemistry and process semantics." ;
+    rdfs:label "Negative Developer" ;
+    rdfs:comment "Developer for negative photoresist processes" ;
+    rdfs:subClassOf semicont-08-materials-chemicals-developers:Developer ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-developers: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Specific Developer Chemicals
+semicont-08-materials-chemicals-developers:TMAH a owl:Class ;
+    rdfs:label "Tetramethylammonium Hydroxide" ;
+    rdfs:comment "TMAH developer for positive photoresist" ;
+    rdfs:subClassOf semicont-08-materials-chemicals-developers:MetalIonFreeDeveloper ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-developers: ;
+    prov:wasInformedBy "Industry standard photoresist developer" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-developers:KOH a owl:Class ;
+    rdfs:label "Potassium Hydroxide" ;
+    rdfs:comment "KOH developer for silicon etching and photoresist development" ;
+    rdfs:subClassOf semicont-08-materials-chemicals-developers:Developer ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-developers: ;
+    prov:wasInformedBy "Industry knowledge of KOH applications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-developers:NaOH a owl:Class ;
+    dc:source "Photoresist developer context in photolithography references (https://en.wikipedia.org/wiki/Photolithography)" ;
+    prov:wasInformedBy "Industry-standard developer chemistry and process semantics." ;
+    rdfs:label "Sodium Hydroxide" ;
+    rdfs:comment "NaOH developer for photoresist development" ;
+    rdfs:subClassOf semicont-08-materials-chemicals-developers:Developer ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-developers: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Developer-specific Properties
+semicont-08-materials-chemicals-developers:hasDevelopmentRate a owl:ObjectProperty ;
+    rdfs:label "has development rate" ;
+    rdfs:comment "Rate of photoresist development as unitized value in nm/second" ;
+    rdfs:domain semicont-08-materials-chemicals-developers:Developer ;
+    rdfs:range semicont-08-materials-chemicals:UnitizedValue ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-developers: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-developers:hasDevelopmentRateSimple a owl:DatatypeProperty ;
+    rdfs:label "has development rate simple" ;
+    rdfs:comment "Development rate in nm/second for simple cases" ;
+    rdfs:domain semicont-08-materials-chemicals-developers:Developer ;
+    rdfs:range xsd:double ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-developers: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-developers:hasSelectivity a owl:DatatypeProperty ;
+    rdfs:label "has selectivity" ;
+    rdfs:comment "Selectivity ratio between exposed and unexposed photoresist" ;
+    rdfs:domain semicont-08-materials-chemicals-developers:Developer ;
+    rdfs:range xsd:double ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-developers: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Developer-specific Object Properties
+semicont-08-materials-chemicals-developers:isSuitableForResistType a owl:ObjectProperty ;
+    rdfs:label "is suitable for resist type" ;
+    rdfs:comment "Indicates developer suitability for specific photoresist types" ;
+    rdfs:domain semicont-08-materials-chemicals-developers:Developer ;
+    rdfs:range semicont-08-materials-chemicals:PhotoresistChemical ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-developers: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# OWL Axioms
+semicont-08-materials-chemicals-developers:MetalIonFreeDeveloper owl:disjointWith semicont-08-materials-chemicals-developers:NegativeDeveloper ;
+    rdfs:comment "Metal ion free and negative developers serve different process requirements" .
+
+semicont-08-materials-chemicals-developers:TMAH rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty semicont-08-materials-chemicals-developers:hasDevelopmentRateSimple ;
+    owl:minCardinality "0"^^xsd:nonNegativeInteger
+] ;
+    rdfs:comment "TMAH developers may have documented development rates" .
+
+# SHACL Shapes for Developers
+semicont-08-materials-chemicals-developers:DeveloperShape a sh:NodeShape ;
+    sh:targetClass semicont-08-materials-chemicals-developers:Developer ;
+    sh:property [
+        sh:path semicont-08-materials-chemicals-developers:hasSelectivity ;
+        sh:datatype xsd:double ;
+        sh:minInclusive 1.0 ;
+        sh:message "Selectivity must be at least 1.0" ;
+        sh:severity sh:Warning
+    ] ;
+    sh:property [
+        sh:path semicont-08-materials-chemicals-developers:hasDevelopmentRateSimple ;
+        sh:datatype xsd:double ;
+        sh:minInclusive 0.0 ;
+        sh:message "Development rate must be non-negative" ;
+        sh:severity sh:Violation
+    ] .
+
+semicont-08-materials-chemicals-developers:TMAHShape a sh:NodeShape ;
+    sh:targetClass semicont-08-materials-chemicals-developers:TMAH ;
+    sh:property [
+        sh:path semicont-08-materials-chemicals:hasConcentrationPercent ;
+        sh:datatype xsd:double ;
+        sh:minInclusive 0.1 ;
+        sh:maxInclusive 25.0 ;
+        sh:message "TMAH concentration typically 0.1-25%" ;
+        sh:severity sh:Warning
+    ] .
+
+# Example Developer Individuals with Unitized Values
+semicont-08-materials-chemicals-developers:TMAH_25 a owl:NamedIndividual , semicont-08-materials-chemicals-developers:TMAH ;
+    rdfs:label "25% TMAH Developer" ;
+    rdfs:comment "Standard 25% TMAH concentration for photoresist development" ;
+    semicont-08-materials-chemicals:hasConcentrationPercent 25.0 ;
+    semicont-08-materials-chemicals:hasPH [
+        a semicont-08-materials-chemicals:UnitizedValue ;
+        semicont-08-materials-chemicals:hasNumericValue 13.5 ;
+        semicont-08-materials-chemicals:hasUnit "pH"
+    ] ;
+    semicont-08-materials-chemicals:hasCASNumber "75-59-2" ;
+    semicont-08-materials-chemicals:hasStorageTemperature semicont-08-materials-chemicals:StandardRoomTemperature ;
+    semicont-08-materials-chemicals-developers:hasDevelopmentRateSimple 50.0 ;
+    semicont-08-materials-chemicals-developers:hasSelectivity 10.0 ;
+    prov:wasInformedBy "Industry standard TMAH developer formulation" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-developers:TMAH_2_38 a owl:NamedIndividual , semicont-08-materials-chemicals-developers:TMAH ;
+    rdfs:label "2.38% TMAH Developer" ;
+    rdfs:comment "Low concentration TMAH for fine pattern development" ;
+    semicont-08-materials-chemicals:hasConcentrationPercent 2.38 ;
+    semicont-08-materials-chemicals:hasPH [
+        a semicont-08-materials-chemicals:UnitizedValue ;
+        semicont-08-materials-chemicals:hasNumericValue 12.5 ;
+        semicont-08-materials-chemicals:hasUnit "pH"
+    ] ;
+    semicont-08-materials-chemicals:hasCASNumber "75-59-2" ;
+    semicont-08-materials-chemicals:hasStorageTemperature semicont-08-materials-chemicals:StandardRoomTemperature ;
+    semicont-08-materials-chemicals-developers:hasDevelopmentRateSimple 15.0 ;
+    semicont-08-materials-chemicals-developers:hasSelectivity 25.0 ;
+    prov:wasInformedBy "Industry standard for high-resolution lithography" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-developers:KOH_30 a owl:NamedIndividual , semicont-08-materials-chemicals-developers:KOH ;
+    rdfs:label "30% KOH Solution" ;
+    rdfs:comment "30% KOH for silicon etching applications" ;
+    semicont-08-materials-chemicals:hasConcentrationPercent 30.0 ;
+    semicont-08-materials-chemicals:hasPH [
+        a semicont-08-materials-chemicals:UnitizedValue ;
+        semicont-08-materials-chemicals:hasNumericValue 14.0 ;
+        semicont-08-materials-chemicals:hasUnit "pH"
+    ] ;
+    semicont-08-materials-chemicals:hasCASNumber "1310-58-3" ;
+    semicont-08-materials-chemicals:hasStorageTemperature semicont-08-materials-chemicals:StandardRoomTemperature ;
+    semicont-08-materials-chemicals-developers:hasDevelopmentRateSimple 75.0 ;
+    semicont-08-materials-chemicals-developers:hasSelectivity 5.0 ;
+    prov:wasInformedBy "Industry standard KOH concentration for etching" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# External Mappings
+semicont-08-materials-chemicals-developers:TMAH rdfs:seeAlso semicont-standards:SEMI_C1 ;
+    rdfs:seeAlso <https://pubchem.ncbi.nlm.nih.gov/compound/6305> .
+
+semicont-08-materials-chemicals-developers:KOH rdfs:seeAlso semicont-standards:SEMI_C1 ;
+    rdfs:seeAlso <https://pubchem.ncbi.nlm.nih.gov/compound/14797> .

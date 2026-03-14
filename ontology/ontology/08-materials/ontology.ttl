@@ -1,0 +1,230 @@
+# Materials and Chemicals Layer Foundation Ontology
+# Comprehensive framework for semiconductor materials, chemicals, and suppliers
+
+@prefix semicont-08-materials: <https://semicont.org/ontology/08-materials#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix semicont-standards: <https://semicont.org/ontology/01-standards-reference#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+# Module Metadata
+semicont-08-materials: a owl:Ontology ;
+    rdfs:label "Materials and Chemicals Layer Foundation" ;
+    rdfs:comment "Comprehensive framework for semiconductor materials, chemicals, and suppliers" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+    owl:imports <https://semicont.org/ontology/01-standards-reference> ;
+    dc:source "SEMI standards M1, M8, M10, M11, M24, M55, M86 and industry material references" ;
+    dc:rights "Fair use: publicly known material specifications and industry standards" ;
+    prov:wasInformedBy "SEMI material standards and semiconductor industry references" ;
+    prov:hadPrimarySource <https://www.semi.org/en/products-services/standards/materials> ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date ;
+    # Scope and maturity metadata
+    rdfs:seeAlso semicont-standards:SEMI_M1 ;
+    rdfs:seeAlso semicont-standards:SEMI_M8 ;
+    rdfs:seeAlso semicont-standards:SEMI_M10 ;
+    rdfs:seeAlso semicont-standards:SEMI_M11 ;
+    rdfs:seeAlso semicont-standards:SEMI_M24 ;
+    rdfs:seeAlso semicont-standards:SEMI_M55 ;
+    rdfs:seeAlso semicont-standards:SEMI_M86 .
+
+# Scope Boundary Properties
+semicont-08-materials:scopeNote a owl:AnnotationProperty ;
+    rdfs:label "scope note" ;
+    rdfs:comment "Notes about the scope and boundaries of this ontology" .
+
+semicont-08-materials:maturityLevel a owl:AnnotationProperty ;
+    rdfs:label "maturity level" ;
+    rdfs:comment "Indicates the maturity stage of the ontology module" .
+
+semicont-08-materials:curated a owl:NamedIndividual ;
+    rdfs:label "curated" ;
+    rdfs:comment "Ontology module has been curated with industry-standard content" .
+
+# Module scope annotation
+semicont-08-materials: semicont-08-materials:scopeNote """
+    SCOPE: Semiconductor materials, chemicals, and suppliers framework
+    - Includes: Substrates (Si, GaN, SiC), metals, gases, chemicals, quality control, suppliers
+    - Excludes: Proprietary formulations, supplier-specific processes, pricing information
+    - Depth limit: Industry-general specifications per SEMI standards, no trade secrets
+    """@en ;
+    semicont-08-materials:maturityLevel semicont-08-materials:curated .
+
+# Core Material Classes
+semicont-08-materials:SemiconductorMaterial a owl:Class ;
+    rdfs:label "Semiconductor Material" ;
+    rdfs:comment "Material used in semiconductor manufacturing processes" ;
+    rdfs:subClassOf semicont-shared:Material ;
+    rdfs:isDefinedBy semicont-08-materials: ;
+    prov:wasInformedBy "SEMI material standards and industry classifications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials:SubstrateMaterial a owl:Class ;
+    rdfs:label "Substrate Material" ;
+    rdfs:comment "Base wafer or substrate material for semiconductor devices" ;
+    rdfs:subClassOf semicont-08-materials:SemiconductorMaterial ;
+    rdfs:isDefinedBy semicont-08-materials: ;
+    prov:wasInformedBy "SEMI M1, M8, M55 substrate specifications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials:SiliconWafer a owl:Class ;
+    rdfs:label "Silicon Wafer" ;
+    rdfs:comment "Single crystal silicon wafer substrate" ;
+    rdfs:subClassOf semicont-08-materials:SubstrateMaterial ;
+    rdfs:isDefinedBy semicont-08-materials: ;
+    prov:wasInformedBy "SEMI M1 Specification for Polished Single Crystal Silicon Wafers" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials:CompoundSemiconductor a owl:Class ;
+    rdfs:label "Compound Semiconductor" ;
+    rdfs:comment "Compound semiconductor substrate (GaN, SiC, GaAs, etc.)" ;
+    rdfs:subClassOf semicont-08-materials:SubstrateMaterial ;
+    rdfs:isDefinedBy semicont-08-materials: ;
+    prov:wasInformedBy "SEMI M55, M86 compound semiconductor specifications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials:MetalMaterial a owl:Class ;
+    rdfs:label "Metal Material" ;
+    rdfs:comment "Metal or alloy used in semiconductor metallization" ;
+    rdfs:subClassOf semicont-08-materials:SemiconductorMaterial ;
+    rdfs:isDefinedBy semicont-08-materials: ;
+    prov:wasInformedBy "SEMI M10, M11, M24 metal target specifications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials:SpecialtyGas a owl:Class ;
+    rdfs:label "Specialty Gas" ;
+    rdfs:comment "High-purity gas used in semiconductor processes" ;
+    rdfs:subClassOf semicont-08-materials:SemiconductorMaterial ;
+    rdfs:isDefinedBy semicont-08-materials: ;
+    prov:wasInformedBy "SEMI C3, C10, C48 specialty gas specifications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Quality Control Classes
+semicont-08-materials:MaterialSpecification a owl:Class ;
+    dc:source "SEMI materials standards index (https://www.semi.org/en/products-services/standards/materials)" ;
+    prov:wasInformedBy "SEMI-aligned materials categorization and quality semantics." ;
+    rdfs:label "Material Specification" ;
+    rdfs:comment "Technical specification for a material" ;
+    rdfs:subClassOf semicont-shared:Spec ;
+    rdfs:isDefinedBy semicont-08-materials: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials:PurityGrade a owl:Class ;
+    dc:source "SEMI materials standards index (https://www.semi.org/en/products-services/standards/materials)" ;
+    prov:wasInformedBy "SEMI-aligned materials categorization and quality semantics." ;
+    rdfs:label "Purity Grade" ;
+    rdfs:comment "Purity classification for semiconductor materials" ;
+    rdfs:subClassOf semicont-08-materials:MaterialSpecification ;
+    rdfs:isDefinedBy semicont-08-materials: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Supplier Classes
+semicont-08-materials:MaterialSupplier a owl:Class ;
+    dc:source "SEMI materials standards index (https://www.semi.org/en/products-services/standards/materials)" ;
+    prov:wasInformedBy "SEMI-aligned materials categorization and quality semantics." ;
+    rdfs:label "Material Supplier" ;
+    rdfs:comment "Company that supplies semiconductor materials" ;
+    rdfs:subClassOf semicont-shared:Actor ;
+    rdfs:isDefinedBy semicont-08-materials: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Object Properties
+semicont-08-materials:hasPurityGrade a owl:ObjectProperty ;
+    rdfs:label "has purity grade" ;
+    rdfs:comment "Purity specification for a material" ;
+    rdfs:domain semicont-08-materials:SemiconductorMaterial ;
+    rdfs:range semicont-08-materials:PurityGrade ;
+    rdfs:isDefinedBy semicont-08-materials: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials:isSuppliedBy a owl:ObjectProperty ;
+    rdfs:label "is supplied by" ;
+    rdfs:comment "Material supplier relationship" ;
+    rdfs:domain semicont-08-materials:SemiconductorMaterial ;
+    rdfs:range semicont-08-materials:MaterialSupplier ;
+    rdfs:isDefinedBy semicont-08-materials: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials:isSuitableForProcess a owl:ObjectProperty ;
+    rdfs:label "is suitable for process" ;
+    rdfs:comment "Indicates material suitability for a process" ;
+    rdfs:domain semicont-08-materials:SemiconductorMaterial ;
+    rdfs:range semicont-shared:ProcessStep ;
+    rdfs:isDefinedBy semicont-08-materials: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Datatype Properties
+semicont-08-materials:hasPurityPercentage a owl:DatatypeProperty ;
+    rdfs:label "has purity percentage" ;
+    rdfs:comment "Purity level as percentage (e.g., 99.999 for 5N)" ;
+    rdfs:domain semicont-08-materials:PurityGrade ;
+    rdfs:range xsd:double ;
+    rdfs:isDefinedBy semicont-08-materials: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials:hasNinesNotation a owl:DatatypeProperty ;
+    rdfs:label "has nines notation" ;
+    rdfs:comment "Purity in nines notation (e.g., "5N" for 99.999%" ;
+    rdfs:domain semicont-08-materials:PurityGrade ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy semicont-08-materials: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Purity Grade Individuals
+semicont-08-materials:ThreeN a owl:NamedIndividual , semicont-08-materials:PurityGrade ;
+    rdfs:label "3N" ;
+    rdfs:comment "99.9% purity - three nines" ;
+    semicont-08-materials:hasPurityPercentage 99.9 ;
+    semicont-08-materials:hasNinesNotation "3N" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials:FourN a owl:NamedIndividual , semicont-08-materials:PurityGrade ;
+    rdfs:label "4N" ;
+    rdfs:comment "99.99% purity - four nines" ;
+    semicont-08-materials:hasPurityPercentage 99.99 ;
+    semicont-08-materials:hasNinesNotation "4N" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials:FiveN a owl:NamedIndividual , semicont-08-materials:PurityGrade ;
+    rdfs:label "5N" ;
+    rdfs:comment "99.999% purity - five nines" ;
+    semicont-08-materials:hasPurityPercentage 99.999 ;
+    semicont-08-materials:hasNinesNotation "5N" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials:SixN a owl:NamedIndividual , semicont-08-materials:PurityGrade ;
+    rdfs:label "6N" ;
+    rdfs:comment "99.9999% purity - six nines" ;
+    semicont-08-materials:hasPurityPercentage 99.9999 ;
+    semicont-08-materials:hasNinesNotation "6N" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# External Mappings
+semicont-08-materials:SiliconWafer rdfs:seeAlso semicont-standards:SEMI_M1 ;
+    rdfs:seeAlso <https://www.semi.org/en/products-services/standards/materials> .
+
+semicont-08-materials:CompoundSemiconductor rdfs:seeAlso semicont-standards:SEMI_M55 ;
+    rdfs:seeAlso <https://www.semi.org/en/products-services/standards/materials> .

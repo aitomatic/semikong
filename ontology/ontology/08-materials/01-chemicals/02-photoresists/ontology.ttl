@@ -1,0 +1,198 @@
+# Photoresists Ontology
+# Photoresist chemicals and solvents for semiconductor lithography
+
+@prefix semicont-08-materials-chemicals-photoresists: <https://semicont.org/ontology/08-materials/01-chemicals/02-photoresists#> .
+@prefix semicont-08-materials-chemicals: <https://semicont.org/ontology/08-materials/01-chemicals#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix semicont-standards: <https://semicont.org/ontology/01-standards-reference#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+# Module Metadata
+semicont-08-materials-chemicals-photoresists: a owl:Ontology ;
+    rdfs:label "Photoresists Ontology" ;
+    rdfs:comment "Photoresist chemicals and solvents for semiconductor lithography" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/08-materials/01-chemicals> ;
+    dc:source "Industry knowledge of photoresist chemistry and solvents" ;
+    dc:rights "Fair use: publicly known photoresist formulations" ;
+    prov:wasInformedBy "Industry knowledge of photoresist chemistry" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date ;
+    # Scope and maturity metadata
+    semicont-08-materials-chemicals:scopeNote """
+        SCOPE: Photoresist solvents and chemicals for lithography
+        - Includes: PGMEA, ethyl lactate, cyclohexanone and their properties
+        - Excludes: Proprietary photoresist polymers, sensitizer chemistry, supplier formulations
+        - Depth limit: Common industry solvents, no trade secret compositions
+        """@en ;
+    semicont-08-materials-chemicals:maturityLevel semicont-08-materials-chemicals:validated .
+
+# Photoresist Chemical Classes
+semicont-08-materials-chemicals-photoresists:PhotoresistSolvent a owl:Class ;
+    rdfs:label "Photoresist Solvent" ;
+    rdfs:comment "Solvent used in photoresist formulations" ;
+    rdfs:subClassOf semicont-08-materials-chemicals:Solvent ;
+    rdfs:subClassOf semicont-08-materials-chemicals:PhotoresistChemical ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-photoresists: ;
+    prov:wasInformedBy "Industry knowledge of photoresist formulations" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-photoresists:PositivePhotoresistSolvent a owl:Class ;
+    dc:source "Photolithography chemistry reference (https://en.wikipedia.org/wiki/Photoresist)" ;
+    prov:wasInformedBy "Industry-standard photoresist chemistry and usage semantics." ;
+    rdfs:label "Positive Photoresist Solvent" ;
+    rdfs:comment "Solvent for positive photoresist formulations" ;
+    rdfs:subClassOf semicont-08-materials-chemicals-photoresists:PhotoresistSolvent ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-photoresists: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-photoresists:NegativePhotoresistSolvent a owl:Class ;
+    dc:source "Photolithography chemistry reference (https://en.wikipedia.org/wiki/Photoresist)" ;
+    prov:wasInformedBy "Industry-standard photoresist chemistry and usage semantics." ;
+    rdfs:label "Negative Photoresist Solvent" ;
+    rdfs:comment "Solvent for negative photoresist formulations" ;
+    rdfs:subClassOf semicont-08-materials-chemicals-photoresists:PhotoresistSolvent ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-photoresists: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Specific Photoresist Chemicals
+semicont-08-materials-chemicals-photoresists:PGMEA a owl:Class ;
+    rdfs:label "Propylene Glycol Methyl Ether Acetate" ;
+    rdfs:comment "PGMEA - primary solvent for positive photoresist" ;
+    rdfs:subClassOf semicont-08-materials-chemicals-photoresists:PositivePhotoresistSolvent ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-photoresists: ;
+    prov:wasInformedBy "Industry standard photoresist solvent" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-photoresists:EthylLactate a owl:Class ;
+    rdfs:label "Ethyl Lactate" ;
+    rdfs:comment "Alternative photoresist solvent with low toxicity" ;
+    rdfs:subClassOf semicont-08-materials-chemicals-photoresists:PhotoresistSolvent ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-photoresists: ;
+    prov:wasInformedBy "Industry knowledge of green solvents" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-photoresists:Cyclohexanone a owl:Class ;
+    rdfs:label "Cyclohexanone" ;
+    rdfs:comment "Solvent for negative photoresist formulations" ;
+    rdfs:subClassOf semicont-08-materials-chemicals-photoresists:NegativePhotoresistSolvent ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-photoresists: ;
+    prov:wasInformedBy "Industry knowledge of negative resist chemistry" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Photoresist-specific Properties
+semicont-08-materials-chemicals-photoresists:hasViscosity a owl:ObjectProperty ;
+    rdfs:label "has viscosity" ;
+    rdfs:comment "Viscosity of photoresist solution in cP as unitized value" ;
+    rdfs:domain semicont-08-materials-chemicals-photoresists:PhotoresistSolvent ;
+    rdfs:range semicont-08-materials-chemicals:UnitizedValue ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-photoresists: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-photoresists:hasViscositySimple a owl:DatatypeProperty ;
+    rdfs:label "has viscosity simple" ;
+    rdfs:comment "Viscosity in centipoise for simple cases" ;
+    rdfs:domain semicont-08-materials-chemicals-photoresists:PhotoresistSolvent ;
+    rdfs:range xsd:double ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-photoresists: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-photoresists:hasEvaporationRate a owl:DatatypeProperty ;
+    rdfs:label "has evaporation rate" ;
+    rdfs:comment "Evaporation rate relative to n-butyl acetate (1.0)" ;
+    rdfs:domain semicont-08-materials-chemicals-photoresists:PhotoresistSolvent ;
+    rdfs:range xsd:double ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-photoresists: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# OWL Axioms
+semicont-08-materials-chemicals-photoresists:PositivePhotoresistSolvent owl:disjointWith semicont-08-materials-chemicals-photoresists:NegativePhotoresistSolvent ;
+    rdfs:comment "Positive and negative photoresist solvents serve different chemistries" .
+
+semicont-08-materials-chemicals-photoresists:PGMEA rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty semicont-08-materials-chemicals-photoresists:hasEvaporationRate ;
+    owl:maxCardinality "1"^^xsd:nonNegativeInteger
+] ;
+    rdfs:comment "PGMEA has a specific evaporation rate" .
+
+# SHACL Shapes for Photoresists
+semicont-08-materials-chemicals-photoresists:PhotoresistSolventShape a sh:NodeShape ;
+    sh:targetClass semicont-08-materials-chemicals-photoresists:PhotoresistSolvent ;
+    sh:property [
+        sh:path semicont-08-materials-chemicals-photoresists:hasViscositySimple ;
+        sh:datatype xsd:double ;
+        sh:minInclusive 0.1 ;
+        sh:maxInclusive 10.0 ;
+        sh:message "Photoresist solvent viscosity typically 0.1-10 cP" ;
+        sh:severity sh:Warning
+    ] ;
+    sh:property [
+        sh:path semicont-08-materials-chemicals-photoresists:hasEvaporationRate ;
+        sh:datatype xsd:double ;
+        sh:minInclusive 0.01 ;
+        sh:maxInclusive 5.0 ;
+        sh:message "Evaporation rate must be between 0.01 and 5.0" ;
+        sh:severity sh:Warning
+    ] .
+
+# Example Photoresist Chemical Individuals
+semicont-08-materials-chemicals-photoresists:PGMEA_100 a owl:NamedIndividual , semicont-08-materials-chemicals-photoresists:PGMEA ;
+    rdfs:label "PGMEA Solvent" ;
+    rdfs:comment "Propylene glycol methyl ether acetate for positive photoresist" ;
+    semicont-08-materials-chemicals:hasConcentrationPercent 100.0 ;
+    semicont-08-materials-chemicals:hasPH semicont-08-materials-chemicals:NeutralPH ;
+    semicont-08-materials-chemicals:hasCASNumber "108-65-6" ;
+    semicont-08-materials-chemicals:hasStorageTemperature semicont-08-materials-chemicals:StandardRoomTemperature ;
+    semicont-08-materials-chemicals-photoresists:hasViscositySimple 1.1 ;
+    semicont-08-materials-chemicals-photoresists:hasEvaporationRate 0.19 ;
+    prov:wasInformedBy "Industry standard photoresist solvent properties" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-photoresists:EL_100 a owl:NamedIndividual , semicont-08-materials-chemicals-photoresists:EthylLactate ;
+    rdfs:label "Ethyl Lactate Solvent" ;
+    rdfs:comment "Ethyl lactate for environmentally friendly photoresist" ;
+    semicont-08-materials-chemicals:hasConcentrationPercent 100.0 ;
+    semicont-08-materials-chemicals:hasPH semicont-08-materials-chemicals:NeutralPH ;
+    semicont-08-materials-chemicals:hasCASNumber "97-64-3" ;
+    semicont-08-materials-chemicals:hasStorageTemperature semicont-08-materials-chemicals:StandardRoomTemperature ;
+    semicont-08-materials-chemicals-photoresists:hasViscositySimple 2.4 ;
+    semicont-08-materials-chemicals-photoresists:hasEvaporationRate 0.29 ;
+    prov:wasInformedBy "Industry knowledge of green solvent alternatives" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-photoresists:Cyclohex_100 a owl:NamedIndividual , semicont-08-materials-chemicals-photoresists:Cyclohexanone ;
+    rdfs:label "Cyclohexanone Solvent" ;
+    rdfs:comment "Cyclohexanone for negative photoresist formulations" ;
+    semicont-08-materials-chemicals:hasConcentrationPercent 100.0 ;
+    semicont-08-materials-chemicals:hasPH semicont-08-materials-chemicals:NeutralPH ;
+    semicont-08-materials-chemicals:hasCASNumber "108-94-1" ;
+    semicont-08-materials-chemicals:hasStorageTemperature semicont-08-materials-chemicals:StandardRoomTemperature ;
+    semicont-08-materials-chemicals-photoresists:hasViscositySimple 2.0 ;
+    semicont-08-materials-chemicals-photoresists:hasEvaporationRate 0.32 ;
+    prov:wasInformedBy "Industry standard for negative resist solvents" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# External Mappings
+semicont-08-materials-chemicals-photoresists:PGMEA rdfs:seeAlso semicont-standards:SEMI_C1 ;
+    rdfs:seeAlso <https://pubchem.ncbi.nlm.nih.gov/compound/76706> .
+
+semicont-08-materials-chemicals-photoresists:EthylLactate rdfs:seeAlso semicont-standards:SEMI_C1 ;
+    rdfs:seeAlso <https://pubchem.ncbi.nlm.nih.gov/compound/7344> .

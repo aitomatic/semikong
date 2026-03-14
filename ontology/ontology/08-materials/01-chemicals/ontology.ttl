@@ -1,0 +1,413 @@
+# Chemicals Foundation Ontology
+# Core framework for semiconductor process chemicals with specifications and validation
+
+@prefix semicont-08-materials-chemicals: <https://semicont.org/ontology/08-materials/01-chemicals#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix semicont-standards: <https://semicont.org/ontology/01-standards-reference#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+# Module Metadata
+semicont-08-materials-chemicals: a owl:Ontology ;
+    rdfs:label "Chemicals Foundation Ontology" ;
+    rdfs:comment "Core framework for semiconductor process chemicals with specifications and validation" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+    owl:imports <https://semicont.org/ontology/01-standards-reference> ;
+    dc:source "SEMI standards C1, C30, C35 and public domain chemical references" ;
+    dc:rights "Fair use: publicly known chemical specifications and industry standards" ;
+    prov:wasInformedBy "SEMI chemical standards and semiconductor industry chemical references" ;
+    prov:hadPrimarySource <https://www.semi.org/en/products-services/LiquidChemicalStandards> ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date ;
+    # Scope and maturity metadata
+    rdfs:seeAlso <https://www.semi.org/en/products-services/LiquidChemicalStandards> ;
+    rdfs:seeAlso semicont-standards:SEMI_C1 ;
+    rdfs:seeAlso semicont-standards:SEMI_C30 ;
+    rdfs:seeAlso semicont-standards:SEMI_C35 .
+
+# Scope Boundary and Maturity
+semicont-08-materials-chemicals:scopeNote a owl:AnnotationProperty ;
+    rdfs:label "scope note" ;
+    rdfs:comment "Notes about the scope and boundaries of this ontology" .
+
+semicont-08-materials-chemicals:maturityLevel a owl:AnnotationProperty ;
+    rdfs:label "maturity level" ;
+    rdfs:comment "Indicates the maturity stage of the ontology module" .
+
+semicont-08-materials-chemicals:validated a owl:NamedIndividual ;
+    rdfs:label "validated" ;
+    rdfs:comment "Ontology module has been validated with SHACL shapes and quality checks" .
+
+# Module scope annotation
+semicont-08-materials-chemicals: semicont-08-materials-chemicals:scopeNote """
+    SCOPE: Semiconductor process chemicals foundation framework
+    - Includes: Base chemical classes (Acid, Base, Solvent, etc.), specifications, properties
+    - Excludes: Specific chemical formulations, proprietary blends, supplier information
+    - Depth limit: Industry-general categories only, stops before company-specific products
+    """@en ;
+    semicont-08-materials-chemicals:maturityLevel semicont-08-materials-chemicals:validated .
+
+# Core Chemical Classes
+semicont-08-materials-chemicals:ProcessChemical a owl:Class ;
+    rdfs:label "Process Chemical" ;
+    rdfs:comment "Chemical substance used in semiconductor manufacturing processes" ;
+    rdfs:subClassOf semicont-shared:Material ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals: ;
+    prov:wasInformedBy "SEMI C1 Guide for Analysis of Liquid Chemicals" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals:Acid a owl:Class ;
+    rdfs:label "Acid" ;
+    rdfs:comment "Acidic process chemical with pH < 7" ;
+    rdfs:subClassOf semicont-08-materials-chemicals:ProcessChemical ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals: ;
+    prov:wasInformedBy "SEMI C35 Nitric Acid Specification" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals:Base a owl:Class ;
+    rdfs:label "Base" ;
+    rdfs:comment "Basic process chemical with pH > 7" ;
+    rdfs:subClassOf semicont-08-materials-chemicals:ProcessChemical ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals: ;
+    prov:wasInformedBy "SEMI standards for basic chemicals" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals:Solvent a owl:Class ;
+    rdfs:label "Solvent" ;
+    rdfs:comment "Organic solvent used for cleaning or as photoresist carrier" ;
+    rdfs:subClassOf semicont-08-materials-chemicals:ProcessChemical ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals: ;
+    prov:wasInformedBy "SEMI C1 Guide for Analysis of Liquid Chemicals" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals:PhotoresistChemical a owl:Class ;
+    rdfs:label "Photoresist Chemical" ;
+    rdfs:comment "Chemical component of photoresist formulations" ;
+    rdfs:subClassOf semicont-08-materials-chemicals:ProcessChemical ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals: ;
+    prov:wasInformedBy "Industry knowledge of photoresist chemistry" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals:Etchant a owl:Class ;
+    rdfs:label "Etchant" ;
+    rdfs:comment "Chemical used for etching semiconductor materials" ;
+    rdfs:subClassOf semicont-08-materials-chemicals:ProcessChemical ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals: ;
+    prov:wasInformedBy "Industry knowledge of semiconductor etching" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals:CleaningAgent a owl:Class ;
+    rdfs:label "Cleaning Agent" ;
+    rdfs:comment "Chemical used for wafer cleaning processes" ;
+    rdfs:subClassOf semicont-08-materials-chemicals:ProcessChemical ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals: ;
+    prov:wasInformedBy "Industry knowledge of wafer cleaning" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Specification Classes
+semicont-08-materials-chemicals:ChemicalSpec a owl:Class ;
+    dc:source "SEMI liquid chemical standards index (https://www.semi.org/en/products-services/LiquidChemicalStandards)" ;
+    prov:wasInformedBy "SEMI-aligned process chemical and specification semantics." ;
+    rdfs:label "Chemical Specification" ;
+    rdfs:comment "Technical specification for a chemical" ;
+    rdfs:subClassOf semicont-shared:Spec ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals:PuritySpec a owl:Class ;
+    dc:source "SEMI liquid chemical standards index (https://www.semi.org/en/products-services/LiquidChemicalStandards)" ;
+    prov:wasInformedBy "SEMI-aligned process chemical and specification semantics." ;
+    rdfs:label "Purity Specification" ;
+    rdfs:comment "Purity requirements for a chemical" ;
+    rdfs:subClassOf semicont-08-materials-chemicals:ChemicalSpec ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals:SEMIGradeSpec a owl:Class ;
+    rdfs:label "SEMI Grade Specification" ;
+    rdfs:comment "SEMI standard grade specification for chemicals" ;
+    rdfs:subClassOf semicont-08-materials-chemicals:ChemicalSpec ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals: ;
+    prov:wasInformedBy "SEMI chemical standards" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Unitized Value Pattern for Quantities
+semicont-08-materials-chemicals:UnitizedValue a owl:Class ;
+    dc:source "SEMI liquid chemical standards index (https://www.semi.org/en/products-services/LiquidChemicalStandards)" ;
+    prov:wasInformedBy "SEMI-aligned process chemical and specification semantics." ;
+    rdfs:label "Unitized Value" ;
+    rdfs:comment "A value with associated unit of measurement" ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals:hasNumericValue a owl:DatatypeProperty ;
+    rdfs:label "has numeric value" ;
+    rdfs:comment "The numeric value of a unitized quantity" ;
+    rdfs:domain semicont-08-materials-chemicals:UnitizedValue ;
+    rdfs:range xsd:double ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals:hasUnit a owl:DatatypeProperty ;
+    rdfs:label "has unit" ;
+    rdfs:comment "The unit of measurement for a unitized value" ;
+    rdfs:domain semicont-08-materials-chemicals:UnitizedValue ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Standard Units
+semicont-08-materials-chemicals:percent a owl:NamedIndividual ;
+    rdfs:label "percent" ;
+    rdfs:comment "Percentage unit (0-100)" ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals:pH a owl:NamedIndividual ;
+    rdfs:label "pH unit" ;
+    rdfs:comment "pH scale unit" ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals:degreesCelsius a owl:NamedIndividual ;
+    rdfs:label "degrees Celsius" ;
+    rdfs:comment "Temperature in degrees Celsius" ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals:partsPerTrillion a owl:NamedIndividual ;
+    rdfs:label "parts per trillion" ;
+    rdfs:comment "Concentration in parts per trillion" ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Object Properties
+semicont-08-materials-chemicals:isSuitableForProcess a owl:ObjectProperty ;
+    rdfs:label "is suitable for process" ;
+    rdfs:comment "Indicates a chemical is suitable for a specific process step" ;
+    rdfs:domain semicont-08-materials-chemicals:ProcessChemical ;
+    rdfs:range semicont-shared:ProcessStep ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals:hasPuritySpec a owl:ObjectProperty ;
+    rdfs:label "has purity specification" ;
+    rdfs:comment "Links a chemical to its purity requirements" ;
+    rdfs:domain semicont-08-materials-chemicals:ProcessChemical ;
+    rdfs:range semicont-08-materials-chemicals:PuritySpec ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals:hasSEMIGrade a owl:ObjectProperty ;
+    rdfs:label "has SEMI grade" ;
+    rdfs:comment "Links a chemical to its SEMI grade specification" ;
+    rdfs:domain semicont-08-materials-chemicals:ProcessChemical ;
+    rdfs:range semicont-08-materials-chemicals:SEMIGradeSpec ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals:isIncompatibleWith a owl:ObjectProperty ;
+    rdfs:label "is incompatible with" ;
+    rdfs:comment "Indicates chemical incompatibility" ;
+    rdfs:domain semicont-08-materials-chemicals:ProcessChemical ;
+    rdfs:range semicont-08-materials-chemicals:ProcessChemical ;
+    owl:SymmetricProperty ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Unitized Datatype Properties
+semicont-08-materials-chemicals:hasConcentration a owl:ObjectProperty ;
+    rdfs:label "has concentration" ;
+    rdfs:comment "Concentration of the chemical as a unitized value" ;
+    rdfs:domain semicont-08-materials-chemicals:ProcessChemical ;
+    rdfs:range semicont-08-materials-chemicals:UnitizedValue ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals:hasConcentrationPercent a owl:DatatypeProperty ;
+    rdfs:label "has concentration percent" ;
+    rdfs:comment "Concentration percentage (0-100) for simple cases" ;
+    rdfs:domain semicont-08-materials-chemicals:ProcessChemical ;
+    rdfs:range xsd:double ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals:hasPH a owl:ObjectProperty ;
+    rdfs:label "has pH" ;
+    rdfs:comment "pH value as a unitized measurement" ;
+    rdfs:domain semicont-08-materials-chemicals:ProcessChemical ;
+    rdfs:range semicont-08-materials-chemicals:UnitizedValue ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals:hasStorageTemperature a owl:ObjectProperty ;
+    rdfs:label "has storage temperature" ;
+    rdfs:comment "Storage temperature as a unitized value" ;
+    rdfs:domain semicont-08-materials-chemicals:ProcessChemical ;
+    rdfs:range semicont-08-materials-chemicals:UnitizedValue ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals:hasCASNumber a owl:DatatypeProperty ;
+    rdfs:label "has CAS number" ;
+    rdfs:comment "Chemical Abstracts Service registry number" ;
+    rdfs:domain semicont-08-materials-chemicals:ProcessChemical ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Purity Specification Properties
+semicont-08-materials-chemicals:hasPurityLevel a owl:ObjectProperty ;
+    rdfs:label "has purity level" ;
+    rdfs:comment "Purity level as a unitized value (ppt)" ;
+    rdfs:domain semicont-08-materials-chemicals:PuritySpec ;
+    rdfs:range semicont-08-materials-chemicals:UnitizedValue ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals:hasMaxMetalContamination a owl:ObjectProperty ;
+    rdfs:label "has max metal contamination" ;
+    rdfs:comment "Maximum metal contamination as unitized value" ;
+    rdfs:domain semicont-08-materials-chemicals:PuritySpec ;
+    rdfs:range semicont-08-materials-chemicals:UnitizedValue ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals:hasSEMIStandardNumber a owl:DatatypeProperty ;
+    rdfs:label "has SEMI standard number" ;
+    rdfs:comment "SEMI standard specification number" ;
+    rdfs:domain semicont-08-materials-chemicals:SEMIGradeSpec ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Disjointness Axioms
+semicont-08-materials-chemicals:Acid owl:disjointWith semicont-08-materials-chemicals:Base ;
+    rdfs:comment "Acids and bases are chemically incompatible" .
+
+semicont-08-materials-chemicals:Acid owl:disjointWith semicont-08-materials-chemicals:Solvent ;
+    rdfs:comment "Acids and solvents have different chemical properties" .
+
+semicont-08-materials-chemicals:Base owl:disjointWith semicont-08-materials-chemicals:Solvent ;
+    rdfs:comment "Bases and solvents have different chemical properties" .
+
+# Class Restrictions
+semicont-08-materials-chemicals:ProcessChemical rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty semicont-08-materials-chemicals:hasCASNumber ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+] ;
+    rdfs:comment "Every process chemical must have exactly one CAS number" .
+
+semicont-08-materials-chemicals:ProcessChemical rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty semicont-08-materials-chemicals:hasPuritySpec ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger
+] ;
+    rdfs:comment "Every process chemical must have at least one purity specification" .
+
+semicont-08-materials-chemicals:SEMIGradeSpec rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty semicont-08-materials-chemicals:hasSEMIStandardNumber ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+] ;
+    rdfs:comment "Every SEMI grade spec must have exactly one standard number" .
+
+# SHACL Shapes for Validation
+semicont-08-materials-chemicals:ProcessChemicalShape a sh:NodeShape ;
+    sh:targetClass semicont-08-materials-chemicals:ProcessChemical ;
+    sh:property [
+        sh:path semicont-08-materials-chemicals:hasCASNumber ;
+        sh:datatype xsd:string ;
+        sh:pattern "^[0-9]{2,7}-[0-9]{2}-[0-9]$" ;
+        sh:message "CAS number must be in format NNNNNNN-NN-N" ;
+        sh:severity sh:Violation
+    ] ;
+    sh:property [
+        sh:path semicont-08-materials-chemicals:hasConcentrationPercent ;
+        sh:datatype xsd:double ;
+        sh:minInclusive 0.0 ;
+        sh:maxInclusive 100.0 ;
+        sh:message "Concentration must be between 0 and 100 percent" ;
+        sh:severity sh:Violation
+    ] .
+
+semicont-08-materials-chemicals:UnitizedValueShape a sh:NodeShape ;
+    sh:targetClass semicont-08-materials-chemicals:UnitizedValue ;
+    sh:property [
+        sh:path semicont-08-materials-chemicals:hasNumericValue ;
+        sh:datatype xsd:double ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "Unitized value must have exactly one numeric value" ;
+        sh:severity sh:Violation
+    ] ;
+    sh:property [
+        sh:path semicont-08-materials-chemicals:hasUnit ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "Unitized value must have exactly one unit" ;
+        sh:severity sh:Violation
+    ] .
+
+semicont-08-materials-chemicals:PuritySpecShape a sh:NodeShape ;
+    sh:targetClass semicont-08-materials-chemicals:PuritySpec ;
+    sh:property [
+        sh:path semicont-08-materials-chemicals:hasSEMIStandardNumber ;
+        sh:datatype xsd:string ;
+        sh:pattern "^SEMI\s+[A-Z][0-9]+-[0-9]{4}$" ;
+        sh:message "SEMI standard must be in format 'SEMI CXX-YYYY'" ;
+        sh:severity sh:Violation
+    ] .
+
+# Example Unitized Values for Reference
+semicont-08-materials-chemicals:StandardRoomTemperature a owl:NamedIndividual , semicont-08-materials-chemicals:UnitizedValue ;
+    rdfs:label "Standard Room Temperature" ;
+    rdfs:comment "25 degrees Celsius - standard storage temperature" ;
+    semicont-08-materials-chemicals:hasNumericValue 25.0 ;
+    semicont-08-materials-chemicals:hasUnit "degreesCelsius" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals:NeutralPH a owl:NamedIndividual , semicont-08-materials-chemicals:UnitizedValue ;
+    rdfs:label "Neutral pH" ;
+    rdfs:comment "pH 7.0 - neutral point" ;
+    semicont-08-materials-chemicals:hasNumericValue 7.0 ;
+    semicont-08-materials-chemicals:hasUnit "pH" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .

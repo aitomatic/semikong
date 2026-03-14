@@ -1,0 +1,26 @@
+# Semicont Ontology Module: 09-supply-chain/05-sustainability-in-supply/02-recycling-programs
+
+@prefix semicont-09-supply-chain-05-sustainability-in-supply-02-recycling-programs: <https://semicont.org/ontology/09-supply-chain/05-sustainability-in-supply/02-recycling-programs/#> .
+@prefix semicont-09-supply-chain-05-sustainability-in-supply: <https://semicont.org/ontology/09-supply-chain/05-sustainability-in-supply/#> .
+@prefix semicont-core: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-09-supply-chain-05-sustainability-in-supply-02-recycling-programs: a owl:Ontology ;
+    rdfs:label "recycling programs ontology" ;
+    rdfs:comment "Semantic module for recycling programs in the semiconductor ontology." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+        dc:source "Industry-general knowledge of 09 supply chain 05 sustainability in supply 02 recycling programs" ;
+    dc:rights "Fair use: publicly known industry concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-09-supply-chain-05-sustainability-in-supply-02-recycling-programs:RecyclingProgramsConcept a owl:Class ;
+    rdfs:label "recycling programs" ;
+    rdfs:comment "Concept for recycling programs; specialized under sustainability in supply." ;
+    rdfs:subClassOf semicont-09-supply-chain-05-sustainability-in-supply:SustainabilityInSupplyConcept ;
+    rdfs:isDefinedBy semicont-09-supply-chain-05-sustainability-in-supply-02-recycling-programs: .

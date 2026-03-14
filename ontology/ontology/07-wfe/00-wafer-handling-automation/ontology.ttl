@@ -1,0 +1,169 @@
+# Wafer Handling Automation Ontology
+# Industry-general concepts for wafer loading, handling, and automation systems
+
+@prefix semicont-07-wfe-wafer-handling-automation: <https://semicont.org/ontology/07-wfe/00-wafer-handling-automation#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+# Module Metadata
+semicont-07-wfe-wafer-handling-automation: a owl:Ontology ;
+    rdfs:label "Wafer Handling Automation Ontology" ;
+    rdfs:comment "Industry-general concepts for wafer loading, handling, and automation systems" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+    dc:source "Public semiconductor automation literature and industry-standard equipment classifications" ;
+    dc:rights "Fair use: industry-general wafer handling concepts" ;
+    prov:wasInformedBy "Model synthesis of public domain semiconductor automation knowledge" ;
+    prov:hadPrimarySource <https://en.wikipedia.org/wiki/Wafer_handling> ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Wafer Handling Equipment
+semicont-07-wfe-wafer-handling-automation:WaferHandlingEquipment a owl:Class ;
+    rdfs:label "Wafer Handling Equipment" ;
+    rdfs:comment "Equipment for automated wafer loading, unloading, and transport" ;
+    rdfs:subClassOf semicont-shared:Equipment ;
+    rdfs:isDefinedBy semicont-07-wfe-wafer-handling-automation: ;
+    dc:source "Public domain semiconductor automation literature" ;
+    dc:rights "Fair use: generic wafer handling equipment concept" ;
+    prov:wasInformedBy "Industry-standard wafer handling classifications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-wafer-handling-automation:LoadPort a owl:Class ;
+    rdfs:label "Load Port" ;
+    rdfs:comment "Interface for loading/unloading wafer cassettes or FOUPs" ;
+    rdfs:subClassOf semicont-07-wfe-wafer-handling-automation:WaferHandlingEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-wafer-handling-automation: ;
+    dc:source "Public domain semiconductor automation standards" ;
+    dc:rights "Fair use: generic load port concept" ;
+    prov:wasInformedBy "Industry-standard wafer handling interfaces" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-wafer-handling-automation:WaferRobot a owl:Class ;
+    rdfs:label "Wafer Robot" ;
+    rdfs:comment "Robotic system for wafer transport and manipulation" ;
+    rdfs:subClassOf semicont-07-wfe-wafer-handling-automation:WaferHandlingEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-wafer-handling-automation: ;
+    dc:source "Public domain semiconductor automation literature" ;
+    dc:rights "Fair use: generic wafer robot concept" ;
+    prov:wasInformedBy "Industry-standard wafer handling robotics" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-wafer-handling-automation:EFEM a owl:Class ;
+    dc:source "Wafer handling overview (https://en.wikipedia.org/wiki/Wafer_handling)" ;
+    prov:wasInformedBy "Industry-standard wafer transport and handling automation semantics." ;
+    rdfs:label "EFEM" ;
+    rdfs:comment "Equipment Front End Module - mini-environment for wafer handling" ;
+    rdfs:subClassOf semicont-07-wfe-wafer-handling-automation:WaferHandlingEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-wafer-handling-automation: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Wafer Carrier Systems
+semicont-07-wfe-wafer-handling-automation:WaferCarrier a owl:Class ;
+    dc:source "Wafer handling overview (https://en.wikipedia.org/wiki/Wafer_handling)" ;
+    prov:wasInformedBy "Industry-standard wafer transport and handling automation semantics." ;
+    rdfs:label "Wafer Carrier" ;
+    rdfs:comment "Container for holding and transporting wafers" ;
+    rdfs:subClassOf semicont-shared:Thing ;
+    rdfs:isDefinedBy semicont-07-wfe-wafer-handling-automation: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-wafer-handling-automation:FOUP a owl:Class ;
+    dc:source "Wafer handling overview (https://en.wikipedia.org/wiki/Wafer_handling)" ;
+    prov:wasInformedBy "Industry-standard wafer transport and handling automation semantics." ;
+    rdfs:label "FOUP" ;
+    rdfs:comment "Front Opening Unified Pod - sealed wafer carrier" ;
+    rdfs:subClassOf semicont-07-wfe-wafer-handling-automation:WaferCarrier ;
+    rdfs:isDefinedBy semicont-07-wfe-wafer-handling-automation: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-wafer-handling-automation:OpenCassette a owl:Class ;
+    dc:source "Wafer handling overview (https://en.wikipedia.org/wiki/Wafer_handling)" ;
+    prov:wasInformedBy "Industry-standard wafer transport and handling automation semantics." ;
+    rdfs:label "Open Cassette" ;
+    rdfs:comment "Open wafer carrier for atmospheric environments" ;
+    rdfs:subClassOf semicont-07-wfe-wafer-handling-automation:WaferCarrier ;
+    rdfs:isDefinedBy semicont-07-wfe-wafer-handling-automation: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Handling Components
+semicont-07-wfe-wafer-handling-automation:EndEffector a owl:Class ;
+    dc:source "Wafer handling overview (https://en.wikipedia.org/wiki/Wafer_handling)" ;
+    prov:wasInformedBy "Industry-standard wafer transport and handling automation semantics." ;
+    rdfs:label "End Effector" ;
+    rdfs:comment "Tool at the end of a robot arm for wafer handling" ;
+    rdfs:subClassOf semicont-shared:Thing ;
+    rdfs:isDefinedBy semicont-07-wfe-wafer-handling-automation: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-wafer-handling-automation:VacuumChuck a owl:Class ;
+    dc:source "Wafer handling overview (https://en.wikipedia.org/wiki/Wafer_handling)" ;
+    prov:wasInformedBy "Industry-standard wafer transport and handling automation semantics." ;
+    rdfs:label "Vacuum Chuck" ;
+    rdfs:comment "Vacuum-based wafer holding mechanism" ;
+    rdfs:subClassOf semicont-07-wfe-wafer-handling-automation:EndEffector ;
+    rdfs:isDefinedBy semicont-07-wfe-wafer-handling-automation: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-wafer-handling-automation:BernoulliChuck a owl:Class ;
+    dc:source "Wafer handling overview (https://en.wikipedia.org/wiki/Wafer_handling)" ;
+    prov:wasInformedBy "Industry-standard wafer transport and handling automation semantics." ;
+    rdfs:label "Bernoulli Chuck" ;
+    rdfs:comment "Non-contact wafer holding using Bernoulli principle" ;
+    rdfs:subClassOf semicont-07-wfe-wafer-handling-automation:EndEffector ;
+    rdfs:isDefinedBy semicont-07-wfe-wafer-handling-automation: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Process Properties
+semicont-07-wfe-wafer-handling-automation:hasLoadPortType a owl:DatatypeProperty ;
+    rdfs:label "has load port type" ;
+    rdfs:comment "Type of load port (e.g., front-opening, side-opening)" ;
+    rdfs:domain semicont-07-wfe-wafer-handling-automation:LoadPort ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy semicont-07-wfe-wafer-handling-automation: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-wafer-handling-automation:hasRobotReach a owl:DatatypeProperty ;
+    rdfs:label "has robot reach" ;
+    rdfs:comment "Maximum reach distance of the robot in millimeters" ;
+    rdfs:domain semicont-07-wfe-wafer-handling-automation:WaferRobot ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-wafer-handling-automation: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-wafer-handling-automation:hasWaferSize a owl:DatatypeProperty ;
+    rdfs:label "has wafer size" ;
+    rdfs:comment "Diameter of wafers handled in millimeters" ;
+    rdfs:domain semicont-07-wfe-wafer-handling-automation:WaferHandlingEquipment ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-wafer-handling-automation: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-wafer-handling-automation:hasCleanlinessClass a owl:DatatypeProperty ;
+    rdfs:label "has cleanliness class" ;
+    rdfs:comment "Cleanliness classification (e.g., ISO class)" ;
+    rdfs:domain semicont-07-wfe-wafer-handling-automation:EFEM ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy semicont-07-wfe-wafer-handling-automation: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date ."}
+
+
+

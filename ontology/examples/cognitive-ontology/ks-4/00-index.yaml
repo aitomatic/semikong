@@ -1,0 +1,79 @@
+# KS-4: Autonomous Knowledge-Structure Hybrid
+# Navigation index with ML and autonomous capabilities
+
+ontology_info:
+  name: "ks-4-autonomous-hybrid"
+  level: 4
+  approach: "knowledge-first with autonomy"
+  description: "Autonomous hybrid with ML, multi-agent coordination, and self-improvement"
+
+navigation:
+  start: "01-ontology"
+  traversal_order: "adaptive"
+  sections:
+    - id: "01"
+      name: "ontology"
+      title: "Ontology Overview"
+      path: "01-ontology"
+      description: "Ontology with autonomous capabilities"
+    - id: "02"
+      name: "docs"
+      title: "Documentation"
+      path: "02-docs"
+      description: "Knowledge with ML insights"
+    - id: "03"
+      name: "rules"
+      title: "Rules and Constraints"
+      path: "03-rules"
+      description: "Self-updating rules with ML"
+    - id: "04"
+      name: "skills"
+      title: "Skills and Procedures"
+      path: "04-skills"
+      description: "Multi-agent coordinated procedures"
+    - id: "05"
+      name: "context"
+      title: "Autonomous Context"
+      path: "05-context"
+      description: "Context with learned patterns"
+    - id: "06"
+      name: "analytics"
+      title: "Analytics and Intelligence"
+      path: "06-analytics"
+      description: "Advanced analytics and predictions"
+    - id: "07"
+      name: "machine-learning"
+      title: "Machine Learning"
+      path: "07-machine-learning"
+      description: "Learned patterns and models"
+
+agent_guidance:
+  traversal_algorithm: "adaptive"
+  parse_stories: true
+  validate_constraints: true
+  follow_procedures: true
+  use_explicit_links: true
+  use_analytics: true
+  use_predictions: true
+  use_ml_models: true
+  multi_agent: true
+  autonomous: true
+
+autonomy:
+  self_updating_rules: true
+  learned_patterns: true
+  multi_agent_coordination: true
+  autonomous_improvement: true
+  minimal_human_intervention: true
+
+performance_notes:
+  expected_accuracy: "99%+"
+  reasoning_speed: "optimal"
+  autonomous_operation: "enabled"
+  continuous_learning: "active"
+  human_intervention: "minimal"
+
+metadata:
+  created: "2026-03-08"
+  model: "kimi-k2-0905-preview"
+  approach: "knowledge-first with autonomy"

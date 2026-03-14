@@ -1,0 +1,26 @@
+# Semicont Ontology Module: 07-wfe/metrology_inspection/defect_inspection/darkfield_optical
+
+@prefix semicont-07-wfe-metrology_inspection-defect_inspection-darkfield_optical: <https://semicont.org/ontology/07-wfe/12-metrology-inspection/01-defect-inspection/01-darkfield-optical/#> .
+@prefix semicont-07-wfe-metrology_inspection-defect_inspection: <https://semicont.org/ontology/07-wfe/12-metrology-inspection/01-defect-inspection/#> .
+@prefix semicont-core: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-07-wfe-metrology_inspection-defect_inspection-darkfield_optical: a owl:Ontology ;
+    rdfs:label "darkfield optical ontology" ;
+    rdfs:comment "Semantic module for darkfield optical in the semiconductor ontology." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+        dc:source "Industry-general knowledge of wafer fab equipment and processes" ;
+    dc:rights "Fair use: publicly known WFE concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-07-wfe-metrology_inspection-defect_inspection-darkfield_optical:DarkfieldOpticalDefectInspection a owl:Class ;
+    rdfs:label "darkfield optical" ;
+    rdfs:comment "Concept for darkfield optical; specialized under defect inspection." ;
+    rdfs:subClassOf semicont-07-wfe-metrology_inspection-defect_inspection:DefectInspectionProcess ;
+    rdfs:isDefinedBy semicont-07-wfe-metrology_inspection-defect_inspection-darkfield_optical: .

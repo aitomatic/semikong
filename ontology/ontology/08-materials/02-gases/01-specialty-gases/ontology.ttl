@@ -1,0 +1,197 @@
+# Specialty Process Gases Ontology
+# High-purity gases for etching, doping, and inert applications
+
+@prefix semicont-08-materials-02-gases-01-specialty-gases: <https://semicont.org/ontology/08-materials/02-gases/01-specialty-gases/#> .
+@prefix semicont-08-materials-02-gases: <https://semicont.org/ontology/08-materials/02-gases/#> .
+@prefix semicont-08-materials: <https://semicont.org/ontology/08-materials/#> .
+@prefix semicont-08-materials-gases: <https://semicont.org/ontology/08-materials/02-gases#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix semicont-standards: <https://semicont.org/ontology/01-standards-reference#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+
+semicont-08-materials-02-gases-01-specialty-gases: a owl:Ontology ;
+    rdfs:label "Specialty Process Gases Ontology" ;
+    rdfs:comment "High-purity gases for etching, doping, and inert applications" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/08-materials/02-gases> ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+    dc:source "SEMI C3, C10, C48 specialty gas standards and industry etch/dopant references" ;
+    dc:rights "Fair use: publicly known gas specifications and process applications" ;
+    prov:wasInformedBy "SEMI C3 specialty gas specifications and industry process knowledge" ;
+    prov:hadPrimarySource <https://www.semi.org/en/products-services/standards/materials> ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date ;
+    # Scope and maturity metadata
+    semicont-08-materials:scopeNote """
+        SCOPE: Specialty process gases for semiconductor manufacturing
+        - Includes: Etch gases, dopant gases, inert gases with SEMI specifications
+        - Excludes: Bulk industrial gases, reactive gases without SEMI specs
+        - Depth limit: SEMI C3/C10/C48 specifications, no proprietary mixtures
+        """@en ;
+    semicont-08-materials:maturityLevel semicont-08-materials:curated .
+
+# Etch Gas Subclasses
+semicont-08-materials-02-gases-01-specialty-gases:FluorinatedEtchGas a owl:Class ;
+    rdfs:label "Fluorinated Etch Gas" ;
+    rdfs:comment "Fluorine-containing gas for plasma etching" ;
+    rdfs:subClassOf semicont-08-materials-gases:EtchGas ;
+    rdfs:isDefinedBy semicont-08-materials-02-gases-01-specialty-gases: ;
+    prov:wasInformedBy "Industry knowledge of fluorine-based plasma etching" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-02-gases-01-specialty-gases:ChlorinatedEtchGas a owl:Class ;
+    rdfs:label "Chlorinated Etch Gas" ;
+    rdfs:comment "Chlorine-containing gas for plasma etching" ;
+    rdfs:subClassOf semicont-08-materials-gases:EtchGas ;
+    rdfs:isDefinedBy semicont-08-materials-02-gases-01-specialty-gases: ;
+    prov:wasInformedBy "Industry knowledge of chlorine-based plasma etching" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Specific Etch Gases
+semicont-08-materials-02-gases-01-specialty-gases:Tetrafluoromethane a owl:Class ;
+    rdfs:label "Tetrafluoromethane" ;
+    rdfs:comment "CF4 - fluorinated etch gas for silicon and SiO2" ;
+    rdfs:subClassOf semicont-08-materials-02-gases-01-specialty-gases:FluorinatedEtchGas ;
+    rdfs:isDefinedBy semicont-08-materials-02-gases-01-specialty-gases: ;
+    prov:wasInformedBy "Industry knowledge of CF4 etch applications" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-02-gases-01-specialty-gases:Hexafluoroethane a owl:Class ;
+    rdfs:label "Hexafluoroethane" ;
+    rdfs:comment "C2F6 - fluorinated etch gas for selective etching" ;
+    rdfs:subClassOf semicont-08-materials-02-gases-01-specialty-gases:FluorinatedEtchGas ;
+    rdfs:isDefinedBy semicont-08-materials-02-gases-01-specialty-gases: ;
+    prov:wasInformedBy "Industry knowledge of C2F6 etch selectivity" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-02-gases-01-specialty-gases:SulfurHexafluoride a owl:Class ;
+    rdfs:label "Sulfur Hexafluoride" ;
+    rdfs:comment "SF6 - fluorinated etch gas for deep silicon etching" ;
+    rdfs:subClassOf semicont-08-materials-02-gases-01-specialty-gases:FluorinatedEtchGas ;
+    rdfs:isDefinedBy semicont-08-materials-02-gases-01-specialty-gases: ;
+    prov:wasInformedBy "Industry knowledge of SF6 for deep silicon etch" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-02-gases-01-specialty-gases:Chlorine a owl:Class ;
+    rdfs:label "Chlorine" ;
+    rdfs:comment "Cl2 - chlorinated etch gas for metal etching" ;
+    rdfs:subClassOf semicont-08-materials-02-gases-01-specialty-gases:ChlorinatedEtchGas ;
+    rdfs:isDefinedBy semicont-08-materials-02-gases-01-specialty-gases: ;
+    prov:wasInformedBy "Industry knowledge of chlorine metal etching" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-02-gases-01-specialty-gases:BoronTrichloride a owl:Class ;
+    rdfs:label "Boron Trichloride" ;
+    rdfs:comment "BCl3 - chlorinated etch gas for aluminum etching" ;
+    rdfs:subClassOf semicont-08-materials-02-gases-01-specialty-gases:ChlorinatedEtchGas ;
+    rdfs:isDefinedBy semicont-08-materials-02-gases-01-specialty-gases: ;
+    prov:wasInformedBy "Industry knowledge of BCl3 for Al etch chemistry" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Dopant Gas Details
+semicont-08-materials-02-gases-01-specialty-gases:GroupIIIDopant a owl:Class ;
+    rdfs:label "Group III Dopant" ;
+    rdfs:comment "p-type dopant from group III elements" ;
+    rdfs:subClassOf semicont-08-materials-gases:DopantGas ;
+    rdfs:isDefinedBy semicont-08-materials-02-gases-01-specialty-gases: ;
+    prov:wasInformedBy "Semiconductor doping principles" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-02-gases-01-specialty-gases:GroupVDopant a owl:Class ;
+    rdfs:label "Group V Dopant" ;
+    rdfs:comment "n-type dopant from group V elements" ;
+    rdfs:subClassOf semicont-08-materials-gases:DopantGas ;
+    rdfs:isDefinedBy semicont-08-materials-02-gases-01-specialty-gases: ;
+    prov:wasInformedBy "Semiconductor doping principles" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Inert Gas Applications
+semicont-08-materials-02-gases-01-specialty-gases:CarrierGas a owl:Class ;
+    rdfs:label "Carrier Gas" ;
+    rdfs:comment "Inert gas used to transport reactive species" ;
+    rdfs:subClassOf semicont-08-materials-gases:InertGas ;
+    rdfs:isDefinedBy semicont-08-materials-02-gases-01-specialty-gases: ;
+    prov:wasInformedBy "Industry knowledge of carrier gas applications" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-02-gases-01-specialty-gases:PurgeGas a owl:Class ;
+    rdfs:label "Purge Gas" ;
+    rdfs:comment "Inert gas used for chamber purging" ;
+    rdfs:subClassOf semicont-08-materials-gases:InertGas ;
+    rdfs:isDefinedBy semicont-08-materials-02-gases-01-specialty-gases: ;
+    prov:wasInformedBy "Industry knowledge of purge gas applications" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Properties
+semicont-08-materials-02-gases-01-specialty-gases:hasSelectivityRatio a owl:ObjectProperty ;
+    rdfs:label "has selectivity ratio" ;
+    rdfs:comment "Etch selectivity ratio between materials" ;
+    rdfs:domain semicont-08-materials-gases:EtchGas ;
+    rdfs:range semicont-shared:UnitizedValue ;
+    rdfs:isDefinedBy semicont-08-materials-02-gases-01-specialty-gases: ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-02-gases-01-specialty-gases:isDopantType a owl:DatatypeProperty ;
+    rdfs:label "is dopant type" ;
+    rdfs:comment "n-type or p-type dopant classification" ;
+    rdfs:domain semicont-08-materials-gases:DopantGas ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy semicont-08-materials-02-gases-01-specialty-gases: ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Example Individuals
+semicont-08-materials-02-gases-01-specialty-gases:CF4_5N a owl:NamedIndividual , semicont-08-materials-02-gases-01-specialty-gases:Tetrafluoromethane ;
+    rdfs:label "5N Tetrafluoromethane" ;
+    rdfs:comment "99.999% pure CF4 for SiO2 etching" ;
+    semicont-08-materials-gases:hasPurityLevel 99.999 ;
+    semicont-08-materials-gases:hasNinesNotation "5N" ;
+    semicont-08-materials-gases:hasCASNumber "75-73-0" ;
+    prov:wasInformedBy "Industry CF4 specifications for semiconductor etch" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-02-gases-01-specialty-gases:PH3_6N5 a owl:NamedIndividual , semicont-08-materials-gases:Phosphine ;
+    rdfs:label "6N5 Phosphine" ;
+    rdfs:comment "99.9995% pure PH3 for n-type doping" ;
+    semicont-08-materials-gases:hasPurityLevel 99.9995 ;
+    semicont-08-materials-gases:hasNinesNotation "6N5" ;
+    semicont-08-materials-gases:hasCASNumber "7803-51-2" ;
+    semicont-08-materials-02-gases-01-specialty-gases:isDopantType "n-type" ;
+    prov:wasInformedBy "SEMI C3 phosphine specifications" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-02-gases-01-specialty-gases:N2_6N a owl:NamedIndividual , semicont-08-materials-gases:Nitrogen ;
+    rdfs:label "6N Nitrogen" ;
+    rdfs:comment "99.9999% pure N2 for purge and carrier applications" ;
+    semicont-08-materials-gases:hasPurityLevel 99.9999 ;
+    semicont-08-materials-gases:hasNinesNotation "6N" ;
+    semicont-08-materials-gases:hasCASNumber "7727-37-9" ;
+    prov:wasInformedBy "SEMI C3.25 UHP nitrogen specifications" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# External Mappings
+semicont-08-materials-02-gases-01-specialty-gases:Tetrafluoromethane rdfs:seeAlso <https://pubchem.ncbi.nlm.nih.gov/compound/6393> .
+
+semicont-08-materials-02-gases-01-specialty-gases:SulfurHexafluoride rdfs:seeAlso <https://pubchem.ncbi.nlm.nih.gov/compound/17358> .

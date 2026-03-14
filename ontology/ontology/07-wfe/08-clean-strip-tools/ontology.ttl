@@ -1,0 +1,130 @@
+# Clean Strip Tools Ontology
+# Industry-general concepts for wafer cleaning and photoresist stripping equipment
+
+@prefix semicont-07-wfe-clean-strip-tools: <https://semicont.org/ontology/07-wfe/08-clean-strip-tools#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+# Module Metadata
+semicont-07-wfe-clean-strip-tools: a owl:Ontology ;
+    rdfs:label "Clean Strip Tools Ontology" ;
+    rdfs:comment "Industry-general concepts for wafer cleaning and photoresist stripping equipment" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+    dc:source "Public semiconductor engineering literature and industry-standard cleaning/stripping classifications" ;
+    dc:rights "Fair use: industry-general clean/strip concepts" ;
+    prov:wasInformedBy "Model synthesis of public domain semiconductor cleaning knowledge" ;
+    prov:hadPrimarySource <https://en.wikipedia.org/wiki/Semiconductor_device_fabrication#Wafer_cleaning> ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Clean Strip Equipment
+semicont-07-wfe-clean-strip-tools:CleanStripEquipment a owl:Class ;
+    rdfs:label "Clean Strip Equipment" ;
+    rdfs:comment "Equipment for wafer cleaning and photoresist stripping" ;
+    rdfs:subClassOf semicont-shared:Equipment ;
+    rdfs:isDefinedBy semicont-07-wfe-clean-strip-tools: ;
+    dc:source "Public domain semiconductor equipment taxonomy" ;
+    dc:rights "Fair use: generic clean/strip equipment concept" ;
+    prov:wasInformedBy "Industry-standard wafer cleaning equipment classifications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Dry Strip Equipment
+semicont-07-wfe-clean-strip-tools:DryStripEquipment a owl:Class ;
+    rdfs:label "Dry Strip Equipment" ;
+    rdfs:comment "Equipment for dry photoresist stripping" ;
+    rdfs:subClassOf semicont-07-wfe-clean-strip-tools:CleanStripEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-clean-strip-tools: ;
+    dc:source "Public domain semiconductor cleaning equipment classification" ;
+    dc:rights "Fair use: generic dry strip equipment concept" ;
+    prov:wasInformedBy "Industry-standard dry cleaning process equipment" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-clean-strip-tools:OxygenAshingSystem a owl:Class ;
+    rdfs:label "Oxygen Ashing System" ;
+    rdfs:comment "System for photoresist removal using oxygen plasma" ;
+    rdfs:subClassOf semicont-07-wfe-clean-strip-tools:DryStripEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-clean-strip-tools: ;
+    dc:source "Public domain semiconductor cleaning literature" ;
+    dc:rights "Fair use: generic oxygen ashing concept" ;
+    prov:wasInformedBy "Industry-standard plasma ashing equipment" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-clean-strip-tools:HydrogenStripSystem a owl:Class ;
+    rdfs:label "Hydrogen Strip System" ;
+    rdfs:comment "System for photoresist removal using hydrogen chemistry" ;
+    rdfs:subClassOf semicont-07-wfe-clean-strip-tools:DryStripEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-clean-strip-tools: ;
+    dc:source "Public domain semiconductor cleaning literature" ;
+    dc:rights "Fair use: generic hydrogen strip concept" ;
+    prov:wasInformedBy "Industry-standard hydrogen-based cleaning systems" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Wet Clean Equipment
+semicont-07-wfe-clean-strip-tools:WetCleanEquipment a owl:Class ;
+    rdfs:label "Wet Clean Equipment" ;
+    rdfs:comment "Equipment for wet chemical cleaning" ;
+    rdfs:subClassOf semicont-07-wfe-clean-strip-tools:CleanStripEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-clean-strip-tools: ;
+    dc:source "Public domain semiconductor cleaning equipment classification" ;
+    dc:rights "Fair use: generic wet clean equipment concept" ;
+    prov:wasInformedBy "Industry-standard wet cleaning process equipment" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-clean-strip-tools:RCAClean a owl:Class ;
+    rdfs:label "RCA Clean" ;
+    rdfs:comment "RCA cleaning process equipment" ;
+    rdfs:subClassOf semicont-07-wfe-clean-strip-tools:WetCleanEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-clean-strip-tools: ;
+    dc:source "Public domain semiconductor cleaning literature" ;
+    dc:rights "Fair use: generic RCA clean concept" ;
+    prov:wasInformedBy "Industry-standard RCA cleaning processes" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Process Parameters
+semicont-07-wfe-clean-strip-tools:hasProcessTemperature a owl:DatatypeProperty ;
+    rdfs:label "has process temperature" ;
+    rdfs:comment "Process temperature in Celsius" ;
+    rdfs:domain semicont-07-wfe-clean-strip-tools:CleanStripEquipment ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-clean-strip-tools: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-clean-strip-tools:hasProcessTime a owl:DatatypeProperty ;
+    rdfs:label "has process time" ;
+    rdfs:comment "Process duration in minutes" ;
+    rdfs:domain semicont-07-wfe-clean-strip-tools:CleanStripEquipment ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy semicont-07-wfe-clean-strip-tools: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-clean-strip-tools:hasChemicalConcentration a owl:DatatypeProperty ;
+    rdfs:label "has chemical concentration" ;
+    rdfs:comment "Chemical concentration in percent" ;
+    rdfs:domain semicont-07-wfe-clean-strip-tools:WetCleanEquipment ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy semicont-07-wfe-clean-strip-tools: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Equipment Properties
+semicont-07-wfe-clean-strip-tools:hasWaferCapacity a owl:DatatypeProperty ;
+    rdfs:label "has wafer capacity" ;
+    rdfs:comment "Number of wafers processed per batch" ;
+    rdfs:domain semicont-07-wfe-clean-strip-tools:CleanStripEquipment ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-clean-strip-tools: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .

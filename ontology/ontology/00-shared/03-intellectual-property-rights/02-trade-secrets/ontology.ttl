@@ -1,0 +1,26 @@
+# Semicont Ontology Module: 00-shared/03-intellectual-property-rights/02-trade-secrets
+
+@prefix semicont-00-shared-03-intellectual-property-rights-02-trade-secrets: <https://semicont.org/ontology/00-shared/03-intellectual-property-rights/02-trade-secrets/#> .
+@prefix semicont-00-shared-03-intellectual-property-rights: <https://semicont.org/ontology/00-shared/03-intellectual-property-rights/#> .
+@prefix semicont-core: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-00-shared-03-intellectual-property-rights-02-trade-secrets: a owl:Ontology ;
+    rdfs:label "trade secrets ontology" ;
+    rdfs:comment "Semantic module for trade secrets in the semiconductor ontology." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+        dc:source "Industry-general knowledge of 00 shared 03 intellectual property rights 02 trade secrets" ;
+    dc:rights "Fair use: publicly known industry concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-00-shared-03-intellectual-property-rights-02-trade-secrets:TradeSecretsConcept a owl:Class ;
+    rdfs:label "trade secrets" ;
+    rdfs:comment "Concept for trade secrets; specialized under intellectual property rights." ;
+    rdfs:subClassOf semicont-00-shared-03-intellectual-property-rights:IntellectualPropertyRightsConcept ;
+    rdfs:isDefinedBy semicont-00-shared-03-intellectual-property-rights-02-trade-secrets: .

@@ -1,0 +1,26 @@
+# Semicont Ontology Module: 05-foundry-idm/lot-genealogy/entities/reticle
+
+@prefix semicont-05-foundry-idm-lot-genealogy-entities-reticle: <https://semicont.org/ontology/05-foundry-idm/03-lot-genealogy/00-entities/02-reticle#> .
+@prefix semicont-05-foundry-idm-lot-genealogy-entities: <https://semicont.org/ontology/05-foundry-idm/03-lot-genealogy/00-entities#> .
+@prefix semicont-core: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-05-foundry-idm-lot-genealogy-entities-reticle: a owl:Ontology ;
+    rdfs:label "reticle ontology" ;
+    rdfs:comment "Semantic module for reticle in the semiconductor ontology." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+        dc:source "Industry-general knowledge of 05 foundry idm 03 lot genealogy 00 entities 02 reticle" ;
+    dc:rights "Fair use: publicly known industry concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-05-foundry-idm-lot-genealogy-entities-reticle:ReticleEntity a owl:Class ;
+    rdfs:label "reticle" ;
+    rdfs:comment "Concept for reticle; specialized under entities." ;
+    rdfs:subClassOf semicont-05-foundry-idm-lot-genealogy-entities:LotGenealogyEntity ;
+    rdfs:isDefinedBy semicont-05-foundry-idm-lot-genealogy-entities-reticle: .

@@ -1,0 +1,171 @@
+# Material Suppliers Ontology
+# Semiconductor material suppliers and supply chain relationships
+
+@prefix semicont-08-materials-06-suppliers: <https://semicont.org/ontology/08-materials/06-suppliers/#> .
+@prefix semicont-08-materials: <https://semicont.org/ontology/08-materials/#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix semicont-standards: <https://semicont.org/ontology/01-standards-reference#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+semicont-08-materials-06-suppliers: a owl:Ontology ;
+    rdfs:label "Material Suppliers Ontology" ;
+    rdfs:comment "Semiconductor material suppliers and supply chain relationships" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/08-materials> ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+    dc:source "Public industry knowledge of semiconductor material suppliers and supply chain" ;
+    dc:rights "Fair use: publicly known supplier information and industry relationships" ;
+    prov:wasInformedBy "Industry knowledge of semiconductor material supply chain" ;
+    prov:hadPrimarySource <https://www.semi.org/en/products-services/standards/materials> ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date ;
+    # Scope and maturity metadata
+    semicont-08-materials:scopeNote """
+        SCOPE: Semiconductor material suppliers and supply chain relationships
+        - Includes: Material supplier categories, supply chain roles, general industry structure
+        - Excludes: Proprietary supplier agreements, pricing information, confidential relationships
+        - Depth limit: Industry-general supplier information, no trade secret data
+        """@en ;
+    semicont-08-materials:maturityLevel semicont-08-materials:curated .
+
+# Supplier Categories
+semicont-08-materials-06-suppliers:SubstrateSupplier a owl:Class ;
+    rdfs:label "Substrate Supplier" ;
+    rdfs:comment "Supplier of semiconductor substrates (wafers)" ;
+    rdfs:subClassOf semicont-08-materials:MaterialSupplier ;
+    rdfs:isDefinedBy semicont-08-materials-06-suppliers: ;
+    prov:wasInformedBy "Industry knowledge of substrate supply chain" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-06-suppliers:ChemicalSupplier a owl:Class ;
+    rdfs:label "Chemical Supplier" ;
+    rdfs:comment "Supplier of semiconductor chemicals and gases" ;
+    rdfs:subClassOf semicont-08-materials:MaterialSupplier ;
+    rdfs:isDefinedBy semicont-08-materials-06-suppliers: ;
+    prov:wasInformedBy "Industry knowledge of chemical supply chain" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-06-suppliers:MetalSupplier a owl:Class ;
+    rdfs:label "Metal Supplier" ;
+    rdfs:comment "Supplier of metals and sputtering targets" ;
+    rdfs:subClassOf semicont-08-materials:MaterialSupplier ;
+    rdfs:isDefinedBy semicont-08-materials-06-suppliers: ;
+    prov:wasInformedBy "Industry knowledge of metal supply chain" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-06-suppliers:EquipmentSupplier a owl:Class ;
+    rdfs:label "Equipment Supplier" ;
+    rdfs:comment "Supplier of semiconductor manufacturing equipment" ;
+    rdfs:subClassOf semicont-shared:Actor ;
+    rdfs:isDefinedBy semicont-08-materials-06-suppliers: ;
+    prov:wasInformedBy "Industry knowledge of equipment supply chain" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Supply Chain Properties
+semicont-08-materials-06-suppliers:hasSupplyRegion a owl:DatatypeProperty ;
+    rdfs:label "has supply region" ;
+    rdfs:comment "Geographic region where supplier operates" ;
+    rdfs:domain semicont-08-materials:MaterialSupplier ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy semicont-08-materials-06-suppliers: ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-06-suppliers:hasCertification a owl:DatatypeProperty ;
+    rdfs:label "has certification" ;
+    rdfs:comment "Quality certifications held by supplier" ;
+    rdfs:domain semicont-08-materials:MaterialSupplier ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy semicont-08-materials-06-suppliers: ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-06-suppliers:suppliesMaterial a owl:ObjectProperty ;
+    rdfs:label "supplies material" ;
+    rdfs:comment "Materials supplied by this supplier" ;
+    rdfs:domain semicont-08-materials:MaterialSupplier ;
+    rdfs:range semicont-08-materials:SemiconductorMaterial ;
+    rdfs:isDefinedBy semicont-08-materials-06-suppliers: ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-06-suppliers:isTierOne a owl:DatatypeProperty ;
+    rdfs:label "is tier one" ;
+    rdfs:comment "Indicates if supplier is a tier-one supplier" ;
+    rdfs:domain semicont-08-materials:MaterialSupplier ;
+    rdfs:range xsd:boolean ;
+    rdfs:isDefinedBy semicont-08-materials-06-suppliers: ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Supply Chain Relationships
+semicont-08-materials-06-suppliers:hasSupplier a owl:ObjectProperty ;
+    rdfs:label "has supplier" ;
+    rdfs:comment "Supplier relationship" ;
+    rdfs:domain semicont-shared:Actor ;
+    rdfs:range semicont-08-materials:MaterialSupplier ;
+    rdfs:isDefinedBy semicont-08-materials-06-suppliers: ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-06-suppliers:hasAlternativeSupplier a owl:ObjectProperty ;
+    rdfs:label "has alternative supplier" ;
+    rdfs:comment "Alternative supplier for risk mitigation" ;
+    rdfs:domain semicont-shared:Actor ;
+    rdfs:range semicont-08-materials:MaterialSupplier ;
+    rdfs:isDefinedBy semicont-08-materials-06-suppliers: ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# SHACL Shapes
+semicont-08-materials-06-suppliers:MaterialSupplierShape a sh:NodeShape ;
+    sh:targetClass semicont-08-materials:MaterialSupplier ;
+    sh:property [
+        sh:path semicont-08-materials-06-suppliers:suppliesMaterial ;
+        sh:minCount 1 ;
+        sh:message "Material supplier must supply at least one material" ;
+        sh:severity sh:Violation
+    ] .
+
+# Example Supplier Categories (Industry-general)
+semicont-08-materials-06-suppliers:SiliconWaferSupplier a owl:NamedIndividual , semicont-08-materials-06-suppliers:SubstrateSupplier ;
+    rdfs:label "Silicon Wafer Supplier" ;
+    rdfs:comment "Supplier of silicon wafers for semiconductor manufacturing" ;
+    semicont-08-materials-06-suppliers:hasSupplyRegion "Global" ;
+    semicont-08-materials-06-suppliers:hasCertification "ISO 9001" ;
+    semicont-08-materials-06-suppliers:isTierOne true ;
+    prov:wasInformedBy "Industry knowledge of silicon wafer supply chain" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-06-suppliers:SpecialtyGasSupplier a owl:NamedIndividual , semicont-08-materials-06-suppliers:ChemicalSupplier ;
+    rdfs:label "Specialty Gas Supplier" ;
+    rdfs:comment "Supplier of high-purity gases for semiconductor processes" ;
+    semicont-08-materials-06-suppliers:hasSupplyRegion "Global" ;
+    semicont-08-materials-06-suppliers:hasCertification "ISO 9001" ;
+    semicont-08-materials-06-suppliers:isTierOne true ;
+    prov:wasInformedBy "Industry knowledge of specialty gas supply" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-06-suppliers:SputteringTargetSupplier a owl:NamedIndividual , semicont-08-materials-06-suppliers:MetalSupplier ;
+    rdfs:label "Sputtering Target Supplier" ;
+    rdfs:comment "Supplier of metal targets for PVD processes" ;
+    semicont-08-materials-06-suppliers:hasSupplyRegion "Global" ;
+    semicont-08-materials-06-suppliers:hasCertification "ISO 9001" ;
+    semicont-08-materials-06-suppliers:isTierOne true ;
+    prov:wasInformedBy "Industry knowledge of sputtering target supply" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# External Mappings
+semicont-08-materials-06-suppliers:MaterialSupplier rdfs:seeAlso <https://www.semi.org/en/products-services/standards> .

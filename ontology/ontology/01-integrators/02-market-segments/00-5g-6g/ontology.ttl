@@ -1,0 +1,26 @@
+# Semicont Ontology Module: 01-integrators/02-market-segments/00-5g-6g
+
+@prefix semicont-01-integrators-02-market-segments-00-5g-6g: <https://semicont.org/ontology/01-integrators/02-market-segments/00-5g-6g/#> .
+@prefix semicont-01-integrators-02-market-segments: <https://semicont.org/ontology/01-integrators/02-market-segments/#> .
+@prefix semicont-core: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-01-integrators-02-market-segments-00-5g-6g: a owl:Ontology ;
+    rdfs:label "5g 6g ontology" ;
+    rdfs:comment "Semantic module for 5g 6g in the semiconductor ontology." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+        dc:source "Public domain knowledge of system integration" ;
+    dc:rights "Fair use: general integrator concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-01-integrators-02-market-segments-00-5g-6g:FiveGSixGConcept a owl:Class ;
+    rdfs:label "5g 6g" ;
+    rdfs:comment "Concept for 5g 6g; specialized under market segments." ;
+    rdfs:subClassOf semicont-01-integrators-02-market-segments:MarketSegmentsConcept ;
+    rdfs:isDefinedBy semicont-01-integrators-02-market-segments-00-5g-6g: .

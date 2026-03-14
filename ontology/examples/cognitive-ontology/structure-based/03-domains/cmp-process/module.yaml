@@ -1,0 +1,53 @@
+# CMP Process Module
+# Chemical Mechanical Planarization domain ontology
+
+module:
+  id: "cmp-process"
+  name: "CMP Process Ontology"
+  namespace: "semicont-cmp"
+  version: "0.1.0"
+  description: "Chemical Mechanical Planarization processes and parameters"
+  imports:
+    - "semicont-core"
+  domain: "semiconductor-manufacturing"
+  subdomain: "cmp"
+
+metadata:
+  created: "2026-03-08"
+  modified: "2026-03-08"
+  source: "synthetic"
+  model: "kimi-k2-0905-preview"
+  confidence: "high"
+
+components:
+  classes:
+    - "CMPProcess"
+    - "PolishingStep"
+    - "Slurry"
+    - "Pad"
+    - "Conditioner"
+
+  properties:
+    - "hasRemovalRate"
+    - "hasPressure"
+    - "hasVelocity"
+    - "usesSlurry"
+    - "usesPad"
+
+  constraints:
+    - "removal-rate-range"
+    - "pressure-limits"
+    - "velocity-constraints"
+
+relationships:
+  - type: "extends"
+    target: "semicont-core:Process"
+    description: "CMP is a type of manufacturing process"
+
+exports:
+  - format: "turtle"
+    file: "../export/cmp-process.ttl"
+  - format: "shacl"
+    file: "../constraints/shapes/cmp-process.shacl"
+  - format: "sparql"
+    file: "../constraints/sparql/cmp-process.rq"

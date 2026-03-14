@@ -1,0 +1,26 @@
+# Semicont Ontology Module: 06-osat-packaging-test/03-reliability-testing/03-humidity-testing
+
+@prefix semicont-06-osat-packaging-test-03-reliability-testing-03-humidity-testing: <https://semicont.org/ontology/06-osat-packaging-test/03-reliability-testing/03-humidity-testing/#> .
+@prefix semicont-06-osat-packaging-test-03-reliability-testing: <https://semicont.org/ontology/06-osat-packaging-test/03-reliability-testing/#> .
+@prefix semicont-core: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-06-osat-packaging-test-03-reliability-testing-03-humidity-testing: a owl:Ontology ;
+    rdfs:label "humidity testing ontology" ;
+    rdfs:comment "Semantic module for humidity testing in the semiconductor ontology." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+        dc:source "Industry-general knowledge of 06 osat packaging test 03 reliability testing 03 humidity testing" ;
+    dc:rights "Fair use: publicly known industry concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-06-osat-packaging-test-03-reliability-testing-03-humidity-testing:HumidityTestingConcept a owl:Class ;
+    rdfs:label "humidity testing" ;
+    rdfs:comment "Concept for humidity testing; specialized under reliability testing." ;
+    rdfs:subClassOf semicont-06-osat-packaging-test-03-reliability-testing:ReliabilityTestingConcept ;
+    rdfs:isDefinedBy semicont-06-osat-packaging-test-03-reliability-testing-03-humidity-testing: .
