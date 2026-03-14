@@ -20,12 +20,12 @@ Key points:
 ## Quick Start
 
 1. Clone the repository.
-2. Install dependencies with `pip install -r model/requirements.txt`.
+2. Install dependencies with `make -C model install`.
 3. Configure model and dataset paths in:
    - `model/configs/training-config.yaml`
    - `model/configs/inference-config.yaml`
-4. Run training with `python model/training/train.py`.
-5. Run inference with `python model/inference/raw_inference.py`.
+4. Run training with `make -C model train`.
+5. Run inference with `make -C model infer`.
 
 For detailed environment setup, see [INSTALL.md](/Users/ctn/src/aitomatic/semikong/model/INSTALL.md).
 

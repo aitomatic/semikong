@@ -26,7 +26,7 @@ This documentation dedicated to instruct on how to setup the environment for tra
 ~~~
 conda create --name semikong-env python=3.11
 conda activate semikong-env
-pip install -r model/requirements.txt
+make -C model install
 ~~~
 
 ## Training
@@ -36,8 +36,8 @@ pip install -r model/requirements.txt
 3. Create a foler `model` which contains the base model
 4. Create a folder `data` which contains the dataset
 5. Replace the path to the model and dataset folder in `model/configs/training-config.yaml` and `model/configs/inference-config.yaml`
-6. Run `python model/training/train.py`
-7. Run `python model/inference/raw_inference.py`
+6. Run `make -C model train`
+7. Run `make -C model infer`
 ~~~
 
 ## Inference

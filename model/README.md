@@ -31,10 +31,24 @@ The top-level repository is being organized around two major areas:
 ## Start Here
 
 - Setup and environment: [INSTALL.md](/Users/ctn/src/aitomatic/semikong/model/INSTALL.md)
-- Training entrypoint: [training/train.py](/Users/ctn/src/aitomatic/semikong/model/training/train.py)
-- Raw inference entrypoint: [inference/raw_inference.py](/Users/ctn/src/aitomatic/semikong/model/inference/raw_inference.py)
+- Commands: [Makefile](/Users/ctn/src/aitomatic/semikong/model/Makefile)
 - Training config: [configs/training-config.yaml](/Users/ctn/src/aitomatic/semikong/model/configs/training-config.yaml)
 - Inference config: [configs/inference-config.yaml](/Users/ctn/src/aitomatic/semikong/model/configs/inference-config.yaml)
+
+## How To Use
+
+From the repository root:
+
+```bash
+make -C model install
+make -C model train
+make -C model infer
+```
+
+If you need to change paths or parameters first, edit:
+
+- [configs/training-config.yaml](/Users/ctn/src/aitomatic/semikong/model/configs/training-config.yaml)
+- [configs/inference-config.yaml](/Users/ctn/src/aitomatic/semikong/model/configs/inference-config.yaml)
 
 ## Documentation
 

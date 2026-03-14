@@ -1,39 +1,71 @@
 # SemiKong
 
-SemiKong is being organized as a combined semiconductor AI repository with two primary areas:
+SemiKong is an open-source semiconductor AI repository being organized around two complementary assets:
 
-- `model/` for the semiconductor language model, training, inference, configs, and model-specific documentation
-- `ontology/` for semiconductor ontology and knowledge-graph assets that will be merged in from `semicont`
+- a semiconductor-focused language model
+- a semiconductor ontology and knowledge graph
 
-## Repository Layout
+The intent is to make this repository the shared home for both the model work and the structured domain knowledge that can support it.
 
-```text
-.
-|-- model/
-|   |-- README.md
-|   |-- INSTALL.md
-|   |-- common/
-|   |-- configs/
-|   |-- figures/
-|   |-- inference/
-|   |-- references/
-|   |-- training/
-|   |-- requirements.txt
-|   `-- requirements-dev.txt
-|-- ontology/
-|   `-- README.md
-|-- shared/
-`-- tests/
-```
+SemiKong was developed in connection with the [AI Alliance](https://aialliance.org), an open community focused on open and responsible AI. The project reflects that open collaboration model while focusing specifically on semiconductor models and ontology assets.
+
+## What "Better" Means
+
+For a top-level README, "better" usually means:
+
+- it explains what the repository is in one screen without making the reader dig
+- it makes the directory structure and ownership obvious
+- it helps a new contributor find the right entrypoint quickly
+- it distinguishes current state from planned state
+- it documents the working branch and release flow clearly
+
+That is the goal of this README.
+
+## Repository Areas
+
+- [model/](/Users/ctn/src/aitomatic/semikong/model): the semiconductor model work
+- [ontology/](/Users/ctn/src/aitomatic/semikong/ontology): the semiconductor ontology and knowledge-graph work
+
+## Principal
+
+- [Christopher Nguyen](https://github.com/ctn) (`ctn@aitomatic.com`)
 
 ## Current Status
 
-- The existing SEMIKONG model assets and scripts now live under `model/`.
-- `ontology/` is reserved for the semiconductor ontology merge.
-- `shared/` is reserved for code or assets used by both areas.
+- The original SEMIKONG model project now lives under [model/](/Users/ctn/src/aitomatic/semikong/model).
+- The ontology area is reserved for the planned merge from `aitomatic/semicont`.
+- The repository is in a transitional phase from a single-project layout to a multi-area layout.
 
-## Where To Start
+## Start Here
 
-- Model documentation: [model/README.md](/Users/ctn/src/aitomatic/semikong/model/README.md)
-- Model setup guide: [model/INSTALL.md](/Users/ctn/src/aitomatic/semikong/model/INSTALL.md)
-- Ontology landing page: [ontology/README.md](/Users/ctn/src/aitomatic/semikong/ontology/README.md)
+- model overview: [model/README.md](/Users/ctn/src/aitomatic/semikong/model/README.md)
+- ontology overview: [ontology/README.md](/Users/ctn/src/aitomatic/semikong/ontology/README.md)
+
+## Working Model
+
+This repository currently uses:
+
+- `develop` for active development work
+- `main` as the promotion branch from `develop`
+- `stable` as the protected default branch
+
+Promotion flow:
+
+- feature branches should merge into `develop`
+- `develop -> main` happens by pull request
+- `main -> stable` happens by pull request
+
+## Roadmap
+
+Near-term repository goals:
+
+- merge the ontology assets from `aitomatic/semicont` into `ontology/`
+- define what belongs in `shared/` versus remaining local to `model/` or `ontology/`
+- add integration tests for workflows that combine the model and ontology
+- improve the root-level docs as the multi-area architecture becomes more concrete
+
+## License
+
+The repository code and checked-in contents are distributed under the [MIT License](/Users/ctn/src/aitomatic/semikong/LICENSE).
+
+Referenced model weights, datasets, and third-party assets may be governed by separate upstream licenses.
