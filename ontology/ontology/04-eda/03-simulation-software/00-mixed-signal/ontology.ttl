@@ -1,0 +1,26 @@
+# Semicont Ontology Module: 04-eda/03-simulation-software/00-mixed-signal
+
+@prefix semicont-04-eda-03-simulation-software-00-mixed-signal: <https://semicont.org/ontology/04-eda/03-simulation-software/00-mixed-signal/#> .
+@prefix semicont-04-eda-03-simulation-software: <https://semicont.org/ontology/04-eda/03-simulation-software/#> .
+@prefix semicont-core: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-04-eda-03-simulation-software-00-mixed-signal: a owl:Ontology ;
+    rdfs:label "mixed signal ontology" ;
+    rdfs:comment "Semantic module for mixed signal in the semiconductor ontology." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+        dc:source "Public domain knowledge of EDA tools and design automation" ;
+    dc:rights "Fair use: general EDA tool concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-04-eda-03-simulation-software-00-mixed-signal:MixedSignalConcept a owl:Class ;
+    rdfs:label "mixed signal" ;
+    rdfs:comment "Concept for mixed signal; specialized under simulation software." ;
+    rdfs:subClassOf semicont-04-eda-03-simulation-software:SimulationSoftwareConcept ;
+    rdfs:isDefinedBy semicont-04-eda-03-simulation-software-00-mixed-signal: .

@@ -1,0 +1,22 @@
+# Process Control Limits
+# Enhanced rules with explicit linking for KS-2
+
+process_control_limits:
+  description: "Process control limits with explicit context links"
+
+  metadata:
+    version: "1.0.0"
+    last_updated: "2026-03-08"
+    source: "empirical_data"
+    confidence: 0.89
+    based_on: "2_years_of_data"
+
+  oxide_polish:
+    removal_rate:
+      value: 600
+      tolerance: ±50
+      unit: nm/min
+      confidence: 0.92
+      data_points: 12543
+      links:
+        story:

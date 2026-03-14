@@ -1,0 +1,630 @@
+# Etch Systems Ontology
+# Shared spine for industry-general semiconductor etch systems.
+
+@prefix semicont-07-wfe-etch-systems: <https://semicont.org/ontology/07-wfe/06-etch-systems#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix semicont-standards: <https://semicont.org/ontology/01-standards-reference#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+semicont-07-wfe-etch-systems: a owl:Ontology ;
+    rdfs:label "Etch Systems Ontology" ;
+    rdfs:comment "Shared semantics for etch systems, settings, lifecycle, validation, and cross-branch interoperability." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+    owl:imports <https://semicont.org/ontology/01-standards-reference> ;
+    dc:source "Public process and standards references from SEMI, Fraunhofer ISIT, Oxford Instruments Plasma Technology, and Stanford Nanofabrication Facility." ;
+    dc:rights "Fair use: paraphrased, industry-general process and equipment concepts; no proprietary recipes or company-internal implementation details." ;
+    prov:hadPrimarySource <https://www.semi.org/en/products-services/standards> ;
+    prov:hadPrimarySource <https://store-us.semi.org/products/e01000-semi-e10-specification-for-definition-and-measurement-of-equipment-reliability-availability-and-maintainability-ram-and-utilization> ;
+    prov:hadPrimarySource <https://store-us.semi.org/products/s00200-semi-s2-environmental-health-and-safety-guideline-for-semiconductor-manufacturing-equipment> ;
+    prov:hadPrimarySource <https://www.isit.fraunhofer.de/en/technology/micro-manufacturing-processes/processes-on-wafer-level/drie.html> ;
+    prov:hadPrimarySource <https://plasma.oxinst.com/technology/icp-etching> ;
+    prov:hadPrimarySource <https://snfguide.stanford.edu/guide/equipment/purpose/etching/wet-etching> ;
+    prov:wasInformedBy "Cross-source synthesis of public etch process descriptions, standards context, and operational control patterns." ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+# Annotation properties
+semicont-07-wfe-etch-systems:scopeNote a owl:AnnotationProperty ;
+    rdfs:label "scope note" ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:maturityLevel a owl:AnnotationProperty ;
+    rdfs:label "maturity level" ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:validated a owl:NamedIndividual ;
+    rdfs:label "validated" ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems: semicont-07-wfe-etch-systems:scopeNote "Shared etch semantics across ALE, plasma, and wet branches. Branch-specific process/equipment details are defined in child modules."@en ;
+    semicont-07-wfe-etch-systems:maturityLevel semicont-07-wfe-etch-systems:validated .
+
+# Supported Use Cases Documentation
+semicont-07-wfe-etch-systems:supportedUseCases a owl:AnnotationProperty ;
+    rdfs:label "Supported Use Cases" ;
+    rdfs:comment "Enumerates the practical applications and problems this ontology helps solve."@en ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems: semicont-07-wfe-etch-systems:supportedUseCases """
+    1. Equipment Classification & Selection - Classify etch systems by type and select appropriate equipment for specific processes
+    2. Process Recipe Design & Validation - Design etch recipes with parameters and validate against constraints
+    3. Quality Specification Management - Define and track etch quality targets (sidewall angle, CD bias, uniformity)
+    4. Process Stage Sequencing - Plan and monitor etch process flow through defined stages
+    5. Equipment State & Lifecycle Management - Track equipment status and plan maintenance activities
+    6. Capability-Based Equipment Matching - Match equipment capabilities to process requirements
+    7. Cross-Branch Interoperability - Ensure consistency across ALE, plasma, and wet etch technologies
+    8. Recipe Qualification & Comparison - Qualify new recipes against existing ones
+    9. Engineering Unit Standardization - Ensure consistent units across equipment and processes
+    10. Process Integration Safety - Verify processes meet integration constraints (thermal budget, charging damage)
+"""@en .
+
+# Shared core taxonomy
+semicont-07-wfe-etch-systems:EtchSystem a owl:Class ;
+    rdfs:label "Etch System" ;
+    rdfs:subClassOf semicont-shared:Equipment ;
+    dc:source "SEMI and public equipment taxonomy references for fab tooling categories." ;
+    prov:wasInformedBy "Shared parent class for dry and wet etch branches." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:DryEtchSystem a owl:Class ;
+    rdfs:label "Dry Etch System" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchSystem ;
+    dc:source "Public plasma and ion-assisted etch references." ;
+    prov:wasInformedBy "Gas-phase etch branch parent." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:WetEtchSystem a owl:Class ;
+    rdfs:label "Wet Etch System" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchSystem ;
+    dc:source "Public wet bench etch references." ;
+    prov:wasInformedBy "Liquid-phase etch branch parent." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:EtchProcess a owl:Class ;
+    rdfs:label "Etch Process" ;
+    rdfs:subClassOf semicont-shared:ProcessStep ;
+    dc:source "Public microfabrication etch process descriptions." ;
+    prov:wasInformedBy "Shared parent process class across etch branches." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:DryEtchProcess a owl:Class ;
+    rdfs:label "Dry Etch Process" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchProcess ;
+    dc:source "Public plasma and ion-assisted dry etch references." ;
+    prov:wasInformedBy "Gas-phase etch process branch parent." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:WetEtchProcess a owl:Class ;
+    rdfs:label "Wet Etch Process" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchProcess ;
+    dc:source "Public wet etch references." ;
+    prov:wasInformedBy "Liquid-phase etch process branch parent." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+# Shared stage semantics
+semicont-07-wfe-etch-systems:EtchStage a owl:Class ;
+    rdfs:label "Etch Stage" ;
+    rdfs:subClassOf semicont-shared:Thing ;
+    dc:source "Public etch process sequencing references." ;
+    prov:wasInformedBy "Stage decomposition used for process planning and control." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:MaskPreparationStage a owl:Class ;
+    rdfs:label "Mask Preparation Stage" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchStage ;
+    dc:source "Public lithography-to-etch handoff references." ;
+    prov:wasInformedBy "Pre-etch readiness stage." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:MainEtchStage a owl:Class ;
+    rdfs:label "Main Etch Stage" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchStage ;
+    dc:source "Public etch sequence references." ;
+    prov:wasInformedBy "Primary pattern transfer stage." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:OverEtchStage a owl:Class ;
+    rdfs:label "Over-Etch Stage" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchStage ;
+    dc:source "Public process control references for complete clear behavior." ;
+    prov:wasInformedBy "Controlled over-etch stage." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:EndpointDetectionStage a owl:Class ;
+    rdfs:label "Endpoint Detection Stage" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchStage ;
+    dc:source "Public endpointing references in plasma etch equipment pages." ;
+    prov:wasInformedBy "Endpoint decision stage." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:PostEtchCleanStage a owl:Class ;
+    rdfs:label "Post-Etch Clean Stage" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchStage ;
+    dc:source "Public wet clean and post-etch handling references." ;
+    prov:wasInformedBy "Post-etch residue and surface conditioning stage." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+# Shared capability/constraint semantics
+semicont-07-wfe-etch-systems:EtchCapability a owl:Class ;
+    rdfs:label "Etch Capability" ;
+    rdfs:subClassOf semicont-shared:Metric ;
+    dc:source "Public etch process capability descriptions." ;
+    prov:wasInformedBy "Capability-as-metric pattern for equipment qualification." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:HighAspectRatioCapability a owl:Class ;
+    rdfs:label "High Aspect Ratio Capability" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchCapability ;
+    dc:source "Fraunhofer DRIE performance descriptions." ;
+    prov:wasInformedBy "Aspect ratio capability facet." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:HighSelectivityCapability a owl:Class ;
+    rdfs:label "High Selectivity Capability" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchCapability ;
+    dc:source "Public etch selectivity references." ;
+    prov:wasInformedBy "Selectivity capability facet." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:LowDamageCapability a owl:Class ;
+    rdfs:label "Low Damage Capability" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchCapability ;
+    dc:source "Public low-damage etch references." ;
+    prov:wasInformedBy "Damage mitigation capability facet." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:EtchConstraint a owl:Class ;
+    rdfs:label "Etch Constraint" ;
+    rdfs:subClassOf semicont-shared:Spec ;
+    dc:source "Public process integration and etch control references." ;
+    prov:wasInformedBy "Constraint class for integration-safe recipe design." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:MaterialCompatibilityConstraint a owl:Class ;
+    rdfs:label "Material Compatibility Constraint" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchConstraint ;
+    dc:source "Public wet and dry etch material compatibility references." ;
+    prov:wasInformedBy "Mask/film/substrate compatibility constraint." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:ThermalBudgetConstraint a owl:Class ;
+    rdfs:label "Thermal Budget Constraint" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchConstraint ;
+    dc:source "Public wafer process integration references." ;
+    prov:wasInformedBy "Thermal exposure bound." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:ChargingDamageConstraint a owl:Class ;
+    rdfs:label "Charging Damage Constraint" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchConstraint ;
+    dc:source "Public plasma etch and device damage references." ;
+    prov:wasInformedBy "Charge-induced device risk constraint." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+# Shared parameter/spec semantics
+semicont-07-wfe-etch-systems:EtchParameter a owl:Class ;
+    rdfs:label "Etch Parameter" ;
+    rdfs:subClassOf semicont-shared:Spec ;
+    dc:source "Public dry and wet etch operating parameter references." ;
+    prov:wasInformedBy "Recipe parameterization pattern for etch control." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:GasFlowSetpoint a owl:Class ;
+    rdfs:label "Gas Flow Setpoint" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchParameter ;
+    dc:source "Public gas-flow controlled etch references." ;
+    prov:wasInformedBy "Primary etch setpoint." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:ChamberPressureSetpoint a owl:Class ;
+    rdfs:label "Chamber Pressure Setpoint" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchParameter ;
+    dc:source "Public low-pressure etch references." ;
+    prov:wasInformedBy "Pressure control setpoint." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:SourceRFPowerSetpoint a owl:Class ;
+    rdfs:label "Source RF Power Setpoint" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchParameter ;
+    dc:source "Public ICP source power control references." ;
+    prov:wasInformedBy "Source power setpoint." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:BiasRFPowerSetpoint a owl:Class ;
+    rdfs:label "Bias RF Power Setpoint" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchParameter ;
+    dc:source "Public substrate bias control references." ;
+    prov:wasInformedBy "Bias power setpoint." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:ChuckTemperatureSetpoint a owl:Class ;
+    rdfs:label "Chuck Temperature Setpoint" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchParameter ;
+    dc:source "Public etch chuck temperature control references." ;
+    prov:wasInformedBy "Thermal setpoint." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:EtchDurationSetpoint a owl:Class ;
+    rdfs:label "Etch Duration Setpoint" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchParameter ;
+    dc:source "Public etch step timing references." ;
+    prov:wasInformedBy "Duration setpoint." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:ParameterRangeSpec a owl:Class ;
+    rdfs:label "Parameter Range Specification" ;
+    rdfs:subClassOf semicont-shared:Spec ;
+    dc:source "Public process window and control limit practices." ;
+    prov:wasInformedBy "Acceptable range model for setpoints and control windows." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:EtchRecipeSpec a owl:Class ;
+    rdfs:label "Etch Recipe Specification" ;
+    rdfs:subClassOf semicont-shared:Spec ;
+    dc:source "Public etch recipe control references." ;
+    prov:wasInformedBy "Recipe-level control and qualification model." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:EtchQualitySpec a owl:Class ;
+    rdfs:label "Etch Quality Specification" ;
+    rdfs:subClassOf semicont-shared:Spec ;
+    dc:source "Public etch quality and profile control references." ;
+    prov:wasInformedBy "Quality target class for etch acceptance criteria." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:SidewallAngleSpec a owl:Class ;
+    rdfs:label "Sidewall Angle Specification" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchQualitySpec ;
+    dc:source "Fraunhofer DRIE profile targets." ;
+    prov:wasInformedBy "Anisotropic profile quality target." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:CriticalDimensionBiasSpec a owl:Class ;
+    rdfs:label "Critical Dimension Bias Specification" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchQualitySpec ;
+    dc:source "Public pattern-transfer and CD control references." ;
+    prov:wasInformedBy "CD bias quality target." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:EtchUniformitySpec a owl:Class ;
+    rdfs:label "Etch Uniformity Specification" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchQualitySpec ;
+    dc:source "Public etch process control references." ;
+    prov:wasInformedBy "Uniformity quality target." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+# Shared measurement and unit semantics
+semicont-07-wfe-etch-systems:NumericMeasure a owl:Class ;
+    rdfs:label "Numeric Measure" ;
+    rdfs:subClassOf semicont-shared:Metric ;
+    dc:source "Engineering quantity modeling practice." ;
+    prov:wasInformedBy "Reusable quantity-value-unit pattern." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:EngineeringUnit a owl:Class ;
+    rdfs:label "Engineering Unit" ;
+    rdfs:subClassOf semicont-shared:Thing ;
+    dc:source "Public semiconductor process parameter unit usage." ;
+    prov:wasInformedBy "Controlled unit concept for parameter and metric values." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:sccm a owl:NamedIndividual , semicont-07-wfe-etch-systems:EngineeringUnit ; rdfs:label "sccm" .
+semicont-07-wfe-etch-systems:mTorr a owl:NamedIndividual , semicont-07-wfe-etch-systems:EngineeringUnit ; rdfs:label "mTorr" .
+semicont-07-wfe-etch-systems:watt a owl:NamedIndividual , semicont-07-wfe-etch-systems:EngineeringUnit ; rdfs:label "W" .
+semicont-07-wfe-etch-systems:degreeCelsius a owl:NamedIndividual , semicont-07-wfe-etch-systems:EngineeringUnit ; rdfs:label "degC" .
+semicont-07-wfe-etch-systems:nmPerMin a owl:NamedIndividual , semicont-07-wfe-etch-systems:EngineeringUnit ; rdfs:label "nm/min" .
+semicont-07-wfe-etch-systems:percent a owl:NamedIndividual , semicont-07-wfe-etch-systems:EngineeringUnit ; rdfs:label "%" .
+semicont-07-wfe-etch-systems:ratio a owl:NamedIndividual , semicont-07-wfe-etch-systems:EngineeringUnit ; rdfs:label "ratio" .
+
+# Chamber configuration facet
+semicont-07-wfe-etch-systems:EtchChamberConfiguration a owl:Class ;
+    rdfs:label "Etch Chamber Configuration" ;
+    rdfs:subClassOf semicont-shared:Thing ;
+    dc:source "Public etch platform architecture references." ;
+    prov:wasInformedBy "Chamber topology categories for equipment qualification." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:SingleChamberConfiguration a owl:Class ;
+    rdfs:label "Single Chamber Configuration" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchChamberConfiguration ;
+    dc:source "Public single-module etch architecture references." ;
+    prov:wasInformedBy "Single-chamber topology class for etch configuration." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:ClusterToolConfiguration a owl:Class ;
+    rdfs:label "Cluster Tool Configuration" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchChamberConfiguration ;
+    dc:source "Public cluster-tool architecture references." ;
+    prov:wasInformedBy "Multi-module cluster topology class for etch configuration." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+# Role semantics
+semicont-07-wfe-etch-systems:EtchOperationalRole a owl:Class ;
+    rdfs:label "Etch Operational Role" ;
+    rdfs:subClassOf semicont-shared:Actor ;
+    dc:source "Public fab operations role patterns." ;
+    prov:wasInformedBy "Role classes for operation, engineering, and maintenance semantics." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:EtchOperatorRole a owl:Class ;
+    rdfs:label "Etch Operator Role" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchOperationalRole ;
+    dc:source "Public fab operation role descriptions for production tool operation." ;
+    prov:wasInformedBy "Role for production execution and routine operation." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:EtchProcessEngineerRole a owl:Class ;
+    rdfs:label "Etch Process Engineer Role" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchOperationalRole ;
+    dc:source "Public process engineering role descriptions in semiconductor manufacturing." ;
+    prov:wasInformedBy "Role for recipe tuning, qualification, and process capability ownership." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:EtchEquipmentEngineerRole a owl:Class ;
+    rdfs:label "Etch Equipment Engineer Role" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchOperationalRole ;
+    dc:source "Public equipment engineering role descriptions in fab operations." ;
+    prov:wasInformedBy "Role for maintenance, uptime, and equipment-state ownership." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+# Lifecycle/state semantics
+semicont-07-wfe-etch-systems:EtchModuleState a owl:Class ;
+    rdfs:label "Etch Module State" ;
+    rdfs:subClassOf semicont-shared:Thing ;
+    dc:source "SEMI E10 context for equipment state and utilization semantics." ;
+    prov:wasInformedBy "Equipment RAM and module-state decomposition." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:ModuleReady a owl:Class ;
+    rdfs:label "Module Ready" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchModuleState ;
+    dc:source "SEMI E10 state context." ;
+    prov:wasInformedBy "Ready state for qualified etch operation." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:ModuleRunning a owl:Class ;
+    rdfs:label "Module Running" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchModuleState ;
+    dc:source "SEMI E10 state context." ;
+    prov:wasInformedBy "Running state during wafer processing." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:ModuleMaintenance a owl:Class ;
+    rdfs:label "Module Maintenance" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchModuleState ;
+    dc:source "SEMI E10 maintenance context." ;
+    prov:wasInformedBy "Maintenance state for planned or corrective interventions." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:ModuleOutOfControl a owl:Class ;
+    rdfs:label "Module Out Of Control" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:EtchModuleState ;
+    dc:source "SEMI E10 uptime/impairment context." ;
+    prov:wasInformedBy "State indicating process or equipment instability." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:RecipeQualificationState a owl:Class ;
+    rdfs:label "Recipe Qualification State" ;
+    rdfs:subClassOf semicont-shared:Thing ;
+    dc:source "Public process qualification lifecycle practices." ;
+    prov:wasInformedBy "Lifecycle state model for recipe release governance." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:RecipeDevelopment a owl:Class ;
+    rdfs:label "Recipe Development" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:RecipeQualificationState ;
+    dc:source "Public recipe development workflow references." ;
+    prov:wasInformedBy "Early-state recipe construction and tuning." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:RecipeQualified a owl:Class ;
+    rdfs:label "Recipe Qualified" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:RecipeQualificationState ;
+    dc:source "Public qualification workflow references." ;
+    prov:wasInformedBy "State after acceptance criteria are met." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:RecipeReleased a owl:Class ;
+    rdfs:label "Recipe Released" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:RecipeQualificationState ;
+    dc:source "Public manufacturing release workflow references." ;
+    prov:wasInformedBy "Production release state for approved recipes." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems:RecipeRetired a owl:Class ;
+    rdfs:label "Recipe Retired" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:RecipeQualificationState ;
+    dc:source "Public process lifecycle governance references." ;
+    prov:wasInformedBy "Retirement state for deprecated recipes." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+# Shared object properties
+semicont-07-wfe-etch-systems:usesEtchSystem a owl:ObjectProperty ;
+    rdfs:domain semicont-07-wfe-etch-systems:EtchProcess ;
+    rdfs:range semicont-07-wfe-etch-systems:EtchSystem .
+
+semicont-07-wfe-etch-systems:hasEtchStage a owl:ObjectProperty ;
+    rdfs:domain semicont-07-wfe-etch-systems:EtchProcess ;
+    rdfs:range semicont-07-wfe-etch-systems:EtchStage .
+
+semicont-07-wfe-etch-systems:hasCapability a owl:ObjectProperty ;
+    rdfs:domain semicont-07-wfe-etch-systems:EtchSystem ;
+    rdfs:range semicont-07-wfe-etch-systems:EtchCapability .
+
+semicont-07-wfe-etch-systems:hasConstraint a owl:ObjectProperty ;
+    rdfs:domain semicont-07-wfe-etch-systems:EtchProcess ;
+    rdfs:range semicont-07-wfe-etch-systems:EtchConstraint .
+
+semicont-07-wfe-etch-systems:hasSetpoint a owl:ObjectProperty ;
+    rdfs:domain semicont-07-wfe-etch-systems:EtchRecipeSpec ;
+    rdfs:range semicont-07-wfe-etch-systems:EtchParameter .
+
+semicont-07-wfe-etch-systems:hasAcceptableRange a owl:ObjectProperty ;
+    rdfs:domain semicont-07-wfe-etch-systems:EtchParameter ;
+    rdfs:range semicont-07-wfe-etch-systems:ParameterRangeSpec .
+
+semicont-07-wfe-etch-systems:hasProcessState a owl:ObjectProperty ;
+    rdfs:domain semicont-07-wfe-etch-systems:EtchRecipeSpec ;
+    rdfs:range semicont-07-wfe-etch-systems:RecipeQualificationState .
+
+semicont-07-wfe-etch-systems:hasModuleState a owl:ObjectProperty ;
+    rdfs:domain semicont-07-wfe-etch-systems:EtchSystem ;
+    rdfs:range semicont-07-wfe-etch-systems:EtchModuleState .
+
+semicont-07-wfe-etch-systems:hasChamberConfiguration a owl:ObjectProperty ;
+    rdfs:domain semicont-07-wfe-etch-systems:EtchSystem ;
+    rdfs:range semicont-07-wfe-etch-systems:EtchChamberConfiguration .
+
+semicont-07-wfe-etch-systems:hasMeasure a owl:ObjectProperty ;
+    rdfs:domain [ owl:unionOf ( semicont-07-wfe-etch-systems:EtchProcess semicont-07-wfe-etch-systems:EtchParameter semicont-07-wfe-etch-systems:EtchQualitySpec ) ] ;
+    rdfs:range semicont-07-wfe-etch-systems:NumericMeasure .
+
+semicont-07-wfe-etch-systems:hasUnit a owl:ObjectProperty ;
+    rdfs:domain semicont-07-wfe-etch-systems:NumericMeasure ;
+    rdfs:range semicont-07-wfe-etch-systems:EngineeringUnit .
+
+semicont-07-wfe-etch-systems:allowedNextModuleState a owl:ObjectProperty ;
+    rdfs:domain semicont-07-wfe-etch-systems:EtchModuleState ;
+    rdfs:range semicont-07-wfe-etch-systems:EtchModuleState .
+
+semicont-07-wfe-etch-systems:allowedNextRecipeState a owl:ObjectProperty ;
+    rdfs:domain semicont-07-wfe-etch-systems:RecipeQualificationState ;
+    rdfs:range semicont-07-wfe-etch-systems:RecipeQualificationState .
+
+semicont-07-wfe-etch-systems:operatesEtchSystem a owl:ObjectProperty ;
+    rdfs:domain semicont-07-wfe-etch-systems:EtchOperationalRole ;
+    rdfs:range semicont-07-wfe-etch-systems:EtchSystem .
+
+semicont-07-wfe-etch-systems:performsEtchProcess a owl:ObjectProperty ;
+    rdfs:domain semicont-07-wfe-etch-systems:EtchOperationalRole ;
+    rdfs:range semicont-07-wfe-etch-systems:EtchProcess .
+
+semicont-07-wfe-etch-systems:ownsRecipeLifecycle a owl:ObjectProperty ;
+    rdfs:domain semicont-07-wfe-etch-systems:EtchProcessEngineerRole ;
+    rdfs:range semicont-07-wfe-etch-systems:EtchRecipeSpec .
+
+# Shared datatype properties
+semicont-07-wfe-etch-systems:hasNumericValue a owl:DatatypeProperty ;
+    rdfs:domain semicont-07-wfe-etch-systems:NumericMeasure ;
+    rdfs:range xsd:double .
+
+semicont-07-wfe-etch-systems:hasEtchRate a owl:DatatypeProperty ;
+    rdfs:domain semicont-07-wfe-etch-systems:EtchProcess ;
+    rdfs:range xsd:double .
+
+semicont-07-wfe-etch-systems:hasSelectivity a owl:DatatypeProperty ;
+    rdfs:domain semicont-07-wfe-etch-systems:EtchProcess ;
+    rdfs:range xsd:double .
+
+semicont-07-wfe-etch-systems:hasUniformityPercent a owl:DatatypeProperty ;
+    rdfs:domain semicont-07-wfe-etch-systems:EtchProcess ;
+    rdfs:range xsd:double .
+
+semicont-07-wfe-etch-systems:hasTargetEtchDepthNm a owl:DatatypeProperty ;
+    rdfs:domain semicont-07-wfe-etch-systems:EtchRecipeSpec ;
+    rdfs:range xsd:double .
+
+semicont-07-wfe-etch-systems:hasCriticalDimensionBiasNm a owl:DatatypeProperty ;
+    rdfs:domain semicont-07-wfe-etch-systems:EtchRecipeSpec ;
+    rdfs:range xsd:double .
+
+semicont-07-wfe-etch-systems:hasRangeMin a owl:DatatypeProperty ;
+    rdfs:domain semicont-07-wfe-etch-systems:ParameterRangeSpec ;
+    rdfs:range xsd:double .
+
+semicont-07-wfe-etch-systems:hasRangeMax a owl:DatatypeProperty ;
+    rdfs:domain semicont-07-wfe-etch-systems:ParameterRangeSpec ;
+    rdfs:range xsd:double .
+
+# Logical constraints
+semicont-07-wfe-etch-systems:DryEtchSystem owl:disjointWith semicont-07-wfe-etch-systems:WetEtchSystem .
+semicont-07-wfe-etch-systems:DryEtchProcess owl:disjointWith semicont-07-wfe-etch-systems:WetEtchProcess .
+semicont-07-wfe-etch-systems:SingleChamberConfiguration owl:disjointWith semicont-07-wfe-etch-systems:ClusterToolConfiguration .
+semicont-07-wfe-etch-systems:EtchOperatorRole owl:disjointWith semicont-07-wfe-etch-systems:EtchProcessEngineerRole .
+semicont-07-wfe-etch-systems:EtchProcessEngineerRole owl:disjointWith semicont-07-wfe-etch-systems:EtchEquipmentEngineerRole .
+semicont-07-wfe-etch-systems:EtchOperatorRole owl:disjointWith semicont-07-wfe-etch-systems:EtchEquipmentEngineerRole .
+
+# State transitions
+semicont-07-wfe-etch-systems:RecipeDevelopment semicont-07-wfe-etch-systems:allowedNextRecipeState semicont-07-wfe-etch-systems:RecipeQualified .
+semicont-07-wfe-etch-systems:RecipeQualified semicont-07-wfe-etch-systems:allowedNextRecipeState semicont-07-wfe-etch-systems:RecipeReleased .
+semicont-07-wfe-etch-systems:RecipeReleased semicont-07-wfe-etch-systems:allowedNextRecipeState semicont-07-wfe-etch-systems:RecipeRetired .
+semicont-07-wfe-etch-systems:ModuleReady semicont-07-wfe-etch-systems:allowedNextModuleState semicont-07-wfe-etch-systems:ModuleRunning .
+semicont-07-wfe-etch-systems:ModuleReady semicont-07-wfe-etch-systems:allowedNextModuleState semicont-07-wfe-etch-systems:ModuleMaintenance .
+semicont-07-wfe-etch-systems:ModuleRunning semicont-07-wfe-etch-systems:allowedNextModuleState semicont-07-wfe-etch-systems:ModuleReady .
+semicont-07-wfe-etch-systems:ModuleRunning semicont-07-wfe-etch-systems:allowedNextModuleState semicont-07-wfe-etch-systems:ModuleOutOfControl .
+semicont-07-wfe-etch-systems:ModuleRunning semicont-07-wfe-etch-systems:allowedNextModuleState semicont-07-wfe-etch-systems:ModuleMaintenance .
+semicont-07-wfe-etch-systems:ModuleOutOfControl semicont-07-wfe-etch-systems:allowedNextModuleState semicont-07-wfe-etch-systems:ModuleMaintenance .
+semicont-07-wfe-etch-systems:ModuleOutOfControl semicont-07-wfe-etch-systems:allowedNextModuleState semicont-07-wfe-etch-systems:ModuleReady .
+semicont-07-wfe-etch-systems:ModuleMaintenance semicont-07-wfe-etch-systems:allowedNextModuleState semicont-07-wfe-etch-systems:ModuleReady .
+
+# Shared SHACL
+semicont-07-wfe-etch-systems:EtchRecipeSpecShape a sh:NodeShape ;
+    sh:targetClass semicont-07-wfe-etch-systems:EtchRecipeSpec ;
+    sh:property [ sh:path semicont-07-wfe-etch-systems:hasSetpoint ; sh:minCount 1 ] ;
+    sh:property [ sh:path semicont-07-wfe-etch-systems:hasProcessState ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path semicont-07-wfe-etch-systems:hasTargetEtchDepthNm ; sh:datatype xsd:double ; sh:minInclusive 0.0 ; sh:minCount 1 ] ;
+    sh:property [ sh:path semicont-07-wfe-etch-systems:hasCriticalDimensionBiasNm ; sh:datatype xsd:double ] .
+
+semicont-07-wfe-etch-systems:EtchProcessShape a sh:NodeShape ;
+    sh:targetClass semicont-07-wfe-etch-systems:EtchProcess ;
+    sh:property [ sh:path semicont-07-wfe-etch-systems:usesEtchSystem ; sh:minCount 1 ] ;
+    sh:property [ sh:path semicont-07-wfe-etch-systems:hasEtchRate ; sh:datatype xsd:double ; sh:minInclusive 0.0 ] ;
+    sh:property [ sh:path semicont-07-wfe-etch-systems:hasSelectivity ; sh:datatype xsd:double ; sh:minInclusive 0.0 ] ;
+    sh:property [ sh:path semicont-07-wfe-etch-systems:hasUniformityPercent ; sh:datatype xsd:double ; sh:minInclusive 0.0 ; sh:maxInclusive 100.0 ] .
+
+semicont-07-wfe-etch-systems:ParameterRangeSpecShape a sh:NodeShape ;
+    sh:targetClass semicont-07-wfe-etch-systems:ParameterRangeSpec ;
+    sh:property [ sh:path semicont-07-wfe-etch-systems:hasRangeMin ; sh:datatype xsd:double ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path semicont-07-wfe-etch-systems:hasRangeMax ; sh:datatype xsd:double ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:sparql [
+        sh:message "ParameterRangeSpec requires hasRangeMin <= hasRangeMax." ;
+        sh:select """
+            SELECT $this WHERE {
+              $this semicont-07-wfe-etch-systems:hasRangeMin ?min ;
+                    semicont-07-wfe-etch-systems:hasRangeMax ?max .
+              FILTER (?min > ?max)
+            }
+        """ ;
+    ] .
+
+semicont-07-wfe-etch-systems:EtchSystemConfigurationShape a sh:NodeShape ;
+    sh:targetClass semicont-07-wfe-etch-systems:EtchSystem ;
+    sh:property [ sh:path semicont-07-wfe-etch-systems:hasChamberConfiguration ; sh:minCount 1 ; sh:maxCount 1 ] .
+
+semicont-07-wfe-etch-systems:CriticalSetpointRangeShape a sh:NodeShape ;
+    sh:targetClass semicont-07-wfe-etch-systems:EtchParameter ;
+    sh:property [ sh:path semicont-07-wfe-etch-systems:hasAcceptableRange ; sh:minCount 1 ] .
+
+# External alignment stubs
+semicont-07-wfe-etch-systems:EtchModuleState skos:relatedMatch <https://store-us.semi.org/products/e01000-semi-e10-specification-for-definition-and-measurement-of-equipment-reliability-availability-and-maintainability-ram-and-utilization> .
+semicont-07-wfe-etch-systems:EtchSystem skos:relatedMatch <https://store-us.semi.org/products/s00200-semi-s2-environmental-health-and-safety-guideline-for-semiconductor-manufacturing-equipment> .
+semicont-07-wfe-etch-systems:EtchQualitySpec skos:relatedMatch <https://www.semi.org/en/products-services/standards> .
+semicont-07-wfe-etch-systems:EtchProcess skos:relatedMatch <http://dbpedia.org/resource/Etching_(microfabrication)> .
+
+# Limitations and Future Enhancements
+semicont-07-wfe-etch-systems:limitationsNote a owl:AnnotationProperty ;
+    rdfs:label "Limitations and Future Enhancements" ;
+    rdfs:comment "Areas where the ontology coverage is limited and could be expanded."@en ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems: .
+
+semicont-07-wfe-etch-systems: semicont-07-wfe-etch-systems:limitationsNote """
+    Use Cases NOT YET WELL SUPPORTED:
+
+    1. Specific Etch Chemistries - Detailed chemical reaction mechanisms and gas mixtures (placeholder modules exist)
+    2. Advanced Endpoint Detection - Spectroscopic, interferometric, or other endpoint methods beyond basic timing
+    3. Real-time Process Monitoring - Live data streams, sensor fusion, or adaptive control during etch
+    4. Equipment-Specific Configurations - Vendor-specific chamber designs, hardware details, or proprietary features
+    5. Yield and Defect Analysis - Statistical process control, defect classification, or yield prediction
+    6. Multi-Physics Modeling - Coupled thermal, mechanical, or plasma physics simulations
+    7. Environmental Impact - Chemical waste, energy consumption, or sustainability metrics
+    8. Cost Analysis - Equipment ROI, cost per wafer, or economic optimization
+    9. Machine Learning Integration - AI/ML models for process optimization or anomaly detection
+    10. Supply Chain Integration - Parts availability, vendor management, or logistics coordination
+"""@en .

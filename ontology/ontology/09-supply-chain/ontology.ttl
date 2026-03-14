@@ -1,0 +1,30 @@
+# Supply Chain and Compliance Layer Foundation Ontology
+# Concepts for supply chain management, quality, and compliance
+
+@prefix semicont-09-supply-chain: <https://semicont.org/ontology/09-supply-chain#> .
+@prefix semicont-core: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+# Module Metadata
+semicont-09-supply-chain: a owl:Ontology ;
+    rdfs:label "Supply Chain and Compliance Layer Foundation" ;
+    rdfs:comment "Concepts for supply chain management, quality, and compliance" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+        dc:source "Industry-general knowledge of semiconductor supply chain operations" ;
+    dc:rights "Fair use: publicly known supply chain concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+# Foundation Class
+semicont-09-supply-chain:FoundationEntity a owl:Class ;
+    rdfs:label "Foundation Entity" ;
+    rdfs:comment "Base class for Supply Chain layer concepts" ;
+    rdfs:subClassOf owl:Thing ;
+    rdfs:isDefinedBy semicont-09-supply-chain: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .

@@ -1,0 +1,30 @@
+# Process Control Limits
+# Basic structured constraints for KS-1
+
+process_control_limits:
+  description: "Basic removal rate and uniformity constraints for CMP processes"
+
+  oxide_polish:
+    removal_rate: 600 ± 50 nm/min
+    uniformity_target: <3% 1-sigma
+    pressure_range: 2-6 psi
+    table_speed: 93 ± 5 rpm
+    slurry_flow: 150-200 ml/min
+
+  copper_polish:
+    removal_rate: 600 ± 50 nm/min
+    uniformity_target: <3% 1-sigma
+    pressure_range: 1.5-4 psi
+    table_speed: 85 ± 5 rpm
+    slurry_flow: 120-180 ml/min
+
+  tungsten_polish:
+    removal_rate: 300 ± 30 nm/min
+    uniformity_target: <4% 1-sigma
+    pressure_range: 3-7 psi
+    table_speed: 100 ± 5 rpm
+    slurry_flow: 100-150 ml/min
+
+validation:
+  method: "range_check"
+  action:

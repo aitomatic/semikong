@@ -1,0 +1,26 @@
+# Semicont Ontology Module: 03-fabless/04-product-types/03-memory-chips
+
+@prefix semicont-03-fabless-04-product-types-03-memory-chips: <https://semicont.org/ontology/03-fabless/04-product-types/03-memory-chips/#> .
+@prefix semicont-03-fabless-04-product-types: <https://semicont.org/ontology/03-fabless/04-product-types/#> .
+@prefix semicont-core: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-03-fabless-04-product-types-03-memory-chips: a owl:Ontology ;
+    rdfs:label "memory chips ontology" ;
+    rdfs:comment "Semantic module for memory chips in the semiconductor ontology." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+        dc:source "Industry-general knowledge of fabless semiconductor business models" ;
+    dc:rights "Fair use: publicly known fabless concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-03-fabless-04-product-types-03-memory-chips:MemoryChipsConcept a owl:Class ;
+    rdfs:label "memory chips" ;
+    rdfs:comment "Concept for memory chips; specialized under product types." ;
+    rdfs:subClassOf semicont-03-fabless-04-product-types:ProductTypesConcept ;
+    rdfs:isDefinedBy semicont-03-fabless-04-product-types-03-memory-chips: .

@@ -1,0 +1,26 @@
+# Semicont Ontology Module: 06-osat-packaging-test/reliability_testing/hast
+
+@prefix semicont-06-osat-packaging-test-reliability_testing-hast: <https://semicont.org/ontology/06-osat-packaging-test/03-reliability-testing/01-hast/#> .
+@prefix semicont-06-osat-packaging-test-reliability_testing: <https://semicont.org/ontology/06-osat-packaging-test/03-reliability-testing/#> .
+@prefix semicont-core: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-06-osat-packaging-test-reliability_testing-hast: a owl:Ontology ;
+    rdfs:label "hast ontology" ;
+    rdfs:comment "Semantic module for hast in the semiconductor ontology." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+        dc:source "Industry-general knowledge of 06 osat packaging test 03 reliability testing 01 hast" ;
+    dc:rights "Fair use: publicly known industry concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-06-osat-packaging-test-reliability_testing-hast:HighlyAcceleratedStressTest a owl:Class ;
+    rdfs:label "hast" ;
+    rdfs:comment "Concept for hast; specialized under reliability testing." ;
+    rdfs:subClassOf semicont-06-osat-packaging-test-reliability_testing:ReliabilityTestingProcess ;
+    rdfs:isDefinedBy semicont-06-osat-packaging-test-reliability_testing-hast: .

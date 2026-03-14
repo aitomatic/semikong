@@ -1,0 +1,154 @@
+# SHACL shapes for CMP process validation
+# Machine-readable constraints
+
+shapes:
+  - id: "CMPProcessShape"
+    type: "shacl:NodeShape"
+    target: "cmp:CMPProcess"
+    description: "Validation shape for CMP processes"
+    properties:
+      - path: "cmp:hasRemovalRate"
+        datatype: "xsd:double"
+        min_count: 1
+        max_count: 1
+        min_inclusive: 50.0
+        max_inclusive: 2000.0
+        unit: "nm/min"
+        message: "Removal rate must be between 50-2000 nm/min"
+
+      - path: "cmp:hasUniformity"
+        datatype: "xsd:double"
+        min_count: 1
+        max_count: 1
+        min_inclusive: 0.1
+        max_inclusive: 20.0
+        unit: "%"
+        message: "Uniformity must be between 0.1-20%"
+
+      - path: "cmp:usesSlurry"
+        class: "cmp:Slurry"
+        min_count: 1
+        max_count: 1
+        message: "CMP process must use exactly one slurry"
+
+      - path: "cmp:usesPad"
+        class: "cmp:Pad"
+        min_count: 1
+        max_count: 1
+        message: "CMP process must use exactly one pad"
+
+  - id: "PolishingStepShape"
+    type: "shacl:NodeShape"
+    target: "cmp:PolishingStep"
+    description: "Validation shape for polishing steps"
+    properties:
+      - path: "cmp:hasPressure"
+        datatype: "xsd:double"
+        min_count: 1
+        max_count: 1
+        min_inclusive: 0.5
+        max_inclusive: 10.0
+        unit: "psi"
+        message: "Pressure must be between 0.5-10 psi"
+
+      - path: "cmp:hasVelocity"
+        datatype: "xsd:double"
+        min_count: 1
+        max_count: 1
+        min_inclusive: 20.0
+        max_inclusive: 200.0
+        unit: "rpm"
+        message: "Velocity must be between 20-200 rpm"
+
+      - path: "cmp:hasDuration"
+        datatype: "xsd:double"
+        min_count: 1
+        max_count: 1
+        min_inclusive: 30.0
+        max_inclusive: 600.0
+        unit: "seconds"
+        message: "Duration must be between 30-600 seconds"
+
+  - id: "SlurryShape"
+    type: "shacl:NodeShape"
+    target: "cmp:Slurry"
+    description: "Validation shape for slurries"
+    properties:
+      - path: "cmp:hasPH"
+        datatype: "xsd:double"
+        min_count: 1
+        max_count: 1
+        min_inclusive: 2.0
+        max_inclusive: 12.0
+        message: "pH must be between 2-12"
+
+      - path: "cmp:hasAbrasiveConcentration"
+        datatype: "xsd:double"
+        min_count: 1
+        max_count: 1
+        min_inclusive: 1.0
+        max_inclusive: 30.0
+        unit: "%"
+        message: "Abrasive concentration must be between 1-30%"
+
+  - id: "PadShape"
+    type: "shacl:NodeShape"
+    target: "cmp:Pad"
+    description: "Validation shape for pads"
+    properties:
+      - path: "cmp:hasHardness"
+        datatype: "xsd:double"
+        min_count: 1
+        max_count: 1
+        min_inclusive: 40.0
+        max_inclusive: 90.0
+        unit: "Shore D"
+        message: "Hardness must be between 40-90 Shore D"
+
+      - path: "cmp:hasPorosity"
+        datatype: "xsd:double"
+        min_count: 1
+        max_count: 1
+        min_inclusive: 5.0
+        max_inclusive: 50.0
+        unit: "%"
+        message: "Porosity must be between 5-50%"
+
+      - path: "cmp:hasThickness"
+        datatype: "xsd:double"
+        min_count: 1
+        max_count: 1
+        min_inclusive: 0.5
+        max_inclusive: 5.0
+        unit: "mm"
+        message: "Thickness must be between 0.5-5 mm"
+
+  - id: "ConditionerShape"
+    type: "shacl:NodeShape"
+    target: "cmp:Conditioner"
+    description: "Validation shape for conditioners"
+    properties:
+      - path: "cmp:hasDiamondSize"
+        datatype: "xsd:integer"
+        min_count: 1
+        max_count: 1
+        pattern: "^[68]0$|^[12]00$"
+        message: "Diamond size must be 60, 80, 100, 120, or 200 mesh"
+
+      - path: "cmp:hasConditioningRate"
+        datatype: "xsd:double"
+        min_count: 1
+        max_count: 1
+        min_inclusive: 0.1
+        max_inclusive: 2.0
+        unit: "μm/min"
+        message: "Conditioning rate must be between 0.1-2.0 μm/min"
+
+      - path: "cmp:hasForce"
+        datatype: "xsd:double"
+        min_count: 1
+        max_count: 1
+        min_inclusive: 10.0
+        max_inclusive: 200.0
+        unit: "N"
+        message: "Force must be between 10-200 N"\n\nsparql_queries:\n  - id: "validate-cmp-consistency"\n    description: "Check CMP process consistency"\n    query: |\n      PREFIX cmp: \u003chttps://semicont.org/ontology/cmp#\u003e\n      SELECT ?process ?removalRate ?uniformity WHERE {\n        ?process a cmp:CMPProcess ;\n                 cmp:hasRemovalRate ?removalRate ;\n                 cmp:hasUniformity ?uniformity .\n        FILTER(?uniformity \u003e 5 \u0026\u0026 ?removalRate \u003c 100)\n      }\n    explanation: "Processes with poor uniformity (\u003e5%) should have high removal rate (\u003e100 nm/min)"\n\n  - id: "find-parameter-correlations"\n    description: "Find correlations between parameters"\n    query: |\n      PREFIX cmp: \u003chttps://semicont.org/ontology/cmp#\u003e\n      SELECT ?pressure ?velocity ?removalRate WHERE {\n        ?step a cmp:PolishingStep ;\n              cmp:hasPressure ?pressure ;\n              cmp:hasVelocity ?velocity ;\n              cmp:hasRemovalRate ?removalRate .\n      }\n      ORDER BY ?pressure\n    explanation: "Analyze relationship between pressure, velocity and removal rate"\n\nvalidation_rules:\n  - id: "preston-equation-validation"\n    description: "Validate Preston's equation relationship"\n    condition: "removalRate ≈ Kp * pressure * velocity"\n    tolerance: "±15%"\n    action: "flag_for_review"\n\n  - id: "parameter-consistency"\n    description: "Check parameter consistency"\n    checks:\n      - "pressure \u003e 6.0 → velocity should be \u003c 120"\n      - "velocity \u003e 150 → pressure should be \u003c 4.0"\n      - "removalRate \u003e 500 → uniformity should be \u003c 3%"\n    action: "warn"\n\nexport:\n  turtle: "../export/cmp-constraints.ttl"\n  shacl: "cmp-process.shacl"\n  documentation: "../export/validation-guide.md"\n\n---\n*Generated from structure-first ontology*\n*Model: kimi-k2-0905-preview*\n*Export time: 2026-03-08T12:00:00Z*"\n\n  - id: "preston-equation-validation"\n    description: "Validate Preston's equation relationship"\n    condition: "removalRate ≈ Kp * pressure * velocity"\n    tolerance: "±15%"\n    action: "flag_for_review"\n\n  - id: "parameter-consistency"\n    description: "Check parameter consistency"\n    checks:\n      - "pressure \u003e 6.0 → velocity should be \u003c 120"\n      - "velocity \u003e 150 → pressure should be \u003c 4.0"\n      - "removalRate \u003e 500 → uniformity should be \u003c 3%"\n    action: "warn"\n\nexport:\n  turtle: "../export/cmp-constraints.ttl"\n  shacl: "cmp-process.shacl"\n  documentation: "../export/validation-guide.md"\n\n---\n*Generated from structure-first ontology*\n*Model: kimi-k2-0905-preview*\n*Export time: 2026-cture-first/04-constraints/shapes/cmp-process.shacl

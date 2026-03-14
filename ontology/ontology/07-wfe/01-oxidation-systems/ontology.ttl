@@ -1,0 +1,158 @@
+# Oxidation Systems Ontology
+# Industry-general concepts for thermal oxidation equipment and processes
+
+@prefix semicont-07-wfe-oxidation-systems: <https://semicont.org/ontology/07-wfe/01-oxidation-systems#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+# Module Metadata
+semicont-07-wfe-oxidation-systems: a owl:Ontology ;
+    rdfs:label "Oxidation Systems Ontology" ;
+    rdfs:comment "Industry-general concepts for thermal oxidation equipment and processes" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+    dc:source "Public semiconductor engineering literature and industry-standard equipment classifications" ;
+    dc:rights "Fair use: industry-general thermal oxidation concepts" ;
+    prov:wasInformedBy "Model synthesis of public domain semiconductor fabrication knowledge" ;
+    prov:hadPrimarySource <https://en.wikipedia.org/wiki/Thermal_oxidation> ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Oxidation Equipment
+semicont-07-wfe-oxidation-systems:OxidationEquipment a owl:Class ;
+    rdfs:label "Oxidation Equipment" ;
+    rdfs:comment "Equipment for thermal oxidation processes" ;
+    rdfs:subClassOf semicont-shared:Equipment ;
+    rdfs:isDefinedBy semicont-07-wfe-oxidation-systems: ;
+    dc:source "Public domain semiconductor equipment taxonomy" ;
+    dc:rights "Fair use: generic equipment category" ;
+    prov:wasInformedBy "Industry-standard thermal oxidation equipment classifications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-oxidation-systems:HorizontalFurnace a owl:Class ;
+    rdfs:label "Horizontal Furnace" ;
+    rdfs:comment "Furnace with horizontal wafer orientation" ;
+    rdfs:subClassOf semicont-07-wfe-oxidation-systems:OxidationEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-oxidation-systems: ;
+    dc:source "Public domain semiconductor furnace classification" ;
+    dc:rights "Fair use: generic furnace orientation concept" ;
+    prov:wasInformedBy "Standard semiconductor equipment categorization" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-oxidation-systems:VerticalFurnace a owl:Class ;
+    rdfs:label "Vertical Furnace" ;
+    rdfs:comment "Furnace with vertical wafer orientation" ;
+    rdfs:subClassOf semicont-07-wfe-oxidation-systems:OxidationEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-oxidation-systems: ;
+    dc:source "Public domain semiconductor furnace classification" ;
+    dc:rights "Fair use: generic furnace orientation concept" ;
+    prov:wasInformedBy "Standard semiconductor equipment categorization" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-oxidation-systems:RapidThermalProcessor a owl:Class ;
+    rdfs:label "Rapid Thermal Processor" ;
+    rdfs:comment "Equipment for rapid thermal processing with fast heating/cooling" ;
+    rdfs:subClassOf semicont-07-wfe-oxidation-systems:OxidationEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-oxidation-systems: ;
+    dc:source "Public domain semiconductor thermal processing knowledge" ;
+    dc:rights "Fair use: generic thermal processing equipment concept" ;
+    prov:wasInformedBy "Industry-standard rapid thermal processing classifications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Oxidation Process Types
+semicont-07-wfe-oxidation-systems:OxidationProcess a owl:Class ;
+    rdfs:label "Oxidation Process" ;
+    rdfs:comment "Thermal oxidation process for silicon wafers" ;
+    rdfs:subClassOf semicont-shared:ProcessStep ;
+    rdfs:isDefinedBy semicont-07-wfe-oxidation-systems: ;
+    dc:source "Public domain semiconductor process knowledge" ;
+    dc:rights "Fair use: industry-general oxidation process concepts" ;
+    prov:wasInformedBy "Model synthesis of thermal oxidation processes" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-oxidation-systems:DryOxidation a owl:Class ;
+    rdfs:label "Dry Oxidation" ;
+    rdfs:comment "Oxidation process using dry oxygen" ;
+    rdfs:subClassOf semicont-07-wfe-oxidation-systems:OxidationProcess ;
+    rdfs:isDefinedBy semicont-07-wfe-oxidation-systems: ;
+    dc:source "Public domain semiconductor process knowledge" ;
+    dc:rights "Fair use: industry-general oxidation process concepts" ;
+    prov:wasInformedBy "Model synthesis of thermal oxidation processes" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-oxidation-systems:WetOxidation a owl:Class ;
+    rdfs:label "Wet Oxidation" ;
+    rdfs:comment "Oxidation process using water vapor" ;
+    rdfs:subClassOf semicont-07-wfe-oxidation-systems:OxidationProcess ;
+    rdfs:isDefinedBy semicont-07-wfe-oxidation-systems: ;
+    dc:source "Public domain semiconductor process knowledge" ;
+    dc:rights "Fair use: industry-general oxidation process concepts" ;
+    prov:wasInformedBy "Model synthesis of thermal oxidation processes" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Process Parameters
+semicont-07-wfe-oxidation-systems:hasTemperature a owl:DatatypeProperty ;
+    rdfs:label "has temperature" ;
+    rdfs:comment "Process temperature in Celsius" ;
+    rdfs:domain semicont-07-wfe-oxidation-systems:OxidationProcess ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-oxidation-systems: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-oxidation-systems:hasDuration a owl:DatatypeProperty ;
+    rdfs:label "has duration" ;
+    rdfs:comment "Process duration in minutes" ;
+    rdfs:domain semicont-07-wfe-oxidation-systems:OxidationProcess ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-oxidation-systems: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-oxidation-systems:hasGasFlowRate a owl:DatatypeProperty ;
+    rdfs:label "has gas flow rate" ;
+    rdfs:comment "Flow rate of process gas in sccm" ;
+    rdfs:domain semicont-07-wfe-oxidation-systems:OxidationProcess ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-oxidation-systems: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Equipment Properties
+semicont-07-wfe-oxidation-systems:hasMaxTemperature a owl:DatatypeProperty ;
+    rdfs:label "has maximum temperature" ;
+    rdfs:comment "Maximum operating temperature in Celsius" ;
+    rdfs:domain semicont-07-wfe-oxidation-systems:OxidationEquipment ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-oxidation-systems: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-oxidation-systems:hasHeatingMethod a owl:DatatypeProperty ;
+    rdfs:label "has heating method" ;
+    rdfs:comment "Method of heating (e.g., resistive, inductive, radiant)" ;
+    rdfs:domain semicont-07-wfe-oxidation-systems:OxidationEquipment ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy semicont-07-wfe-oxidation-systems: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-oxidation-systems:hasWaferCapacity a owl:DatatypeProperty ;
+    rdfs:label "has wafer capacity" ;
+    rdfs:comment "Number of wafers processed per batch" ;
+    rdfs:domain semicont-07-wfe-oxidation-systems:OxidationEquipment ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-oxidation-systems: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .

@@ -1,0 +1,216 @@
+# Band Structure Ontology
+# Energy band concepts for semiconductor materials
+
+@prefix semicont-00-physics-01-bandstructure: <https://semicont.org/ontology/00-physics/01-bandstructure#> .
+@prefix semicont-00-physics: <https://semicont.org/ontology/00-physics#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix semicont-standards: <https://semicont.org/ontology/01-standards-reference#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+
+semicont-00-physics-01-bandstructure: a owl:Ontology ;
+    rdfs:label "Band Structure Ontology" ;
+    rdfs:comment "Energy band concepts for semiconductor materials" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-physics> ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+    dc:source "Solid state physics textbooks and semiconductor band theory" ;
+    dc:rights "Fair use: publicly known band structure concepts" ;
+    prov:wasInformedBy "Semiconductor band theory and energy band concepts" ;
+    prov:hadPrimarySource <https://www.nist.gov/pml/materials-data-repository> ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date ;
+    # Scope and maturity metadata
+    semicont-00-physics:scopeNote """
+        SCOPE: Energy band structure concepts for semiconductors
+        - Includes: Conduction band, valence band, bandgap types, effective mass
+        - Excludes: Advanced quantum mechanical calculations, k-space details
+        - Depth limit: Industry-relevant band concepts, no theoretical physics
+        """@en ;
+    semicont-00-physics:maturityLevel semicont-00-physics:curated .
+
+# Band Structure Classes
+semicont-00-physics-01-bandstructure:BandStructure a owl:Class ;
+    rdfs:label "Band Structure" ;
+    rdfs:comment "Energy band configuration of a semiconductor" ;
+    rdfs:subClassOf semicont-00-physics:SemiconductorPhysics ;
+    rdfs:isDefinedBy semicont-00-physics-01-bandstructure: ;
+    prov:wasInformedBy "Solid state physics band theory" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics-01-bandstructure:EnergyBand a owl:Class ;
+    rdfs:label "Energy Band" ;
+    rdfs:comment "Range of energy levels that electrons can occupy" ;
+    rdfs:subClassOf semicont-00-physics-01-bandstructure:BandStructure ;
+    rdfs:isDefinedBy semicont-00-physics-01-bandstructure: ;
+    prov:wasInformedBy "Solid state physics energy band theory" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics-01-bandstructure:ConductionBand a owl:Class ;
+    rdfs:label "Conduction Band" ;
+    rdfs:comment "Highest energy band where electrons are free to move" ;
+    rdfs:subClassOf semicont-00-physics-01-bandstructure:EnergyBand ;
+    rdfs:isDefinedBy semicont-00-physics-01-bandstructure: ;
+    prov:wasInformedBy "Solid state physics conduction band theory" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics-01-bandstructure:ValenceBand a owl:Class ;
+    rdfs:label "Valence Band" ;
+    rdfs:comment "Highest energy band completely filled with electrons at 0K" ;
+    rdfs:subClassOf semicont-00-physics-01-bandstructure:EnergyBand ;
+    rdfs:isDefinedBy semicont-00-physics-01-bandstructure: ;
+    prov:wasInformedBy "Solid state physics valence band theory" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics-01-bandstructure:BandgapType a owl:Class ;
+    rdfs:label "Bandgap Type" ;
+    rdfs:comment "Classification of bandgap based on band alignment" ;
+    rdfs:subClassOf semicont-00-physics-01-bandstructure:BandStructure ;
+    rdfs:isDefinedBy semicont-00-physics-01-bandstructure: ;
+    prov:wasInformedBy "Solid state physics bandgap classification" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics-01-bandstructure:DirectBandgap a owl:Class ;
+    rdfs:label "Direct Bandgap" ;
+    rdfs:comment "Bandgap where conduction band minimum and valence band maximum align in k-space" ;
+    rdfs:subClassOf semicont-00-physics-01-bandstructure:BandgapType ;
+    rdfs:isDefinedBy semicont-00-physics-01-bandstructure: ;
+    prov:wasInformedBy "Direct bandgap physics" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics-01-bandstructure:IndirectBandgap a owl:Class ;
+    rdfs:label "Indirect Bandgap" ;
+    rdfs:comment "Bandgap where conduction band minimum and valence band maximum do not align in k-space" ;
+    rdfs:subClassOf semicont-00-physics-01-bandstructure:BandgapType ;
+    rdfs:isDefinedBy semicont-00-physics-01-bandstructure: ;
+    prov:wasInformedBy "Indirect bandgap physics" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics-01-bandstructure:DensityOfStates a owl:Class ;
+    rdfs:label "Density of States" ;
+    rdfs:comment "Number of available electronic states per unit energy per unit volume" ;
+    rdfs:subClassOf semicont-00-physics-01-bandstructure:BandStructure ;
+    rdfs:isDefinedBy semicont-00-physics-01-bandstructure: ;
+    prov:wasInformedBy "Solid state physics density of states theory" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+# Properties
+semicont-00-physics-01-bandstructure:hasBandgapType a owl:ObjectProperty ;
+    rdfs:label "has bandgap type" ;
+    rdfs:comment "Type of bandgap (direct or indirect)" ;
+    rdfs:domain semicont-00-physics:SemiconductorMaterial ;
+    rdfs:range semicont-00-physics-01-bandstructure:BandgapType ;
+    rdfs:isDefinedBy semicont-00-physics-01-bandstructure: ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics-01-bandstructure:hasConductionBandEdge a owl:ObjectProperty ;
+    rdfs:label "has conduction band edge" ;
+    rdfs:comment "Energy of conduction band minimum" ;
+    rdfs:domain semicont-00-physics-01-bandstructure:BandStructure ;
+    rdfs:range semicont-shared:UnitizedValue ;
+    rdfs:isDefinedBy semicont-00-physics-01-bandstructure: ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics-01-bandstructure:hasValenceBandEdge a owl:ObjectProperty ;
+    rdfs:label "has valence band edge" ;
+    rdfs:comment "Energy of valence band maximum" ;
+    rdfs:domain semicont-00-physics-01-bandstructure:BandStructure ;
+    rdfs:range semicont-shared:UnitizedValue ;
+    rdfs:isDefinedBy semicont-00-physics-01-bandstructure: ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics-01-bandstructure:hasEffectiveDensityOfStates a owl:ObjectProperty ;
+    rdfs:label "has effective density of states" ;
+    rdfs:comment "Effective density of states in conduction or valence band" ;
+    rdfs:domain semicont-00-physics-01-bandstructure:DensityOfStates ;
+    rdfs:range semicont-shared:UnitizedValue ;
+    rdfs:isDefinedBy semicont-00-physics-01-bandstructure: ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+# OWL Axioms
+semicont-00-physics-01-bandstructure:DirectBandgap owl:disjointWith semicont-00-physics-01-bandstructure:IndirectBandgap ;
+    rdfs:comment "Direct and indirect bandgaps are mutually exclusive" .
+
+semicont-00-physics-01-bandstructure:ConductionBand owl:disjointWith semicont-00-physics-01-bandstructure:ValenceBand ;
+    rdfs:comment "Conduction and valence bands are distinct" .
+
+# Class Restrictions
+semicont-00-physics:SemiconductorMaterial rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty semicont-00-physics-01-bandstructure:hasBandgapType ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+] ;
+    rdfs:comment "Every semiconductor material has exactly one bandgap type" .
+
+# SHACL Shapes
+semicont-00-physics-01-bandstructure:BandgapTypeShape a sh:NodeShape ;
+    sh:targetClass semicont-00-physics-01-bandstructure:BandgapType ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:datatype xsd:string ;
+        sh:minLength 1 ;
+        sh:message "Bandgap type must have a label" ;
+        sh:severity sh:Violation
+    ] .
+
+# Example Individuals
+semicont-00-physics-01-bandstructure:Silicon_Bandgap a owl:NamedIndividual , semicont-00-physics-01-bandstructure:IndirectBandgap ;
+    rdfs:label "Silicon Indirect Bandgap" ;
+    rdfs:comment "Silicon has an indirect bandgap" ;
+    prov:wasInformedBy "Solid state physics band structure of silicon" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics-01-bandstructure:GaAs_Bandgap a owl:NamedIndividual , semicont-00-physics-01-bandstructure:DirectBandgap ;
+    rdfs:label "GaAs Direct Bandgap" ;
+    rdfs:comment "Gallium arsenide has a direct bandgap" ;
+    prov:wasInformedBy "Solid state physics band structure of GaAs" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics-01-bandstructure:Si_DOS_Conduction a owl:NamedIndividual , semicont-00-physics-01-bandstructure:DensityOfStates ;
+    rdfs:label "Silicon Conduction Band DOS" ;
+    rdfs:comment "Effective density of states in silicon conduction band" ;
+    semicont-00-physics-01-bandstructure:hasEffectiveDensityOfStates [
+        a semicont-shared:UnitizedValue ;
+        semicont-shared:hasValue "2.8e19"^^xsd:double ;
+        semicont-shared:hasUnit unit:NUM-PER-CentiM3
+    ] ;
+    prov:wasInformedBy "Silicon material properties" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics-01-bandstructure:Si_DOS_Valence a owl:NamedIndividual , semicont-00-physics-01-bandstructure:DensityOfStates ;
+    rdfs:label "Silicon Valence Band DOS" ;
+    rdfs:comment "Effective density of states in silicon valence band" ;
+    semicont-00-physics-01-bandstructure:hasEffectiveDensityOfStates [
+        a semicont-shared:UnitizedValue ;
+        semicont-shared:hasValue "1.04e19"^^xsd:double ;
+        semicont-shared:hasUnit unit:NUM-PER-CentiM3
+    ] ;
+    prov:wasInformedBy "Silicon material properties" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+# External Mappings
+semicont-00-physics-01-bandstructure:BandStructure rdfs:seeAlso <https://www.nist.gov/pml/materials-data-repository> .
+
+semicont-00-physics-01-bandstructure:DirectBandgap rdfs:seeAlso <https://pubchem.ncbi.nlm.nih.gov/classification/#hid=74> .

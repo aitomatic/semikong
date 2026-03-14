@@ -1,0 +1,26 @@
+# Semicont Ontology Module: 01-integrators/00-customization-services/01-hardware-tweaks
+
+@prefix semicont-01-integrators-00-customization-services-01-hardware-tweaks: <https://semicont.org/ontology/01-integrators/00-customization-services/01-hardware-tweaks/#> .
+@prefix semicont-01-integrators-00-customization-services: <https://semicont.org/ontology/01-integrators/00-customization-services/#> .
+@prefix semicont-core: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-01-integrators-00-customization-services-01-hardware-tweaks: a owl:Ontology ;
+    rdfs:label "hardware tweaks ontology" ;
+    rdfs:comment "Semantic module for hardware tweaks in the semiconductor ontology." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+        dc:source "Public domain knowledge of system integration" ;
+    dc:rights "Fair use: general integrator concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-01-integrators-00-customization-services-01-hardware-tweaks:HardwareTweaksConcept a owl:Class ;
+    rdfs:label "hardware tweaks" ;
+    rdfs:comment "Concept for hardware tweaks; specialized under customization services." ;
+    rdfs:subClassOf semicont-01-integrators-00-customization-services:CustomizationServicesConcept ;
+    rdfs:isDefinedBy semicont-01-integrators-00-customization-services-01-hardware-tweaks: .

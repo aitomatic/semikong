@@ -1,0 +1,172 @@
+# Precursor Gases Ontology
+# Chemical precursors for CVD, ALD, and epitaxial processes
+
+@prefix semicont-08-materials-02-gases-00-precursors: <https://semicont.org/ontology/08-materials/02-gases/00-precursors/#> .
+@prefix semicont-08-materials-02-gases: <https://semicont.org/ontology/08-materials/02-gases/#> .
+@prefix semicont-08-materials: <https://semicont.org/ontology/08-materials/#> .
+@prefix semicont-08-materials-gases: <https://semicont.org/ontology/08-materials/02-gases#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix semicont-standards: <https://semicont.org/ontology/01-standards-reference#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+
+semicont-08-materials-02-gases-00-precursors: a owl:Ontology ;
+    rdfs:label "Precursor Gases Ontology" ;
+    rdfs:comment "Chemical precursors for CVD, ALD, and epitaxial processes" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/08-materials/02-gases> ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+    dc:source "SEMI C3.55, industry CVD/ALD precursor references, and publicly available technical literature" ;
+    dc:rights "Fair use: publicly known precursor specifications and process applications" ;
+    prov:wasInformedBy "SEMI C3.55-0200 Standard for Silane (SiH4), Bulk and industry precursor knowledge" ;
+    prov:hadPrimarySource <https://www.semi.org/en/products-services/standards/materials> ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date ;
+    # Scope and maturity metadata
+    semicont-08-materials:scopeNote """
+        SCOPE: Precursor gases for semiconductor deposition processes
+        - Includes: CVD precursors, ALD precursors, epitaxial precursors
+        - Excludes: Non-gaseous precursors, proprietary formulations, supplier-specific grades
+        - Depth limit: Industry-general specifications, no trade secret chemistries
+        """@en ;
+    semicont-08-materials:maturityLevel semicont-08-materials:curated .
+
+# Precursor Gas Subclasses
+semicont-08-materials-02-gases-00-precursors:CVDprecursor a owl:Class ;
+    rdfs:label "CVD Precursor" ;
+    rdfs:comment "Chemical vapor deposition precursor gas" ;
+    rdfs:subClassOf semicont-08-materials-gases:PrecursorGas ;
+    rdfs:isDefinedBy semicont-08-materials-02-gases-00-precursors: ;
+    prov:wasInformedBy "Industry knowledge of CVD process precursors" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-02-gases-00-precursors:ALDprecursor a owl:Class ;
+    rdfs:label "ALD Precursor" ;
+    rdfs:comment "Atomic layer deposition precursor gas" ;
+    rdfs:subClassOf semicont-08-materials-gases:PrecursorGas ;
+    rdfs:isDefinedBy semicont-08-materials-02-gases-00-precursors: ;
+    prov:wasInformedBy "Industry knowledge of ALD process precursors" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-02-gases-00-precursors:EpitaxialPrecursor a owl:Class ;
+    rdfs:label "Epitaxial Precursor" ;
+    rdfs:comment "Precursor for epitaxial layer growth" ;
+    rdfs:subClassOf semicont-08-materials-gases:PrecursorGas ;
+    rdfs:isDefinedBy semicont-08-materials-02-gases-00-precursors: ;
+    prov:wasInformedBy "Industry knowledge of epitaxial growth precursors" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Silicon Precursors
+semicont-08-materials-02-gases-00-precursors:Trichlorosilane a owl:Class ;
+    rdfs:label "Trichlorosilane" ;
+    rdfs:comment "SiHCl3 - silicon precursor for epitaxial silicon and polysilicon" ;
+    rdfs:subClassOf semicont-08-materials-02-gases-00-precursors:CVDprecursor ;
+    rdfs:subClassOf semicont-08-materials-02-gases-00-precursors:EpitaxialPrecursor ;
+    rdfs:isDefinedBy semicont-08-materials-02-gases-00-precursors: ;
+    prov:wasInformedBy "Industry knowledge of silicon epitaxy precursors" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-02-gases-00-precursors:TetraethylOrthosilicate a owl:Class ;
+    rdfs:label "Tetraethyl Orthosilicate" ;
+    rdfs:comment "TEOS - Si(OC2H5)4 - silicon precursor for SiO2 deposition" ;
+    rdfs:subClassOf semicont-08-materials-02-gases-00-precursors:CVDprecursor ;
+    rdfs:subClassOf semicont-08-materials-02-gases-00-precursors:ALDprecursor ;
+    rdfs:isDefinedBy semicont-08-materials-02-gases-00-precursors: ;
+    prov:wasInformedBy "Industry knowledge of TEOS for SiO2 deposition" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Metal Precursors
+semicont-08-materials-02-gases-00-precursors:TungstenHexafluoride a owl:Class ;
+    rdfs:label "Tungsten Hexafluoride" ;
+    rdfs:comment "WF6 - tungsten precursor for CVD-W and ALD-W processes" ;
+    rdfs:subClassOf semicont-08-materials-02-gases-00-precursors:CVDprecursor ;
+    rdfs:subClassOf semicont-08-materials-02-gases-00-precursors:ALDprecursor ;
+    rdfs:isDefinedBy semicont-08-materials-02-gases-00-precursors: ;
+    prov:wasInformedBy "Industry knowledge of tungsten CVD/ALD processes" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-02-gases-00-precursors:TitaniumTetrachloride a owl:Class ;
+    rdfs:label "Titanium Tetrachloride" ;
+    rdfs:comment "TiCl4 - titanium precursor for TiN and Ti deposition" ;
+    rdfs:subClassOf semicont-08-materials-02-gases-00-precursors:CVDprecursor ;
+    rdfs:subClassOf semicont-08-materials-02-gases-00-precursors:ALDprecursor ;
+    rdfs:isDefinedBy semicont-08-materials-02-gases-00-precursors: ;
+    prov:wasInformedBy "Industry knowledge of titanium CVD/ALD processes" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Properties
+semicont-08-materials-02-gases-00-precursors:hasDepositionRate a owl:ObjectProperty ;
+    rdfs:label "has deposition rate" ;
+    rdfs:comment "Deposition rate for the precursor under standard conditions" ;
+    rdfs:domain semicont-08-materials-gases:PrecursorGas ;
+    rdfs:range semicont-shared:UnitizedValue ;
+    rdfs:isDefinedBy semicont-08-materials-02-gases-00-precursors: ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-02-gases-00-precursors:isUsedForProcess a owl:ObjectProperty ;
+    rdfs:label "is used for process" ;
+    rdfs:comment "Indicates the deposition process this precursor is used for" ;
+    rdfs:domain semicont-08-materials-02-gases-00-precursors:CVDprecursor ;
+    rdfs:range semicont-shared:ProcessStep ;
+    rdfs:isDefinedBy semicont-08-materials-02-gases-00-precursors: ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# SHACL Shapes
+semicont-08-materials-02-gases-00-precursors:PrecursorShape a sh:NodeShape ;
+    sh:targetClass semicont-08-materials-gases:PrecursorGas ;
+    sh:property [
+        sh:path semicont-08-materials-gases:hasPurityLevel ;
+        sh:datatype xsd:double ;
+        sh:minInclusive 99.99 ;
+        sh:message "Precursor gases typically require 4N (99.99%) or higher purity" ;
+        sh:severity sh:Warning
+    ] ;
+    sh:property [
+        sh:path semicont-08-materials-gases:hasCASNumber ;
+        sh:datatype xsd:string ;
+        sh:pattern "^[0-9]{2,7}-[0-9]{2}-[0-9]$" ;
+        sh:message "CAS number must be in format NNNNNNN-NN-N" ;
+        sh:severity sh:Violation
+    ] .
+
+# Example Individuals
+semicont-08-materials-02-gases-00-precursors:SiH4_5N a owl:NamedIndividual , semicont-08-materials-gases:Silane ;
+    rdfs:label "5N Silane" ;
+    rdfs:comment "99.999% pure silane for CVD processes" ;
+    semicont-08-materials-gases:hasPurityLevel 99.999 ;
+    semicont-08-materials-gases:hasNinesNotation "5N" ;
+    semicont-08-materials-gases:hasCASNumber "7803-62-5" ;
+    prov:wasInformedBy "SEMI C3.55-0200 Standard for Silane (SiH4), Bulk" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-02-gases-00-precursors:TEOS_4N5 a owl:NamedIndividual , semicont-08-materials-02-gases-00-precursors:TetraethylOrthosilicate ;
+    rdfs:label "4N5 TEOS" ;
+    rdfs:comment "99.995% pure TEOS for SiO2 deposition" ;
+    semicont-08-materials-gases:hasPurityLevel 99.995 ;
+    semicont-08-materials-gases:hasNinesNotation "4N5" ;
+    semicont-08-materials-gases:hasCASNumber "78-10-4" ;
+    prov:wasInformedBy "Industry knowledge of TEOS specifications" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# External Mappings
+semicont-08-materials-02-gases-00-precursors:Silane rdfs:seeAlso semicont-standards:SEMI_C3 ;
+    rdfs:seeAlso <https://pubchem.ncbi.nlm.nih.gov/compound/23953> .
+
+semicont-08-materials-02-gases-00-precursors:TungstenHexafluoride rdfs:seeAlso <https://pubchem.ncbi.nlm.nih.gov/compound/522684> .

@@ -1,0 +1,26 @@
+# Semicont Ontology Module: 07-wfe/11-annealing-furnaces/01-vertical-furnaces/00-oxidation-vertical-anneal
+
+@prefix semicont-07-wfe-11-annealing-furnaces-01-vertical-furnaces-00-oxidation-vertical-anneal: <https://semicont.org/ontology/07-wfe/11-annealing-furnaces/01-vertical-furnaces/00-oxidation-vertical-anneal/#> .
+@prefix semicont-07-wfe-11-annealing-furnaces-01-vertical-furnaces: <https://semicont.org/ontology/07-wfe/11-annealing-furnaces/01-vertical-furnaces/#> .
+@prefix semicont-core: <https://semicont.org/ontology/shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-07-wfe-11-annealing-furnaces-01-vertical-furnaces-00-oxidation-vertical-anneal: a owl:Ontology ;
+    rdfs:label "oxidation vertical anneal ontology" ;
+    rdfs:comment "Semantic module for oxidation vertical anneal in the semiconductor ontology." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/shared> ;
+        dc:source "Industry-general knowledge of wafer fab equipment and processes" ;
+    dc:rights "Fair use: publicly known WFE concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-07-wfe-11-annealing-furnaces-01-vertical-furnaces-00-oxidation-vertical-anneal:OxidationVerticalAnnealConcept a owl:Class ;
+    rdfs:label "oxidation vertical anneal" ;
+    rdfs:comment "Concept for oxidation vertical anneal; specialized under vertical furnaces." ;
+    rdfs:subClassOf semicont-07-wfe-11-annealing-furnaces-01-vertical-furnaces:VerticalFurnacesConcept ;
+    rdfs:isDefinedBy semicont-07-wfe-11-annealing-furnaces-01-vertical-furnaces-00-oxidation-vertical-anneal: .

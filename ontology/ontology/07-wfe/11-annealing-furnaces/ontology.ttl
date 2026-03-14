@@ -1,0 +1,174 @@
+# Annealing Furnaces Ontology
+# Industry-general concepts for thermal annealing furnaces and processes
+
+@prefix semicont-07-wfe-annealing-furnaces: <https://semicont.org/ontology/07-wfe/11-annealing-furnaces#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+# Module Metadata
+semicont-07-wfe-annealing-furnaces: a owl:Ontology ;
+    rdfs:label "Annealing Furnaces Ontology" ;
+    rdfs:comment "Industry-general concepts for thermal annealing furnaces and processes" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+    dc:source "Public semiconductor engineering literature and industry-standard annealing classifications" ;
+    dc:rights "Fair use: industry-general annealing concepts" ;
+    prov:wasInformedBy "Model synthesis of public domain semiconductor annealing knowledge" ;
+    prov:hadPrimarySource <https://en.wikipedia.org/wiki/Annealing_(materials_science)> ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Annealing Furnaces
+semicont-07-wfe-annealing-furnaces:AnnealingFurnace a owl:Class ;
+    rdfs:label "Annealing Furnace" ;
+    rdfs:comment "Furnace for thermal annealing processes" ;
+    rdfs:subClassOf semicont-shared:Equipment ;
+    rdfs:isDefinedBy semicont-07-wfe-annealing-furnaces: ;
+    dc:source "Public domain semiconductor equipment taxonomy" ;
+    dc:rights "Fair use: generic annealing furnace concept" ;
+    prov:wasInformedBy "Industry-standard thermal annealing equipment classifications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Horizontal Furnaces
+semicont-07-wfe-annealing-furnaces:HorizontalAnnealingFurnace a owl:Class ;
+    rdfs:label "Horizontal Annealing Furnace" ;
+    rdfs:comment "Horizontal furnace for annealing processes" ;
+    rdfs:subClassOf semicont-07-wfe-annealing-furnaces:AnnealingFurnace ;
+    rdfs:isDefinedBy semicont-07-wfe-annealing-furnaces: ;
+    dc:source "Public domain semiconductor furnace classification" ;
+    dc:rights "Fair use: generic horizontal annealing furnace concept" ;
+    prov:wasInformedBy "Industry-standard furnace orientation classifications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-annealing-furnaces:FormingGasAnneal a owl:Class ;
+    rdfs:label "Forming Gas Anneal" ;
+    rdfs:comment "Horizontal furnace for forming gas annealing" ;
+    rdfs:subClassOf semicont-07-wfe-annealing-furnaces:HorizontalAnnealingFurnace ;
+    rdfs:isDefinedBy semicont-07-wfe-annealing-furnaces: ;
+    dc:source "Public domain semiconductor annealing literature" ;
+    dc:rights "Fair use: generic forming gas anneal concept" ;
+    prov:wasInformedBy "Industry-standard forming gas annealing processes" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-annealing-furnaces:ReductionAnneal a owl:Class ;
+    rdfs:label "Reduction Anneal" ;
+    rdfs:comment "Horizontal furnace for reduction annealing" ;
+    rdfs:subClassOf semicont-07-wfe-annealing-furnaces:HorizontalAnnealingFurnace ;
+    rdfs:isDefinedBy semicont-07-wfe-annealing-furnaces: ;
+    dc:source "Public domain semiconductor annealing literature" ;
+    dc:rights "Fair use: generic reduction anneal concept" ;
+    prov:wasInformedBy "Industry-standard reduction annealing processes" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Vertical Furnaces
+semicont-07-wfe-annealing-furnaces:VerticalAnnealingFurnace a owl:Class ;
+    rdfs:label "Vertical Annealing Furnace" ;
+    rdfs:comment "Vertical furnace for annealing processes" ;
+    rdfs:subClassOf semicont-07-wfe-annealing-furnaces:AnnealingFurnace ;
+    rdfs:isDefinedBy semicont-07-wfe-annealing-furnaces: ;
+    dc:source "Public domain semiconductor furnace classification" ;
+    dc:rights "Fair use: generic vertical annealing furnace concept" ;
+    prov:wasInformedBy "Industry-standard furnace orientation classifications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-annealing-furnaces:OxidationVerticalAnneal a owl:Class ;
+    rdfs:label "Oxidation Vertical Anneal" ;
+    rdfs:comment "Vertical furnace for oxidation annealing" ;
+    rdfs:subClassOf semicont-07-wfe-annealing-furnaces:VerticalAnnealingFurnace ;
+    rdfs:isDefinedBy semicont-07-wfe-annealing-furnaces: ;
+    dc:source "Public domain semiconductor annealing literature" ;
+    dc:rights "Fair use: generic oxidation anneal concept" ;
+    prov:wasInformedBy "Industry-standard oxidation annealing processes" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-annealing-furnaces:NitridationVerticalAnneal a owl:Class ;
+    rdfs:label "Nitridation Vertical Anneal" ;
+    rdfs:comment "Vertical furnace for nitridation annealing" ;
+    rdfs:subClassOf semicont-07-wfe-annealing-furnaces:VerticalAnnealingFurnace ;
+    rdfs:isDefinedBy semicont-07-wfe-annealing-furnaces: ;
+    dc:source "Public domain semiconductor annealing literature" ;
+    dc:rights "Fair use: generic nitridation anneal concept" ;
+    prov:wasInformedBy "Industry-standard nitridation annealing processes" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Batch Annealing
+semicont-07-wfe-annealing-furnaces:RapidBatchAnnealingFurnace a owl:Class ;
+    rdfs:label "Rapid Batch Annealing Furnace" ;
+    rdfs:comment "Furnace for rapid batch annealing processes" ;
+    rdfs:subClassOf semicont-07-wfe-annealing-furnaces:AnnealingFurnace ;
+    rdfs:isDefinedBy semicont-07-wfe-annealing-furnaces: ;
+    dc:source "Public domain semiconductor annealing equipment classification" ;
+    dc:rights "Fair use: generic rapid batch annealing concept" ;
+    prov:wasInformedBy "Industry-standard batch annealing technologies" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Annealing Process Types
+semicont-07-wfe-annealing-furnaces:AnnealingProcess a owl:Class ;
+    rdfs:label "Annealing Process" ;
+    rdfs:comment "Thermal annealing process for semiconductor wafers" ;
+    rdfs:subClassOf semicont-shared:ProcessStep ;
+    rdfs:isDefinedBy semicont-07-wfe-annealing-furnaces: ;
+    dc:source "Public domain semiconductor process knowledge" ;
+    dc:rights "Fair use: industry-general annealing process concepts" ;
+    prov:wasInformedBy "Model synthesis of thermal annealing processes" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Process Parameters
+semicont-07-wfe-annealing-furnaces:hasAnnealTemperature a owl:DatatypeProperty ;
+    rdfs:label "has anneal temperature" ;
+    rdfs:comment "Annealing temperature in Celsius" ;
+    rdfs:domain semicont-07-wfe-annealing-furnaces:AnnealingProcess ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-annealing-furnaces: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-annealing-furnaces:hasAnnealTime a owl:DatatypeProperty ;
+    rdfs:label "has anneal time" ;
+    rdfs:comment "Annealing time in minutes" ;
+    rdfs:domain semicont-07-wfe-annealing-furnaces:AnnealingProcess ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-annealing-furnaces: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-annealing-furnaces:hasAmbientGas a owl:DatatypeProperty ;
+    rdfs:label "has ambient gas" ;
+    rdfs:comment "Annealing ambient gas (e.g., nitrogen, forming gas)" ;
+    rdfs:domain semicont-07-wfe-annealing-furnaces:AnnealingProcess ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy semicont-07-wfe-annealing-furnaces: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Equipment Properties
+semicont-07-wfe-annealing-furnaces:hasMaxTemperature a owl:DatatypeProperty ;
+    rdfs:label "has maximum temperature" ;
+    rdfs:comment "Maximum operating temperature in Celsius" ;
+    rdfs:domain semicont-07-wfe-annealing-furnaces:AnnealingFurnace ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-annealing-furnaces: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-annealing-furnaces:hasWaferCapacity a owl:DatatypeProperty ;
+    rdfs:label "has wafer capacity" ;
+    rdfs:comment "Number of wafers processed per batch" ;
+    rdfs:domain semicont-07-wfe-annealing-furnaces:AnnealingFurnace ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-annealing-furnaces: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .

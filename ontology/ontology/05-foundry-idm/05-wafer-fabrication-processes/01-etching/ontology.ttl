@@ -1,0 +1,26 @@
+# Semicont Ontology Module: 05-foundry-idm/wafer_fabrication_processes/etching
+
+@prefix semicont-05-foundry-idm-wafer_fabrication_processes-etching: <https://semicont.org/ontology/05-foundry-idm/05-wafer-fabrication-processes/01-etching/#> .
+@prefix semicont-05-foundry-idm-wafer_fabrication_processes: <https://semicont.org/ontology/05-foundry-idm/05-wafer-fabrication-processes/#> .
+@prefix semicont-core: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-05-foundry-idm-wafer_fabrication_processes-etching: a owl:Ontology ;
+    rdfs:label "etching ontology" ;
+    rdfs:comment "Semantic module for etching in semiconductor wafer fabrication." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+        dc:source "Industry-general knowledge of 05 foundry idm 05 wafer fabrication processes 01 etching" ;
+    dc:rights "Fair use: publicly known industry concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-05-foundry-idm-wafer_fabrication_processes-etching:EtchingProcess a owl:Class ;
+    rdfs:label "etching process" ;
+    rdfs:comment "Material removal process family in wafer fabrication." ;
+    rdfs:subClassOf semicont-05-foundry-idm-wafer_fabrication_processes:WaferFabricationProcess ;
+    rdfs:isDefinedBy semicont-05-foundry-idm-wafer_fabrication_processes-etching: .

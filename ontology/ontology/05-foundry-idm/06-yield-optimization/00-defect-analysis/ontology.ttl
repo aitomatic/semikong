@@ -1,0 +1,26 @@
+# Semicont Ontology Module: 05-foundry-idm/06-yield-optimization/00-defect-analysis
+
+@prefix semicont-05-foundry-idm-06-yield-optimization-00-defect-analysis: <https://semicont.org/ontology/05-foundry-idm/06-yield-optimization/00-defect-analysis/#> .
+@prefix semicont-05-foundry-idm-06-yield-optimization: <https://semicont.org/ontology/05-foundry-idm/06-yield-optimization/#> .
+@prefix semicont-core: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-05-foundry-idm-06-yield-optimization-00-defect-analysis: a owl:Ontology ;
+    rdfs:label "defect analysis ontology" ;
+    rdfs:comment "Semantic module for defect analysis in the semiconductor ontology." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+        dc:source "Industry-general knowledge of 05 foundry idm 06 yield optimization 00 defect analysis" ;
+    dc:rights "Fair use: publicly known industry concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-05-foundry-idm-06-yield-optimization-00-defect-analysis:DefectAnalysisConcept a owl:Class ;
+    rdfs:label "defect analysis" ;
+    rdfs:comment "Concept for defect analysis; specialized under yield optimization." ;
+    rdfs:subClassOf semicont-05-foundry-idm-06-yield-optimization:YieldOptimizationConcept ;
+    rdfs:isDefinedBy semicont-05-foundry-idm-06-yield-optimization-00-defect-analysis: .

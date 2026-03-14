@@ -1,0 +1,40 @@
+version: 1
+name: ontology-curation-gates
+scope: repository
+checks:
+  - id: ontology_boundary
+    description: ontology/ contains only .ttl files plus ontology/README.md
+    severity: error
+  - id: no_legacy_layer_names
+    description: no references to removed path names (e.g., 06-packaging-test-equipment)
+    severity: error
+  - id: no_use_cases_dir
+    description: do not introduce use-cases/ layer under ontology/
+    severity: error
+  - id: no_abs_path_tokens_in_ttl
+    description: ttl content must not include local absolute filesystem paths
+    severity: error
+  - id: subontology_intentionality
+    description: substantive sub-ontology work explicitly addresses required quality dimensions from ontologist/01-docs/subontology-quality-checklist.md
+    severity: warning
+  - id: evidence_traceability
+    description: substantive ontology edits include source references/provenance notes in both TTL files (using PROV-O and DC) and ontologist context artifacts
+    severity: warning
+  - id: ttl_provenance_completeness
+    description: TTL files must include module-level provenance with dc:source, dc:rights, and prov:hadPrimarySource where applicable
+    severity: warning
+  - id: ontology_version_baseline
+    description: Current repository baseline requires owl:versionInfo "0.1.0" for ontology modules
+    severity: warning
+  - id: class_level_provenance
+    description: substantive new classes should include prov:wasInformedBy and dc:source properties
+    severity: info
+  - id: source_mix_llm_and_external
+    description: curation process uses both model reasoning and external internet sources for factual grounding
+    severity: warning
+  - id: copyright_ip_compliance
+    description: no disallowed proprietary content and no excessive verbatim copyrighted text reuse in ontology artifacts
+    severity: error
+  - id: runtime_sync
+    description: task/session/state/worklog updated for active curation changes
+    severity: warning

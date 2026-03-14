@@ -1,0 +1,26 @@
+# Semicont Ontology Module: 07-wfe/09-doping-equipment/01-ion-implanters/00-high-current-implanters
+
+@prefix semicont-07-wfe-09-doping-equipment-01-ion-implanters-00-high-current-implanters: <https://semicont.org/ontology/07-wfe/09-doping-equipment/01-ion-implanters/00-high-current-implanters/#> .
+@prefix semicont-07-wfe-09-doping-equipment-01-ion-implanters: <https://semicont.org/ontology/07-wfe/09-doping-equipment/01-ion-implanters/#> .
+@prefix semicont-core: <https://semicont.org/ontology/shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-07-wfe-09-doping-equipment-01-ion-implanters-00-high-current-implanters: a owl:Ontology ;
+    rdfs:label "high current implanters ontology" ;
+    rdfs:comment "Semantic module for high current implanters in the semiconductor ontology." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/shared> ;
+        dc:source "Industry-general knowledge of wafer fab equipment and processes" ;
+    dc:rights "Fair use: publicly known WFE concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-07-wfe-09-doping-equipment-01-ion-implanters-00-high-current-implanters:HighCurrentImplantersConcept a owl:Class ;
+    rdfs:label "high current implanters" ;
+    rdfs:comment "Concept for high current implanters; specialized under ion implanters." ;
+    rdfs:subClassOf semicont-07-wfe-09-doping-equipment-01-ion-implanters:IonImplantersConcept ;
+    rdfs:isDefinedBy semicont-07-wfe-09-doping-equipment-01-ion-implanters-00-high-current-implanters: .

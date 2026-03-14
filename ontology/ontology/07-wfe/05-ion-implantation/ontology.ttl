@@ -1,0 +1,160 @@
+# Ion Implantation Ontology
+# Industry-general concepts for ion implantation equipment and processes
+
+@prefix semicont-07-wfe-ion-implantation: <https://semicont.org/ontology/07-wfe/05-ion-implantation#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+# Module Metadata
+semicont-07-wfe-ion-implantation: a owl:Ontology ;
+    rdfs:label "Ion Implantation Ontology" ;
+    rdfs:comment "Industry-general concepts for ion implantation equipment and processes" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+    dc:source "Public semiconductor engineering literature and industry-standard ion implantation classifications" ;
+    dc:rights "Fair use: industry-general ion implantation concepts" ;
+    prov:wasInformedBy "Model synthesis of public domain semiconductor doping knowledge" ;
+    prov:hadPrimarySource <https://en.wikipedia.org/wiki/Ion_implantation> ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Ion Implantation Equipment
+semicont-07-wfe-ion-implantation:IonImplantationEquipment a owl:Class ;
+    rdfs:label "Ion Implantation Equipment" ;
+    rdfs:comment "Equipment for implanting ions into semiconductor wafers" ;
+    rdfs:subClassOf semicont-shared:Equipment ;
+    rdfs:isDefinedBy semicont-07-wfe-ion-implantation: ;
+    dc:source "Public domain semiconductor equipment taxonomy" ;
+    dc:rights "Fair use: generic ion implantation equipment concept" ;
+    prov:wasInformedBy "Industry-standard ion implantation equipment classifications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# High-Current Implanters
+semicont-07-wfe-ion-implantation:HighCurrentImplanter a owl:Class ;
+    rdfs:label "High Current Implanter" ;
+    rdfs:comment "Ion implanter for high dose applications" ;
+    rdfs:subClassOf semicont-07-wfe-ion-implantation:IonImplantationEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-ion-implantation: ;
+    dc:source "Public domain semiconductor doping equipment classification" ;
+    dc:rights "Fair use: generic high current implanter concept" ;
+    prov:wasInformedBy "Industry-standard ion implanter categorization by current" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Medium-Current Implanters
+semicont-07-wfe-ion-implantation:MediumCurrentImplanter a owl:Class ;
+    rdfs:label "Medium Current Implanter" ;
+    rdfs:comment "Ion implanter for medium dose applications" ;
+    rdfs:subClassOf semicont-07-wfe-ion-implantation:IonImplantationEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-ion-implantation: ;
+    dc:source "Public domain semiconductor doping equipment classification" ;
+    dc:rights "Fair use: generic medium current implanter concept" ;
+    prov:wasInformedBy "Industry-standard ion implanter categorization by current" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# High-Energy Implanters
+semicont-07-wfe-ion-implantation:HighEnergyImplanter a owl:Class ;
+    rdfs:label "High Energy Implanter" ;
+    rdfs:comment "Ion implanter for deep junction formation" ;
+    rdfs:subClassOf semicont-07-wfe-ion-implantation:IonImplantationEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-ion-implantation: ;
+    dc:source "Public domain semiconductor doping equipment classification" ;
+    dc:rights "Fair use: generic high energy implanter concept" ;
+    prov:wasInformedBy "Industry-standard ion implanter categorization by energy" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Plasma Doping Equipment
+semicont-07-wfe-ion-implantation:PlasmaDopingEquipment a owl:Class ;
+    rdfs:label "Plasma Doping Equipment" ;
+    rdfs:comment "Equipment for plasma-based doping processes" ;
+    rdfs:subClassOf semicont-07-wfe-ion-implantation:IonImplantationEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-ion-implantation: ;
+    dc:source "Public domain semiconductor doping equipment classification" ;
+    dc:rights "Fair use: generic plasma doping equipment concept" ;
+    prov:wasInformedBy "Industry-standard alternative doping technology classifications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Ion Implantation Process Types
+semicont-07-wfe-ion-implantation:IonImplantationProcess a owl:Class ;
+    rdfs:label "Ion Implantation Process" ;
+    rdfs:comment "Process for introducing dopant atoms by ion bombardment" ;
+    rdfs:subClassOf semicont-shared:ProcessStep ;
+    rdfs:isDefinedBy semicont-07-wfe-ion-implantation: ;
+    dc:source "Public domain semiconductor process knowledge" ;
+    dc:rights "Fair use: industry-general ion implantation process concepts" ;
+    prov:wasInformedBy "Model synthesis of ion implantation processes" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Process Parameters
+semicont-07-wfe-ion-implantation:hasImplantEnergy a owl:DatatypeProperty ;
+    rdfs:label "has implant energy" ;
+    rdfs:comment "Ion implantation energy in keV" ;
+    rdfs:domain semicont-07-wfe-ion-implantation:IonImplantationProcess ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-ion-implantation: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-ion-implantation:hasDose a owl:DatatypeProperty ;
+    rdfs:label "has dose" ;
+    rdfs:comment "Implant dose in atoms/cm2" ;
+    rdfs:domain semicont-07-wfe-ion-implantation:IonImplantationProcess ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy semicont-07-wfe-ion-implantation: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-ion-implantation:hasImplantAngle a owl:DatatypeProperty ;
+    rdfs:label "has implant angle" ;
+    rdfs:comment "Ion implantation angle in degrees from normal" ;
+    rdfs:domain semicont-07-wfe-ion-implantation:IonImplantationProcess ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy semicont-07-wfe-ion-implantation: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-ion-implantation:hasBeamCurrent a owl:DatatypeProperty ;
+    rdfs:label "has beam current" ;
+    rdfs:comment "Ion beam current in mA" ;
+    rdfs:domain semicont-07-wfe-ion-implantation:IonImplantationProcess ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy semicont-07-wfe-ion-implantation: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Equipment Properties
+semicont-07-wfe-ion-implantation:hasMaxEnergy a owl:DatatypeProperty ;
+    rdfs:label "has maximum energy" ;
+    rdfs:comment "Maximum implantation energy in keV" ;
+    rdfs:domain semicont-07-wfe-ion-implantation:IonImplantationEquipment ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-ion-implantation: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-ion-implantation:hasMaxDose a owl:DatatypeProperty ;
+    rdfs:label "has maximum dose" ;
+    rdfs:comment "Maximum dose capability in atoms/cm2" ;
+    rdfs:domain semicont-07-wfe-ion-implantation:IonImplantationEquipment ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy semicont-07-wfe-ion-implantation: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-ion-implantation:hasWaferSize a owl:DatatypeProperty ;
+    rdfs:label "has wafer size" ;
+    rdfs:comment "Wafer diameter in millimeters" ;
+    rdfs:domain semicont-07-wfe-ion-implantation:IonImplantationEquipment ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-ion-implantation: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .

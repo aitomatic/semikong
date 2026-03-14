@@ -1,59 +1,89 @@
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="model/figures/teaser.png" width="200px">
+  <source media="(prefers-color-scheme: light)" srcset="model/figures/teaser.png" width="200px">
+  <img alt="SEMIKONG teaser" src="model/figures/teaser.png" width="200px">
+</picture>
+
+</div>
+
 # SemiKong
 
-SemiKong is an open-source semiconductor AI repository being organized around two complementary assets:
+SemiKong is an open-source semiconductor AI project that combines:
 
-- a semiconductor-focused language model
-- a semiconductor ontology and knowledge graph
+- a semiconductor language model in [model/](/Users/ctn/src/aitomatic/semikong/model)
+- a semiconductor ontology and knowledge graph in [ontology/](/Users/ctn/src/aitomatic/semikong/ontology)
 
-The intent is to make this repository the shared home for both the model work and the structured domain knowledge that can support it.
+SemiKong began as an early open effort to build a semiconductor-specific language model from real industry collaboration. Publicly, it was presented through the AI Alliance ecosystem with contributions from Aitomatic, Tokyo Electron, FPT, and others, and later described by the AI Alliance as its first domain-specific open model.
 
-SemiKong was developed in connection with the [AI Alliance](https://aialliance.org), an open community focused on open and responsible AI. The project reflects that open collaboration model while focusing specifically on semiconductor models and ontology assets.
+The semiconductor industry depends on precise technical language, process knowledge, equipment context, materials knowledge, and long operational chains across design, fabrication, test, packaging, and supply. SemiKong is relevant because it puts two useful layers in one place:
 
-## Repository Areas
+- a model layer for question answering, generation, and domain-specific AI workflows
+- an ontology layer for structure, provenance, validation, and shared semantics
 
-- [model/](/Users/ctn/src/aitomatic/semikong/model): the semiconductor model work
-- [ontology/](/Users/ctn/src/aitomatic/semikong/ontology): the semiconductor ontology and knowledge-graph work
+That combination matters if you want AI systems that are not only fluent, but also grounded in domain structure.
+
+SemiKong is connected to the [AI Alliance](https://aialliance.org), an open community working on open and responsible AI.
+
+We also intend to contribute the SemiKong ontology work into the broader SEMI standards and interoperability effort where that alignment is useful and appropriate.
 
 ## Principal
 
 - [Christopher Nguyen](https://github.com/ctn) (`ctn@aitomatic.com`)
 
-## Current Status
+## What You Can Do Here
 
-- The original SEMIKONG model project now lives under [model/](/Users/ctn/src/aitomatic/semikong/model).
-- The ontology area is reserved for the planned merge from `aitomatic/semicont`.
-- The repository is in a transitional phase from a single-project layout to a multi-area layout.
+- use the model work under `model/` for training and inference experiments
+- use the ontology work under `ontology/` for semantic modeling, validation, and knowledge-graph work
+- use both together for grounded semiconductor AI workflows
 
-## Start Here
+## Get Started
 
-- model overview: [model/README.md](/Users/ctn/src/aitomatic/semikong/model/README.md)
-- ontology overview: [ontology/README.md](/Users/ctn/src/aitomatic/semikong/ontology/README.md)
+If you want to work with the model:
 
-## Working Model
+```bash
+make -C model install
+make -C model train
+make -C model infer
+```
 
-This repository currently uses:
+Key model entry points:
 
-- `develop` for active development work
-- `main` as the promotion branch from `develop`
-- `stable` as the protected default branch
+- [model/README.md](/Users/ctn/src/aitomatic/semikong/model/README.md)
+- [model/INSTALL.md](/Users/ctn/src/aitomatic/semikong/model/INSTALL.md)
+- [model/Makefile](/Users/ctn/src/aitomatic/semikong/model/Makefile)
 
-Promotion flow:
+If you want to work with the ontology:
 
-- feature branches should merge into `develop`
-- `develop -> main` happens by pull request
-- `main -> stable` happens by pull request
+- [ontology/README.md](/Users/ctn/src/aitomatic/semikong/ontology/README.md)
+- [ontology/MANIFESTO.md](/Users/ctn/src/aitomatic/semikong/ontology/MANIFESTO.md)
+- [ontology/ontology/README.md](/Users/ctn/src/aitomatic/semikong/ontology/ontology/README.md)
 
-## Roadmap
+## Repository Guide
 
-Near-term repository goals:
+- [model/](/Users/ctn/src/aitomatic/semikong/model) contains the language model code, configs, docs, and references
+- [ontology/](/Users/ctn/src/aitomatic/semikong/ontology) contains the ontology modules, shapes, curation materials, and ontology docs
 
-- merge the ontology assets from `aitomatic/semicont` into `ontology/`
-- define what belongs in `shared/` versus remaining local to `model/` or `ontology/`
-- add integration tests for workflows that combine the model and ontology
-- improve the root-level docs as the multi-area architecture becomes more concrete
+## Why This Project Matters
+
+General-purpose AI is often too shallow for semiconductor work. Real semiconductor workflows need:
+
+- domain vocabulary that is used consistently
+- knowledge that spans multiple layers of the industry
+- provenance and validation for high-value technical information
+- infrastructure that can support both human understanding and machine use
+
+SemiKong is aimed at that gap.
 
 ## License
 
 The repository code and checked-in contents are distributed under the [MIT License](/Users/ctn/src/aitomatic/semikong/LICENSE).
 
-Referenced model weights, datasets, and third-party assets may be governed by separate upstream licenses.
+Some model weights, datasets, and imported ontology assets may also carry upstream licenses or provenance-specific terms.
+
+## Historical Notes
+
+- AI Alliance domain-model story: <https://thealliance.ai/blog/from-semiconductor-to-maritime-a-blueprint-for-dom>
+- AI Alliance first-year retrospective: <https://thealliance.ai/blog/our-first-year>
+- SemiKong paper: <https://huggingface.co/papers/2411.13802>

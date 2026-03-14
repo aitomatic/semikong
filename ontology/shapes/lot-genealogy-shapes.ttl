@@ -1,0 +1,194 @@
+# SHACL Shapes for Lot Genealogy Validation
+# Validates constraints defined in lot-genealogy-rules.yaml
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix semicont-lot: <https://semicont.org/ontology/05-foundry-idm/03-lot-genealogy/#> .
+@prefix semicont-core: <https://semicont.org/ontology/00-shared#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# Shape for WaferLot
+semicont-lot:WaferLotShape a sh:NodeShape ;
+    sh:targetClass semicont-lot:WaferLot ;
+
+    # Mandatory lot ID with exact cardinality
+    sh:property [
+        sh:path semicont-lot:hasLotId ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:pattern "^[A-Z]{3}[0-9]{3}$" ;
+        sh:message "Lot ID must be exactly 3 letters followed by 3 numbers" ;
+    ] ;
+
+    # Mandatory status
+    sh:property [
+        sh:path semicont-lot:status ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:in ( "active" "inactive" "hold" "scrapped" ) ;
+        sh:message "Status must be one of: active, inactive, hold, scrapped" ;
+    ] ;
+
+    # Mandatory creation date
+    sh:property [
+        sh:path semicont-lot:creationDate ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:dateTime ;
+        sh:message "Each lot must have exactly one creation date" ;
+    ] ;
+
+    # Mandatory wafer count
+    sh:property [
+        sh:path semicont-lot:waferCount ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:positiveInteger ;
+        sh:minInclusive 5 ;
+        sh:message "Each lot must have at least 5 wafers" ;
+    ] .
+
+# Shape for Wafer
+semicont-lot:WaferShape a sh:NodeShape ;
+    sh:targetClass semicont-lot:Wafer ;
+
+    # Mandatory wafer ID
+    sh:property [
+        sh:path semicont-lot:hasWaferId ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:pattern "^[A-Z]{3}[0-9]{3}-[0-9]{2}$" ;
+        sh:message "Wafer ID must be lot ID followed by dash and 2-digit sequence" ;
+    ] ;
+
+    # Mandatory lot membership
+    sh:property [
+        sh:path semicont-lot:memberOfLot ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class semicont-lot:WaferLot ;
+        sh:message "Each wafer must belong to exactly one lot" ;
+    ] ;
+
+    # Wafer status validation
+    sh:property [
+        sh:path semicont-lot:waferStatus ;
+        sh:maxCount 1 ;
+        sh:in ( "in_lot" "split_to_new_lot" "merged_to_lot" "scrapped" ) ;
+        sh:message "Wafer status must be one of: in_lot, split_to_new_lot, merged_to_lot, scrapped" ;
+    ] .
+
+# Shape for LotSplit
+semicont-lot:LotSplitShape a sh:NodeShape ;
+    sh:targetClass semicont-lot:LotSplit ;
+
+    # Mandatory split date
+    sh:property [
+        sh:path semicont-lot:splitDate ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:dateTime ;
+        sh:message "Each split must have a split date" ;
+    ] ;
+
+    # Validate split date comes after parent creation
+    sh:sparql [
+        sh:message "Split date must be after parent lot creation date" ;
+        sh:prefixes <http://www.w3.org/2000/01/rdf-schema#> ;
+        sh:select """
+            PREFIX semicont-lot: <https://semicont.org/ontology/05-foundry-idm/03-lot-genealogy/#>
+            SELECT $this ?error
+            WHERE {
+                $this semicont-lot:splitDate ?splitDate .
+                ?parent semicont-lot:childLot ?child .
+                ?child semicont-lot:splitFrom $this .
+                ?parent semicont-lot:creationDate ?parentDate .
+                FILTER (?splitDate <= ?parentDate)
+            }
+        """ ;
+    ] .
+
+# Shape for LotMerge
+semicont-lot:LotMergeShape a sh:NodeShape ;
+    sh:targetClass semicont-lot:LotMerge ;
+
+    # Mandatory merge date
+    sh:property [
+        sh:path semicont-lot:mergeDate ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:dateTime ;
+        sh:message "Each merge must have a merge date" ;
+    ] ;
+
+    # Must have at least 2 input lots
+    sh:property [
+        sh:path semicont-lot:inputLot ;
+        sh:minCount 2 ;
+        sh:class semicont-lot:WaferLot ;
+        sh:message "Each merge must have at least 2 input lots" ;
+    ] ;
+
+    # Must have exactly 1 output lot
+    sh:property [
+        sh:path semicont-lot:outputLot ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class semicont-lot:WaferLot ;
+        sh:message "Each merge must have exactly 1 output lot" ;
+    ] .
+
+# Property shape for validating parent-child relationships
+semicont-lot:ParentChildShape a sh:PropertyShape ;
+    sh:path semicont-lot:parentLot ;
+    sh:class semicont-lot:WaferLot ;
+    sh:nodeKind sh:IRI ;
+    sh:message "Parent must be a valid WaferLot instance" .
+
+# Validate that split child wafer counts sum to parent
+semicont-lot:SplitWaferCountShape a sh:NodeShape ;
+    sh:targetSubjectsOf semicont-lot:parentLot ;
+    sh:sparql [
+        sh:message "Sum of child lot wafer counts must equal parent wafer count" ;
+        sh:select """
+            PREFIX semicont-lot: <https://semicont.org/ontology/05-foundry-idm/03-lot-genealogy/#>
+            SELECT $this ?error
+            WHERE {
+                $this semicont-lot:waferCount ?parentCount .
+                {
+                    SELECT ?parent (SUM(?childCount) as ?totalChildCount)
+                    WHERE {
+                        ?parent semicont-lot:childLot ?child .
+                        ?child semicont-lot:waferCount ?childCount .
+                    }
+                    GROUP BY ?parent
+                }
+                FILTER (?parentCount != ?totalChildCount)
+                BIND ($this as ?parent)
+            }
+        """ ;
+    ] .
+
+# Validate maximum 5 splits from single parent
+semicont-lot:MaxSplitShape a sh:NodeShape ;
+    sh:targetClass semicont-lot:WaferLot ;
+    sh:sparql [
+        sh:message "Maximum 5 splits allowed from a single parent lot" ;
+        sh:select """
+            PREFIX semicont-lot: <https://semicont.org/ontology/05-foundry-idm/03-lot-genealogy/#>
+            SELECT $this ?error
+            WHERE {
+                {
+                    SELECT ?parent (COUNT(?child) as ?childCount)
+                    WHERE {
+                        ?parent semicont-lot:childLot ?child .
+                    }
+                    GROUP BY ?parent
+                }
+                FILTER (?childCount > 5)
+                BIND ($this as ?parent)
+            }
+        """ ;
+    ] .

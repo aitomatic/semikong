@@ -1,0 +1,162 @@
+# Chemical Mechanical Planarization Ontology
+# Industry-general concepts for CMP equipment and processes
+
+@prefix semicont-07-wfe-chemical-mechanical-planarization: <https://semicont.org/ontology/07-wfe/07-chemical-mechanical-planarization#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+# Module Metadata
+semicont-07-wfe-chemical-mechanical-planarization: a owl:Ontology ;
+    rdfs:label "Chemical Mechanical Planarization Ontology" ;
+    rdfs:comment "Industry-general concepts for CMP equipment and processes" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+    dc:source "Public semiconductor engineering literature and industry-standard CMP classifications" ;
+    dc:rights "Fair use: industry-general CMP concepts" ;
+    prov:wasInformedBy "Model synthesis of public domain semiconductor planarization knowledge" ;
+    prov:hadPrimarySource <https://en.wikipedia.org/wiki/Chemical-mechanical_planarization> ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# CMP Equipment
+semicont-07-wfe-chemical-mechanical-planarization:CMPEquipment a owl:Class ;
+    rdfs:label "CMP Equipment" ;
+    rdfs:comment "Equipment for chemical mechanical planarization processes" ;
+    rdfs:subClassOf semicont-shared:Equipment ;
+    rdfs:isDefinedBy semicont-07-wfe-chemical-mechanical-planarization: ;
+    dc:source "Public domain semiconductor equipment taxonomy" ;
+    dc:rights "Fair use: generic CMP equipment concept" ;
+    prov:wasInformedBy "Industry-standard CMP equipment classifications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# CMP Tool Types
+semicont-07-wfe-chemical-mechanical-planarization:RotaryCMP a owl:Class ;
+    rdfs:label "Rotary CMP" ;
+    rdfs:comment "CMP tool with rotating platen and wafer carrier" ;
+    rdfs:subClassOf semicont-07-wfe-chemical-mechanical-planarization:CMPEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-chemical-mechanical-planarization: ;
+    dc:source "Public domain CMP equipment classification" ;
+    dc:rights "Fair use: generic rotary CMP concept" ;
+    prov:wasInformedBy "Industry-standard CMP tool configurations" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-chemical-mechanical-planarization:LinearCMP a owl:Class ;
+    rdfs:label "Linear CMP" ;
+    rdfs:comment "CMP tool with linear belt polishing" ;
+    rdfs:subClassOf semicont-07-wfe-chemical-mechanical-planarization:CMPEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-chemical-mechanical-planarization: ;
+    dc:source "Public domain CMP equipment classification" ;
+    dc:rights "Fair use: generic linear CMP concept" ;
+    prov:wasInformedBy "Industry-standard CMP tool configurations" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# CMP Process Types
+semicont-07-wfe-chemical-mechanical-planarization:CMPProcess a owl:Class ;
+    rdfs:label "CMP Process" ;
+    rdfs:comment "Chemical mechanical planarization process" ;
+    rdfs:subClassOf semicont-shared:ProcessStep ;
+    rdfs:isDefinedBy semicont-07-wfe-chemical-mechanical-planarization: ;
+    dc:source "Public domain semiconductor process knowledge" ;
+    dc:rights "Fair use: industry-general CMP process concepts" ;
+    prov:wasInformedBy "Model synthesis of CMP processes" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-chemical-mechanical-planarization:MetalCMP a owl:Class ;
+    rdfs:label "Metal CMP" ;
+    rdfs:comment "CMP process for metal layers" ;
+    rdfs:subClassOf semicont-07-wfe-chemical-mechanical-planarization:CMPProcess ;
+    rdfs:isDefinedBy semicont-07-wfe-chemical-mechanical-planarization: ;
+    dc:source "Public domain CMP process classification" ;
+    dc:rights "Fair use: generic metal CMP concept" ;
+    prov:wasInformedBy "Industry-standard CMP process categorization by material" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-chemical-mechanical-planarization:OxideCMP a owl:Class ;
+    rdfs:label "Oxide CMP" ;
+    rdfs:comment "CMP process for oxide layers" ;
+    rdfs:subClassOf semicont-07-wfe-chemical-mechanical-planarization:CMPProcess ;
+    rdfs:isDefinedBy semicont-07-wfe-chemical-mechanical-planarization: ;
+    dc:source "Public domain CMP process classification" ;
+    dc:rights "Fair use: generic oxide CMP concept" ;
+    prov:wasInformedBy "Industry-standard CMP process categorization by material" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# CMP Consumables
+semicont-07-wfe-chemical-mechanical-planarization:Slurry a owl:Class ;
+    rdfs:label "Slurry" ;
+    rdfs:comment "CMP slurry with abrasive particles and chemicals" ;
+    rdfs:subClassOf semicont-shared:Material ;
+    rdfs:isDefinedBy semicont-07-wfe-chemical-mechanical-planarization: ;
+    dc:source "Public domain CMP consumable classification" ;
+    dc:rights "Fair use: generic CMP slurry concept" ;
+    prov:wasInformedBy "Industry-standard CMP consumable definitions" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-chemical-mechanical-planarization:PolishingPad a owl:Class ;
+    rdfs:label "Polishing Pad" ;
+    rdfs:comment "Pad used for mechanical polishing in CMP" ;
+    rdfs:subClassOf semicont-shared:Material ;
+    rdfs:isDefinedBy semicont-07-wfe-chemical-mechanical-planarization: ;
+    dc:source "Public domain CMP consumable classification" ;
+    dc:rights "Fair use: generic polishing pad concept" ;
+    prov:wasInformedBy "Industry-standard CMP consumable definitions" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Process Parameters
+semicont-07-wfe-chemical-mechanical-planarization:hasDownForce a owl:DatatypeProperty ;
+    rdfs:label "has down force" ;
+    rdfs:comment "Down force applied to wafer in Newtons" ;
+    rdfs:domain semicont-07-wfe-chemical-mechanical-planarization:CMPProcess ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy semicont-07-wfe-chemical-mechanical-planarization: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-chemical-mechanical-planarization:hasPlatenSpeed a owl:DatatypeProperty ;
+    rdfs:label "has platen speed" ;
+    rdfs:comment "Platen rotation speed in RPM" ;
+    rdfs:domain semicont-07-wfe-chemical-mechanical-planarization:CMPProcess ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-chemical-mechanical-planarization: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-chemical-mechanical-planarization:hasSlurryFlowRate a owl:DatatypeProperty ;
+    rdfs:label "has slurry flow rate" ;
+    rdfs:comment "Slurry flow rate in ml/min" ;
+    rdfs:domain semicont-07-wfe-chemical-mechanical-planarization:CMPProcess ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-chemical-mechanical-planarization: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-chemical-mechanical-planarization:hasRemovalRate a owl:DatatypeProperty ;
+    rdfs:label "has removal rate" ;
+    rdfs:comment "Material removal rate in nm/min" ;
+    rdfs:domain semicont-07-wfe-chemical-mechanical-planarization:CMPProcess ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy semicont-07-wfe-chemical-mechanical-planarization: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Equipment Properties
+semicont-07-wfe-chemical-mechanical-planarization:hasPlatenCount a owl:DatatypeProperty ;
+    rdfs:label "has platen count" ;
+    rdfs:comment "Number of polishing platens" ;
+    rdfs:domain semicont-07-wfe-chemical-mechanical-planarization:CMPEquipment ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-chemical-mechanical-planarization: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .

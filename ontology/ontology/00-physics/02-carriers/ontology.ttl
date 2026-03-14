@@ -1,0 +1,259 @@
+# Carrier Physics Ontology
+# Charge carrier properties and transport in semiconductors
+
+@prefix semicont-00-physics-02-carriers: <https://semicont.org/ontology/00-physics/02-carriers#> .
+@prefix semicont-00-physics: <https://semicont.org/ontology/00-physics#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix semicont-standards: <https://semicont.org/ontology/01-standards-reference#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+
+semicont-00-physics-02-carriers: a owl:Ontology ;
+    rdfs:label "Carrier Physics Ontology" ;
+    rdfs:comment "Charge carrier properties and transport in semiconductors" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-physics> ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+    dc:source "Semiconductor device physics textbooks and carrier transport theory" ;
+    dc:rights "Fair use: publicly known carrier physics concepts" ;
+    prov:wasInformedBy "Semiconductor carrier transport and device physics" ;
+    prov:hadPrimarySource <https://www.nist.gov/pml/materials-data-repository> ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date ;
+    # Scope and maturity metadata
+    semicont-00-physics:scopeNote """
+        SCOPE: Charge carrier properties and transport phenomena
+        - Includes: Mobility, lifetime, diffusion, drift, recombination
+        - Excludes: Quantum transport, hot carrier effects
+        - Depth limit: Classical carrier physics, no advanced effects
+        """@en ;
+    semicont-00-physics:maturityLevel semicont-00-physics:curated .
+
+# Carrier Transport Classes
+semicont-00-physics-02-carriers:CarrierTransport a owl:Class ;
+    rdfs:label "Carrier Transport" ;
+    rdfs:comment "Mechanism of charge carrier movement in semiconductors" ;
+    rdfs:subClassOf semicont-00-physics:SemiconductorPhysics ;
+    rdfs:isDefinedBy semicont-00-physics-02-carriers: ;
+    prov:wasInformedBy "Semiconductor transport theory" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics-02-carriers:DriftTransport a owl:Class ;
+    rdfs:label "Drift Transport" ;
+    rdfs:comment "Carrier movement due to electric field" ;
+    rdfs:subClassOf semicont-00-physics-02-carriers:CarrierTransport ;
+    rdfs:isDefinedBy semicont-00-physics-02-carriers: ;
+    prov:wasInformedBy "Drift transport physics" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics-02-carriers:DiffusionTransport a owl:Class ;
+    rdfs:label "Diffusion Transport" ;
+    rdfs:comment "Carrier movement due to concentration gradient" ;
+    rdfs:subClassOf semicont-00-physics-02-carriers:CarrierTransport ;
+    rdfs:isDefinedBy semicont-00-physics-02-carriers: ;
+    prov:wasInformedBy "Diffusion transport physics" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics-02-carriers:CarrierLifetime a owl:Class ;
+    rdfs:label "Carrier Lifetime" ;
+    rdfs:comment "Average time before carrier recombination" ;
+    rdfs:subClassOf semicont-00-physics:PhysicalProperty ;
+    rdfs:isDefinedBy semicont-00-physics-02-carriers: ;
+    prov:wasInformedBy "Carrier recombination theory" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics-02-carriers:Recombination a owl:Class ;
+    rdfs:label "Recombination" ;
+    rdfs:comment "Process where electron-hole pairs annihilate" ;
+    rdfs:subClassOf semicont-00-physics:SemiconductorPhysics ;
+    rdfs:isDefinedBy semicont-00-physics-02-carriers: ;
+    prov:wasInformedBy "Carrier recombination mechanisms" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics-02-carriers:Generation a owl:Class ;
+    rdfs:label "Generation" ;
+    rdfs:comment "Process where electron-hole pairs are created" ;
+    rdfs:subClassOf semicont-00-physics:SemiconductorPhysics ;
+    rdfs:isDefinedBy semicont-00-physics-02-carriers: ;
+    prov:wasInformedBy "Carrier generation mechanisms" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+# Carrier Concentration Classes
+semicont-00-physics-02-carriers:CarrierConcentration a owl:Class ;
+    rdfs:label "Carrier Concentration" ;
+    rdfs:comment "Number of charge carriers per unit volume" ;
+    rdfs:subClassOf semicont-00-physics:PhysicalProperty ;
+    rdfs:isDefinedBy semicont-00-physics-02-carriers: ;
+    prov:wasInformedBy "Carrier concentration definitions" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics-02-carriers:ElectronConcentration a owl:Class ;
+    rdfs:label "Electron Concentration" ;
+    rdfs:comment "Concentration of electrons in the conduction band" ;
+    rdfs:subClassOf semicont-00-physics-02-carriers:CarrierConcentration ;
+    rdfs:isDefinedBy semicont-00-physics-02-carriers: ;
+    prov:wasInformedBy "Electron concentration definitions" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics-02-carriers:HoleConcentration a owl:Class ;
+    rdfs:label "Hole Concentration" ;
+    rdfs:comment "Concentration of holes in the valence band" ;
+    rdfs:subClassOf semicont-00-physics-02-carriers:CarrierConcentration ;
+    rdfs:isDefinedBy semicont-00-physics-02-carriers: ;
+    prov:wasInformedBy "Hole concentration definitions" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+# Properties
+semicont-00-physics-02-carriers:hasCarrierLifetime a owl:ObjectProperty ;
+    rdfs:label "has carrier lifetime" ;
+    rdfs:comment "Average time before carrier recombination" ;
+    rdfs:domain semicont-00-physics:SemiconductorMaterial ;
+    rdfs:range semicont-00-physics-02-carriers:CarrierLifetime ;
+    rdfs:isDefinedBy semicont-00-physics-02-carriers: ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics-02-carriers:hasElectronConcentration a owl:ObjectProperty ;
+    rdfs:label "has electron concentration" ;
+    rdfs:comment "Electron concentration in the semiconductor" ;
+    rdfs:domain semicont-00-physics:SemiconductorMaterial ;
+    rdfs:range semicont-00-physics-02-carriers:ElectronConcentration ;
+    rdfs:isDefinedBy semicont-00-physics-02-carriers: ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics-02-carriers:hasHoleConcentration a owl:ObjectProperty ;
+    rdfs:label "has hole concentration" ;
+    rdfs:comment "Hole concentration in the semiconductor" ;
+    rdfs:domain semicont-00-physics:SemiconductorMaterial ;
+    rdfs:range semicont-00-physics-02-carriers:HoleConcentration ;
+    rdfs:isDefinedBy semicont-00-physics-02-carriers: ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics-02-carriers:hasDiffusionCoefficient a owl:ObjectProperty ;
+    rdfs:label "has diffusion coefficient" ;
+    rdfs:comment "Diffusion coefficient for carriers" ;
+    rdfs:domain semicont-00-physics:Carrier ;
+    rdfs:range semicont-shared:UnitizedValue ;
+    rdfs:isDefinedBy semicont-00-physics-02-carriers: ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics-02-carriers:hasRecombinationRate a owl:ObjectProperty ;
+    rdfs:label "has recombination rate" ;
+    rdfs:comment "Rate of electron-hole recombination" ;
+    rdfs:domain semicont-00-physics-02-carriers:Recombination ;
+    rdfs:range semicont-shared:UnitizedValue ;
+    rdfs:isDefinedBy semicont-00-physics-02-carriers: ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics-02-carriers:hasGenerationRate a owl:ObjectProperty ;
+    rdfs:label "has generation rate" ;
+    rdfs:comment "Rate of electron-hole pair generation" ;
+    rdfs:domain semicont-00-physics-02-carriers:Generation ;
+    rdfs:range semicont-shared:UnitizedValue ;
+    rdfs:isDefinedBy semicont-00-physics-02-carriers: ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics-02-carriers:isDopantType a owl:DatatypeProperty ;
+    rdfs:label "is dopant type" ;
+    rdfs:comment "n-type or p-type classification from carrier perspective" ;
+    rdfs:domain semicont-00-physics:ExtrinsicSemiconductor ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy semicont-00-physics-02-carriers: ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+# OWL Axioms
+semicont-00-physics-02-carriers:DriftTransport owl:disjointWith semicont-00-physics-02-carriers:DiffusionTransport ;
+    rdfs:comment "Drift and diffusion are distinct transport mechanisms" .
+
+semicont-00-physics-02-carriers:ElectronConcentration owl:disjointWith semicont-00-physics-02-carriers:HoleConcentration ;
+    rdfs:comment "Electron and hole concentrations are distinct" .
+
+# SHACL Shapes
+semicont-00-physics-02-carriers:CarrierLifetimeShape a sh:NodeShape ;
+    sh:targetClass semicont-00-physics-02-carriers:CarrierLifetime ;
+    sh:property [
+        sh:path semicont-shared:hasValue ;
+        sh:datatype xsd:double ;
+        sh:minInclusive 1e-12 ;
+        sh:maxInclusive 1e-3 ;
+        sh:message "Carrier lifetime should be between 1 ps and 1 ms" ;
+        sh:severity sh:Warning
+    ] .
+
+semicont-00-physics-02-carriers:ExtrinsicSemiconductorShape a sh:NodeShape ;
+    sh:targetClass semicont-00-physics:ExtrinsicSemiconductor ;
+    sh:property [
+        sh:path semicont-00-physics-02-carriers:isDopantType ;
+        sh:datatype xsd:string ;
+        sh:pattern "^(n-type|p-type)$" ;
+        sh:message "Dopant type must be either 'n-type' or 'p-type'" ;
+        sh:severity sh:Violation
+    ] .
+
+# Example Individuals
+semicont-00-physics-02-carriers:Si_Electron_Mobility a owl:NamedIndividual , semicont-00-physics:PhysicalProperty ;
+    rdfs:label "Silicon Electron Mobility" ;
+    rdfs:comment "Electron mobility in intrinsic silicon at 300K" ;
+    semicont-shared:hasValue [
+        a semicont-shared:UnitizedValue ;
+        semicont-shared:hasValue "1350"^^xsd:double ;
+        semicont-shared:hasUnit unit:CentiM-PER-V-SEC
+    ] ;
+    prov:wasInformedBy "Standard silicon electron mobility" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics-02-carriers:Si_Minority_Lifetime a owl:NamedIndividual , semicont-00-physics-02-carriers:CarrierLifetime ;
+    rdfs:label "Silicon Minority Carrier Lifetime" ;
+    rdfs:comment "Minority carrier lifetime in high-purity silicon" ;
+    semicont-shared:hasValue [
+        a semicont-shared:UnitizedValue ;
+        semicont-shared:hasValue "2.5e-3"^^xsd:double ;
+        semicont-shared:hasUnit unit:SEC
+    ] ;
+    prov:wasInformedBy "High-quality silicon carrier lifetime" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics-02-carriers:N_Type_Silicon a owl:NamedIndividual , semicont-00-physics:ExtrinsicSemiconductor ;
+    rdfs:label "n-type Silicon" ;
+    rdfs:comment "Phosphorus-doped n-type silicon" ;
+    semicont-00-physics-02-carriers:isDopantType "n-type" ;
+    semicont-00-physics:hasDopant semicont-00-physics:Phosphorus_Donor ;
+    semicont-00-physics-02-carriers:hasElectronConcentration [
+        a semicont-00-physics-02-carriers:ElectronConcentration ;
+        semicont-shared:hasValue [
+            a semicont-shared:UnitizedValue ;
+            semicont-shared:hasValue "1e15"^^xsd:double ;
+            semicont-shared:hasUnit unit:NUM-PER-CentiM3
+        ]
+    ] ;
+    prov:wasInformedBy "Typical n-type silicon doping" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+# External Mappings
+semicont-00-physics-02-carriers:CarrierTransport rdfs:seeAlso <https://www.nist.gov/pml/materials-data-repository> .
+
+semicont-00-physics-02-carriers:CarrierLifetime rdfs:seeAlso <https://www.astm.org/Standards/F1535> .

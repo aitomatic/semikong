@@ -1,0 +1,228 @@
+# Materials Quality Control Ontology
+# Quality specifications and testing standards for semiconductor materials
+
+@prefix semicont-08-materials-04-quality-control: <https://semicont.org/ontology/08-materials/04-quality-control/#> .
+@prefix semicont-08-materials: <https://semicont.org/ontology/08-materials/#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix semicont-standards: <https://semicont.org/ontology/01-standards-reference#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+
+semicont-08-materials-04-quality-control: a owl:Ontology ;
+    rdfs:label "Materials Quality Control Ontology" ;
+    rdfs:comment "Quality specifications and testing standards for semiconductor materials" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/08-materials> ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+    dc:source "SEMI M1, M8, M55 material specifications and industry quality control standards" ;
+    dc:rights "Fair use: publicly known quality specifications and test methods" ;
+    prov:wasInformedBy "SEMI material standards and industry quality control practices" ;
+    prov:hadPrimarySource <https://www.semi.org/en/products-services/standards/materials> ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date ;
+    # Scope and maturity metadata
+    semicont-08-materials:scopeNote """
+        SCOPE: Quality control specifications for semiconductor materials
+        - Includes: Purity grades, contamination limits, test methods per SEMI standards
+        - Excludes: Proprietary test procedures, company-specific quality metrics
+        - Depth limit: Industry-general specifications, no confidential methods
+        """@en ;
+    semicont-08-materials:maturityLevel semicont-08-materials:curated .
+
+# Quality Control Classes
+semicont-08-materials-04-quality-control:MaterialQuality a owl:Class ;
+    dc:source "SEMI materials standards index (https://www.semi.org/en/products-services/standards/materials)" ;
+    prov:wasInformedBy "SEMI-aligned quality-control concepts for semiconductor materials." ;
+    rdfs:label "Material Quality" ;
+    rdfs:comment "Quality characteristics of a semiconductor material" ;
+    rdfs:subClassOf semicont-shared:Parameter ;
+    rdfs:isDefinedBy semicont-08-materials-04-quality-control: ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-04-quality-control:ContaminationLimit a owl:Class ;
+    rdfs:label "Contamination Limit" ;
+    rdfs:comment "Maximum allowable contamination level" ;
+    rdfs:subClassOf semicont-08-materials-04-quality-control:MaterialQuality ;
+    rdfs:isDefinedBy semicont-08-materials-04-quality-control: ;
+    prov:wasInformedBy "SEMI material contamination specifications" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-04-quality-control:ParticleSpecification a owl:Class ;
+    rdfs:label "Particle Specification" ;
+    rdfs:comment "Particle contamination requirements" ;
+    rdfs:subClassOf semicont-08-materials-04-quality-control:MaterialQuality ;
+    rdfs:isDefinedBy semicont-08-materials-04-quality-control: ;
+    prov:wasInformedBy "SEMI particle specifications" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-04-quality-control:SurfaceQuality a owl:Class ;
+    rdfs:label "Surface Quality" ;
+    rdfs:comment "Surface roughness and defect requirements" ;
+    rdfs:subClassOf semicont-08-materials-04-quality-control:MaterialQuality ;
+    rdfs:isDefinedBy semicont-08-materials-04-quality-control: ;
+    prov:wasInformedBy "SEMI surface quality specifications" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Contamination Types
+semicont-08-materials-04-quality-control:MetalContamination a owl:Class ;
+    rdfs:label "Metal Contamination" ;
+    rdfs:comment "Transition metal contamination specification" ;
+    rdfs:subClassOf semicont-08-materials-04-quality-control:ContaminationLimit ;
+    rdfs:isDefinedBy semicont-08-materials-04-quality-control: ;
+    prov:wasInformedBy "SEMI metal contamination limits" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-04-quality-control:OrganicContamination a owl:Class ;
+    rdfs:label "Organic Contamination" ;
+    rdfs:comment "Organic compound contamination specification" ;
+    rdfs:subClassOf semicont-08-materials-04-quality-control:ContaminationLimit ;
+    rdfs:isDefinedBy semicont-08-materials-04-quality-control: ;
+    prov:wasInformedBy "Industry organic contamination limits" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-04-quality-control:IonicContamination a owl:Class ;
+    rdfs:label "Ionic Contamination" ;
+    rdfs:comment "Ionic species contamination specification" ;
+    rdfs:subClassOf semicont-08-materials-04-quality-control:ContaminationLimit ;
+    rdfs:isDefinedBy semicont-08-materials-04-quality-control: ;
+    prov:wasInformedBy "Industry ionic contamination limits" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Test Methods
+semicont-08-materials-04-quality-control:TestMethod a owl:Class ;
+    rdfs:label "Test Method" ;
+    rdfs:comment "Standardized test method for material quality" ;
+    rdfs:subClassOf semicont-shared:Method ;
+    rdfs:isDefinedBy semicont-08-materials-04-quality-control: ;
+    prov:wasInformedBy "SEMI test method standards" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-04-quality-control:VPDICPMS a owl:Class ;
+    rdfs:label "VPD-ICPMS" ;
+    rdfs:comment "Vapor Phase Decomposition - Inductively Coupled Plasma Mass Spectrometry" ;
+    rdfs:subClassOf semicont-08-materials-04-quality-control:TestMethod ;
+    rdfs:isDefinedBy semicont-08-materials-04-quality-control: ;
+    prov:wasInformedBy "Industry standard for metal contamination analysis" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-04-quality-control:TXRF a owl:Class ;
+    rdfs:label "TXRF" ;
+    rdfs:comment "Total Reflection X-ray Fluorescence" ;
+    rdfs:subClassOf semicont-08-materials-04-quality-control:TestMethod ;
+    rdfs:isDefinedBy semicont-08-materials-04-quality-control: ;
+    prov:wasInformedBy "Industry standard for surface contamination analysis" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-04-quality-control:AFM a owl:Class ;
+    rdfs:label "AFM" ;
+    rdfs:comment "Atomic Force Microscopy" ;
+    rdfs:subClassOf semicont-08-materials-04-quality-control:TestMethod ;
+    rdfs:isDefinedBy semicont-08-materials-04-quality-control: ;
+    prov:wasInformedBy "Industry standard for surface roughness measurement" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Properties
+semicont-08-materials-04-quality-control:hasMaxConcentration a owl:ObjectProperty ;
+    rdfs:label "has maximum concentration" ;
+    rdfs:comment "Maximum allowable concentration limit" ;
+    rdfs:domain semicont-08-materials-04-quality-control:ContaminationLimit ;
+    rdfs:range semicont-shared:UnitizedValue ;
+    rdfs:isDefinedBy semicont-08-materials-04-quality-control: ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-04-quality-control:hasParticleSize a owl:ObjectProperty ;
+    rdfs:label "has particle size" ;
+    rdfs:comment "Particle size specification" ;
+    rdfs:domain semicont-08-materials-04-quality-control:ParticleSpecification ;
+    rdfs:range semicont-shared:UnitizedValue ;
+    rdfs:isDefinedBy semicont-08-materials-04-quality-control: ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-04-quality-control:hasParticleCount a owl:DatatypeProperty ;
+    rdfs:label "has particle count" ;
+    rdfs:comment "Maximum particle count per unit area or volume" ;
+    rdfs:domain semicont-08-materials-04-quality-control:ParticleSpecification ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-08-materials-04-quality-control: ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-04-quality-control:hasSurfaceRoughness a owl:ObjectProperty ;
+    rdfs:label "has surface roughness" ;
+    rdfs:comment "Surface roughness specification" ;
+    rdfs:domain semicont-08-materials-04-quality-control:SurfaceQuality ;
+    rdfs:range semicont-shared:UnitizedValue ;
+    rdfs:isDefinedBy semicont-08-materials-04-quality-control: ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-04-quality-control:appliesTo a owl:ObjectProperty ;
+    rdfs:label "applies to" ;
+    rdfs:comment "Indicates which material the quality specification applies to" ;
+    rdfs:domain semicont-08-materials-04-quality-control:MaterialQuality ;
+    rdfs:range semicont-08-materials:SemiconductorMaterial ;
+    rdfs:isDefinedBy semicont-08-materials-04-quality-control: ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Example Quality Specifications
+semicont-08-materials-04-quality-control:IronLimit_5E10 a owl:NamedIndividual , semicont-08-materials-04-quality-control:MetalContamination ;
+    rdfs:label "Iron Contamination Limit" ;
+    rdfs:comment "Maximum iron contamination: 5×10¹⁰ atoms/cm²" ;
+    semicont-08-materials-04-quality-control:hasMaxConcentration [
+        a semicont-shared:UnitizedValue ;
+        semicont-shared:hasValue "5.0e10"^^xsd:double ;
+        semicont-shared:hasUnit unit:NUM-PER-CentiM2
+    ] ;
+    prov:wasInformedBy "SEMI M1 iron contamination limits for silicon wafers" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-04-quality-control:ParticleSpec_01um a owl:NamedIndividual , semicont-08-materials-04-quality-control:ParticleSpecification ;
+    rdfs:label "0.1 μm Particle Specification" ;
+    rdfs:comment "Particles ≥0.1 μm: max 100 per wafer" ;
+    semicont-08-materials-04-quality-control:hasParticleSize [
+        a semicont-shared:UnitizedValue ;
+        semicont-shared:hasValue "0.1"^^xsd:double ;
+        semicont-shared:hasUnit unit:MicroM
+    ] ;
+    semicont-08-materials-04-quality-control:hasParticleCount 100 ;
+    prov:wasInformedBy "SEMI M1 particle specifications for polished wafers" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-04-quality-control:SurfaceRoughnessSpec a owl:NamedIndividual , semicont-08-materials-04-quality-control:SurfaceQuality ;
+    rdfs:label "Wafer Surface Roughness" ;
+    rdfs:comment "Maximum RMS surface roughness: 0.2 nm" ;
+    semicont-08-materials-04-quality-control:hasSurfaceRoughness [
+        a semicont-shared:UnitizedValue ;
+        semicont-shared:hasValue "0.2"^^xsd:double ;
+        semicont-shared:hasUnit unit:NanoM
+    ] ;
+    prov:wasInformedBy "SEMI M1 surface roughness specifications" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# External Mappings
+semicont-08-materials-04-quality-control:VPDICPMS rdfs:seeAlso <https://www.astm.org/Standards/E1587> .
+
+semicont-08-materials-04-quality-control:TXRF rdfs:seeAlso <https://www.astm.org/Standards/E1739> .

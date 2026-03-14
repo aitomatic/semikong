@@ -1,0 +1,248 @@
+# Shared Layer Foundation Ontology
+# Cross-cutting concepts for semiconductor industry ontology
+
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+# Module Metadata
+semicont-shared: a owl:Ontology ;
+    rdfs:label "Semicont Shared Layer Foundation" ;
+    rdfs:comment "Cross-cutting concepts and shared resources across all semiconductor industry layers" ;
+    owl:versionInfo "0.1.0" ;
+    dc:source "W3C standard vocabularies and industry-general semiconductor concepts" ;
+    dc:rights "Fair use: foundational ontology concepts" ;
+    prov:wasInformedBy "Model synthesis of W3C standards and industry-general semantics" ;
+    prov:hadPrimarySource <https://www.w3.org/2001/sw/wiki/OWL> ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Base Classes (SEMI Backbone)
+semicont-shared:Thing a owl:Class ;
+    dc:source "W3C OWL 2 Web Ontology Language overview (https://www.w3.org/TR/owl2-overview/)" ;
+    prov:wasInformedBy "W3C ontology modeling semantics for reusable cross-domain classes." ;
+    rdfs:label "Thing" ;
+    rdfs:comment "Root class for all entities in the semiconductor ontology" ;
+    rdfs:isDefinedBy semicont-shared: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-shared:Actor a owl:Class ;
+    dc:source "W3C OWL 2 Web Ontology Language overview (https://www.w3.org/TR/owl2-overview/)" ;
+    prov:wasInformedBy "W3C ontology modeling semantics for reusable cross-domain classes." ;
+    rdfs:label "Actor" ;
+    rdfs:comment "Entity that performs actions in the semiconductor industry" ;
+    rdfs:subClassOf semicont-shared:Thing ;
+    rdfs:isDefinedBy semicont-shared: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-shared:Facility a owl:Class ;
+    dc:source "W3C OWL 2 Web Ontology Language overview (https://www.w3.org/TR/owl2-overview/)" ;
+    prov:wasInformedBy "W3C ontology modeling semantics for reusable cross-domain classes." ;
+    rdfs:label "Facility" ;
+    rdfs:comment "Physical location where semiconductor operations occur" ;
+    rdfs:subClassOf semicont-shared:Thing ;
+    rdfs:isDefinedBy semicont-shared: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-shared:ProcessStep a owl:Class ;
+    dc:source "W3C OWL 2 Web Ontology Language overview (https://www.w3.org/TR/owl2-overview/)" ;
+    prov:wasInformedBy "W3C ontology modeling semantics for reusable cross-domain classes." ;
+    rdfs:label "Process Step" ;
+    rdfs:comment "Individual step in a semiconductor manufacturing process" ;
+    rdfs:subClassOf semicont-shared:Thing ;
+    rdfs:isDefinedBy semicont-shared: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-shared:Equipment a owl:Class ;
+    dc:source "W3C OWL 2 Web Ontology Language overview (https://www.w3.org/TR/owl2-overview/)" ;
+    prov:wasInformedBy "W3C ontology modeling semantics for reusable cross-domain classes." ;
+    rdfs:label "Equipment" ;
+    rdfs:comment "Tool or machine used in semiconductor manufacturing" ;
+    rdfs:subClassOf semicont-shared:Thing ;
+    rdfs:isDefinedBy semicont-shared: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-shared:Material a owl:Class ;
+    dc:source "W3C OWL 2 Web Ontology Language overview (https://www.w3.org/TR/owl2-overview/)" ;
+    prov:wasInformedBy "W3C ontology modeling semantics for reusable cross-domain classes." ;
+    rdfs:label "Material" ;
+    rdfs:comment "Substance used in semiconductor manufacturing" ;
+    rdfs:subClassOf semicont-shared:Thing ;
+    rdfs:isDefinedBy semicont-shared: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-shared:Spec a owl:Class ;
+    dc:source "W3C OWL 2 Web Ontology Language overview (https://www.w3.org/TR/owl2-overview/)" ;
+    prov:wasInformedBy "W3C ontology modeling semantics for reusable cross-domain classes." ;
+    rdfs:label "Specification" ;
+    rdfs:comment "Technical specification or requirement" ;
+    rdfs:subClassOf semicont-shared:Thing ;
+    rdfs:isDefinedBy semicont-shared: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-shared:Metric a owl:Class ;
+    dc:source "W3C OWL 2 Web Ontology Language overview (https://www.w3.org/TR/owl2-overview/)" ;
+    prov:wasInformedBy "W3C ontology modeling semantics for reusable cross-domain classes." ;
+    rdfs:label "Metric" ;
+    rdfs:comment "Measurable quantity or KPI" ;
+    rdfs:subClassOf semicont-shared:Thing ;
+    rdfs:isDefinedBy semicont-shared: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-shared:Defect a owl:Class ;
+    dc:source "W3C OWL 2 Web Ontology Language overview (https://www.w3.org/TR/owl2-overview/)" ;
+    prov:wasInformedBy "W3C ontology modeling semantics for reusable cross-domain classes." ;
+    rdfs:label "Defect" ;
+    rdfs:comment "Imperfection or fault in semiconductor manufacturing" ;
+    rdfs:subClassOf semicont-shared:Thing ;
+    rdfs:isDefinedBy semicont-shared: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-shared:Yield a owl:Class ;
+    dc:source "W3C OWL 2 Web Ontology Language overview (https://www.w3.org/TR/owl2-overview/)" ;
+    prov:wasInformedBy "W3C ontology modeling semantics for reusable cross-domain classes." ;
+    rdfs:label "Yield" ;
+    rdfs:comment "Percentage of good devices or products" ;
+    rdfs:subClassOf semicont-shared:Thing ;
+    rdfs:isDefinedBy semicont-shared: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-shared:TraceabilityUnit a owl:Class ;
+    dc:source "W3C OWL 2 Web Ontology Language overview (https://www.w3.org/TR/owl2-overview/)" ;
+    prov:wasInformedBy "W3C ontology modeling semantics for reusable cross-domain classes." ;
+    rdfs:label "Traceability Unit" ;
+    rdfs:comment "Unit of traceability in manufacturing" ;
+    rdfs:subClassOf semicont-shared:Thing ;
+    rdfs:isDefinedBy semicont-shared: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Core Properties
+semicont-shared:hasName a owl:DatatypeProperty ;
+    rdfs:label "has name" ;
+    rdfs:comment "Name or identifier of an entity" ;
+    rdfs:domain semicont-shared:Thing ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy semicont-shared: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-shared:hasDescription a owl:DatatypeProperty ;
+    rdfs:label "has description" ;
+    rdfs:comment "Textual description of an entity" ;
+    rdfs:domain semicont-shared:Thing ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy semicont-shared: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-shared:hasIdentifier a owl:DatatypeProperty ;
+    rdfs:label "has identifier" ;
+    rdfs:comment "Unique identifier for an entity" ;
+    rdfs:domain semicont-shared:Thing ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy semicont-shared: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Actor-specific Properties
+semicont-shared:hasRole a owl:DatatypeProperty ;
+    rdfs:label "has role" ;
+    rdfs:comment "Role or function of an actor" ;
+    rdfs:domain semicont-shared:Actor ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy semicont-shared: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Facility-specific Properties
+semicont-shared:hasLocation a owl:DatatypeProperty ;
+    rdfs:label "has location" ;
+    rdfs:comment "Geographic or facility location" ;
+    rdfs:domain semicont-shared:Facility ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy semicont-shared: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# ProcessStep-specific Properties
+semicont-shared:hasSequenceOrder a owl:DatatypeProperty ;
+    rdfs:label "has sequence order" ;
+    rdfs:comment "Numeric order in a process sequence" ;
+    rdfs:domain semicont-shared:ProcessStep ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-shared: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Equipment-specific Properties
+semicont-shared:hasCapability a owl:DatatypeProperty ;
+    rdfs:label "has capability" ;
+    rdfs:comment "Capability or specification of equipment" ;
+    rdfs:domain semicont-shared:Equipment ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy semicont-shared: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Material-specific Properties
+semicont-shared:hasComposition a owl:DatatypeProperty ;
+    rdfs:label "has composition" ;
+    rdfs:comment "Chemical composition of a material" ;
+    rdfs:domain semicont-shared:Material ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy semicont-shared: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Metric-specific Properties
+semicont-shared:hasValue a owl:DatatypeProperty ;
+    rdfs:label "has value" ;
+    rdfs:comment "Numeric value of a metric" ;
+    rdfs:domain semicont-shared:Metric ;
+    rdfs:range xsd:double ;
+    rdfs:isDefinedBy semicont-shared: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-shared:hasUnit a owl:DatatypeProperty ;
+    rdfs:label "has unit" ;
+    rdfs:comment "Unit of measurement for a metric" ;
+    rdfs:domain semicont-shared:Metric ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy semicont-shared: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Yield-specific Properties
+semicont-shared:hasPercentage a owl:DatatypeProperty ;
+    rdfs:label "has percentage" ;
+    rdfs:comment "Percentage value for yield" ;
+    rdfs:domain semicont-shared:Yield ;
+    rdfs:range xsd:double ;
+    rdfs:isDefinedBy semicont-shared: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# TraceabilityUnit-specific Properties
+semicont-shared:hasTraceabilityId a owl:DatatypeProperty ;
+    rdfs:label "has traceability ID" ;
+    rdfs:comment "Identifier for traceability purposes" ;
+    rdfs:domain semicont-shared:TraceabilityUnit ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy semicont-shared: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .

@@ -1,0 +1,394 @@
+# Standards Reference Ontology
+# Industry standards organizations, families, and document references
+
+@prefix semicont-standards: <https://semicont.org/ontology/01-standards-reference#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+# Module Metadata
+semicont-standards: a owl:Ontology ;
+    rdfs:label "Standards Reference Ontology" ;
+    rdfs:comment "Industry standards organizations, standards families, and standards documents used across semiconductor ontology modules" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+    dc:source "Public standards organization and standards catalog pages from SEMI, JEDEC, ISO, and ASTM" ;
+    dc:rights "Fair use: organization names, standard identifiers, and high-level scope descriptions" ;
+    prov:wasInformedBy "Paraphrased synthesis of public standards information for industry-general ontology modeling" ;
+    prov:hadPrimarySource <https://www.semi.org/en/products-services/standards> ;
+    prov:hadPrimarySource <https://www.jedec.org/> ;
+    prov:hadPrimarySource <https://www.iso.org/standards.html> ;
+    prov:hadPrimarySource <https://www.astm.org/products-services/standards-and-publications/standards.html> ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date ;
+    semicont-standards:moduleMaturityStatus "curated" ;
+    semicont-standards:moduleMaturityNotes "Baseline cross-layer standards reference with lifecycle and SHACL validation support" .
+
+# Annotation Properties
+semicont-standards:moduleMaturityStatus a owl:AnnotationProperty ;
+    rdfs:label "module maturity status" ;
+    rdfs:comment "Declared maturity level for this ontology module" ;
+    rdfs:isDefinedBy semicont-standards: .
+
+semicont-standards:moduleMaturityNotes a owl:AnnotationProperty ;
+    rdfs:label "module maturity notes" ;
+    rdfs:comment "Short notes on current coverage and known limitations" ;
+    rdfs:isDefinedBy semicont-standards: .
+
+# Core Classes
+semicont-standards:StandardsOrganization a owl:Class ;
+    rdfs:label "Standards Organization" ;
+    rdfs:comment "Organization that publishes formal standards relevant to semiconductor design and manufacturing" ;
+    rdfs:subClassOf semicont-shared:Actor ;
+    rdfs:isDefinedBy semicont-standards: ;
+    dc:source "Public standards body descriptions" ;
+    prov:wasInformedBy "Organization-level standards governance patterns" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-standards:StandardDocument a owl:Class ;
+    rdfs:label "Standard Document" ;
+    rdfs:comment "Normative standard, guideline, or recommended practice referenced by industry workflows" ;
+    rdfs:subClassOf semicont-shared:Spec ;
+    rdfs:isDefinedBy semicont-standards: ;
+    dc:source "Public standards catalogs" ;
+    prov:wasInformedBy "Standards document modeling patterns" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-standards:StandardsFamily a owl:Class ;
+    rdfs:label "Standards Family" ;
+    rdfs:comment "Named series of related standards maintained by a standards organization" ;
+    rdfs:subClassOf semicont-shared:Spec ;
+    rdfs:isDefinedBy semicont-standards: ;
+    dc:source "Public standards family listings" ;
+    prov:wasInformedBy "Series-level standards organization schemes" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-standards:StandardsDomain a owl:Class ;
+    rdfs:label "Standards Domain" ;
+    rdfs:comment "Application domain covered by a standards family or standards document" ;
+    rdfs:subClassOf semicont-shared:Thing ;
+    rdfs:isDefinedBy semicont-standards: ;
+    dc:source "Public standards program domain descriptions" ;
+    prov:wasInformedBy "Cross-domain standards taxonomy design" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-standards:StandardsLifecycleStatus a owl:Class ;
+    rdfs:label "Standards Lifecycle Status" ;
+    rdfs:comment "Lifecycle state of a standards document such as active, superseded, or withdrawn" ;
+    rdfs:subClassOf semicont-shared:Thing ;
+    rdfs:isDefinedBy semicont-standards: ;
+    dc:source "Public standards lifecycle conventions" ;
+    prov:wasInformedBy "Common standards publication lifecycle patterns" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+# Object Properties
+semicont-standards:hasIssuingOrganization a owl:ObjectProperty ;
+    rdfs:label "has issuing organization" ;
+    rdfs:comment "Links a standards family or document to the organization that issues it" ;
+    rdfs:domain [
+        owl:unionOf ( semicont-standards:StandardsFamily semicont-standards:StandardDocument )
+    ] ;
+    rdfs:range semicont-standards:StandardsOrganization ;
+    rdfs:isDefinedBy semicont-standards: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-standards:belongsToFamily a owl:ObjectProperty ;
+    rdfs:label "belongs to family" ;
+    rdfs:comment "Links a standards document to a standards family" ;
+    rdfs:domain semicont-standards:StandardDocument ;
+    rdfs:range semicont-standards:StandardsFamily ;
+    rdfs:isDefinedBy semicont-standards: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-standards:appliesToDomain a owl:ObjectProperty ;
+    rdfs:label "applies to domain" ;
+    rdfs:comment "Links standards families or documents to the domains they govern" ;
+    rdfs:domain [
+        owl:unionOf ( semicont-standards:StandardsFamily semicont-standards:StandardDocument )
+    ] ;
+    rdfs:range semicont-standards:StandardsDomain ;
+    rdfs:isDefinedBy semicont-standards: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-standards:hasLifecycleStatus a owl:ObjectProperty ;
+    rdfs:label "has lifecycle status" ;
+    rdfs:comment "Links a standards document to its lifecycle status" ;
+    rdfs:domain semicont-standards:StandardDocument ;
+    rdfs:range semicont-standards:StandardsLifecycleStatus ;
+    rdfs:isDefinedBy semicont-standards: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-standards:supersedes a owl:ObjectProperty ;
+    rdfs:label "supersedes" ;
+    rdfs:comment "Indicates that one standards document supersedes another" ;
+    rdfs:domain semicont-standards:StandardDocument ;
+    rdfs:range semicont-standards:StandardDocument ;
+    owl:inverseOf semicont-standards:supersededBy ;
+    rdfs:isDefinedBy semicont-standards: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-standards:supersededBy a owl:ObjectProperty ;
+    rdfs:label "superseded by" ;
+    rdfs:comment "Inverse of supersedes relation for standards documents" ;
+    rdfs:domain semicont-standards:StandardDocument ;
+    rdfs:range semicont-standards:StandardDocument ;
+    rdfs:isDefinedBy semicont-standards: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+# Datatype Properties
+semicont-standards:hasStandardIdentifier a owl:DatatypeProperty ;
+    rdfs:label "has standard identifier" ;
+    rdfs:comment "Canonical identifier for a standards document or family" ;
+    rdfs:domain [
+        owl:unionOf ( semicont-standards:StandardsFamily semicont-standards:StandardDocument )
+    ] ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy semicont-standards: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-standards:hasPublisherUrl a owl:DatatypeProperty ;
+    rdfs:label "has publisher URL" ;
+    rdfs:comment "Publisher URL for standards discovery or standards program reference" ;
+    rdfs:domain semicont-standards:StandardsOrganization ;
+    rdfs:range xsd:anyURI ;
+    rdfs:isDefinedBy semicont-standards: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-standards:hasEditionYear a owl:DatatypeProperty ;
+    rdfs:label "has edition year" ;
+    rdfs:comment "Publication or edition year for a standards document" ;
+    rdfs:domain semicont-standards:StandardDocument ;
+    rdfs:range xsd:gYear ;
+    rdfs:isDefinedBy semicont-standards: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+# Lifecycle Status Individuals
+semicont-standards:ActiveStatus a owl:NamedIndividual , semicont-standards:StandardsLifecycleStatus ;
+    rdfs:label "Active" ;
+    rdfs:comment "Standard is currently active for use" ;
+    rdfs:isDefinedBy semicont-standards: .
+
+semicont-standards:SupersededStatus a owl:NamedIndividual , semicont-standards:StandardsLifecycleStatus ;
+    rdfs:label "Superseded" ;
+    rdfs:comment "Standard has been replaced by a newer revision or document" ;
+    rdfs:isDefinedBy semicont-standards: .
+
+semicont-standards:WithdrawnStatus a owl:NamedIndividual , semicont-standards:StandardsLifecycleStatus ;
+    rdfs:label "Withdrawn" ;
+    rdfs:comment "Standard is no longer maintained or recommended" ;
+    rdfs:isDefinedBy semicont-standards: .
+
+# Standards Domains
+semicont-standards:EquipmentAutomationDomain a owl:NamedIndividual , semicont-standards:StandardsDomain ;
+    rdfs:label "Equipment Automation Domain" ;
+    rdfs:comment "Standards for equipment communication, interoperability, and manufacturing automation" ;
+    rdfs:isDefinedBy semicont-standards: .
+
+semicont-standards:ChemicalMaterialsDomain a owl:NamedIndividual , semicont-standards:StandardsDomain ;
+    rdfs:label "Chemical and Materials Domain" ;
+    rdfs:comment "Standards for chemical quality, handling, and material-related requirements" ;
+    rdfs:isDefinedBy semicont-standards: .
+
+semicont-standards:QualityManagementDomain a owl:NamedIndividual , semicont-standards:StandardsDomain ;
+    rdfs:label "Quality Management Domain" ;
+    rdfs:comment "Standards for quality management systems and process controls" ;
+    rdfs:isDefinedBy semicont-standards: .
+
+# Standards Organizations
+semicont-standards:SEMI a owl:NamedIndividual , semicont-standards:StandardsOrganization ;
+    rdfs:label "SEMI" ;
+    rdfs:comment "Industry association that develops standards for electronics manufacturing equipment and materials" ;
+    semicont-standards:hasPublisherUrl "https://www.semi.org/en/products-services/standards"^^xsd:anyURI ;
+    rdfs:seeAlso <https://www.semi.org/en/products-services/standards> ;
+    rdfs:isDefinedBy semicont-standards: ;
+    dc:source "SEMI standards program page" ;
+    prov:hadPrimarySource <https://www.semi.org/en/products-services/standards> ;
+    prov:wasInformedBy "Public SEMI standards overview" .
+
+semicont-standards:JEDEC a owl:NamedIndividual , semicont-standards:StandardsOrganization ;
+    rdfs:label "JEDEC" ;
+    rdfs:comment "Standards organization for microelectronics and semiconductor memory related technologies" ;
+    semicont-standards:hasPublisherUrl "https://www.jedec.org/"^^xsd:anyURI ;
+    rdfs:seeAlso <https://www.jedec.org/> ;
+    rdfs:isDefinedBy semicont-standards: ;
+    dc:source "JEDEC public homepage and standards access information" ;
+    prov:hadPrimarySource <https://www.jedec.org/> ;
+    prov:wasInformedBy "Public JEDEC standards description" .
+
+semicont-standards:ISO a owl:NamedIndividual , semicont-standards:StandardsOrganization ;
+    rdfs:label "ISO" ;
+    rdfs:comment "International standards body publishing cross-industry management and technical standards" ;
+    semicont-standards:hasPublisherUrl "https://www.iso.org/standards.html"^^xsd:anyURI ;
+    rdfs:seeAlso <https://www.iso.org/standards.html> ;
+    rdfs:isDefinedBy semicont-standards: ;
+    dc:source "ISO standards catalog page" ;
+    prov:hadPrimarySource <https://www.iso.org/standards.html> ;
+    prov:wasInformedBy "Public ISO standards overview" .
+
+semicont-standards:ASTM a owl:NamedIndividual , semicont-standards:StandardsOrganization ;
+    rdfs:label "ASTM International" ;
+    rdfs:comment "Standards development organization publishing standards and related technical publications" ;
+    semicont-standards:hasPublisherUrl "https://www.astm.org/products-services/standards-and-publications/standards.html"^^xsd:anyURI ;
+    rdfs:seeAlso <https://www.astm.org/products-services/standards-and-publications/standards.html> ;
+    rdfs:isDefinedBy semicont-standards: ;
+    dc:source "ASTM standards and publications page" ;
+    prov:hadPrimarySource <https://www.astm.org/products-services/standards-and-publications/standards.html> ;
+    prov:wasInformedBy "Public ASTM standards publication overview" .
+
+# Standards Families
+semicont-standards:SEMI_E_Series a owl:NamedIndividual , semicont-standards:StandardsFamily ;
+    rdfs:label "SEMI E Series" ;
+    rdfs:comment "SEMI equipment automation and interoperability standards family" ;
+    semicont-standards:hasStandardIdentifier "SEMI-E" ;
+    semicont-standards:hasIssuingOrganization semicont-standards:SEMI ;
+    semicont-standards:appliesToDomain semicont-standards:EquipmentAutomationDomain ;
+    rdfs:seeAlso <https://www.semi.org/en/products-services/standards> ;
+    rdfs:isDefinedBy semicont-standards: .
+
+semicont-standards:SEMI_C_Series a owl:NamedIndividual , semicont-standards:StandardsFamily ;
+    rdfs:label "SEMI C Series" ;
+    rdfs:comment "SEMI liquid chemicals standards family" ;
+    semicont-standards:hasStandardIdentifier "SEMI-C" ;
+    semicont-standards:hasIssuingOrganization semicont-standards:SEMI ;
+    semicont-standards:appliesToDomain semicont-standards:ChemicalMaterialsDomain ;
+    rdfs:seeAlso <https://www.semi.org/en/products-services/standards> ;
+    rdfs:isDefinedBy semicont-standards: .
+
+semicont-standards:JEDEC_JESD_Series a owl:NamedIndividual , semicont-standards:StandardsFamily ;
+    rdfs:label "JEDEC JESD Series" ;
+    rdfs:comment "JEDEC standard series for semiconductor device and memory related requirements" ;
+    semicont-standards:hasStandardIdentifier "JESD" ;
+    semicont-standards:hasIssuingOrganization semicont-standards:JEDEC ;
+    semicont-standards:appliesToDomain semicont-standards:QualityManagementDomain ;
+    rdfs:seeAlso <https://www.jedec.org/> ;
+    rdfs:isDefinedBy semicont-standards: .
+
+semicont-standards:ISO_9000_Family a owl:NamedIndividual , semicont-standards:StandardsFamily ;
+    rdfs:label "ISO 9000 Family" ;
+    rdfs:comment "ISO quality management standards family" ;
+    semicont-standards:hasStandardIdentifier "ISO-9000" ;
+    semicont-standards:hasIssuingOrganization semicont-standards:ISO ;
+    semicont-standards:appliesToDomain semicont-standards:QualityManagementDomain ;
+    rdfs:seeAlso <https://www.iso.org/standards.html> ;
+    rdfs:isDefinedBy semicont-standards: .
+
+# Example Standards Documents
+semicont-standards:SEMI_E30 a owl:NamedIndividual , semicont-standards:StandardDocument ;
+    rdfs:label "SEMI E30" ;
+    rdfs:comment "SEMI equipment communication model standard commonly used in automation integration" ;
+    semicont-standards:hasStandardIdentifier "E30" ;
+    semicont-standards:belongsToFamily semicont-standards:SEMI_E_Series ;
+    semicont-standards:hasIssuingOrganization semicont-standards:SEMI ;
+    semicont-standards:appliesToDomain semicont-standards:EquipmentAutomationDomain ;
+    semicont-standards:hasLifecycleStatus semicont-standards:ActiveStatus ;
+    rdfs:isDefinedBy semicont-standards: ;
+    dc:source "SEMI standards catalog and equipment automation standards family descriptions" ;
+    prov:hadPrimarySource <https://www.semi.org/en/products-services/standards> ;
+    prov:wasInformedBy "Public descriptions of SEMI equipment automation standards families" .
+
+semicont-standards:JEDEC_JESD47 a owl:NamedIndividual , semicont-standards:StandardDocument ;
+    rdfs:label "JEDEC JESD47" ;
+    rdfs:comment "JEDEC qualification standard identifier used for integrated circuit stress-test-driven qualification workflows" ;
+    semicont-standards:hasStandardIdentifier "JESD47" ;
+    semicont-standards:belongsToFamily semicont-standards:JEDEC_JESD_Series ;
+    semicont-standards:hasIssuingOrganization semicont-standards:JEDEC ;
+    semicont-standards:appliesToDomain semicont-standards:QualityManagementDomain ;
+    semicont-standards:hasLifecycleStatus semicont-standards:ActiveStatus ;
+    rdfs:isDefinedBy semicont-standards: ;
+    dc:source "JEDEC standards search and publications pages" ;
+    prov:hadPrimarySource <https://www.jedec.org/> ;
+    prov:wasInformedBy "Public JEDEC standards indexing" .
+
+semicont-standards:ISO_9001 a owl:NamedIndividual , semicont-standards:StandardDocument ;
+    rdfs:label "ISO 9001" ;
+    rdfs:comment "ISO quality management systems standard identifier frequently referenced in supplier qualification contexts" ;
+    semicont-standards:hasStandardIdentifier "9001" ;
+    semicont-standards:belongsToFamily semicont-standards:ISO_9000_Family ;
+    semicont-standards:hasIssuingOrganization semicont-standards:ISO ;
+    semicont-standards:appliesToDomain semicont-standards:QualityManagementDomain ;
+    semicont-standards:hasLifecycleStatus semicont-standards:ActiveStatus ;
+    semicont-standards:hasEditionYear "2015"^^xsd:gYear ;
+    rdfs:isDefinedBy semicont-standards: ;
+    dc:source "ISO standards catalog entries for management systems" ;
+    prov:hadPrimarySource <https://www.iso.org/standards.html> ;
+    prov:wasInformedBy "Public ISO standards catalog summaries" .
+
+# SHACL Shapes
+semicont-standards:StandardsOrganizationShape a sh:NodeShape ;
+    sh:targetClass semicont-standards:StandardsOrganization ;
+    sh:property [
+        sh:path semicont-standards:hasPublisherUrl ;
+        sh:datatype xsd:anyURI ;
+        sh:minCount 1 ;
+        sh:message "Standards organizations must provide a publisher URL" ;
+        sh:severity sh:Violation
+    ] .
+
+semicont-standards:StandardsFamilyShape a sh:NodeShape ;
+    sh:targetClass semicont-standards:StandardsFamily ;
+    sh:property [
+        sh:path semicont-standards:hasStandardIdentifier ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:message "Standards families must have a standard identifier" ;
+        sh:severity sh:Violation
+    ] ;
+    sh:property [
+        sh:path semicont-standards:hasIssuingOrganization ;
+        sh:class semicont-standards:StandardsOrganization ;
+        sh:minCount 1 ;
+        sh:message "Standards families must have an issuing organization" ;
+        sh:severity sh:Violation
+    ] .
+
+semicont-standards:StandardDocumentShape a sh:NodeShape ;
+    sh:targetClass semicont-standards:StandardDocument ;
+    sh:property [
+        sh:path semicont-standards:hasStandardIdentifier ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:pattern "^[A-Z0-9][A-Z0-9-]*$" ;
+        sh:message "Standards documents must have an identifier (letters/numbers/hyphen)" ;
+        sh:severity sh:Violation
+    ] ;
+    sh:property [
+        sh:path semicont-standards:hasIssuingOrganization ;
+        sh:class semicont-standards:StandardsOrganization ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "Standards documents must have exactly one issuing organization" ;
+        sh:severity sh:Violation
+    ] ;
+    sh:property [
+        sh:path semicont-standards:belongsToFamily ;
+        sh:class semicont-standards:StandardsFamily ;
+        sh:minCount 1 ;
+        sh:message "Standards documents should belong to a standards family" ;
+        sh:severity sh:Warning
+    ] ;
+    sh:property [
+        sh:path semicont-standards:hasLifecycleStatus ;
+        sh:class semicont-standards:StandardsLifecycleStatus ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "Standards documents must have one lifecycle status" ;
+        sh:severity sh:Violation
+    ] .

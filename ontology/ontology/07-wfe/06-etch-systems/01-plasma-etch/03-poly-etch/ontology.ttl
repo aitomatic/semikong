@@ -1,0 +1,28 @@
+# Plasma Poly Etch Leaf Ontology
+
+@prefix semicont-07-wfe-etch-systems-plasma-poly: <https://semicont.org/ontology/07-wfe/06-etch-systems/01-plasma-etch/03-poly-etch#> .
+@prefix semicont-07-wfe-etch-systems: <https://semicont.org/ontology/07-wfe/06-etch-systems#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-07-wfe-etch-systems-plasma-poly: a owl:Ontology ;
+    rdfs:label "Plasma Poly Etch Leaf Ontology" ;
+    rdfs:comment "Leaf-level plasma etch semantics for polysilicon pattern-transfer use cases." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/07-wfe/06-etch-systems/01-plasma-etch> ;
+    dc:source "Public plasma etch process references for polysilicon films." ;
+    dc:rights "Fair use: paraphrased industry-general poly plasma etch concepts." ;
+    prov:hadPrimarySource <https://plasma.oxinst.com/technology/icp-etching> ;
+    prov:wasInformedBy "Material-targeted plasma etch specialization for polysilicon films." ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-07-wfe-etch-systems:PolySiliconPlasmaEtchProcess a owl:Class ;
+    rdfs:label "Poly Silicon Plasma Etch Process" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:PlasmaEtchProcess ;
+    dc:source "Public plasma polysilicon etch process references." ;
+    prov:wasInformedBy "Leaf subtype for polysilicon-focused plasma etch process taxonomy." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems-plasma-poly: .

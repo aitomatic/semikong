@@ -1,0 +1,277 @@
+# Specialty Gases Foundation Ontology
+# High-purity gases and precursors for semiconductor manufacturing
+
+@prefix semicont-08-materials-gases: <https://semicont.org/ontology/08-materials/02-gases#> .
+@prefix semicont-08-materials: <https://semicont.org/ontology/08-materials#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix semicont-standards: <https://semicont.org/ontology/01-standards-reference#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+# Module Metadata
+semicont-08-materials-gases: a owl:Ontology ;
+    rdfs:label "Specialty Gases Foundation Ontology" ;
+    rdfs:comment "High-purity gases and precursors for semiconductor manufacturing" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/08-materials> ;
+    dc:source "SEMI C3, C10, C48 specialty gas specifications and industry references" ;
+    dc:rights "Fair use: publicly known gas specifications and industry standards" ;
+    prov:wasInformedBy "SEMI C3 specialty gas standards and semiconductor industry references" ;
+    prov:hadPrimarySource <https://www.semi.org/en/products-services/standards/materials> ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date ;
+    # Scope and maturity metadata
+    semicont-08-materials:scopeNote """
+        SCOPE: Specialty gases and precursors for semiconductor manufacturing
+        - Includes: Precursor gases, dopants, etchants, inert gases with SEMI specifications
+        - Excludes: Bulk industrial gases, proprietary gas mixtures, supplier-specific grades
+        - Depth limit: SEMI C3 series specifications, no trade secret formulations
+        """@en ;
+    semicont-08-materials:maturityLevel semicont-08-materials:curated .
+
+# Core Gas Classes
+semicont-08-materials-gases:SpecialtyGas a owl:Class ;
+    rdfs:label "Specialty Gas" ;
+    rdfs:comment "High-purity gas used in semiconductor processes" ;
+    rdfs:subClassOf semicont-08-materials:SpecialtyGas ;
+    rdfs:isDefinedBy semicont-08-materials-gases: ;
+    prov:wasInformedBy "SEMI C3 specialty gas specifications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-gases:PrecursorGas a owl:Class ;
+    rdfs:label "Precursor Gas" ;
+    rdfs:comment "Gas used as chemical precursor for deposition processes" ;
+    rdfs:subClassOf semicont-08-materials-gases:SpecialtyGas ;
+    rdfs:isDefinedBy semicont-08-materials-gases: ;
+    prov:wasInformedBy "Industry knowledge of CVD/ALD precursors" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-gases:DopantGas a owl:Class ;
+    rdfs:label "Dopant Gas" ;
+    rdfs:comment "Gas used for semiconductor doping processes" ;
+    rdfs:subClassOf semicont-08-materials-gases:SpecialtyGas ;
+    rdfs:isDefinedBy semicont-08-materials-gases: ;
+    prov:wasInformedBy "Industry knowledge of semiconductor doping" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-gases:EtchGas a owl:Class ;
+    rdfs:label "Etch Gas" ;
+    rdfs:comment "Gas used for plasma or chemical etching processes" ;
+    rdfs:subClassOf semicont-08-materials-gases:SpecialtyGas ;
+    rdfs:isDefinedBy semicont-08-materials-gases: ;
+    prov:wasInformedBy "Industry knowledge of plasma etching" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-gases:InertGas a owl:Class ;
+    rdfs:label "Inert Gas" ;
+    rdfs:comment "Chemically inert gas used for purge and carrier applications" ;
+    rdfs:subClassOf semicont-08-materials-gases:SpecialtyGas ;
+    rdfs:isDefinedBy semicont-08-materials-gases: ;
+    prov:wasInformedBy "Industry knowledge of inert gas applications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Specific Precursor Gases
+semicont-08-materials-gases:Silane a owl:Class ;
+    rdfs:label "Silane" ;
+    rdfs:comment "SiH4 - silicon precursor for CVD and ALD processes" ;
+    rdfs:subClassOf semicont-08-materials-gases:PrecursorGas ;
+    rdfs:isDefinedBy semicont-08-materials-gases: ;
+    prov:wasInformedBy "SEMI C3.55-0200 Standard for Silane (SiH4), Bulk" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-gases:Germane a owl:Class ;
+    rdfs:label "Germane" ;
+    rdfs:comment "GeH4 - germanium precursor for SiGe deposition" ;
+    rdfs:subClassOf semicont-08-materials-gases:PrecursorGas ;
+    rdfs:isDefinedBy semicont-08-materials-gases: ;
+    prov:wasInformedBy "Industry knowledge of SiGe precursors" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-gases:Dichlorosilane a owl:Class ;
+    rdfs:label "Dichlorosilane" ;
+    rdfs:comment "SiH2Cl2 - silicon precursor for epitaxial growth" ;
+    rdfs:subClassOf semicont-08-materials-gases:PrecursorGas ;
+    rdfs:isDefinedBy semicont-08-materials-gases: ;
+    prov:wasInformedBy "Industry knowledge of epitaxial precursors" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Specific Dopant Gases
+semicont-08-materials-gases:Phosphine a owl:Class ;
+    rdfs:label "Phosphine" ;
+    rdfs:comment "PH3 - n-type dopant gas" ;
+    rdfs:subClassOf semicont-08-materials-gases:DopantGas ;
+    rdfs:isDefinedBy semicont-08-materials-gases: ;
+    prov:wasInformedBy "SEMI C3 dopant gas specifications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-gases:Arsine a owl:Class ;
+    rdfs:label "Arsine" ;
+    rdfs:comment "AsH3 - n-type dopant gas" ;
+    rdfs:subClassOf semicont-08-materials-gases:DopantGas ;
+    rdfs:isDefinedBy semicont-08-materials-gases: ;
+    prov:wasInformedBy "SEMI C3 dopant gas specifications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-gases:Diborane a owl:Class ;
+    rdfs:label "Diborane" ;
+    rdfs:comment "B2H6 - p-type dopant gas" ;
+    rdfs:subClassOf semicont-08-materials-gases:DopantGas ;
+    rdfs:isDefinedBy semicont-08-materials-gases: ;
+    prov:wasInformedBy "SEMI C3 dopant gas specifications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Specific Inert Gases
+semicont-08-materials-gases:Nitrogen a owl:Class ;
+    rdfs:label "Nitrogen" ;
+    rdfs:comment "N2 - inert purge and carrier gas" ;
+    rdfs:subClassOf semicont-08-materials-gases:InertGas ;
+    rdfs:isDefinedBy semicont-08-materials-gases: ;
+    prov:wasInformedBy "SEMI C3.25 and SEMI F20 UHP nitrogen standards" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-gases:Argon a owl:Class ;
+    rdfs:label "Argon" ;
+    rdfs:comment "Ar - inert gas for sputtering and purge applications" ;
+    rdfs:subClassOf semicont-08-materials-gases:InertGas ;
+    rdfs:isDefinedBy semicont-08-materials-gases: ;
+    prov:wasInformedBy "Industry standard for sputtering applications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-gases:Helium a owl:Class ;
+    rdfs:label "Helium" ;
+    rdfs:comment "He - inert gas for leak detection and cooling" ;
+    rdfs:subClassOf semicont-08-materials-gases:InertGas ;
+    rdfs:isDefinedBy semicont-08-materials-gases: ;
+    prov:wasInformedBy "Industry knowledge of helium applications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Gas-specific Properties
+semicont-08-materials-gases:hasPurityLevel a owl:DatatypeProperty ;
+    rdfs:label "has purity level" ;
+    rdfs:comment "Gas purity as percentage (e.g., 99.999 for 5N)" ;
+    rdfs:domain semicont-08-materials-gases:SpecialtyGas ;
+    rdfs:range xsd:double ;
+    rdfs:isDefinedBy semicont-08-materials-gases: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-gases:hasNinesNotation a owl:DatatypeProperty ;
+    rdfs:label "has nines notation" ;
+    rdfs:comment "Purity in nines notation (e.g., "5N5" for 99.9995%)" ;
+    rdfs:domain semicont-08-materials-gases:SpecialtyGas ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy semicont-08-materials-gases: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-gases:hasCASNumber a owl:DatatypeProperty ;
+    rdfs:label "has CAS number" ;
+    rdfs:comment "Chemical Abstracts Service registry number" ;
+    rdfs:domain semicont-08-materials-gases:SpecialtyGas ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy semicont-08-materials-gases: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# OWL Axioms
+semicont-08-materials-gases:PrecursorGas owl:disjointWith semicont-08-materials-gases:DopantGas ;
+    rdfs:comment "Precursors and dopants serve different functions in processing" .
+
+semicont-08-materials-gases:DopantGas owl:disjointWith semicont-08-materials-gases:InertGas ;
+    rdfs:comment "Dopants and inert gases have different chemical behaviors" .
+
+semicont-08-materials-gases:PrecursorGas owl:disjointWith semicont-08-materials-gases:InertGas ;
+    rdfs:comment "Precursors and inert gases have different reactivities" .
+
+# Class Restrictions
+semicont-08-materials-gases:SpecialtyGas rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty semicont-08-materials-gases:hasCASNumber ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+] ;
+    rdfs:comment "Every specialty gas must have exactly one CAS number" .
+
+# SHACL Shapes for Validation
+semicont-08-materials-gases:SpecialtyGasShape a sh:NodeShape ;
+    sh:targetClass semicont-08-materials-gases:SpecialtyGas ;
+    sh:property [
+        sh:path semicont-08-materials-gases:hasCASNumber ;
+        sh:datatype xsd:string ;
+        sh:pattern "^[0-9]{2,7}-[0-9]{2}-[0-9]$" ;
+        sh:message "CAS number must be in format NNNNNNN-NN-N" ;
+        sh:severity sh:Violation
+    ] ;
+    sh:property [
+        sh:path semicont-08-materials-gases:hasPurityLevel ;
+        sh:datatype xsd:double ;
+        sh:minInclusive 99.0 ;
+        sh:maxInclusive 100.0 ;
+        sh:message "Purity must be between 99% and 100%" ;
+        sh:severity sh:Violation
+    ] .
+
+semicont-08-materials-gases:PrecursorGasShape a sh:NodeShape ;
+    sh:targetClass semicont-08-materials-gases:PrecursorGas ;
+    sh:property [
+        sh:path semicont-08-materials-gases:hasPurityLevel ;
+        sh:datatype xsd:double ;
+        sh:minInclusive 99.99 ;
+        sh:message "Precursor gases typically require 4N (99.99%) or higher purity" ;
+        sh:severity sh:Warning
+    ] .
+
+# Example Gas Individuals
+semicont-08-materials-gases:SiH4_5N a owl:NamedIndividual , semicont-08-materials-gases:Silane ;
+    rdfs:label "5N Silane" ;
+    rdfs:comment "99.999% pure silane for semiconductor applications" ;
+    semicont-08-materials-gases:hasPurityLevel 99.999 ;
+    semicont-08-materials-gases:hasNinesNotation "5N" ;
+    semicont-08-materials-gases:hasCASNumber "7803-62-5" ;
+    prov:wasInformedBy "SEMI C3.55-0200 Standard for Silane (SiH4), Bulk" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-gases:PH3_6N5 a owl:NamedIndividual , semicont-08-materials-gases:Phosphine ;
+    rdfs:label "6N5 Phosphine" ;
+    rdfs:comment "99.9995% pure phosphine for doping applications" ;
+    semicont-08-materials-gases:hasPurityLevel 99.9995 ;
+    semicont-08-materials-gases:hasNinesNotation "6N5" ;
+    semicont-08-materials-gases:hasCASNumber "7803-51-2" ;
+    prov:wasInformedBy "SEMI C3 dopant gas specifications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-gases:N2_6N a owl:NamedIndividual , semicont-08-materials-gases:Nitrogen ;
+    rdfs:label "6N Nitrogen" ;
+    rdfs:comment "99.9999% pure nitrogen for UHP applications" ;
+    semicont-08-materials-gases:hasPurityLevel 99.9999 ;
+    semicont-08-materials-gases:hasNinesNotation "6N" ;
+    semicont-08-materials-gases:hasCASNumber "7727-37-9" ;
+    prov:wasInformedBy "SEMI C3.25 and SEMI F20 UHP nitrogen standards" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-materials-curation> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# External Mappings
+semicont-08-materials-gases:Silane rdfs:seeAlso semicont-standards:SEMI_C3 ;
+    rdfs:seeAlso <https://pubchem.ncbi.nlm.nih.gov/compound/23953> .
+
+semicont-08-materials-gases:Phosphine rdfs:seeAlso semicont-standards:SEMI_C3 ;
+    rdfs:seeAlso <https://pubchem.ncbi.nlm.nih.gov/compound/24417> .

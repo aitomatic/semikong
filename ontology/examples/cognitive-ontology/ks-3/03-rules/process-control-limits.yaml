@@ -1,0 +1,67 @@
+# Process Control Limits
+# Temporal and intelligent rules for KS-3
+
+process_control_limits:
+  description: "Process control limits with temporal adjustments and analytics"
+
+  metadata:
+    version: "2.0.0"
+    last_updated: "2026-03-08"
+    source: "empirical_data_with_analytics"
+    confidence: 0.94
+    based_on: "3_years_of_data_with_analytics"
+    learning_enabled: true
+
+  temporal_adjustments:
+    seasonal:
+      summer:
+        description: "Higher ambient temperature effects"
+        adjustment: -10  # nm/min
+        months: [6, 7, 8, 9]
+        confidence: 0.89
+      winter:
+        description: "Lower ambient temperature effects"
+        adjustment: +10  # nm/min
+        months: [12, 1, 2, 3]
+        confidence: 0.87
+
+    daily:
+      morning:
+        description: "Tool thermal stabilization"
+        adjustment: +5  # nm/min
+        time: "06:00-10:00"
+        confidence: 0.82
+      afternoon:
+        description: "HVAC energy saving impact"
+        adjustment: -8  # nm/min
+        time: "14:00-18:00"
+        confidence: 0.91
+
+  oxide_polish:
+    removal_rate:
+      base_value: 600
+      base_tolerance: ±50
+      unit: nm/min
+      confidence: 0.94
+      data_points: 15432
+      last_validated: "2026-02-15"
+
+      adaptive_adjustments:
+        pad_life_factor:
+          0-100hrs: 1.0      # No adjustment
+          100-200hrs: 0.95   # -5% for aging
+          200-300hrs: 0.90   # -10% for aging
+          300+hrs: 0.85      # -15% for aging
+
+        tool_drift_factor:
+          daily_drift: -0.2  # % per day
+          weekly_drift: -1.0  # % per week
+
+      predictive_adjustments:
+        based_on: "pad_conditioning_frequency"
+        frequent_conditioning: +3%  # More aggressive conditioning
+        infrequent_conditioning: -5%  # Pad glazing
+
+      temporal_context:
+        links:
+          summer_story:
