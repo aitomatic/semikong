@@ -31,6 +31,16 @@ The top-level repository is being organized around two major areas:
 ## Papers
 
 - [SemiKong: Curating, Training, and Evaluating A Semiconductor Industry-Specific Large Language Model](https://arxiv.org/abs/2411.13802)
+  Christopher Nguyen, William Nguyen, Atsushi Suzuki, Daisuke Oku, Hong An Phan, Sang Dinh, Zooey Nguyen, Anh Ha, Shruti Raghavan, Huy Vo, Thang Nguyen, Lan Nguyen, and Yoshikuni Hirayama. arXiv:2411.13802, 2024.
+
+```bibtex
+@article{semikong2024,
+  title={SemiKong: Curating, Training, and Evaluating A Semiconductor Industry-Specific Large Language Model},
+  author={Nguyen, Christopher and Nguyen, William and Suzuki, Atsushi and Oku, Daisuke and Phan, Hong An and Dinh, Sang and Nguyen, Zooey and Ha, Anh and Raghavan, Shruti and Vo, Huy and Nguyen, Thang and Nguyen, Lan and Hirayama, Yoshikuni},
+  journal={arXiv preprint arXiv:2411.13802},
+  year={2024}
+}
+```
 
 ## Start Here
 
