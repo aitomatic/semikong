@@ -4,7 +4,6 @@
 from __future__ import annotations
 
 from pathlib import Path
-import sys
 
 ROOT = Path(__file__).resolve().parents[3]
 ONTOLOGY_DIR = ROOT / "ontology"
@@ -49,7 +48,7 @@ def check_legacy_tokens(issues: list[str]) -> None:
                 continue
             try:
                 text = p.read_text(encoding="utf-8", errors="ignore")
-            except Exception:
+            except OSError:
                 continue
             for token in LEGACY_TOKENS:
                 if token in text:
@@ -110,7 +109,11 @@ def check_ttl_provenance_completeness(issues: list[str]) -> None:
                 missing.append(prop)
 
         if missing:
-            issues.append(f"ttl_provenance_completeness: {rel(p)} missing required properties: {', '.join(missing)}")
+            missing_props = ", ".join(missing)
+            issues.append(
+                f"ttl_provenance_completeness: {rel(p)} missing required properties: {missing_props}"
+            )
+
 
 def check_class_level_provenance(issues: list[str]) -> None:
     """Check that substantive classes have provenance documentation."""
@@ -136,10 +139,8 @@ def check_class_level_provenance(issues: list[str]) -> None:
             if "a owl:Class" in line:
                 total_classes += 1
                 # Check next few lines for provenance
-                prov_found = False
                 for j in range(i+1, min(i+10, len(lines))):
                     if "dc:source" in lines[j] or "dc:rights" in lines[j] or "prov:wasInformedBy" in lines[j]:
-                        prov_found = True
                         classes_with_prov += 1
                         break
                     if lines[j].strip().endswith(".") and not lines[j].strip().startswith("#"):
@@ -148,8 +149,13 @@ def check_class_level_provenance(issues: list[str]) -> None:
             else:
                 i += 1
 
-        if total_classes > 3 and classes_with_prov < total_classes:  # More than 3 classes and not all have provenance
-            issues.append(f"class_level_provenance: {rel(p)} has {total_classes} classes but only {classes_with_prov} with provenance documentation (informational)")
+        if total_classes > 3 and classes_with_prov < total_classes:
+            issue = (
+                f"class_level_provenance: {rel(p)} has {total_classes} classes but only "
+                f"{classes_with_prov} with provenance documentation (informational)"
+            )
+            issues.append(issue)
+
 
 def check_ontology_version_baseline(issues: list[str]) -> None:
     """Check that ontology modules use the current repository version baseline."""
@@ -160,6 +166,7 @@ def check_ontology_version_baseline(issues: list[str]) -> None:
         text = p.read_text(encoding="utf-8", errors="ignore")
         if "a owl:Ontology" in text and baseline not in text:
             issues.append(f"ontology_version_baseline: {rel(p)} missing required baseline {baseline}")
+
 
 if __name__ == "__main__":
     raise SystemExit(main())

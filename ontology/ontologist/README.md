@@ -58,6 +58,7 @@ python ontologist/05-analytics/tools/measure_subontology_status.py [subdirectory
 ```
 
 Recent assessments:
+
 - `07-wfe/06-etch-systems`: 1 curated, 7 scaffold modules (see `04-context/07-wfe-06-etch-systems-quality-assessment.md`)
 
 ## Quick Start

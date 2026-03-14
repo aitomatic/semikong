@@ -9,7 +9,7 @@ criteria defined in ontologist/01-docs/subontology-quality-checklist.md
 from pathlib import Path
 import re
 import sys
-from typing import Dict, List, Tuple, Optional
+from typing import List
 from dataclasses import dataclass
 from collections import defaultdict
 
@@ -243,6 +243,7 @@ class SubontologyAnalyzer:
         else:
             metrics.maturity_declared = 0.0
 
+
 def main():
     """Main function to analyze sub-ontologies."""
     if len(sys.argv) > 1:
@@ -284,7 +285,7 @@ def main():
             maturity_counts[r.maturity_level] += 1
 
         print(f"\n- Average score: {avg_score:.2f}")
-        print(f"- Modules by maturity:")
+        print("- Modules by maturity:")
         for level, count in sorted(maturity_counts.items()):
             print(f"  - {level}: {count}")
 

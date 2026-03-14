@@ -5,6 +5,7 @@ This guide covers the current contents of the `model/` subtree.
 This documentation dedicated to instruct on how to setup the environment for training, evaluation and inference SEMIKONG model.
 
 ## Requirement Hardware
+
 - CUDA Version: use a current NVIDIA driver/runtime compatible with the PyTorch version pinned in `model/requirements.txt`
 ~~~
 1. SEMIKONG 8B Chat
