@@ -18,6 +18,7 @@ The top-level repository is being organized around two major areas:
 
 - Dataset and benchmarks: <https://drive.google.com/drive/u/0/folders/1IjuVyP35-xBEe_i_KkG9MnE-4o7Eb7tq>
 - Model weights: <https://huggingface.co/pentagoniac/SEMIKONG-70B>, <https://huggingface.co/pentagoniac/SEMIKONG-8b-GPTQ>
+- Instruct chat API: launch with `python -m vllm.entrypoints.openai.api_server ...` as shown in [USAGE.md](/Users/ctn/src/aitomatic/semikong/model/USAGE.md)
 - Paper: <https://arxiv.org/abs/2411.13802>
 
 ## Papers
@@ -37,6 +38,7 @@ The top-level repository is being organized around two major areas:
 ## Start Here
 
 - Setup and environment: [INSTALL.md](/Users/ctn/src/aitomatic/semikong/model/INSTALL.md)
+- Usage and serving: [USAGE.md](/Users/ctn/src/aitomatic/semikong/model/USAGE.md)
 - Commands: [Makefile](/Users/ctn/src/aitomatic/semikong/model/Makefile)
 - Training config: [configs/training-config.yaml](/Users/ctn/src/aitomatic/semikong/model/configs/training-config.yaml)
 - Inference config: [configs/inference-config.yaml](/Users/ctn/src/aitomatic/semikong/model/configs/inference-config.yaml)

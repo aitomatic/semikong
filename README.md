@@ -58,6 +58,7 @@ Key model entry points:
 
 - [model/README.md](/Users/ctn/src/aitomatic/semikong/model/README.md)
 - [model/INSTALL.md](/Users/ctn/src/aitomatic/semikong/model/INSTALL.md)
+- [model/USAGE.md](/Users/ctn/src/aitomatic/semikong/model/USAGE.md)
 - [model/Makefile](/Users/ctn/src/aitomatic/semikong/model/Makefile)
 
 If you want to work with the ontology:
