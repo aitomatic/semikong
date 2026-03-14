@@ -1,0 +1,26 @@
+# Semicont Ontology Module: 02-ip-providers/06-verification-ips/01-testbenches
+
+@prefix semicont-02-ip-providers-06-verification-ips-01-testbenches: <https://semicont.org/ontology/02-ip-providers/06-verification-ips/01-testbenches/#> .
+@prefix semicont-02-ip-providers-06-verification-ips: <https://semicont.org/ontology/02-ip-providers/06-verification-ips/#> .
+@prefix semicont-core: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-02-ip-providers-06-verification-ips-01-testbenches: a owl:Ontology ;
+    rdfs:label "testbenches ontology" ;
+    rdfs:comment "Semantic module for testbenches in the semiconductor ontology." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+        dc:source "Industry-general knowledge of 02 ip providers 06 verification ips 01 testbenches" ;
+    dc:rights "Fair use: publicly known industry concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-02-ip-providers-06-verification-ips-01-testbenches:TestbenchesConcept a owl:Class ;
+    rdfs:label "testbenches" ;
+    rdfs:comment "Concept for testbenches; specialized under verification ips." ;
+    rdfs:subClassOf semicont-02-ip-providers-06-verification-ips:VerificationIpsConcept ;
+    rdfs:isDefinedBy semicont-02-ip-providers-06-verification-ips-01-testbenches: .

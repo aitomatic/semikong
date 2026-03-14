@@ -1,0 +1,232 @@
+# Metals and Sputtering Targets Ontology
+# Metal materials and targets for semiconductor metallization
+
+@prefix semicont-08-materials-03-metals-targets: <https://semicont.org/ontology/08-materials/03-metals-targets/#> .
+@prefix semicont-08-materials: <https://semicont.org/ontology/08-materials/#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix semicont-standards: <https://semicont.org/ontology/01-standards-reference#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+
+semicont-08-materials-03-metals-targets: a owl:Ontology ;
+    rdfs:label "Metals and Sputtering Targets Ontology" ;
+    rdfs:comment "Metal materials and targets for semiconductor metallization" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/08-materials> ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+    dc:source "SEMI M10, M11, M24 metal target specifications and industry metallization references" ;
+    dc:rights "Fair use: publicly known metal specifications and applications" ;
+    prov:wasInformedBy "SEMI M10, M11, M24 metal target standards and industry metallization knowledge" ;
+    prov:hadPrimarySource <https://www.semi.org/en/products-services/standards/materials> ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date ;
+    # Scope and maturity metadata
+    semicont-08-materials:scopeNote """
+        SCOPE: Metal materials and sputtering targets for semiconductor devices
+        - Includes: Interconnect metals, barrier metals, contact metals per SEMI M10/M11/M24
+        - Excludes: Proprietary alloy compositions, supplier-specific grades
+        - Depth limit: Industry-general specifications, no trade secret formulations
+        """@en ;
+    semicont-08-materials:maturityLevel semicont-08-materials:curated .
+
+# Metal Categories
+semicont-08-materials-03-metals-targets:InterconnectMetal a owl:Class ;
+    rdfs:label "Interconnect Metal" ;
+    rdfs:comment "Metal used for electrical interconnects in semiconductor devices" ;
+    rdfs:subClassOf semicont-08-materials:MetalMaterial ;
+    rdfs:isDefinedBy semicont-08-materials-03-metals-targets: ;
+    prov:wasInformedBy "SEMI M10 aluminum alloy specifications and industry knowledge" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-03-metals-targets:BarrierMetal a owl:Class ;
+    rdfs:label "Barrier Metal" ;
+    rdfs:comment "Metal used as diffusion barrier in semiconductor devices" ;
+    rdfs:subClassOf semicont-08-materials:MetalMaterial ;
+    rdfs:isDefinedBy semicont-08-materials-03-metals-targets: ;
+    prov:wasInformedBy "Industry knowledge of barrier metal applications" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-03-metals-targets:ContactMetal a owl:Class ;
+    rdfs:label "Contact Metal" ;
+    rdfs:comment "Metal used for ohmic contacts to silicon" ;
+    rdfs:subClassOf semicont-08-materials:MetalMaterial ;
+    rdfs:isDefinedBy semicont-08-materials-03-metals-targets: ;
+    prov:wasInformedBy "Industry knowledge of contact metallization" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-03-metals-targets:SputteringTarget a owl:Class ;
+    rdfs:label "Sputtering Target" ;
+    rdfs:comment "Metal target for physical vapor deposition" ;
+    rdfs:subClassOf semicont-08-materials:MetalMaterial ;
+    rdfs:isDefinedBy semicont-08-materials-03-metals-targets: ;
+    prov:wasInformedBy "SEMI M11 sputtering target specifications" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Specific Metals
+semicont-08-materials-03-metals-targets:Aluminum a owl:Class ;
+    rdfs:label "Aluminum" ;
+    rdfs:comment "Al - primary interconnect metal in semiconductor devices" ;
+    rdfs:subClassOf semicont-08-materials-03-metals-targets:InterconnectMetal ;
+    rdfs:subClassOf semicont-08-materials-03-metals-targets:SputteringTarget ;
+    rdfs:isDefinedBy semicont-08-materials-03-metals-targets: ;
+    prov:wasInformedBy "SEMI M10 aluminum specifications for semiconductor use" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-03-metals-targets:Copper a owl:Class ;
+    rdfs:label "Copper" ;
+    rdfs:comment "Cu - advanced interconnect metal for high-performance devices" ;
+    rdfs:subClassOf semicont-08-materials-03-metals-targets:InterconnectMetal ;
+    rdfs:subClassOf semicont-08-materials-03-metals-targets:SputteringTarget ;
+    rdfs:isDefinedBy semicont-08-materials-03-metals-targets: ;
+    prov:wasInformedBy "Industry knowledge of copper damascene processes" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-03-metals-targets:Tungsten a owl:Class ;
+    rdfs:label "Tungsten" ;
+    rdfs:comment "W - via fill and contact metal" ;
+    rdfs:subClassOf semicont-08-materials-03-metals-targets:ContactMetal ;
+    rdfs:subClassOf semicont-08-materials-03-metals-targets:SputteringTarget ;
+    rdfs:isDefinedBy semicont-08-materials-03-metals-targets: ;
+    prov:wasInformedBy "Industry knowledge of tungsten via fill processes" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-03-metals-targets:Titanium a owl:Class ;
+    rdfs:label "Titanium" ;
+    rdfs:comment "Ti - adhesion layer and contact metal" ;
+    rdfs:subClassOf semicont-08-materials-03-metals-targets:ContactMetal ;
+    rdfs:subClassOf semicont-08-materials-03-metals-targets:BarrierMetal ;
+    rdfs:subClassOf semicont-08-materials-03-metals-targets:SputteringTarget ;
+    rdfs:isDefinedBy semicont-08-materials-03-metals-targets: ;
+    prov:wasInformedBy "Industry knowledge of titanium adhesion layers" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-03-metals-targets:TitaniumNitride a owl:Class ;
+    rdfs:label "Titanium Nitride" ;
+    rdfs:comment "TiN - diffusion barrier and adhesion layer" ;
+    rdfs:subClassOf semicont-08-materials-03-metals-targets:BarrierMetal ;
+    rdfs:subClassOf semicont-08-materials-03-metals-targets:SputteringTarget ;
+    rdfs:isDefinedBy semicont-08-materials-03-metals-targets: ;
+    prov:wasInformedBy "Industry knowledge of TiN barrier properties" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-03-metals-targets:Tantalum a owl:Class ;
+    rdfs:label "Tantalum" ;
+    rdfs:comment "Ta - copper diffusion barrier" ;
+    rdfs:subClassOf semicont-08-materials-03-metals-targets:BarrierMetal ;
+    rdfs:subClassOf semicont-08-materials-03-metals-targets:SputteringTarget ;
+    rdfs:isDefinedBy semicont-08-materials-03-metals-targets: ;
+    prov:wasInformedBy "Industry knowledge of tantalum barrier properties" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-03-metals-targets:TantalumNitride a owl:Class ;
+    rdfs:label "Tantalum Nitride" ;
+    rdfs:comment "TaN - copper diffusion barrier" ;
+    rdfs:subClassOf semicont-08-materials-03-metals-targets:BarrierMetal ;
+    rdfs:subClassOf semicont-08-materials-03-metals-targets:SputteringTarget ;
+    rdfs:isDefinedBy semicont-08-materials-03-metals-targets: ;
+    prov:wasInformedBy "Industry knowledge of TaN barrier properties" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Properties
+semicont-08-materials-03-metals-targets:hasResistivity a owl:ObjectProperty ;
+    rdfs:label "has resistivity" ;
+    rdfs:comment "Electrical resistivity of the metal" ;
+    rdfs:domain semicont-08-materials:MetalMaterial ;
+    rdfs:range semicont-shared:UnitizedValue ;
+    rdfs:isDefinedBy semicont-08-materials-03-metals-targets: ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-03-metals-targets:hasMeltingPoint a owl:ObjectProperty ;
+    rdfs:label "has melting point" ;
+    rdfs:comment "Melting temperature of the metal" ;
+    rdfs:domain semicont-08-materials:MetalMaterial ;
+    rdfs:range semicont-shared:UnitizedValue ;
+    rdfs:isDefinedBy semicont-08-materials-03-metals-targets: ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-03-metals-targets:isCompatibleWith a owl:ObjectProperty ;
+    rdfs:label "is compatible with" ;
+    rdfs:comment "Indicates material compatibility" ;
+    rdfs:domain semicont-08-materials-03-metals-targets:BarrierMetal ;
+    rdfs:range semicont-08-materials:MetalMaterial ;
+    rdfs:isDefinedBy semicont-08-materials-03-metals-targets: ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# SHACL Shapes
+semicont-08-materials-03-metals-targets:MetalMaterialShape a sh:NodeShape ;
+    sh:targetClass semicont-08-materials:MetalMaterial ;
+    sh:property [
+        sh:path semicont-08-materials:hasPurityLevel ;
+        sh:datatype xsd:double ;
+        sh:minInclusive 99.9 ;
+        sh:message "Metal materials typically require 3N (99.9%) or higher purity" ;
+        sh:severity sh:Warning
+    ] .
+
+semicont-08-materials-03-metals-targets:SputteringTargetShape a sh:NodeShape ;
+    sh:targetClass semicont-08-materials-03-metals-targets:SputteringTarget ;
+    sh:property [
+        sh:path semicont-08-materials:hasPurityLevel ;
+        sh:datatype xsd:double ;
+        sh:minInclusive 99.99 ;
+        sh:message "Sputtering targets typically require 4N (99.99%) or higher purity" ;
+        sh:severity sh:Warning
+    ] .
+
+# Example Individuals
+semicont-08-materials-03-metals-targets:AlCu_4N a owl:NamedIndividual , semicont-08-materials-03-metals-targets:Aluminum ;
+    rdfs:label "4N Al-Cu Alloy" ;
+    rdfs:comment "99.99% pure aluminum with 0.5% copper for electromigration resistance" ;
+    semicont-08-materials:hasPurityLevel 99.99 ;
+    semicont-08-materials:hasNinesNotation "4N" ;
+    semicont-08-materials-gases:hasCASNumber "7429-90-5" ;
+    prov:wasInformedBy "SEMI M10 aluminum alloy specifications" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-03-metals-targets:Cu_6N a owl:NamedIndividual , semicont-08-materials-03-metals-targets:Copper ;
+    rdfs:label "6N Copper" ;
+    rdfs:comment "99.9999% pure copper for damascene interconnects" ;
+    semicont-08-materials:hasPurityLevel 99.9999 ;
+    semicont-08-materials:hasNinesNotation "6N" ;
+    semicont-08-materials-gases:hasCASNumber "7440-50-8" ;
+    prov:wasInformedBy "Industry copper specifications for semiconductor use" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-03-metals-targets:TiN_5N a owl:NamedIndividual , semicont-08-materials-03-metals-targets:TitaniumNitride ;
+    rdfs:label "5N Titanium Nitride" ;
+    rdfs:comment "99.999% pure TiN sputtering target" ;
+    semicont-08-materials:hasPurityLevel 99.999 ;
+    semicont-08-materials:hasNinesNotation "5N" ;
+    prov:wasInformedBy "SEMI M11 nitride target specifications" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# External Mappings
+semicont-08-materials-03-metals-targets:Aluminum rdfs:seeAlso semicont-standards:SEMI_M10 ;
+    rdfs:seeAlso <https://pubchem.ncbi.nlm.nih.gov/compound/5359268> .
+
+semicont-08-materials-03-metals-targets:Copper rdfs:seeAlso <https://pubchem.ncbi.nlm.nih.gov/compound/23978> .
+
+semicont-08-materials-03-metals-targets:TitaniumNitride rdfs:seeAlso <https://pubchem.ncbi.nlm.nih.gov/compound/93098> .

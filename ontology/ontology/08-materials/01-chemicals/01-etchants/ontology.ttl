@@ -1,0 +1,336 @@
+# Etchants Ontology
+# Etching chemicals for semiconductor manufacturing including acids and specialty etchants
+
+@prefix semicont-08-materials-chemicals-etchants: <https://semicont.org/ontology/08-materials/01-chemicals/01-etchants#> .
+@prefix semicont-08-materials-chemicals: <https://semicont.org/ontology/08-materials/01-chemicals#> .
+@prefix semicont-08-materials: <https://semicont.org/ontology/08-materials#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix semicont-standards: <https://semicont.org/ontology/01-standards-reference#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+# Module Metadata
+semicont-08-materials-chemicals-etchants: a owl:Ontology ;
+    rdfs:label "Etchants Ontology" ;
+    rdfs:comment "Etching chemicals for semiconductor manufacturing including acids and specialty etchants" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/08-materials/01-chemicals> ;
+    dc:source "SEMI C35 nitric acid specification and industry etching references" ;
+    dc:rights "Fair use: publicly known etchant formulations" ;
+    prov:wasInformedBy "SEMI C35 Nitric Acid Specification and semiconductor etching references" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date ;
+    # Scope and maturity metadata
+    semicont-08-materials-chemicals:scopeNote """
+        SCOPE: Wet etching chemicals for semiconductor manufacturing
+        - Includes: Mineral acids, specialty etchants, etch rates, selectivity properties
+        - Excludes: Dry/plasma etching, proprietary etchant additives
+        - Depth limit: Standard formulations (HF, BOE, SPM), no trade secrets
+        """@en ;
+    semicont-08-materials-chemicals:maturityLevel semicont-08-materials-chemicals:validated .
+
+# Etchant Classes
+semicont-08-materials-chemicals-etchants:MineralAcid a owl:Class ;
+    dc:source "Etching in microfabrication reference (https://en.wikipedia.org/wiki/Etching_(microfabrication))" ;
+    prov:wasInformedBy "Industry-standard wet/dry etchant and selectivity semantics." ;
+    rdfs:label "Mineral Acid" ;
+    rdfs:comment "Inorganic acid used in semiconductor processing" ;
+    rdfs:subClassOf semicont-08-materials-chemicals:Acid ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-etchants: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-etchants:WetEtchant a owl:Class ;
+    rdfs:label "Wet Etchant" ;
+    rdfs:comment "Liquid chemical used for wet etching processes" ;
+    rdfs:subClassOf semicont-08-materials-chemicals:Etchant ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-etchants: ;
+    prov:wasInformedBy "Industry knowledge of wet etching processes" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-etchants:SelectiveEtchant a owl:Class ;
+    rdfs:label "Selective Etchant" ;
+    rdfs:comment "Etchant with high selectivity to specific materials" ;
+    rdfs:subClassOf semicont-08-materials-chemicals-etchants:WetEtchant ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-etchants: ;
+    prov:wasInformedBy "Industry knowledge of selective etching" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Material Classes for Etching Relationships
+semicont-08-materials-chemicals-etchants:EtchableMaterial a owl:Class ;
+    dc:source "Etching in microfabrication reference (https://en.wikipedia.org/wiki/Etching_(microfabrication))" ;
+    prov:wasInformedBy "Industry-standard wet/dry etchant and selectivity semantics." ;
+    rdfs:label "Etchable Material" ;
+    rdfs:comment "Material that can be etched by chemical processes" ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-etchants: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-etchants:SiliconDioxide a owl:Class ;
+    dc:source "Etching in microfabrication reference (https://en.wikipedia.org/wiki/Etching_(microfabrication))" ;
+    prov:wasInformedBy "Industry-standard wet/dry etchant and selectivity semantics." ;
+    rdfs:label "Silicon Dioxide" ;
+    rdfs:comment "SiO2 - silicon dioxide layer" ;
+    rdfs:subClassOf semicont-08-materials-chemicals-etchants:EtchableMaterial ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-etchants: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-etchants:SiliconNitride a owl:Class ;
+    dc:source "Etching in microfabrication reference (https://en.wikipedia.org/wiki/Etching_(microfabrication))" ;
+    prov:wasInformedBy "Industry-standard wet/dry etchant and selectivity semantics." ;
+    rdfs:label "Silicon Nitride" ;
+    rdfs:comment "Si3N4 - silicon nitride layer" ;
+    rdfs:subClassOf semicont-08-materials-chemicals-etchants:EtchableMaterial ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-etchants: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-etchants:PhotoresistMaterial a owl:Class ;
+    dc:source "Etching in microfabrication reference (https://en.wikipedia.org/wiki/Etching_(microfabrication))" ;
+    prov:wasInformedBy "Industry-standard wet/dry etchant and selectivity semantics." ;
+    rdfs:label "Photoresist Material" ;
+    rdfs:comment "Photoresist or organic material" ;
+    rdfs:subClassOf semicont-08-materials-chemicals-etchants:EtchableMaterial ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-etchants: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Specific Etching Acids
+semicont-08-materials-chemicals-etchants:HydrofluoricAcid a owl:Class ;
+    rdfs:label "Hydrofluoric Acid" ;
+    rdfs:comment "HF acid for silicon dioxide etching" ;
+    rdfs:subClassOf semicont-08-materials-chemicals-etchants:MineralAcid ;
+    rdfs:subClassOf semicont-08-materials-chemicals-etchants:SelectiveEtchant ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-etchants: ;
+    prov:wasInformedBy "Industry knowledge of HF etching" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-etchants:SulfuricAcid a owl:Class ;
+    rdfs:label "Sulfuric Acid" ;
+    rdfs:comment "H2SO4 for cleaning and photoresist stripping" ;
+    rdfs:subClassOf semicont-08-materials-chemicals-etchants:MineralAcid ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-etchants: ;
+    prov:wasInformedBy "SEMI C44 Sulfuric Acid Specification" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-etchants:NitricAcid a owl:Class ;
+    rdfs:label "Nitric Acid" ;
+    rdfs:comment "HNO3 for cleaning and metal etching" ;
+    rdfs:subClassOf semicont-08-materials-chemicals-etchants:MineralAcid ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-etchants: ;
+    prov:wasInformedBy "SEMI C35 Nitric Acid Specification" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-etchants:HydrochloricAcid a owl:Class ;
+    dc:source "Etching in microfabrication reference (https://en.wikipedia.org/wiki/Etching_(microfabrication))" ;
+    prov:wasInformedBy "Industry-standard wet/dry etchant and selectivity semantics." ;
+    rdfs:label "Hydrochloric Acid" ;
+    rdfs:comment "HCl for metal etching and cleaning" ;
+    rdfs:subClassOf semicont-08-materials-chemicals-etchants:MineralAcid ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-etchants: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-etchants:PhosphoricAcid a owl:Class ;
+    rdfs:label "Phosphoric Acid" ;
+    rdfs:comment "H3PO4 for selective etching of silicon nitride" ;
+    rdfs:subClassOf semicont-08-materials-chemicals-etchants:MineralAcid ;
+    rdfs:subClassOf semicont-08-materials-chemicals-etchants:SelectiveEtchant ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-etchants: ;
+    prov:wasInformedBy "Industry knowledge of phosphoric acid selectivity" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Specialty Etchants
+semicont-08-materials-chemicals-etchants:HydrogenPeroxide a owl:Class ;
+    rdfs:label "Hydrogen Peroxide" ;
+    rdfs:comment "H2O2 for cleaning and as component of etching mixtures" ;
+    rdfs:subClassOf semicont-08-materials-chemicals:ProcessChemical ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-etchants: ;
+    prov:wasInformedBy "SEMI C30 Hydrogen Peroxide Specification" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-etchants:BufferedOxideEtch a owl:Class ;
+    rdfs:label "Buffered Oxide Etch" ;
+    rdfs:comment "BOE - mixture of HF and NH4F for controlled oxide etching" ;
+    rdfs:subClassOf semicont-08-materials-chemicals-etchants:SelectiveEtchant ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-etchants: ;
+    prov:wasInformedBy "Industry standard BOE formulation" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Etchant-specific Properties
+semicont-08-materials-chemicals-etchants:hasEtchRate a owl:ObjectProperty ;
+    rdfs:label "has etch rate" ;
+    rdfs:comment "Rate of material removal as unitized value in nm/minute" ;
+    rdfs:domain semicont-08-materials-chemicals:Etchant ;
+    rdfs:range semicont-08-materials-chemicals:UnitizedValue ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-etchants: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-etchants:hasEtchRateSimple a owl:DatatypeProperty ;
+    rdfs:label "has etch rate simple" ;
+    rdfs:comment "Etch rate in nm/minute for simple cases" ;
+    rdfs:domain semicont-08-materials-chemicals:Etchant ;
+    rdfs:range xsd:double ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-etchants: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-etchants:hasSelectivityRatio a owl:DatatypeProperty ;
+    rdfs:label "has selectivity ratio" ;
+    rdfs:comment "Selectivity ratio between target material and mask/substrate" ;
+    rdfs:domain semicont-08-materials-chemicals-etchants:SelectiveEtchant ;
+    rdfs:range xsd:double ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-etchants: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Improved Material Relationships (Object Properties)
+semicont-08-materials-chemicals-etchants:etchesMaterial a owl:ObjectProperty ;
+    rdfs:label "etches material" ;
+    rdfs:comment "Material that this etchant can etch" ;
+    rdfs:domain semicont-08-materials-chemicals:Etchant ;
+    rdfs:range semicont-08-materials-chemicals-etchants:EtchableMaterial ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-etchants: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-etchants:hasHighSelectivityTo a owl:ObjectProperty ;
+    rdfs:label "has high selectivity to" ;
+    rdfs:comment "Material to which this etchant has particularly high selectivity" ;
+    rdfs:domain semicont-08-materials-chemicals-etchants:SelectiveEtchant ;
+    rdfs:range semicont-08-materials-chemicals-etchants:EtchableMaterial ;
+    rdfs:isDefinedBy semicont-08-materials-chemicals-etchants: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# OWL Axioms
+semicont-08-materials-chemicals-etchants:MineralAcid owl:disjointWith semicont-08-materials-chemicals-etchants:BufferedOxideEtch ;
+    rdfs:comment "Pure acids and buffered mixtures are distinct etchant types" .
+
+semicont-08-materials-chemicals-etchants:SelectiveEtchant rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty semicont-08-materials-chemicals-etchants:hasSelectivityRatio ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger
+] ;
+    rdfs:comment "Selective etchants must have documented selectivity ratios" .
+
+# SHACL Shapes for Etchants
+semicont-08-materials-chemicals-etchants:EtchantShape a sh:NodeShape ;
+    sh:targetClass semicont-08-materials-chemicals:Etchant ;
+    sh:property [
+        sh:path semicont-08-materials-chemicals-etchants:hasEtchRateSimple ;
+        sh:datatype xsd:double ;
+        sh:minInclusive 0.0 ;
+        sh:message "Etch rate must be non-negative" ;
+        sh:severity sh:Violation
+    ] .
+
+semicont-08-materials-chemicals-etchants:SelectiveEtchantShape a sh:NodeShape ;
+    sh:targetClass semicont-08-materials-chemicals-etchants:SelectiveEtchant ;
+    sh:property [
+        sh:path semicont-08-materials-chemicals-etchants:hasSelectivityRatio ;
+        sh:datatype xsd:double ;
+        sh:minInclusive 1.0 ;
+        sh:message "Selectivity ratio must be at least 1.0" ;
+        sh:severity sh:Warning
+    ] ;
+    sh:property [
+        sh:path semicont-08-materials-chemicals-etchants:hasHighSelectivityTo ;
+        sh:minCount 1 ;
+        sh:message "Selective etchant must specify at least one material with high selectivity" ;
+        sh:severity sh:Info
+    ] .
+
+# Example Etchant Individuals with Unitized Values
+semicont-08-materials-chemicals-etchants:HF_49 a owl:NamedIndividual , semicont-08-materials-chemicals-etchants:HydrofluoricAcid ;
+    rdfs:label "49% Hydrofluoric Acid" ;
+    rdfs:comment "Standard 49% HF for oxide etching with high selectivity" ;
+    semicont-08-materials-chemicals:hasConcentrationPercent 49.0 ;
+    semicont-08-materials-chemicals:hasPH [
+        a semicont-08-materials-chemicals:UnitizedValue ;
+        semicont-08-materials-chemicals:hasNumericValue 1.0 ;
+        semicont-08-materials-chemicals:hasUnit "pH"
+    ] ;
+    semicont-08-materials-chemicals:hasCASNumber "7664-39-3" ;
+    semicont-08-materials-chemicals:hasStorageTemperature semicont-08-materials-chemicals:StandardRoomTemperature ;
+    semicont-08-materials-chemicals-etchants:hasEtchRateSimple 100.0 ;
+    semicont-08-materials-chemicals-etchants:hasSelectivityRatio 50.0 ;
+    semicont-08-materials-chemicals-etchants:etchesMaterial semicont-08-materials-chemicals-etchants:SiliconDioxide ;
+    prov:wasInformedBy "Industry standard HF concentration for selective etching" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-etchants:BOE_7_1 a owl:NamedIndividual , semicont-08-materials-chemicals-etchants:BufferedOxideEtch ;
+    rdfs:label "7:1 BOE" ;
+    rdfs:comment "Buffered oxide etch with 7:1 NH4F:HF ratio for controlled etching" ;
+    semicont-08-materials-chemicals:hasConcentrationPercent 100.0 ;
+    semicont-08-materials-chemicals:hasPH [
+        a semicont-08-materials-chemicals:UnitizedValue ;
+        semicont-08-materials-chemicals:hasNumericValue 4.5 ;
+        semicont-08-materials-chemicals:hasUnit "pH"
+    ] ;
+    semicont-08-materials-chemicals:hasStorageTemperature semicont-08-materials-chemicals:StandardRoomTemperature ;
+    semicont-08-materials-chemicals-etchants:hasEtchRateSimple 15.0 ;
+    semicont-08-materials-chemicals-etchants:hasSelectivityRatio 200.0 ;
+    semicont-08-materials-chemicals-etchants:etchesMaterial semicont-08-materials-chemicals-etchants:SiliconDioxide ;
+    semicont-08-materials-chemicals-etchants:hasHighSelectivityTo semicont-08-materials-chemicals-etchants:SiliconDioxide ;
+    prov:wasInformedBy "Industry standard BOE formulation for controlled etch rate" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-etchants:H3PO4_85 a owl:NamedIndividual , semicont-08-materials-chemicals-etchants:PhosphoricAcid ;
+    rdfs:label "85% Phosphoric Acid" ;
+    rdfs:comment "Hot phosphoric acid for silicon nitride etching" ;
+    semicont-08-materials-chemicals:hasConcentrationPercent 85.0 ;
+    semicont-08-materials-chemicals:hasPH [
+        a semicont-08-materials-chemicals:UnitizedValue ;
+        semicont-08-materials-chemicals:hasNumericValue 1.0 ;
+        semicont-08-materials-chemicals:hasUnit "pH"
+    ] ;
+    semicont-08-materials-chemicals:hasCASNumber "7664-38-2" ;
+    semicont-08-materials-chemicals:hasStorageTemperature semicont-08-materials-chemicals:StandardRoomTemperature ;
+    semicont-08-materials-chemicals-etchants:hasEtchRateSimple 5.0 ;
+    semicont-08-materials-chemicals-etchants:hasSelectivityRatio 1000.0 ;
+    semicont-08-materials-chemicals-etchants:etchesMaterial semicont-08-materials-chemicals-etchants:SiliconNitride ;
+    semicont-08-materials-chemicals-etchants:hasHighSelectivityTo semicont-08-materials-chemicals-etchants:SiliconNitride ;
+    prov:wasInformedBy "Industry standard for nitride etching with high selectivity" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-chemicals-etchants:SPM a owl:NamedIndividual ;
+    rdfs:label "Sulfuric-Peroxide Mixture" ;
+    rdfs:comment "SPM - mixture of H2SO4 and H2O2 for photoresist stripping" ;
+    a semicont-08-materials-chemicals:CleaningAgent, semicont-08-materials-chemicals-etchants:SulfuricAcid ;
+    semicont-08-materials-chemicals:hasConcentrationPercent 96.0 ;
+    semicont-08-materials-chemicals:hasPH [
+        a semicont-08-materials-chemicals:UnitizedValue ;
+        semicont-08-materials-chemicals:hasNumericValue 0.3 ;
+        semicont-08-materials-chemicals:hasUnit "pH"
+    ] ;
+    semicont-08-materials-chemicals:hasStorageTemperature semicont-08-materials-chemicals:StandardRoomTemperature ;
+    semicont-08-materials-chemicals-etchants:hasEtchRateSimple 200.0 ;
+    semicont-08-materials-chemicals-etchants:etchesMaterial semicont-08-materials-chemicals-etchants:PhotoresistMaterial ;
+    prov:wasInformedBy "Industry standard SPM formulation for resist stripping" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-quality-improvement> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# External Mappings
+semicont-08-materials-chemicals-etchants:HydrofluoricAcid rdfs:seeAlso semicont-standards:SEMI_C1 ;
+    rdfs:seeAlso <https://pubchem.ncbi.nlm.nih.gov/compound/14917> .
+
+semicont-08-materials-chemicals-etchants:BufferedOxideEtch rdfs:seeAlso semicont-standards:SEMI_C1 ;
+    rdfs:seeAlso <https://www.azonano.com/article.aspx?ArticleID=2599> .

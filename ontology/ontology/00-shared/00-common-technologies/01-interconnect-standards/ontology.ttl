@@ -1,0 +1,26 @@
+# Semicont Ontology Module: 00-shared/00-common-technologies/01-interconnect-standards
+
+@prefix semicont-00-shared-00-common-technologies-01-interconnect-standards: <https://semicont.org/ontology/00-shared/00-common-technologies/01-interconnect-standards/#> .
+@prefix semicont-00-shared-00-common-technologies: <https://semicont.org/ontology/00-shared/00-common-technologies/#> .
+@prefix semicont-core: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-00-shared-00-common-technologies-01-interconnect-standards: a owl:Ontology ;
+    rdfs:label "interconnect standards ontology" ;
+    rdfs:comment "Semantic module for interconnect standards in the semiconductor ontology." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+        dc:source "Industry-general knowledge of 00 shared 00 common technologies 01 interconnect standards" ;
+    dc:rights "Fair use: publicly known industry concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-00-shared-00-common-technologies-01-interconnect-standards:InterconnectStandardsConcept a owl:Class ;
+    rdfs:label "interconnect standards" ;
+    rdfs:comment "Concept for interconnect standards; specialized under common technologies." ;
+    rdfs:subClassOf semicont-00-shared-00-common-technologies:CommonTechnologiesConcept ;
+    rdfs:isDefinedBy semicont-00-shared-00-common-technologies-01-interconnect-standards: .

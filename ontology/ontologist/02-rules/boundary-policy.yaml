@@ -1,0 +1,23 @@
+version: 1
+name: ontology-vs-ontologist-boundary
+principles:
+  - id: ttl_source_of_truth
+    rule: Canonical semantic assertions belong in ontology/**/*.ttl
+  - id: ontology_readme_exception
+    rule: ontology/README.md is the only non-TTL file allowed in ontology/
+  - id: industry_general_boundary
+    rule: Core ontology should model industry-general semantics and stop before company-specific competitive differentiation
+  - id: intentional_subontology_definition
+    rule: Each substantive sub-ontology must be intentionally defined across required quality dimensions (scope, classes, relationships, properties, constraints, units, mappings, provenance, validation, maturity) as documented in ontologist/01-docs/subontology-quality-checklist.md
+  - id: evidence_triangulation
+    rule: New or changed ontology assertions must be grounded in both reasoned model synthesis and verifiable external references (including internet-accessible primary/authoritative sources where available)
+  - id: source_traceability
+    rule: Curators must retain source traceability for substantive ontology changes by recording reference links and short provenance notes in both TTL files (using PROV-O and DC vocabularies) and context artifacts under ontologist/
+  - id: copyright_and_ip_compliance
+    rule: Do not copy copyrighted materials verbatim beyond fair-use short quotations, do not ingest disallowed proprietary/confidential content, and always prefer paraphrased semantic extraction over text reuse. Document fair-use justification in TTL using dc:rights property.
+  - id: derived_artifacts_location
+    rule: Derived artifacts (rules, skills, workflows, validators, reports) belong under ontologist/
+  - id: workflow_representation
+    rule: General workflow concepts may exist as ontology classes in TTL; executable process instructions belong in ontologist/
+  - id: examples_policy
+    rule: Example workflows and rule packs are allowed in ontologist/ as guidance, not semantic truth

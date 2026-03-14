@@ -1,0 +1,217 @@
+# Deposition Tools Ontology
+# Industry-general concepts for thin film deposition equipment and processes
+
+@prefix semicont-07-wfe-deposition-tools: <https://semicont.org/ontology/07-wfe/02-deposition-tools#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+# Module Metadata
+semicont-07-wfe-deposition-tools: a owl:Ontology ;
+    rdfs:label "Deposition Tools Ontology" ;
+    rdfs:comment "Industry-general concepts for thin film deposition equipment and processes" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+    dc:source "Public semiconductor engineering literature and industry-standard deposition process classifications" ;
+    dc:rights "Fair use: industry-general deposition concepts" ;
+    prov:wasInformedBy "Model synthesis of public domain thin film deposition knowledge" ;
+    prov:hadPrimarySource <https://en.wikipedia.org/wiki/Thin-film_deposition> ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Deposition Equipment
+semicont-07-wfe-deposition-tools:DepositionEquipment a owl:Class ;
+    rdfs:label "Deposition Equipment" ;
+    rdfs:comment "Equipment for depositing thin films on wafers" ;
+    rdfs:subClassOf semicont-shared:Equipment ;
+    rdfs:isDefinedBy semicont-07-wfe-deposition-tools: ;
+    dc:source "Public domain semiconductor equipment taxonomy" ;
+    dc:rights "Fair use: generic deposition equipment category" ;
+    prov:wasInformedBy "Industry-standard thin film deposition classifications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# CVD Equipment
+semicont-07-wfe-deposition-tools:CVDEquipment a owl:Class ;
+    rdfs:label "CVD Equipment" ;
+    rdfs:comment "Chemical Vapor Deposition equipment" ;
+    rdfs:subClassOf semicont-07-wfe-deposition-tools:DepositionEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-deposition-tools: ;
+    dc:source "Public domain semiconductor process literature" ;
+    dc:rights "Fair use: generic CVD equipment concept" ;
+    prov:wasInformedBy "Industry-standard chemical vapor deposition classifications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-deposition-tools:PECVD a owl:Class ;
+    dc:source "Thin-film deposition overview (https://en.wikipedia.org/wiki/Thin-film_deposition)" ;
+    prov:wasInformedBy "Industry-standard CVD/PVD/ALD process and equipment taxonomy." ;
+    rdfs:label "PECVD" ;
+    rdfs:comment "Plasma Enhanced Chemical Vapor Deposition" ;
+    rdfs:subClassOf semicont-07-wfe-deposition-tools:CVDEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-deposition-tools: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-deposition-tools:APCVD a owl:Class ;
+    dc:source "Thin-film deposition overview (https://en.wikipedia.org/wiki/Thin-film_deposition)" ;
+    prov:wasInformedBy "Industry-standard CVD/PVD/ALD process and equipment taxonomy." ;
+    rdfs:label "APCVD" ;
+    rdfs:comment "Atmospheric Pressure Chemical Vapor Deposition" ;
+    rdfs:subClassOf semicont-07-wfe-deposition-tools:CVDEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-deposition-tools: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-deposition-tools:LPCVD a owl:Class ;
+    dc:source "Thin-film deposition overview (https://en.wikipedia.org/wiki/Thin-film_deposition)" ;
+    prov:wasInformedBy "Industry-standard CVD/PVD/ALD process and equipment taxonomy." ;
+    rdfs:label "LPCVD" ;
+    rdfs:comment "Low Pressure Chemical Vapor Deposition" ;
+    rdfs:subClassOf semicont-07-wfe-deposition-tools:CVDEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-deposition-tools: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# PVD Equipment
+semicont-07-wfe-deposition-tools:PVDEquipment a owl:Class ;
+    rdfs:label "PVD Equipment" ;
+    rdfs:comment "Physical Vapor Deposition equipment" ;
+    rdfs:subClassOf semicont-07-wfe-deposition-tools:DepositionEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-deposition-tools: ;
+    dc:source "Public domain semiconductor process literature" ;
+    dc:rights "Fair use: generic PVD equipment concept" ;
+    prov:wasInformedBy "Industry-standard physical vapor deposition classifications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-deposition-tools:Sputtering a owl:Class ;
+    dc:source "Thin-film deposition overview (https://en.wikipedia.org/wiki/Thin-film_deposition)" ;
+    prov:wasInformedBy "Industry-standard CVD/PVD/ALD process and equipment taxonomy." ;
+    rdfs:label "Sputtering" ;
+    rdfs:comment "Sputter deposition equipment" ;
+    rdfs:subClassOf semicont-07-wfe-deposition-tools:PVDEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-deposition-tools: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-deposition-tools:Evaporation a owl:Class ;
+    dc:source "Thin-film deposition overview (https://en.wikipedia.org/wiki/Thin-film_deposition)" ;
+    prov:wasInformedBy "Industry-standard CVD/PVD/ALD process and equipment taxonomy." ;
+    rdfs:label "Evaporation" ;
+    rdfs:comment "Thermal evaporation deposition equipment" ;
+    rdfs:subClassOf semicont-07-wfe-deposition-tools:PVDEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-deposition-tools: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# ALD Equipment
+semicont-07-wfe-deposition-tools:ALDEquipment a owl:Class ;
+    dc:source "Thin-film deposition overview (https://en.wikipedia.org/wiki/Thin-film_deposition)" ;
+    prov:wasInformedBy "Industry-standard CVD/PVD/ALD process and equipment taxonomy." ;
+    rdfs:label "ALD Equipment" ;
+    rdfs:comment "Atomic Layer Deposition equipment" ;
+    rdfs:subClassOf semicont-07-wfe-deposition-tools:DepositionEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-deposition-tools: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Deposition Process Types
+semicont-07-wfe-deposition-tools:DepositionProcess a owl:Class ;
+    dc:source "Thin-film deposition overview (https://en.wikipedia.org/wiki/Thin-film_deposition)" ;
+    prov:wasInformedBy "Industry-standard CVD/PVD/ALD process and equipment taxonomy." ;
+    rdfs:label "Deposition Process" ;
+    rdfs:comment "Process for depositing thin films" ;
+    rdfs:subClassOf semicont-shared:ProcessStep ;
+    rdfs:isDefinedBy semicont-07-wfe-deposition-tools: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-deposition-tools:CVDProcess a owl:Class ;
+    dc:source "Thin-film deposition overview (https://en.wikipedia.org/wiki/Thin-film_deposition)" ;
+    prov:wasInformedBy "Industry-standard CVD/PVD/ALD process and equipment taxonomy." ;
+    rdfs:label "CVD Process" ;
+    rdfs:comment "Chemical Vapor Deposition process" ;
+    rdfs:subClassOf semicont-07-wfe-deposition-tools:DepositionProcess ;
+    rdfs:isDefinedBy semicont-07-wfe-deposition-tools: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-deposition-tools:PVDProcess a owl:Class ;
+    dc:source "Thin-film deposition overview (https://en.wikipedia.org/wiki/Thin-film_deposition)" ;
+    prov:wasInformedBy "Industry-standard CVD/PVD/ALD process and equipment taxonomy." ;
+    rdfs:label "PVD Process" ;
+    rdfs:comment "Physical Vapor Deposition process" ;
+    rdfs:subClassOf semicont-07-wfe-deposition-tools:DepositionProcess ;
+    rdfs:isDefinedBy semicont-07-wfe-deposition-tools: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-deposition-tools:ALDProcess a owl:Class ;
+    dc:source "Thin-film deposition overview (https://en.wikipedia.org/wiki/Thin-film_deposition)" ;
+    prov:wasInformedBy "Industry-standard CVD/PVD/ALD process and equipment taxonomy." ;
+    rdfs:label "ALD Process" ;
+    rdfs:comment "Atomic Layer Deposition process" ;
+    rdfs:subClassOf semicont-07-wfe-deposition-tools:DepositionProcess ;
+    rdfs:isDefinedBy semicont-07-wfe-deposition-tools: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Process Parameters
+semicont-07-wfe-deposition-tools:hasPressure a owl:DatatypeProperty ;
+    rdfs:label "has pressure" ;
+    rdfs:comment "Process pressure in mTorr" ;
+    rdfs:domain semicont-07-wfe-deposition-tools:DepositionProcess ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-deposition-tools: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-deposition-tools:hasPrecursorFlow a owl:DatatypeProperty ;
+    rdfs:label "has precursor flow" ;
+    rdfs:comment "Precursor gas flow rate in sccm" ;
+    rdfs:domain semicont-07-wfe-deposition-tools:DepositionProcess ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-deposition-tools: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-deposition-tools:hasDepositionRate a owl:DatatypeProperty ;
+    rdfs:label "has deposition rate" ;
+    rdfs:comment "Film deposition rate in nm/min" ;
+    rdfs:domain semicont-07-wfe-deposition-tools:DepositionProcess ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy semicont-07-wfe-deposition-tools: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-deposition-tools:hasFilmThickness a owl:DatatypeProperty ;
+    rdfs:label "has film thickness" ;
+    rdfs:comment "Target film thickness in nanometers" ;
+    rdfs:domain semicont-07-wfe-deposition-tools:DepositionProcess ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-deposition-tools: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Equipment Properties
+semicont-07-wfe-deposition-tools:hasChamberCount a owl:DatatypeProperty ;
+    rdfs:label "has chamber count" ;
+    rdfs:comment "Number of process chambers" ;
+    rdfs:domain semicont-07-wfe-deposition-tools:DepositionEquipment ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-deposition-tools: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-deposition-tools:hasSubstrateTemperature a owl:DatatypeProperty ;
+    rdfs:label "has substrate temperature" ;
+    rdfs:comment "Substrate temperature in Celsius" ;
+    rdfs:domain semicont-07-wfe-deposition-tools:DepositionEquipment ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-deposition-tools: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .

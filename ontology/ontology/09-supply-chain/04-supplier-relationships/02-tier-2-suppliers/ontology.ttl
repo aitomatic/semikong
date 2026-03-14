@@ -1,0 +1,26 @@
+# Semicont Ontology Module: 09-supply-chain/04-supplier-relationships/02-tier-2-suppliers
+
+@prefix semicont-09-supply-chain-04-supplier-relationships-02-tier-2-suppliers: <https://semicont.org/ontology/09-supply-chain/04-supplier-relationships/02-tier-2-suppliers/#> .
+@prefix semicont-09-supply-chain-04-supplier-relationships: <https://semicont.org/ontology/09-supply-chain/04-supplier-relationships/#> .
+@prefix semicont-core: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-09-supply-chain-04-supplier-relationships-02-tier-2-suppliers: a owl:Ontology ;
+    rdfs:label "tier 2 suppliers ontology" ;
+    rdfs:comment "Semantic module for tier 2 suppliers in the semiconductor ontology." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+        dc:source "Industry-general knowledge of 09 supply chain 04 supplier relationships 02 tier 2 suppliers" ;
+    dc:rights "Fair use: publicly known industry concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-09-supply-chain-04-supplier-relationships-02-tier-2-suppliers:TierN2SuppliersConcept a owl:Class ;
+    rdfs:label "tier 2 suppliers" ;
+    rdfs:comment "Concept for tier 2 suppliers; specialized under supplier relationships." ;
+    rdfs:subClassOf semicont-09-supply-chain-04-supplier-relationships:SupplierRelationshipsConcept ;
+    rdfs:isDefinedBy semicont-09-supply-chain-04-supplier-relationships-02-tier-2-suppliers: .

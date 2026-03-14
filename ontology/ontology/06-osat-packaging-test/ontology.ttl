@@ -1,0 +1,48 @@
+# OSAT and Packaging Test Layer Foundation Ontology
+# Concepts for outsourced assembly and test, packaging, and testing operations
+
+@prefix semicont-06-osat-packaging-test: <https://semicont.org/ontology/06-osat-packaging-test#> .
+@prefix semicont-core: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+# Module Metadata
+semicont-06-osat-packaging-test: a owl:Ontology ;
+    rdfs:label "OSAT and Packaging Test Layer Foundation" ;
+    rdfs:comment "Concepts for outsourced assembly and test, packaging, and testing operations" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+    dc:source "Industry-general knowledge of OSAT, packaging, and test operations" ;
+    dc:rights "Fair use: publicly known industry concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+# Foundation Class
+semicont-06-osat-packaging-test:FoundationEntity a owl:Class ;
+    rdfs:label "Foundation Entity" ;
+    rdfs:comment "Base class for OSAT/Packaging/Test layer concepts" ;
+    rdfs:subClassOf owl:Thing ;
+    rdfs:isDefinedBy semicont-06-osat-packaging-test: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+# Assembly/Test Process Flow
+semicont-06-osat-packaging-test:AssemblyTestProcess a owl:Class ;
+    rdfs:label "Assembly Test Process" ;
+    rdfs:comment "Process step in assembly and test flow" ;
+    rdfs:subClassOf semicont-06-osat-packaging-test:FoundationEntity ;
+    rdfs:isDefinedBy semicont-06-osat-packaging-test: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-06-osat-packaging-test:hasProcessSequence a owl:DatatypeProperty ;
+    rdfs:label "has process sequence" ;
+    rdfs:comment "Sequence number in assembly/test process flow" ;
+    rdfs:domain semicont-06-osat-packaging-test:AssemblyTestProcess ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-06-osat-packaging-test: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .

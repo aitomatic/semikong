@@ -1,0 +1,579 @@
+@prefix : <http://w3id.org/SemicONTO/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://w3id.org/SemicONTO/> .
+
+<http://w3id.org/SemicONTO/> rdf:type owl:Ontology ;
+                              owl:versionIRI <http://w3id.org/SemicONTO/0.2/> ;
+                              <http://purl.org/dc/terms/created> "2025-06-24" ;
+                              <http://purl.org/dc/terms/creator> "Huanyu Li" ;
+                              <http://purl.org/dc/terms/license> "https://github.com/huanyu-li/SemicONTO/blob/main/LICENSE" ;
+                              <http://purl.org/dc/terms/title> "Semiconductor ONTOlogy (SemicONTO)" ;
+                              <http://purl.org/vocab/vann/preferredNamespacePrefix> "semiconto" ;
+                              <http://purl.org/vocab/vann/preferredNamespaceUri> "http://w3id.org/SemicONTO/0.2/" ;
+                              rdfs:seeAlso "https://github.com/huanyu-li/SemicONTO" ;
+                              owl:versionInfo "0.2" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/contributor
+<http://purl.org/dc/terms/contributor> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/isVersionOf
+<http://purl.org/dc/terms/isVersionOf> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+<http://purl.org/dc/terms/modified> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/rights
+<http://purl.org/dc/terms/rights> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://qudt.org/schema/qudt/quantityValue
+<http://qudt.org/schema/qudt/quantityValue> rdf:type owl:ObjectProperty .
+
+
+###  http://w3id.org/SemicONTO/experimentsFor
+:experimentsFor rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf <http://www.w3.org/ns/prov#used> ;
+                rdfs:label "experiments for" .
+
+
+###  http://w3id.org/SemicONTO/experimentsOn
+:experimentsOn rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf <http://www.w3.org/ns/prov#used> ;
+               rdfs:label "experiments on" .
+
+
+###  http://w3id.org/SemicONTO/hasAcceptor
+:hasAcceptor rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             rdfs:domain :ExtrinsicSemiconductor ;
+             rdfs:range :Material ;
+             rdfs:label "has acceptor" .
+
+
+###  http://w3id.org/SemicONTO/hasDonor
+:hasDonor rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf owl:topObjectProperty ;
+          rdfs:domain :ExtrinsicSemiconductor ;
+          rdfs:range :Material ;
+          rdfs:label "has donor" .
+
+
+###  http://w3id.org/SemicONTO/hasEquipment
+:hasEquipment rdf:type owl:ObjectProperty ;
+              rdfs:domain :ExperimentalStep ;
+              rdfs:range :Equipment ;
+              rdfs:label "has equipment" .
+
+
+###  http://w3id.org/SemicONTO/hasExperimentalMethod
+:hasExperimentalMethod rdf:type owl:ObjectProperty ;
+                       rdfs:domain :Experiment ;
+                       rdfs:range :ExperimentalMethod ;
+                       rdfs:label "has experimental method" .
+
+
+###  http://w3id.org/SemicONTO/hasExperimentalStep
+:hasExperimentalStep rdf:type owl:ObjectProperty ;
+                     rdfs:domain :Experiment ;
+                     rdfs:range :ExperimentalStep ;
+                     rdfs:label "has experimental step" .
+
+
+###  http://w3id.org/SemicONTO/hasMeasuredProperty
+:hasMeasuredProperty rdf:type owl:ObjectProperty ;
+                     rdfs:domain :Experiment ;
+                     rdfs:range :MaterialProperty ;
+                     rdfs:label "has measured property" .
+
+
+###  http://w3id.org/SemicONTO/hasNextStep
+:hasNextStep rdf:type owl:ObjectProperty ;
+             rdfs:domain :ExperimentalStep ;
+             rdfs:range :ExperimentalStep ;
+             rdfs:label "has next step" .
+
+
+###  http://w3id.org/SemicONTO/hasProperty
+:hasProperty rdf:type owl:ObjectProperty ;
+             rdfs:domain :Material ;
+             rdfs:range :MaterialProperty ;
+             rdfs:label "has property" .
+
+
+###  http://w3id.org/SemicONTO/hasStructure
+:hasStructure rdf:type owl:ObjectProperty ;
+              rdfs:domain :Material ;
+              rdfs:range <https://w3id.org/mdo/core/Structure> ;
+              rdfs:label "has structure" .
+
+
+###  http://w3id.org/SemicONTO/hasSubStep
+:hasSubStep rdf:type owl:ObjectProperty ,
+                     owl:TransitiveProperty ;
+            rdfs:domain :ExperimentalStep ;
+            rdfs:range :ExperimentalStep ;
+            rdfs:label "has sub-step" .
+
+
+###  http://w3id.org/SemicONTO/isDescribedBy
+:isDescribedBy rdf:type owl:ObjectProperty ;
+               rdfs:range :InformationObject ;
+               rdfs:label "is described by" .
+
+
+###  http://www.w3.org/ns/prov#used
+<http://www.w3.org/ns/prov#used> rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/prov#wasAssociatedWith
+<http://www.w3.org/ns/prov#wasAssociatedWith> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/mdo/structure/hasComposition
+<https://w3id.org/mdo/structure/hasComposition> rdf:type owl:ObjectProperty ;
+                                                rdfs:label "has composition" ;
+                                                rdfs:seeAlso "https://w3id.org/mdo/structure/hasComposition" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://qudt.org/schema/qudt/numericValue
+<http://qudt.org/schema/qudt/numericValue> rdf:type owl:DatatypeProperty .
+
+
+###  http://w3id.org/SemicONTO/hasExperimentAim
+:hasExperimentAim rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :ExperimentInfoObj ;
+                  rdfs:range xsd:string ;
+                  rdfs:label "has experiment aim" .
+
+
+###  http://w3id.org/SemicONTO/hasExperimentName
+:hasExperimentName rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :ExperimentInfoObj ;
+                   rdfs:range xsd:string ;
+                   rdfs:label "has experiment name" .
+
+
+###  http://w3id.org/SemicONTO/hasExperimentalStepAim
+:hasExperimentalStepAim rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :StepInfoObj ;
+                        rdfs:range xsd:string ;
+                        rdfs:label "has experimental step aim" .
+
+
+###  http://w3id.org/SemicONTO/hasExperimentalStepDescription
+:hasExperimentalStepDescription rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :StepInfoObj ;
+                                rdfs:range xsd:string ;
+                                rdfs:label "has experimental step description" .
+
+
+###  http://w3id.org/SemicONTO/hasExperimentalStepID
+:hasExperimentalStepID rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :StepInfoObj ;
+                       rdfs:range xsd:string .
+
+
+###  http://www.w3.org/ns/prov#endedAtTime
+<http://www.w3.org/ns/prov#endedAtTime> rdf:type owl:DatatypeProperty ;
+                                        rdfs:domain <http://www.w3.org/ns/prov#Activity> ;
+                                        rdfs:range xsd:dateTime .
+
+
+###  http://www.w3.org/ns/prov#startedAtTime
+<http://www.w3.org/ns/prov#startedAtTime> rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain <http://www.w3.org/ns/prov#Activity> ;
+                                          rdfs:range xsd:dateTime .
+
+
+###  https://w3id.org/mdo/structure/DescriptiveFormula
+<https://w3id.org/mdo/structure/DescriptiveFormula> rdf:type owl:DatatypeProperty ;
+                                                    rdfs:comment "descriptive formula" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://qudt.org/schema/qudt/Quantity
+<http://qudt.org/schema/qudt/Quantity> rdf:type owl:Class .
+
+
+###  http://qudt.org/schema/qudt/QuantityValue
+<http://qudt.org/schema/qudt/QuantityValue> rdf:type owl:Class .
+
+
+###  http://qudt.org/schema/qudt/Unit
+<http://qudt.org/schema/qudt/Unit> rdf:type owl:Class .
+
+
+###  http://w3id.org/SemicONTO/Acceptor
+:Acceptor rdf:type owl:Class ;
+          rdfs:subClassOf :Dopant ;
+          rdfs:label "Acceptor" .
+
+
+###  http://w3id.org/SemicONTO/CMTExperiment
+:CMTExperiment rdf:type owl:Class ;
+               rdfs:subClassOf :SemiconductorExperiment ;
+               rdfs:label "Charge Mobility Testing Experiment" .
+
+
+###  http://w3id.org/SemicONTO/ChemicalEntity
+:ChemicalEntity rdf:type owl:Class ;
+                rdfs:subClassOf :Matter .
+
+
+###  http://w3id.org/SemicONTO/ChemicalSubstance
+:ChemicalSubstance rdf:type owl:Class ;
+                   rdfs:subClassOf :ChemicalEntity ;
+                   rdfs:seeAlso "http://emmo.info/emmo#EMMO_df96cbb6_b5ee_4222_8eab_b3675df24bea" ,
+                                "http://purl.obolibrary.org/obo/chebi#59999" .
+
+
+###  http://w3id.org/SemicONTO/Donor
+:Donor rdf:type owl:Class ;
+       rdfs:subClassOf :Dopant ;
+       rdfs:label "Donor" .
+
+
+###  http://w3id.org/SemicONTO/Dopant
+:Dopant rdf:type owl:Class ;
+        owl:equivalentClass [ rdf:type owl:Class ;
+                              owl:unionOf ( :Acceptor
+                                            :Donor
+                                          )
+                            ] ;
+        rdfs:label "Dopant" .
+
+
+###  http://w3id.org/SemicONTO/DopingRelation
+:DopingRelation rdf:type owl:Class ;
+                rdfs:label "Doping Relation" .
+
+
+###  http://w3id.org/SemicONTO/EQETExperiment
+:EQETExperiment rdf:type owl:Class ;
+                rdfs:subClassOf :SemiconductorExperiment ;
+                rdfs:label "External Quantum Efficiency Testing Experiment" .
+
+
+###  http://w3id.org/SemicONTO/ElectronBeamLithography
+:ElectronBeamLithography rdf:type owl:Class ;
+                         rdfs:subClassOf :ExperimentalMethod ;
+                         rdfs:label "Electron Beam Lithography" .
+
+
+###  http://w3id.org/SemicONTO/Equipment
+:Equipment rdf:type owl:Class ;
+           rdfs:subClassOf <http://www.w3.org/ns/prov#Agent> ;
+           rdfs:label "Equipment" .
+
+
+###  http://w3id.org/SemicONTO/Experiment
+:Experiment rdf:type owl:Class ;
+            rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> ,
+                            [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :hasExperimentalStep ;
+                                                     owl:someValuesFrom :ExperimentalStep
+                                                   ]
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :hasExperimentalStep ;
+                                                     owl:allValuesFrom :ExperimentalStep
+                                                   ]
+                                                 ) ;
+                              rdf:type owl:Class
+                            ] ,
+                            [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :isDescribedBy ;
+                                                     owl:someValuesFrom :ExperimentInfoObj
+                                                   ]
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :isDescribedBy ;
+                                                     owl:allValuesFrom :ExperimentInfoObj
+                                                   ]
+                                                 ) ;
+                              rdf:type owl:Class
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :experimentsOn ;
+                              owl:someValuesFrom :Material
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasEquipment ;
+                              owl:someValuesFrom :Equipment
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasExperimentalMethod ;
+                              owl:someValuesFrom :ExperimentalMethod
+                            ] ;
+            rdfs:label "Experiment" .
+
+
+###  http://w3id.org/SemicONTO/ExperimentInfoObj
+:ExperimentInfoObj rdf:type owl:Class ;
+                   rdfs:subClassOf :InformationObject ;
+                   rdfs:label "Experiment Information Object" .
+
+
+###  http://w3id.org/SemicONTO/ExperimentalMethod
+:ExperimentalMethod rdf:type owl:Class ;
+                    rdfs:label "Experimental Method" .
+
+
+###  http://w3id.org/SemicONTO/ExperimentalStep
+:ExperimentalStep rdf:type owl:Class ;
+                  rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> ,
+                                  [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :hasEquipment ;
+                                                           owl:someValuesFrom :Equipment
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :hasEquipment ;
+                                                           owl:allValuesFrom :Equipment
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ,
+                                  [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :isDescribedBy ;
+                                                           owl:someValuesFrom :StepInfoObj
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :isDescribedBy ;
+                                                           owl:allValuesFrom :StepInfoObj
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+                  rdfs:label "Experimental Step" .
+
+
+###  http://w3id.org/SemicONTO/ExtrinsicSemiconductor
+:ExtrinsicSemiconductor rdf:type owl:Class ;
+                        rdfs:subClassOf :Semiconductor ,
+                                        [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :hasAcceptor ;
+                                                                 owl:someValuesFrom :Material
+                                                               ]
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :hasAcceptor ;
+                                                                 owl:allValuesFrom :Material
+                                                               ]
+                                                             ) ;
+                                          rdf:type owl:Class
+                                        ] ,
+                                        [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :hasDonor ;
+                                                                 owl:someValuesFrom :Material
+                                                               ]
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :hasDonor ;
+                                                                 owl:allValuesFrom :Material
+                                                               ]
+                                                             ) ;
+                                          rdf:type owl:Class
+                                        ] ;
+                        owl:disjointWith :IntrinsicSemiconductor ;
+                        rdfs:label "Extrinsic Semiconductor" .
+
+
+###  http://w3id.org/SemicONTO/FieldEffectMeasurement
+:FieldEffectMeasurement rdf:type owl:Class ;
+                        rdfs:subClassOf :ExperimentalMethod ;
+                        rdfs:label "Field-Effect Measurement" .
+
+
+###  http://w3id.org/SemicONTO/HMTExperiment
+:HMTExperiment rdf:type owl:Class ;
+               rdfs:subClassOf :SemiconductorExperiment ;
+               rdfs:label "Hole Mobility Testing Experiment" .
+
+
+###  http://w3id.org/SemicONTO/HallEffectMeasurement
+:HallEffectMeasurement rdf:type owl:Class ;
+                       rdfs:subClassOf :ExperimentalMethod ;
+                       rdfs:label "Hall Effect Measurement" .
+
+
+###  http://w3id.org/SemicONTO/InformationObject
+:InformationObject rdf:type owl:Class ;
+                   rdfs:label "Information Object" .
+
+
+###  http://w3id.org/SemicONTO/IntrinsicSemiconductor
+:IntrinsicSemiconductor rdf:type owl:Class ;
+                        rdfs:subClassOf :Semiconductor ;
+                        rdfs:label "Intrinsic Semiconductor" .
+
+
+###  http://w3id.org/SemicONTO/Material
+:Material rdf:type owl:Class ;
+          rdfs:subClassOf :Matter ,
+                          <http://www.w3.org/ns/prov#Entity> ;
+          rdfs:label "Material" ;
+          rdfs:seeAlso "http://emmo.info/emmo#EMMO_4207e895_8b83_4318_996a_72cfb32acd94" .
+
+
+###  http://w3id.org/SemicONTO/MaterialProperty
+:MaterialProperty rdf:type owl:Class ;
+                  rdfs:subClassOf <http://qudt.org/schema/qudt/Quantity> ;
+                  rdfs:label "Material Property" .
+
+
+###  http://w3id.org/SemicONTO/Matter
+:Matter rdf:type owl:Class ;
+        rdfs:comment "A matter is a physical substance." ;
+        rdfs:label "Matter" ;
+        rdfs:seeAlso "http://emmo.info/emmo#EMMO_5b2222df_4da6_442f_8244_96e9e45887d1" .
+
+
+###  http://w3id.org/SemicONTO/MolecularEntity
+:MolecularEntity rdf:type owl:Class ;
+                 rdfs:subClassOf :ChemicalEntity ;
+                 rdfs:seeAlso "http://emmo.info/emmo#EMMO_21205421_5783_4d3e_81e5_10c5d894a88a" ,
+                              "http://purl.obolibrary.org/obo/chebi#23367" .
+
+
+###  http://w3id.org/SemicONTO/N-TypeSemiconductor
+:N-TypeSemiconductor rdf:type owl:Class ;
+                     rdfs:subClassOf :ExtrinsicSemiconductor ;
+                     rdfs:label "N-Type Semiconductor" .
+
+
+###  http://w3id.org/SemicONTO/P-TypeSemiconductor
+:P-TypeSemiconductor rdf:type owl:Class ;
+                     rdfs:subClassOf :ExtrinsicSemiconductor ;
+                     rdfs:label "P-Type Semiconductor" .
+
+
+###  http://w3id.org/SemicONTO/PESExperiment
+:PESExperiment rdf:type owl:Class ;
+               rdfs:subClassOf :SemiconductorExperiment ;
+               rdfs:label "Photoelectron Spectroscopy Experiment" .
+
+
+###  http://w3id.org/SemicONTO/PPCExperiment
+:PPCExperiment rdf:type owl:Class ;
+               rdfs:subClassOf :SemiconductorExperiment ;
+               rdfs:label "Preparation and Parameter Characterization Experiment" .
+
+
+###  http://w3id.org/SemicONTO/PhotoelectronSpectroscopy
+:PhotoelectronSpectroscopy rdf:type owl:Class ;
+                           rdfs:subClassOf :ExperimentalMethod ;
+                           rdfs:label "Photoelectron Spectroscopy" .
+
+
+###  http://w3id.org/SemicONTO/SEDFabrication
+:SEDFabrication rdf:type owl:Class ;
+                rdfs:subClassOf :SemiconductorExperiment ;
+                rdfs:label "Single Electron Device (SED) Fabrication" .
+
+
+###  http://w3id.org/SemicONTO/Semiconductor
+:Semiconductor rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Class ;
+                                     owl:unionOf ( :ExtrinsicSemiconductor
+                                                   :IntrinsicSemiconductor
+                                                 )
+                                   ] ;
+               rdfs:subClassOf :Material ;
+               rdfs:label "Semiconductor" .
+
+
+###  http://w3id.org/SemicONTO/SemiconductorExperiment
+:SemiconductorExperiment rdf:type owl:Class ;
+                         rdfs:subClassOf :Experiment ;
+                         rdfs:label "Semiconductor Experiment" .
+
+
+###  http://w3id.org/SemicONTO/SpectralResponseMeasurement
+:SpectralResponseMeasurement rdf:type owl:Class ;
+                             rdfs:subClassOf :ExperimentalMethod ;
+                             rdfs:label "Spectral Response Measurement" .
+
+
+###  http://w3id.org/SemicONTO/StepInfoObj
+:StepInfoObj rdf:type owl:Class ;
+             rdfs:subClassOf :InformationObject ;
+             rdfs:label "Experimental Step Information Object" .
+
+
+###  http://w3id.org/SemicONTO/ThermalEvaporation
+:ThermalEvaporation rdf:type owl:Class ;
+                    rdfs:subClassOf :ExperimentalMethod ;
+                    rdfs:label "Thermal Evaporation" .
+
+
+###  http://www.w3.org/ns/prov#Activity
+<http://www.w3.org/ns/prov#Activity> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/prov#Agent
+<http://www.w3.org/ns/prov#Agent> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/prov#Entity
+<http://www.w3.org/ns/prov#Entity> rdf:type owl:Class .
+
+
+###  https://w3id.org/mdo/core/Structure
+<https://w3id.org/mdo/core/Structure> rdf:type owl:Class ;
+                                      rdfs:label "Structure" ;
+                                      rdfs:seeAlso "https://w3id.org/mdo/core/Structure" .
+
+
+###  https://w3id.org/mdo/structure/Composition
+<https://w3id.org/mdo/structure/Composition> rdf:type owl:Class ;
+                                             rdfs:label "Composition" ;
+                                             rdfs:seeAlso "https://w3id.org/mdo/structure/Composition" .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

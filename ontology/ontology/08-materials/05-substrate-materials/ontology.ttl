@@ -1,0 +1,250 @@
+# Substrate Materials Ontology
+# Silicon and compound semiconductor substrates for device fabrication
+
+@prefix semicont-08-materials-05-substrate-materials: <https://semicont.org/ontology/08-materials/05-substrate-materials/#> .
+@prefix semicont-08-materials: <https://semicont.org/ontology/08-materials/#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix semicont-standards: <https://semicont.org/ontology/01-standards-reference#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+
+semicont-08-materials-05-substrate-materials: a owl:Ontology ;
+    rdfs:label "Substrate Materials Ontology" ;
+    rdfs:comment "Silicon and compound semiconductor substrates for device fabrication" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/08-materials> ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+    owl:imports <https://semicont.org/ontology/00-physics> ;
+    dc:source "SEMI M1, M8, M55, M86 substrate specifications and semiconductor physics" ;
+    dc:rights "Fair use: publicly known substrate specifications and properties" ;
+    prov:wasInformedBy "SEMI substrate standards and semiconductor physics principles" ;
+    prov:hadPrimarySource <https://www.semi.org/en/products-services/standards/materials> ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date ;
+    # Scope and maturity metadata
+    semicont-08-materials:scopeNote """
+        SCOPE: Semiconductor substrate materials for device fabrication
+        - Includes: Silicon wafers, compound semiconductors per SEMI M1/M8/M55/M86
+        - Excludes: Proprietary wafer specifications, supplier-specific grades
+        - Depth limit: Industry-general specifications, no trade secret properties
+        """@en ;
+    semicont-08-materials:maturityLevel semicont-08-materials:curated .
+
+# Silicon Wafer Classes
+semicont-08-materials-05-substrate-materials:MonocrystallineSilicon a owl:Class ;
+    rdfs:label "Monocrystalline Silicon" ;
+    rdfs:comment "Single crystal silicon wafer" ;
+    rdfs:subClassOf semicont-08-materials:SiliconWafer ;
+    rdfs:subClassOf semicont-00-physics:IntrinsicSemiconductor ;
+    rdfs:isDefinedBy semicont-08-materials-05-substrate-materials: ;
+    prov:wasInformedBy "SEMI M1 monocrystalline silicon specifications" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-05-substrate-materials:PolycrystallineSilicon a owl:Class ;
+    rdfs:label "Polycrystalline Silicon" ;
+    rdfs:comment "Polysilicon substrate material" ;
+    rdfs:subClassOf semicont-08-materials:SiliconWafer ;
+    rdfs:isDefinedBy semicont-08-materials-05-substrate-materials: ;
+    prov:wasInformedBy "Industry polysilicon applications" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Wafer Orientations
+semicont-08-materials-05-substrate-materials:100Wafer a owl:Class ;
+    rdfs:label "(100) Silicon Wafer" ;
+    rdfs:comment "Silicon wafer with (100) crystal orientation" ;
+    rdfs:subClassOf semicont-08-materials-05-substrate-materials:MonocrystallineSilicon ;
+    rdfs:isDefinedBy semicont-08-materials-05-substrate-materials: ;
+    prov:wasInformedBy "SEMI M1 wafer orientation specifications" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-05-substrate-materials:111Wafer a owl:Class ;
+    rdfs:label "(111) Silicon Wafer" ;
+    rdfs:comment "Silicon wafer with (111) crystal orientation" ;
+    rdfs:subClassOf semicont-08-materials-05-substrate-materials:MonocrystallineSilicon ;
+    rdfs:isDefinedBy semicont-08-materials-05-substrate-materials: ;
+    prov:wasInformedBy "SEMI M1 wafer orientation specifications" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Compound Semiconductors
+semicont-08-materials-05-substrate-materials:GalliumArsenide a owl:Class ;
+    rdfs:label "Gallium Arsenide" ;
+    rdfs:comment "GaAs compound semiconductor substrate" ;
+    rdfs:subClassOf semicont-08-materials:CompoundSemiconductor ;
+    rdfs:isDefinedBy semicont-08-materials-05-substrate-materials: ;
+    prov:wasInformedBy "SEMI M55 GaAs specifications and industry knowledge" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-05-substrate-materials:SiliconCarbide a owl:Class ;
+    rdfs:label "Silicon Carbide" ;
+    rdfs:comment "SiC compound semiconductor substrate" ;
+    rdfs:subClassOf semicont-08-materials:CompoundSemiconductor ;
+    rdfs:isDefinedBy semicont-08-materials-05-substrate-materials: ;
+    prov:wasInformedBy "SEMI M86 SiC specifications and industry knowledge" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-05-substrate-materials:GalliumNitride a owl:Class ;
+    rdfs:label "Gallium Nitride" ;
+    rdfs:comment "GaN compound semiconductor substrate" ;
+    rdfs:subClassOf semicont-08-materials:CompoundSemiconductor ;
+    rdfs:isDefinedBy semicont-08-materials-05-substrate-materials: ;
+    prov:wasInformedBy "Industry GaN substrate specifications" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-05-substrate-materials:IndiumPhosphide a owl:Class ;
+    rdfs:label "Indium Phosphide" ;
+    rdfs:comment "InP compound semiconductor substrate" ;
+    rdfs:subClassOf semicont-08-materials:CompoundSemiconductor ;
+    rdfs:isDefinedBy semicont-08-materials-05-substrate-materials: ;
+    prov:wasInformedBy "Industry InP substrate specifications" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Wafer Specifications
+semicont-08-materials-05-substrate-materials:WaferDiameter a owl:Class ;
+    rdfs:label "Wafer Diameter" ;
+    rdfs:comment "Standard semiconductor wafer diameter" ;
+    rdfs:subClassOf semicont-shared:Parameter ;
+    rdfs:isDefinedBy semicont-08-materials-05-substrate-materials: ;
+    prov:wasInformedBy "SEMI standard wafer diameters" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-05-substrate-materials:WaferThickness a owl:Class ;
+    rdfs:label "Wafer Thickness" ;
+    rdfs:comment "Semiconductor wafer thickness specification" ;
+    rdfs:subClassOf semicont-shared:Parameter ;
+    rdfs:isDefinedBy semicont-08-materials-05-substrate-materials: ;
+    prov:wasInformedBy "SEMI M1 thickness specifications" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Properties
+semicont-08-materials-05-substrate-materials:hasOrientation a owl:DatatypeProperty ;
+    rdfs:label "has orientation" ;
+    rdfs:comment "Crystal orientation (e.g., (100), (111))" ;
+    rdfs:domain semicont-08-materials:SiliconWafer ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy semicont-08-materials-05-substrate-materials: ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-05-substrate-materials:hasResistivity a owl:ObjectProperty ;
+    rdfs:label "has resistivity" ;
+    rdfs:comment "Electrical resistivity of the substrate" ;
+    rdfs:domain semicont-08-materials:SubstrateMaterial ;
+    rdfs:range semicont-shared:UnitizedValue ;
+    rdfs:isDefinedBy semicont-08-materials-05-substrate-materials: ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-05-substrate-materials:hasBandgap a owl:ObjectProperty ;
+    rdfs:label "has bandgap" ;
+    rdfs:comment "Energy bandgap of the semiconductor" ;
+    rdfs:domain semicont-08-materials:CompoundSemiconductor ;
+    rdfs:range semicont-shared:UnitizedValue ;
+    rdfs:isDefinedBy semicont-08-materials-05-substrate-materials: ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-05-substrate-materials:isSuitableFor a owl:ObjectProperty ;
+    rdfs:label "is suitable for" ;
+    rdfs:comment "Indicates device applications the substrate is suitable for" ;
+    rdfs:domain semicont-08-materials:SubstrateMaterial ;
+    rdfs:range semicont-shared:ProcessStep ;
+    rdfs:isDefinedBy semicont-08-materials-05-substrate-materials: ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# SHACL Shapes
+semicont-08-materials-05-substrate-materials:SiliconWaferShape a sh:NodeShape ;
+    sh:targetClass semicont-08-materials:SiliconWafer ;
+    sh:property [
+        sh:path semicont-08-materials-05-substrate-materials:hasOrientation ;
+        sh:datatype xsd:string ;
+        sh:pattern "^\\([0-9]+[0-9]*\\)$" ;
+        sh:message "Crystal orientation must be in format (hkl)" ;
+        sh:severity sh:Violation
+    ] .
+
+# Example Individuals
+semicont-08-materials-05-substrate-materials:Si_100_300mm a owl:NamedIndividual , semicont-08-materials-05-substrate-materials:100Wafer ;
+    rdfs:label "300mm (100) Silicon Wafer" ;
+    rdfs:comment "300mm diameter silicon wafer with (100) orientation" ;
+    semicont-08-materials-05-substrate-materials:hasOrientation "(100)" ;
+    semicont-08-materials-05-substrate-materials:hasResistivity [
+        a semicont-shared:UnitizedValue ;
+        semicont-shared:hasValue "10"^^xsd:double ;
+        semicont-shared:hasUnit unit:OHM-CentiM
+    ] ;
+    # Physics properties
+    semicont-00-physics:hasBandgap [
+        a semicont-shared:UnitizedValue ;
+        semicont-shared:hasValue "1.12"^^xsd:double ;
+        semicont-shared:hasUnit unit:ElectronVolt
+    ] ;
+    semicont-00-physics:hasElectronMobility [
+        a semicont-shared:UnitizedValue ;
+        semicont-shared:hasValue "1350"^^xsd:double ;
+        semicont-shared:hasUnit unit:CentiM-PER-V-SEC
+    ] ;
+    semicont-00-physics:hasHoleMobility [
+        a semicont-shared:UnitizedValue ;
+        semicont-shared:hasValue "480"^^xsd:double ;
+        semicont-shared:hasUnit unit:CentiM-PER-V-SEC
+    ] ;
+    semicont-00-physics-02-carriers:hasCarrierLifetime [
+        a semicont-shared:UnitizedValue ;
+        semicont-shared:hasValue "2.5e-3"^^xsd:double ;
+        semicont-shared:hasUnit unit:SEC
+    ] ;
+    semicont-00-physics-01-bandstructure:hasBandgapType semicont-00-physics-01-bandstructure:Silicon_Bandgap ;
+    prov:wasInformedBy "SEMI M1 300mm wafer specifications and silicon physics" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-08-materials-05-substrate-materials:GaAs_100mm a owl:NamedIndividual , semicont-08-materials-05-substrate-materials:GalliumArsenide ;
+    rdfs:label "100mm GaAs Wafer" ;
+    rdfs:comment "100mm diameter gallium arsenide wafer" ;
+    semicont-08-materials-05-substrate-materials:hasBandgap [
+        a semicont-shared:UnitizedValue ;
+        semicont-shared:hasValue "1.42"^^xsd:double ;
+        semicont-shared:hasUnit unit:ElectronVolt
+    ] ;
+    prov:wasInformedBy "SEMI M55 GaAs substrate specifications" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-08-materials-05-substrate-materials:SiC_150mm a owl:NamedIndividual , semicont-08-materials-05-substrate-materials:SiliconCarbide ;
+    rdfs:label "150mm SiC Wafer" ;
+    rdfs:comment "150mm diameter silicon carbide wafer" ;
+    semicont-08-materials-05-substrate-materials:hasBandgap [
+        a semicont-shared:UnitizedValue ;
+        semicont-shared:hasValue "3.26"^^xsd:double ;
+        semicont-shared:hasUnit unit:ElectronVolt
+    ] ;
+    prov:wasInformedBy "SEMI M86 SiC substrate specifications" ;
+    prov:wasGeneratedBy "semicont-materials-curation" ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# External Mappings
+semicont-08-materials-05-substrate-materials:MonocrystallineSilicon rdfs:seeAlso semicont-standards:SEMI_M1 ;
+    rdfs:seeAlso <https://pubchem.ncbi.nlm.nih.gov/compound/6326954> .
+
+semicont-08-materials-05-substrate-materials:GalliumArsenide rdfs:seeAlso semicont-standards:SEMI_M55 ;
+    rdfs:seeAlso <https://pubchem.ncbi.nlm.nih.gov/compound/14770> .
+
+semicont-08-materials-05-substrate-materials:SiliconCarbide rdfs:seeAlso semicont-standards:SEMI_M86 ;
+    rdfs:seeAlso <https://pubchem.ncbi.nlm.nih.gov/compound/9863> .

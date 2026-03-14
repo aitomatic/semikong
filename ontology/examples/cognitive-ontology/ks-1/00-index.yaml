@@ -1,0 +1,45 @@
+# KS-1: Basic Knowledge-Structure Hybrid
+# Navigation index for agent traversal
+
+ontology_info:
+  name: "ks-1-basic-hybrid"
+  level: 1
+  approach: "knowledge-first with structure"
+  description: "Basic hybrid ontology with narrative knowledge and structured constraints"
+
+navigation:
+  start: "01-docs"
+  traversal_order: "numerical"
+  sections:
+    - id: "01"
+      name: "docs"
+      title: "Documentation"
+      path: "01-docs"
+      description: "Narrative knowledge and experiences"
+    - id: "02"
+      name: "rules"
+      title: "Rules and Constraints"
+      path: "02-rules"
+      description: "Structured constraints and limits"
+    - id: "03"
+      name: "skills"
+      title: "Skills and Procedures"
+      path: "03-skills"
+      description: "Step-by-step procedures"
+
+agent_guidance:
+  traversal_algorithm: "breadth_first"
+  parse_stories: true
+  validate_constraints: true
+  follow_procedures: true
+
+performance_notes:
+  expected_accuracy: "85%"
+  reasoning_speed: "medium"
+  narrative_parsing: "required"
+  constraint_validation: "basic"
+
+metadata:
+  created: "2026-03-08"
+  model: "kimi-k2-0905-preview"
+  approach: "knowledge-first with basic structure"

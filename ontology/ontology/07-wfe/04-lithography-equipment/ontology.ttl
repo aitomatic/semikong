@@ -1,0 +1,213 @@
+# Lithography Equipment Ontology
+# Industry-general concepts for photolithography exposure equipment
+
+@prefix semicont-07-wfe-lithography-equipment: <https://semicont.org/ontology/07-wfe/04-lithography-equipment#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+# Module Metadata
+semicont-07-wfe-lithography-equipment: a owl:Ontology ;
+    rdfs:label "Lithography Equipment Ontology" ;
+    rdfs:comment "Industry-general concepts for photolithography exposure equipment" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+    dc:source "Public semiconductor lithography literature and industry-standard exposure equipment classifications" ;
+    dc:rights "Fair use: industry-general lithography equipment concepts" ;
+    prov:wasInformedBy "Model synthesis of public domain photolithography knowledge" ;
+    prov:hadPrimarySource <https://en.wikipedia.org/wiki/Photolithography> ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Lithography Equipment
+semicont-07-wfe-lithography-equipment:LithographyEquipment a owl:Class ;
+    rdfs:label "Lithography Equipment" ;
+    rdfs:comment "Equipment for patterning wafers using light" ;
+    rdfs:subClassOf semicont-shared:Equipment ;
+    rdfs:isDefinedBy semicont-07-wfe-lithography-equipment: ;
+    dc:source "Public domain semiconductor lithography equipment taxonomy" ;
+    dc:rights "Fair use: generic lithography equipment concept" ;
+    prov:wasInformedBy "Industry-standard photolithography equipment classifications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Optical Lithography Equipment
+semicont-07-wfe-lithography-equipment:OpticalLithographyEquipment a owl:Class ;
+    dc:source "Photolithography equipment/process references (https://en.wikipedia.org/wiki/Photolithography)" ;
+    prov:wasInformedBy "Industry-standard scanner/aligner and exposure-process taxonomy." ;
+    rdfs:label "Optical Lithography Equipment" ;
+    rdfs:comment "Equipment using optical wavelengths for patterning" ;
+    rdfs:subClassOf semicont-07-wfe-lithography-equipment:LithographyEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-lithography-equipment: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-lithography-equipment:DUVScanner a owl:Class ;
+    dc:source "Photolithography equipment/process references (https://en.wikipedia.org/wiki/Photolithography)" ;
+    prov:wasInformedBy "Industry-standard scanner/aligner and exposure-process taxonomy." ;
+    rdfs:label "DUV Scanner" ;
+    rdfs:comment "Deep Ultraviolet scanner using 248nm or 193nm wavelength" ;
+    rdfs:subClassOf semicont-07-wfe-lithography-equipment:OpticalLithographyEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-lithography-equipment: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-lithography-equipment:ImmersionScanner a owl:Class ;
+    dc:source "Photolithography equipment/process references (https://en.wikipedia.org/wiki/Photolithography)" ;
+    prov:wasInformedBy "Industry-standard scanner/aligner and exposure-process taxonomy." ;
+    rdfs:label "Immersion Scanner" ;
+    rdfs:comment "Scanner using immersion lithography with liquid between lens and wafer" ;
+    rdfs:subClassOf semicont-07-wfe-lithography-equipment:OpticalLithographyEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-lithography-equipment: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-lithography-equipment:EUVScanner a owl:Class ;
+    dc:source "Photolithography equipment/process references (https://en.wikipedia.org/wiki/Photolithography)" ;
+    prov:wasInformedBy "Industry-standard scanner/aligner and exposure-process taxonomy." ;
+    rdfs:label "EUV Scanner" ;
+    rdfs:comment "Extreme Ultraviolet scanner using 13.5nm wavelength" ;
+    rdfs:subClassOf semicont-07-wfe-lithography-equipment:LithographyEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-lithography-equipment: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-lithography-equipment:HighNAEUVScanner a owl:Class ;
+    dc:source "Photolithography equipment/process references (https://en.wikipedia.org/wiki/Photolithography)" ;
+    prov:wasInformedBy "Industry-standard scanner/aligner and exposure-process taxonomy." ;
+    rdfs:label "High NA EUV Scanner" ;
+    rdfs:comment "High Numerical Aperture EUV scanner for enhanced resolution" ;
+    rdfs:subClassOf semicont-07-wfe-lithography-equipment:EUVScanner ;
+    rdfs:isDefinedBy semicont-07-wfe-lithography-equipment: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Mask Aligners
+semicont-07-wfe-lithography-equipment:MaskAligner a owl:Class ;
+    dc:source "Photolithography equipment/process references (https://en.wikipedia.org/wiki/Photolithography)" ;
+    prov:wasInformedBy "Industry-standard scanner/aligner and exposure-process taxonomy." ;
+    rdfs:label "Mask Aligner" ;
+    rdfs:comment "Equipment for contact or proximity lithography" ;
+    rdfs:subClassOf semicont-07-wfe-lithography-equipment:OpticalLithographyEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-lithography-equipment: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-lithography-equipment:ContactAligner a owl:Class ;
+    dc:source "Photolithography equipment/process references (https://en.wikipedia.org/wiki/Photolithography)" ;
+    prov:wasInformedBy "Industry-standard scanner/aligner and exposure-process taxonomy." ;
+    rdfs:label "Contact Aligner" ;
+    rdfs:comment "Aligner with mask in direct contact with wafer" ;
+    rdfs:subClassOf semicont-07-wfe-lithography-equipment:MaskAligner ;
+    rdfs:isDefinedBy semicont-07-wfe-lithography-equipment: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-lithography-equipment:ProximityAligner a owl:Class ;
+    dc:source "Photolithography equipment/process references (https://en.wikipedia.org/wiki/Photolithography)" ;
+    prov:wasInformedBy "Industry-standard scanner/aligner and exposure-process taxonomy." ;
+    rdfs:label "Proximity Aligner" ;
+    rdfs:comment "Aligner with mask in close proximity to wafer" ;
+    rdfs:subClassOf semicont-07-wfe-lithography-equipment:MaskAligner ;
+    rdfs:isDefinedBy semicont-07-wfe-lithography-equipment: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Lithography Process Types
+semicont-07-wfe-lithography-equipment:LithographyProcess a owl:Class ;
+    dc:source "Photolithography equipment/process references (https://en.wikipedia.org/wiki/Photolithography)" ;
+    prov:wasInformedBy "Industry-standard scanner/aligner and exposure-process taxonomy." ;
+    rdfs:label "Lithography Process" ;
+    rdfs:comment "Process for transferring patterns to photoresist" ;
+    rdfs:subClassOf semicont-shared:ProcessStep ;
+    rdfs:isDefinedBy semicont-07-wfe-lithography-equipment: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-lithography-equipment:OpticalLithographyProcess a owl:Class ;
+    dc:source "Photolithography equipment/process references (https://en.wikipedia.org/wiki/Photolithography)" ;
+    prov:wasInformedBy "Industry-standard scanner/aligner and exposure-process taxonomy." ;
+    rdfs:label "Optical Lithography Process" ;
+    rdfs:comment "Pattern transfer using optical radiation" ;
+    rdfs:subClassOf semicont-07-wfe-lithography-equipment:LithographyProcess ;
+    rdfs:isDefinedBy semicont-07-wfe-lithography-equipment: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-lithography-equipment:EUVLithographyProcess a owl:Class ;
+    dc:source "Photolithography equipment/process references (https://en.wikipedia.org/wiki/Photolithography)" ;
+    prov:wasInformedBy "Industry-standard scanner/aligner and exposure-process taxonomy." ;
+    rdfs:label "EUV Lithography Process" ;
+    rdfs:comment "Pattern transfer using extreme ultraviolet radiation" ;
+    rdfs:subClassOf semicont-07-wfe-lithography-equipment:LithographyProcess ;
+    rdfs:isDefinedBy semicont-07-wfe-lithography-equipment: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Process Parameters
+semicont-07-wfe-lithography-equipment:hasExposureDose a owl:DatatypeProperty ;
+    rdfs:label "has exposure dose" ;
+    rdfs:comment "Exposure dose in mJ/cm2" ;
+    rdfs:domain semicont-07-wfe-lithography-equipment:LithographyProcess ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy semicont-07-wfe-lithography-equipment: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-lithography-equipment:hasNumericalAperture a owl:DatatypeProperty ;
+    rdfs:label "has numerical aperture" ;
+    rdfs:comment "Numerical aperture of projection optics" ;
+    rdfs:domain semicont-07-wfe-lithography-equipment:LithographyEquipment ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy semicont-07-wfe-lithography-equipment: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-lithography-equipment:hasWavelength a owl:DatatypeProperty ;
+    rdfs:label "has wavelength" ;
+    rdfs:comment "Exposure wavelength in nanometers" ;
+    rdfs:domain semicont-07-wfe-lithography-equipment:LithographyEquipment ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy semicont-07-wfe-lithography-equipment: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-lithography-equipment:hasResolution a owl:DatatypeProperty ;
+    rdfs:label "has resolution" ;
+    rdfs:comment "Minimum resolvable feature size in nanometers" ;
+    rdfs:domain semicont-07-wfe-lithography-equipment:LithographyEquipment ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-lithography-equipment: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-lithography-equipment:hasOverlayAccuracy a owl:DatatypeProperty ;
+    rdfs:label "has overlay accuracy" ;
+    rdfs:comment "Overlay accuracy in nanometers" ;
+    rdfs:domain semicont-07-wfe-lithography-equipment:LithographyEquipment ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-lithography-equipment: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Equipment Properties
+semicont-07-wfe-lithography-equipment:hasThroughput a owl:DatatypeProperty ;
+    rdfs:label "has throughput" ;
+    rdfs:comment "Wafer throughput in wafers per hour" ;
+    rdfs:domain semicont-07-wfe-lithography-equipment:LithographyEquipment ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-lithography-equipment: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-lithography-equipment:hasFieldSize a owl:DatatypeProperty ;
+    rdfs:label "has field size" ;
+    rdfs:comment "Exposure field size in mm x mm" ;
+    rdfs:domain semicont-07-wfe-lithography-equipment:LithographyEquipment ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy semicont-07-wfe-lithography-equipment: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .

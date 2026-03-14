@@ -1,0 +1,54 @@
+# Namespace definitions
+# All namespaces used in the ontology
+
+namespaces:
+  semicont-core:
+    iri: "https://semicont.org/ontology/core#"
+    prefix: "core"
+    description: "Core semiconductor manufacturing concepts"
+
+  semicont-cmp:
+    iri: "https://semicont.org/ontology/cmp#"
+    prefix: "cmp"
+    description: "Chemical Mechanical Planarization domain"
+
+  semicont-litho:
+    iri: "https://semicont.org/ontology/litho#"
+    prefix: "litho"
+    description: "Lithography domain"
+
+  semicont-metro:
+    iri: "https://semicont.org/ontology/metro#"
+    prefix: "metro"
+    description: "Metrology domain"
+
+  # Standard namespaces
+  rdf:
+    iri: "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    prefix: "rdf"
+    description: "RDF vocabulary"
+
+  rdfs:
+    iri: "http://www.w3.org/2000/01/rdf-schema#"
+    prefix: "rdfs"
+    description: "RDF Schema"
+
+  owl:
+    iri: "http://www.w3.org/2002/07/owl#"
+    prefix: "owl"
+    description: "OWL Web Ontology Language"
+
+  xsd:
+    iri: "http://www.w3.org/2001/XMLSchema#"
+    prefix: "xsd"
+    description: "XML Schema"
+
+  shacl:
+    iri: "http://www.w3.org/ns/shacl#"
+    prefix: "shacl"
+    description: "SHACL shapes constraint language"
+
+  prov:
+    iri: "http://www.w3.org/ns/prov#"
+    prefix: "prov"
+    description: "Provenance ontology"

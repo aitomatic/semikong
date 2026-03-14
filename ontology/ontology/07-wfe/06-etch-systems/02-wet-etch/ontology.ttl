@@ -1,0 +1,66 @@
+# Wet Etch Branch Ontology
+
+@prefix semicont-07-wfe-etch-systems-wet: <https://semicont.org/ontology/07-wfe/06-etch-systems/02-wet-etch#> .
+@prefix semicont-07-wfe-etch-systems: <https://semicont.org/ontology/07-wfe/06-etch-systems#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-07-wfe-etch-systems-wet: a owl:Ontology ;
+    rdfs:label "Wet Etch Branch Ontology" ;
+    rdfs:comment "Branch-specific classes for wet etch equipment and process subfamilies." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/07-wfe/06-etch-systems> ;
+    dc:source "Public wet etch references from Stanford nanofabrication documentation." ;
+    dc:rights "Fair use: paraphrased industry-general wet etch concepts." ;
+    prov:hadPrimarySource <https://snfguide.stanford.edu/guide/equipment/purpose/etching/wet-etching> ;
+    prov:hadPrimarySource <https://nanoguide.stanford.edu/guide/equipment/wet-bench-cleanres-hf-wbcleanres-hf> ;
+    prov:wasInformedBy "Wet-bench and single-wafer wet etch branching semantics." ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+# Equipment hierarchy
+semicont-07-wfe-etch-systems:BatchWetBenchEtchSystem a owl:Class ;
+    rdfs:label "Batch Wet Bench Etch System" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:WetEtchSystem ;
+    dc:source "Public wet bench references." ;
+    prov:wasInformedBy "Batch immersion wet etch equipment subtype." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems-wet: .
+
+semicont-07-wfe-etch-systems:SingleWaferWetEtchSystem a owl:Class ;
+    rdfs:label "Single Wafer Wet Etch System" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:WetEtchSystem ;
+    dc:source "Public single-wafer wet process references." ;
+    prov:wasInformedBy "Single-wafer wet etch equipment subtype." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems-wet: .
+
+semicont-07-wfe-etch-systems:SprayEtchSystem a owl:Class ;
+    rdfs:label "Spray Etch System" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:SingleWaferWetEtchSystem ;
+    dc:source "Public spray wet etch references." ;
+    prov:wasInformedBy "Spray-delivery wet etch subtype." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems-wet: .
+
+semicont-07-wfe-etch-systems:ImmersionWetEtchSystem a owl:Class ;
+    rdfs:label "Immersion Wet Etch System" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:BatchWetBenchEtchSystem ;
+    dc:source "Public immersion wet etch references." ;
+    prov:wasInformedBy "Immersion wet etch subtype." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems-wet: .
+
+# Process hierarchy
+semicont-07-wfe-etch-systems:IsotropicWetEtchProcess a owl:Class ;
+    rdfs:label "Isotropic Wet Etch Process" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:WetEtchProcess ;
+    dc:source "Public isotropic wet etch references." ;
+    prov:wasInformedBy "Isotropic liquid-phase removal behavior." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems-wet: .
+
+semicont-07-wfe-etch-systems:CrystallographicWetEtchProcess a owl:Class ;
+    rdfs:label "Crystallographic Wet Etch Process" ;
+    rdfs:subClassOf semicont-07-wfe-etch-systems:WetEtchProcess ;
+    dc:source "Public anisotropic silicon wet etch references (KOH/TMAH class)." ;
+    prov:wasInformedBy "Crystal-plane-dependent wet etch behavior semantics." ;
+    rdfs:isDefinedBy semicont-07-wfe-etch-systems-wet: .

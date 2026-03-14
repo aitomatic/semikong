@@ -1,0 +1,99 @@
+# Inspection Tools Ontology
+# Industry-general concepts for specialized inspection and analysis equipment
+
+@prefix semicont-07-wfe-inspection-tools: <https://semicont.org/ontology/07-wfe/13-inspection-tools#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+# Module Metadata
+semicont-07-wfe-inspection-tools: a owl:Ontology ;
+    rdfs:label "Inspection Tools Ontology" ;
+    rdfs:comment "Industry-general concepts for specialized inspection and analysis equipment" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+    dc:source "Public semiconductor engineering literature and industry-standard inspection classifications" ;
+    dc:rights "Fair use: industry-general inspection concepts" ;
+    prov:wasInformedBy "Model synthesis of public domain semiconductor inspection knowledge" ;
+    prov:hadPrimarySource <https://en.wikipedia.org/wiki/Semiconductor_device_fabrication#Device_test> ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Inspection Tools
+semicont-07-wfe-inspection-tools:InspectionTool a owl:Class ;
+    rdfs:label "Inspection Tool" ;
+    rdfs:comment "Specialized tools for detailed semiconductor inspection and analysis" ;
+    rdfs:subClassOf semicont-shared:Equipment ;
+    rdfs:isDefinedBy semicont-07-wfe-inspection-tools: ;
+    dc:source "Public domain semiconductor equipment taxonomy" ;
+    dc:rights "Fair use: generic inspection tool concept" ;
+    prov:wasInformedBy "Industry-standard semiconductor inspection equipment classifications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Atomic Force Microscopy
+semicont-07-wfe-inspection-tools:AFM a owl:Class ;
+    rdfs:label "AFM" ;
+    rdfs:comment "Atomic Force Microscope for surface topography measurement" ;
+    rdfs:subClassOf semicont-07-wfe-inspection-tools:InspectionTool ;
+    rdfs:isDefinedBy semicont-07-wfe-inspection-tools: ;
+    dc:source "Public domain semiconductor inspection literature" ;
+    dc:rights "Fair use: generic AFM concept" ;
+    prov:wasInformedBy "Industry-standard atomic force microscopy technologies" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Optical Microscopy
+semicont-07-wfe-inspection-tools:OpticalMicroscope a owl:Class ;
+    rdfs:label "Optical Microscope" ;
+    rdfs:comment "Optical microscope for semiconductor inspection" ;
+    rdfs:subClassOf semicont-07-wfe-inspection-tools:InspectionTool ;
+    rdfs:isDefinedBy semicont-07-wfe-inspection-tools: ;
+    dc:source "Public domain semiconductor inspection literature" ;
+    dc:rights "Fair use: generic optical microscope concept" ;
+    prov:wasInformedBy "Industry-standard optical microscopy technologies" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Transmission Electron Microscopy
+semicont-07-wfe-inspection-tools:TEM a owl:Class ;
+    rdfs:label "TEM" ;
+    rdfs:comment "Transmission Electron Microscope for structural analysis" ;
+    rdfs:subClassOf semicont-07-wfe-inspection-tools:InspectionTool ;
+    rdfs:isDefinedBy semicont-07-wfe-inspection-tools: ;
+    dc:source "Public domain semiconductor inspection literature" ;
+    dc:rights "Fair use: generic TEM concept" ;
+    prov:wasInformedBy "Industry-standard transmission electron microscopy technologies" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Equipment Properties
+semicont-07-wfe-inspection-tools:hasMagnification a owl:DatatypeProperty ;
+    rdfs:label "has magnification" ;
+    rdfs:comment "Maximum magnification capability" ;
+    rdfs:domain semicont-07-wfe-inspection-tools:InspectionTool ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-inspection-tools: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-inspection-tools:hasResolution a owl:DatatypeProperty ;
+    rdfs:label "has resolution" ;
+    rdfs:comment "Resolution in nanometers" ;
+    rdfs:domain semicont-07-wfe-inspection-tools:InspectionTool ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy semicont-07-wfe-inspection-tools: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-inspection-tools:hasSampleSize a owl:DatatypeProperty ;
+    rdfs:label "has sample size" ;
+    rdfs:comment "Maximum sample size in millimeters" ;
+    rdfs:domain semicont-07-wfe-inspection-tools:InspectionTool ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-inspection-tools: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .

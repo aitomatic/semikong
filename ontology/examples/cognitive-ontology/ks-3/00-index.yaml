@@ -1,0 +1,70 @@
+# KS-3: Intelligent Knowledge-Structure Hybrid
+# Navigation index with analytics and intelligence
+
+ontology_info:
+  name: "ks-3-intelligent-hybrid"
+  level: 3
+  approach: "knowledge-first with intelligence"
+  description: "Intelligent hybrid with analytics, temporal rules, and predictive capabilities"
+
+navigation:
+  start: "01-ontology"
+  traversal_order: "numerical"
+  sections:
+    - id: "01"
+      name: "ontology"
+      title: "Ontology Overview"
+      path: "01-ontology"
+      description: "Ontology with predictive capabilities"
+    - id: "02"
+      name: "docs"
+      title: "Documentation"
+      path: "02-docs"
+      description: "Knowledge with temporal context"
+    - id: "03"
+      name: "rules"
+      title: "Rules and Constraints"
+      path: "03-rules"
+      description: "Temporal and conditional rules"
+    - id: "04"
+      name: "skills"
+      title: "Skills and Procedures"
+      path: "04-skills"
+      description: "State-aware procedures"
+    - id: "05"
+      name: "context"
+      title: "Intelligent Context"
+      path: "05-context"
+      description: "Context with analytics"
+    - id: "06"
+      name: "analytics"
+      title: "Analytics and Intelligence"
+      path: "06-analytics"
+      description: "Performance tracking and predictions"
+
+agent_guidance:
+  traversal_algorithm: "adaptive"
+  parse_stories: true
+  validate_constraints: true
+  follow_procedures: true
+  use_explicit_links: true
+  use_analytics: true
+  use_predictions: true
+
+intelligence:
+  temporal_rules: true
+  state_tracking: true
+  performance_analytics: true
+  predictive_suggestions: true
+  adaptive_learning: true
+
+performance_notes:
+  expected_accuracy: "97%"
+  reasoning_speed: "very fast"
+  predictive_capability: "enabled"
+  adaptive_learning: "active"
+
+metadata:
+  created: "2026-03-08"
+  model: "kimi-k2-0905-preview"
+  approach: "knowledge-first with intelligence"

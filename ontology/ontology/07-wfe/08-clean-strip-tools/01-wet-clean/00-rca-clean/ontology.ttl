@@ -1,0 +1,26 @@
+# Semicont Ontology Module: 07-wfe/clean_strip_tools/wet_clean/rca_clean
+
+@prefix semicont-07-wfe-clean_strip_tools-wet_clean-rca_clean: <https://semicont.org/ontology/07-wfe/08-clean-strip-tools/01-wet-clean/00-rca-clean/#> .
+@prefix semicont-07-wfe-clean_strip_tools-wet_clean: <https://semicont.org/ontology/07-wfe/08-clean-strip-tools/01-wet-clean/#> .
+@prefix semicont-core: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-07-wfe-clean_strip_tools-wet_clean-rca_clean: a owl:Ontology ;
+    rdfs:label "rca clean ontology" ;
+    rdfs:comment "Semantic module for rca clean in the semiconductor ontology." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+        dc:source "Industry-general knowledge of wafer fab equipment and processes" ;
+    dc:rights "Fair use: publicly known WFE concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-07-wfe-clean_strip_tools-wet_clean-rca_clean:RCACleanProcess a owl:Class ;
+    rdfs:label "rca clean" ;
+    rdfs:comment "Concept for rca clean; specialized under wet clean." ;
+    rdfs:subClassOf semicont-07-wfe-clean_strip_tools-wet_clean:WetCleanProcess ;
+    rdfs:isDefinedBy semicont-07-wfe-clean_strip_tools-wet_clean-rca_clean: .

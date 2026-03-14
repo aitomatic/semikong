@@ -1,0 +1,317 @@
+# Semiconductor Physics Foundation Ontology
+# Fundamental physics concepts for semiconductor materials and devices
+
+@prefix semicont-00-physics: <https://semicont.org/ontology/00-physics#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix semicont-standards: <https://semicont.org/ontology/01-standards-reference#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+
+semicont-00-physics: a owl:Ontology ;
+    rdfs:label "Semiconductor Physics Foundation Ontology" ;
+    rdfs:comment "Fundamental physics concepts for semiconductor materials and devices" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+    owl:imports <https://semicont.org/ontology/01-standards-reference> ;
+    dc:source "Solid state physics textbooks, semiconductor device physics references, and industry knowledge" ;
+    dc:rights "Fair use: publicly known physics principles and material properties" ;
+    prov:wasInformedBy "Fundamental semiconductor physics and solid state physics principles" ;
+    prov:hadPrimarySource <https://www.semi.org/en/products-services/standards/materials> ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date ;
+    # Scope and maturity metadata
+    semicont-00-physics:scopeNote """
+        SCOPE: Fundamental semiconductor physics concepts
+        - Includes: Band structure, carriers, doping, intrinsic/extrinsic semiconductors
+        - Excludes: Advanced quantum mechanics, proprietary material properties
+        - Depth limit: Industry-relevant physics, no cutting-edge research
+        """@en ;
+    semicont-00-physics:maturityLevel semicont-00-physics:curated .
+
+# Scope Boundary Properties
+semicont-00-physics:scopeNote a owl:AnnotationProperty ;
+    rdfs:label "scope note" ;
+    rdfs:comment "Notes about the scope and boundaries of this ontology" .
+
+semicont-00-physics:maturityLevel a owl:AnnotationProperty ;
+    rdfs:label "maturity level" ;
+    rdfs:comment "Indicates the maturity stage of the ontology module" .
+
+semicont-00-physics:curated a owl:NamedIndividual ;
+    rdfs:label "curated" ;
+    rdfs:comment "Ontology module has been curated with industry-standard content" .
+
+# Core Physics Classes
+semicont-00-physics:SemiconductorPhysics a owl:Class ;
+    rdfs:label "Semiconductor Physics" ;
+    rdfs:comment "Branch of physics dealing with semiconductor materials and phenomena" ;
+    rdfs:subClassOf semicont-shared:Thing ;
+    rdfs:isDefinedBy semicont-00-physics: ;
+    prov:wasInformedBy "Fundamental semiconductor physics concepts" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics:SemiconductorMaterial a owl:Class ;
+    rdfs:label "Semiconductor Material" ;
+    rdfs:comment "Material with electrical conductivity between conductors and insulators" ;
+    rdfs:subClassOf semicont-shared:Material ;
+    rdfs:isDefinedBy semicont-00-physics: ;
+    prov:wasInformedBy "Solid state physics classification of materials" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics:IntrinsicSemiconductor a owl:Class ;
+    rdfs:label "Intrinsic Semiconductor" ;
+    rdfs:comment "Pure semiconductor without intentional impurities" ;
+    rdfs:subClassOf semicont-00-physics:SemiconductorMaterial ;
+    rdfs:isDefinedBy semicont-00-physics: ;
+    prov:wasInformedBy "Solid state physics definition of intrinsic semiconductors" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics:ExtrinsicSemiconductor a owl:Class ;
+    rdfs:label "Extrinsic Semiconductor" ;
+    rdfs:comment "Semiconductor doped with intentional impurities" ;
+    rdfs:subClassOf semicont-00-physics:SemiconductorMaterial ;
+    rdfs:isDefinedBy semicont-00-physics: ;
+    prov:wasInformedBy "Solid state physics definition of extrinsic semiconductors" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics:Carrier a owl:Class ;
+    rdfs:label "Carrier" ;
+    rdfs:comment "Charge carrier in a semiconductor (electron or hole)" ;
+    rdfs:subClassOf semicont-00-physics:SemiconductorPhysics ;
+    rdfs:isDefinedBy semicont-00-physics: ;
+    prov:wasInformedBy "Semiconductor carrier transport theory" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics:Electron a owl:Class ;
+    rdfs:label "Electron" ;
+    rdfs:comment "Negative charge carrier in the conduction band" ;
+    rdfs:subClassOf semicont-00-physics:Carrier ;
+    rdfs:isDefinedBy semicont-00-physics: ;
+    prov:wasInformedBy "Solid state physics electron theory" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics:Hole a owl:Class ;
+    rdfs:label "Hole" ;
+    rdfs:comment "Positive charge carrier in the valence band" ;
+    rdfs:subClassOf semicont-00-physics:Carrier ;
+    rdfs:isDefinedBy semicont-00-physics: ;
+    prov:wasInformedBy "Solid state physics hole theory" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics:Dopant a owl:Class ;
+    rdfs:label "Dopant" ;
+    rdfs:comment "Impurity atom added to modify semiconductor properties" ;
+    rdfs:subClassOf semicont-00-physics:SemiconductorPhysics ;
+    rdfs:isDefinedBy semicont-00-physics: ;
+    prov:wasInformedBy "Semiconductor doping theory" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics:Donor a owl:Class ;
+    rdfs:label "Donor" ;
+    rdfs:comment "Dopant that provides electrons (n-type)" ;
+    rdfs:subClassOf semicont-00-physics:Dopant ;
+    rdfs:isDefinedBy semicont-00-physics: ;
+    prov:wasInformedBy "n-type doping theory" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics:Acceptor a owl:Class ;
+    rdfs:label "Acceptor" ;
+    rdfs:comment "Dopant that accepts electrons, creating holes (p-type)" ;
+    rdfs:subClassOf semicont-00-physics:Dopant ;
+    rdfs:isDefinedBy semicont-00-physics: ;
+    prov:wasInformedBy "p-type doping theory" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics:PhysicalProperty a owl:Class ;
+    rdfs:label "Physical Property" ;
+    rdfs:comment "Measurable physical characteristic of a semiconductor" ;
+    rdfs:subClassOf semicont-shared:Parameter ;
+    rdfs:isDefinedBy semicont-00-physics: ;
+    prov:wasInformedBy "Solid state physics property definitions" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+# Core Properties
+semicont-00-physics:hasBandgap a owl:ObjectProperty ;
+    rdfs:label "has bandgap" ;
+    rdfs:comment "Energy gap between valence and conduction bands" ;
+    rdfs:domain semicont-00-physics:SemiconductorMaterial ;
+    rdfs:range semicont-shared:UnitizedValue ;
+    rdfs:isDefinedBy semicont-00-physics: ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics:hasElectronMobility a owl:ObjectProperty ;
+    rdfs:label "has electron mobility" ;
+    rdfs:comment "Electron mobility in the semiconductor" ;
+    rdfs:domain semicont-00-physics:SemiconductorMaterial ;
+    rdfs:range semicont-shared:UnitizedValue ;
+    rdfs:isDefinedBy semicont-00-physics: ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics:hasHoleMobility a owl:ObjectProperty ;
+    rdfs:label "has hole mobility" ;
+    rdfs:comment "Hole mobility in the semiconductor" ;
+    rdfs:domain semicont-00-physics:SemiconductorMaterial ;
+    rdfs:range semicont-shared:UnitizedValue ;
+    rdfs:isDefinedBy semicont-00-physics: ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics:hasIntrinsicCarrierConcentration a owl:ObjectProperty ;
+    rdfs:label "has intrinsic carrier concentration" ;
+    rdfs:comment "Carrier concentration in undoped semiconductor" ;
+    rdfs:domain semicont-00-physics:IntrinsicSemiconductor ;
+    rdfs:range semicont-shared:UnitizedValue ;
+    rdfs:isDefinedBy semicont-00-physics: ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics:hasDopant a owl:ObjectProperty ;
+    rdfs:label "has dopant" ;
+    rdfs:comment "Dopant present in the semiconductor" ;
+    rdfs:domain semicont-00-physics:ExtrinsicSemiconductor ;
+    rdfs:range semicont-00-physics:Dopant ;
+    rdfs:isDefinedBy semicont-00-physics: ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics:hasDopantConcentration a owl:ObjectProperty ;
+    rdfs:label "has dopant concentration" ;
+    rdfs:comment "Concentration of dopant atoms" ;
+    rdfs:domain semicont-00-physics:ExtrinsicSemiconductor ;
+    rdfs:range semicont-shared:UnitizedValue ;
+    rdfs:isDefinedBy semicont-00-physics: ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics:hasDopantLevel a owl:ObjectProperty ;
+    rdfs:label "has dopant level" ;
+    rdfs:comment "Energy level of dopant relative to band edges" ;
+    rdfs:domain semicont-00-physics:Dopant ;
+    rdfs:range semicont-shared:UnitizedValue ;
+    rdfs:isDefinedBy semicont-00-physics: ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics:hasEffectiveMass a owl:ObjectProperty ;
+    rdfs:label "has effective mass" ;
+    rdfs:comment "Effective mass of carriers in the semiconductor" ;
+    rdfs:domain semicont-00-physics:SemiconductorMaterial ;
+    rdfs:range semicont-shared:UnitizedValue ;
+    rdfs:isDefinedBy semicont-00-physics: ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+# OWL Axioms
+semicont-00-physics:IntrinsicSemiconductor owl:disjointWith semicont-00-physics:ExtrinsicSemiconductor ;
+    rdfs:comment "Intrinsic and extrinsic semiconductors are mutually exclusive" .
+
+semicont-00-physics:Electron owl:disjointWith semicont-00-physics:Hole ;
+    rdfs:comment "Electrons and holes are distinct charge carriers" .
+
+semicont-00-physics:Donor owl:disjointWith semicont-00-physics:Acceptor ;
+    rdfs:comment "Donors and acceptors create opposite doping types" .
+
+# Class Restrictions
+semicont-00-physics:ExtrinsicSemiconductor rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty semicont-00-physics:hasDopant ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger
+] ;
+    rdfs:comment "Extrinsic semiconductors must have at least one dopant" .
+
+# SHACL Shapes
+semicont-00-physics:SemiconductorMaterialShape a sh:NodeShape ;
+    sh:targetClass semicont-00-physics:SemiconductorMaterial ;
+    sh:property [
+        sh:path semicont-00-physics:hasBandgap ;
+        sh:datatype xsd:double ;
+        sh:minInclusive 0.0 ;
+        sh:maxInclusive 10.0 ;
+        sh:message "Bandgap must be between 0 and 10 eV" ;
+        sh:severity sh:Violation
+    ] .
+
+semicont-00-physics:ExtrinsicSemiconductorShape a sh:NodeShape ;
+    sh:targetClass semicont-00-physics:ExtrinsicSemiconductor ;
+    sh:property [
+        sh:path semicont-00-physics:hasDopant ;
+        sh:minCount 1 ;
+        sh:message "Extrinsic semiconductor must have at least one dopant" ;
+        sh:severity sh:Violation
+    ] .
+
+# Example Individuals
+semicont-00-physics:Silicon_Intrinsic a owl:NamedIndividual , semicont-00-physics:IntrinsicSemiconductor ;
+    rdfs:label "Intrinsic Silicon" ;
+    rdfs:comment "Pure silicon without intentional doping" ;
+    semicont-00-physics:hasBandgap [
+        a semicont-shared:UnitizedValue ;
+        semicont-shared:hasValue "1.12"^^xsd:double ;
+        semicont-shared:hasUnit unit:ElectronVolt
+    ] ;
+    semicont-00-physics:hasElectronMobility [
+        a semicont-shared:UnitizedValue ;
+        semicont-shared:hasValue "1350"^^xsd:double ;
+        semicont-shared:hasUnit unit:CentiM-PER-V-SEC
+    ] ;
+    semicont-00-physics:hasHoleMobility [
+        a semicont-shared:UnitizedValue ;
+        semicont-shared:hasValue "480"^^xsd:double ;
+        semicont-shared:hasUnit unit:CentiM-PER-V-SEC
+    ] ;
+    semicont-00-physics:hasIntrinsicCarrierConcentration [
+        a semicont-shared:UnitizedValue ;
+        semicont-shared:hasValue "1.5e10"^^xsd:double ;
+        semicont-shared:hasUnit unit:NUM-PER-CentiM3
+    ] ;
+    prov:wasInformedBy "Standard silicon properties at 300K" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics:Phosphorus_Donor a owl:NamedIndividual , semicont-00-physics:Donor ;
+    rdfs:label "Phosphorus Donor" ;
+    rdfs:comment "Phosphorus donor atom in silicon" ;
+    semicont-00-physics:hasDopantLevel [
+        a semicont-shared:UnitizedValue ;
+        semicont-shared:hasValue "-0.045"^^xsd:double ;
+        semicont-shared:hasUnit unit:ElectronVolt
+    ] ;
+    prov:wasInformedBy "Phosphorus ionization energy in silicon" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+semicont-00-physics:Boron_Acceptor a owl:NamedIndividual , semicont-00-physics:Acceptor ;
+    rdfs:label "Boron Acceptor" ;
+    rdfs:comment "Boron acceptor atom in silicon" ;
+    semicont-00-physics:hasDopantLevel [
+        a semicont-shared:UnitizedValue ;
+        semicont-shared:hasValue "0.045"^^xsd:double ;
+        semicont-shared:hasUnit unit:ElectronVolt
+    ] ;
+    prov:wasInformedBy "Boron ionization energy in silicon" ;
+    prov:wasGeneratedBy "semicont-physics-curation" ;
+    prov:generatedAtTime "2026-03-11"^^xsd:date .
+
+# External Mappings
+semicont-00-physics:SemiconductorMaterial rdfs:seeAlso <https://pubchem.ncbi.nlm.nih.gov/classification/#hid=74> .
+
+semicont-00-physics:Bandgap rdfs:seeAlso <https://www.nist.gov/pml/materials-data-repository> .

@@ -1,0 +1,139 @@
+# Thermal Processing Ontology
+# Industry-general concepts for rapid thermal processing and annealing equipment
+
+@prefix semicont-07-wfe-thermal-processing: <https://semicont.org/ontology/07-wfe/10-thermal-processing#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+# Module Metadata
+semicont-07-wfe-thermal-processing: a owl:Ontology ;
+    rdfs:label "Thermal Processing Ontology" ;
+    rdfs:comment "Industry-general concepts for rapid thermal processing and annealing equipment" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+    dc:source "Public semiconductor engineering literature and industry-standard thermal processing classifications" ;
+    dc:rights "Fair use: industry-general thermal processing concepts" ;
+    prov:wasInformedBy "Model synthesis of public domain semiconductor thermal processing knowledge" ;
+    prov:hadPrimarySource <https://en.wikipedia.org/wiki/Rapid_thermal_processing> ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Thermal Processing Equipment
+semicont-07-wfe-thermal-processing:ThermalProcessingEquipment a owl:Class ;
+    rdfs:label "Thermal Processing Equipment" ;
+    rdfs:comment "Equipment for rapid thermal processing and annealing" ;
+    rdfs:subClassOf semicont-shared:Equipment ;
+    rdfs:isDefinedBy semicont-07-wfe-thermal-processing: ;
+    dc:source "Public domain semiconductor equipment taxonomy" ;
+    dc:rights "Fair use: generic thermal processing equipment concept" ;
+    prov:wasInformedBy "Industry-standard rapid thermal processing classifications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Laser Annealing Systems
+semicont-07-wfe-thermal-processing:LaserAnnealingSystem a owl:Class ;
+    rdfs:label "Laser Annealing System" ;
+    rdfs:comment "System for annealing using laser heating" ;
+    rdfs:subClassOf semicont-07-wfe-thermal-processing:ThermalProcessingEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-thermal-processing: ;
+    dc:source "Public domain semiconductor thermal processing literature" ;
+    dc:rights "Fair use: generic laser annealing concept" ;
+    prov:wasInformedBy "Industry-standard laser thermal processing technologies" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Rapid Thermal Annealing
+semicont-07-wfe-thermal-processing:RapidThermalAnneal a owl:Class ;
+    rdfs:label "Rapid Thermal Anneal" ;
+    rdfs:comment "Rapid thermal annealing system" ;
+    rdfs:subClassOf semicont-07-wfe-thermal-processing:ThermalProcessingEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-thermal-processing: ;
+    dc:source "Public domain semiconductor thermal processing literature" ;
+    dc:rights "Fair use: generic RTA concept" ;
+    prov:wasInformedBy "Industry-standard rapid thermal annealing systems" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Spike Annealing
+semicont-07-wfe-thermal-processing:SpikeAnneal a owl:Class ;
+    rdfs:label "Spike Anneal" ;
+    rdfs:comment "Spike annealing system with rapid heating and cooling" ;
+    rdfs:subClassOf semicont-07-wfe-thermal-processing:ThermalProcessingEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-thermal-processing: ;
+    dc:source "Public domain semiconductor thermal processing literature" ;
+    dc:rights "Fair use: generic spike anneal concept" ;
+    prov:wasInformedBy "Industry-standard spike annealing technologies" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Thermal Processing Process Types
+semicont-07-wfe-thermal-processing:ThermalProcessingProcess a owl:Class ;
+    rdfs:label "Thermal Processing Process" ;
+    rdfs:comment "Rapid thermal processing or annealing process" ;
+    rdfs:subClassOf semicont-shared:ProcessStep ;
+    rdfs:isDefinedBy semicont-07-wfe-thermal-processing: ;
+    dc:source "Public domain semiconductor process knowledge" ;
+    dc:rights "Fair use: industry-general thermal processing concepts" ;
+    prov:wasInformedBy "Model synthesis of rapid thermal processes" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Process Parameters
+semicont-07-wfe-thermal-processing:hasPeakTemperature a owl:DatatypeProperty ;
+    rdfs:label "has peak temperature" ;
+    rdfs:comment "Peak processing temperature in Celsius" ;
+    rdfs:domain semicont-07-wfe-thermal-processing:ThermalProcessingProcess ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-thermal-processing: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-thermal-processing:hasRampRate a owl:DatatypeProperty ;
+    rdfs:label "has ramp rate" ;
+    rdfs:comment "Temperature ramp rate in °C/second" ;
+    rdfs:domain semicont-07-wfe-thermal-processing:ThermalProcessingProcess ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy semicont-07-wfe-thermal-processing: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-thermal-processing:hasProcessTime a owl:DatatypeProperty ;
+    rdfs:label "has process time" ;
+    rdfs:comment "Time at peak temperature in seconds" ;
+    rdfs:domain semicont-07-wfe-thermal-processing:ThermalProcessingProcess ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-thermal-processing: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-thermal-processing:hasAmbientGas a owl:DatatypeProperty ;
+    rdfs:label "has ambient gas" ;
+    rdfs:comment "Process ambient gas (e.g., nitrogen, argon)" ;
+    rdfs:domain semicont-07-wfe-thermal-processing:ThermalProcessingProcess ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy semicont-07-wfe-thermal-processing: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Equipment Properties
+semicont-07-wfe-thermal-processing:hasMaxTemperature a owl:DatatypeProperty ;
+    rdfs:label "has maximum temperature" ;
+    rdfs:comment "Maximum operating temperature in Celsius" ;
+    rdfs:domain semicont-07-wfe-thermal-processing:ThermalProcessingEquipment ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-thermal-processing: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-thermal-processing:hasHeatingMethod a owl:DatatypeProperty ;
+    rdfs:label "has heating method" ;
+    rdfs:comment "Heating method (e.g., lamp, laser, resistive)" ;
+    rdfs:domain semicont-07-wfe-thermal-processing:ThermalProcessingEquipment ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy semicont-07-wfe-thermal-processing: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .

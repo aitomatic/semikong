@@ -1,0 +1,26 @@
+# Semicont Ontology Module: 01-integrators/04-system-integrators/02-siems
+
+@prefix semicont-01-integrators-04-system-integrators-02-siems: <https://semicont.org/ontology/01-integrators/04-system-integrators/02-siems/#> .
+@prefix semicont-01-integrators-04-system-integrators: <https://semicont.org/ontology/01-integrators/04-system-integrators/#> .
+@prefix semicont-core: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-01-integrators-04-system-integrators-02-siems: a owl:Ontology ;
+    rdfs:label "siems ontology" ;
+    rdfs:comment "Semantic module for siems in the semiconductor ontology." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+        dc:source "Public domain knowledge of system integration" ;
+    dc:rights "Fair use: general integrator concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-01-integrators-04-system-integrators-02-siems:SiemsConcept a owl:Class ;
+    rdfs:label "siems" ;
+    rdfs:comment "Concept for siems; specialized under system integrators." ;
+    rdfs:subClassOf semicont-01-integrators-04-system-integrators:SystemIntegratorsConcept ;
+    rdfs:isDefinedBy semicont-01-integrators-04-system-integrators-02-siems: .

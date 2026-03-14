@@ -1,0 +1,58 @@
+# Meta-ontology: Self-descriptive metadata
+# This file describes the ontology structure itself
+
+meta_ontology:
+  name: "semicont-structure-first"
+  version: "0.1.0"
+  created: "2026-03-08"
+  last_modified: "2026-03-08"
+  purpose: "Demonstrate structure-first ontology design"
+  approach: "deterministic, machine-optimized"
+
+provenance:
+  source: "synthetic"
+  model: "kimi-k2-0905-preview"
+  citation_type: "synthetic"
+  confidence: "high"
+  generated_at: "2026-03-08T12:00:00Z"
+
+structure:
+  sections: 5
+  files: 12
+  classes: 15
+  properties: 25
+  constraints: 10
+
+navigation:
+  algorithm: "breadth-first"
+  complexity: "O(n + e) where n=nodes, e=edges"
+  deterministic: true
+  parallelizable: true
+
+validation:
+  required_fields:
+    - "id"
+    - "type"
+    - "definition"
+  unique_identifiers:
+    - "iri"
+    - "name"
+  cross_references:
+    - "domain"
+    - "range"
+
+export:
+  formats:
+    - "yaml"      # source format
+    - "turtle"    # semantic web
+    - "json-ld"   # web API
+    - "graphviz"  # visualization
+  automation:
+    - "github-actions"
+    - "makefile"
+    - "docker"
+
+metrics:
+  parse_time: "<100ms"     # target parsing time
+  memory_usage: "<50MB"    # target memory usage
+  validation_time: "<1s"   # target validation time

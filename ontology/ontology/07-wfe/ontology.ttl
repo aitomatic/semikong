@@ -1,0 +1,57 @@
+# Wafer Fab Equipment Layer Foundation Ontology
+# Concepts for wafer fabrication equipment and suppliers
+
+@prefix semicont-07-wfe: <https://semicont.org/ontology/07-wfe#> .
+@prefix semicont-core: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+# Module Metadata
+semicont-07-wfe: a owl:Ontology ;
+    rdfs:label "Wafer Fab Equipment Layer Foundation" ;
+    rdfs:comment "Concepts for wafer fabrication equipment and suppliers" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+        dc:source "Industry-general knowledge of wafer fab equipment" ;
+    dc:rights "Fair use: publicly known WFE concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+# Foundation Class
+semicont-07-wfe:FoundationEntity a owl:Class ;
+    rdfs:label "Foundation Entity" ;
+    rdfs:comment "Base class for WFE layer concepts" ;
+    rdfs:subClassOf owl:Thing ;
+    rdfs:isDefinedBy semicont-07-wfe: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+# Process Flow Ordering
+semicont-07-wfe:ProcessStep a owl:Class ;
+    rdfs:label "Process Step" ;
+    rdfs:comment "Individual step in wafer fabrication process flow" ;
+    rdfs:subClassOf semicont-07-wfe:FoundationEntity ;
+    rdfs:isDefinedBy semicont-07-wfe: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-07-wfe:hasStepOrder a owl:DatatypeProperty ;
+    rdfs:label "has step order" ;
+    rdfs:comment "Numeric order of process step in fabrication flow" ;
+    rdfs:domain semicont-07-wfe:ProcessStep ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-07-wfe:precedesStep a owl:ObjectProperty ;
+    rdfs:label "precedes step" ;
+    rdfs:comment "Indicates this process step comes before another step" ;
+    rdfs:domain semicont-07-wfe:ProcessStep ;
+    rdfs:range semicont-07-wfe:ProcessStep ;
+    rdfs:isDefinedBy semicont-07-wfe: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .

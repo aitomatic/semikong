@@ -1,0 +1,26 @@
+# Semicont Ontology Module: 02-ip-providers/05-providers/00-cpu-architecture-providers
+
+@prefix semicont-02-ip-providers-05-providers-00-cpu-architecture-providers: <https://semicont.org/ontology/02-ip-providers/05-providers/00-cpu-architecture-providers/#> .
+@prefix semicont-02-ip-providers-05-providers: <https://semicont.org/ontology/02-ip-providers/05-providers/#> .
+@prefix semicont-core: <https://semicont.org/ontology/shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-02-ip-providers-05-providers-00-cpu-architecture-providers: a owl:Ontology ;
+    rdfs:label "cpu architecture providers ontology" ;
+    rdfs:comment "Industry-general semantic category for cpu architecture providers." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/shared> ;
+        dc:source "Industry-general knowledge of 02 ip providers 05 providers 00 cpu architecture providers" ;
+    dc:rights "Fair use: publicly known industry concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-02-ip-providers-05-providers-00-cpu-architecture-providers:CpuArchitectureProvidersConcept a owl:Class ;
+    rdfs:label "cpu architecture providers" ;
+    rdfs:comment "Open category class for cpu architecture providers; company-specific instances should live in extension datasets." ;
+    rdfs:subClassOf semicont-02-ip-providers-05-providers:ProvidersConcept ;
+    rdfs:isDefinedBy semicont-02-ip-providers-05-providers-00-cpu-architecture-providers: .

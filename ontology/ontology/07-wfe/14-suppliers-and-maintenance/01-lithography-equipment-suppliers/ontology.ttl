@@ -1,0 +1,26 @@
+# Semicont Ontology Module: 07-wfe/14-suppliers-and-maintenance/01-lithography-equipment-suppliers
+
+@prefix semicont-07-wfe-14-suppliers-and-maintenance-01-lithography-equipment-suppliers: <https://semicont.org/ontology/07-wfe/14-suppliers-and-maintenance/01-lithography-equipment-suppliers/#> .
+@prefix semicont-07-wfe-14-suppliers-and-maintenance: <https://semicont.org/ontology/07-wfe/14-suppliers-and-maintenance/#> .
+@prefix semicont-core: <https://semicont.org/ontology/shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-07-wfe-14-suppliers-and-maintenance-01-lithography-equipment-suppliers: a owl:Ontology ;
+    rdfs:label "lithography equipment suppliers ontology" ;
+    rdfs:comment "Industry-general semantic category for lithography equipment suppliers." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/shared> ;
+        dc:source "Industry-general knowledge of wafer fab equipment suppliers and maintenance" ;
+    dc:rights "Fair use: publicly known supplier and maintenance concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-07-wfe-14-suppliers-and-maintenance-01-lithography-equipment-suppliers:LithographyEquipmentSuppliersConcept a owl:Class ;
+    rdfs:label "lithography equipment suppliers" ;
+    rdfs:comment "Open category class for lithography equipment suppliers; company-specific instances should live in extension datasets." ;
+    rdfs:subClassOf semicont-07-wfe-14-suppliers-and-maintenance:SuppliersAndMaintenanceConcept ;
+    rdfs:isDefinedBy semicont-07-wfe-14-suppliers-and-maintenance-01-lithography-equipment-suppliers: .

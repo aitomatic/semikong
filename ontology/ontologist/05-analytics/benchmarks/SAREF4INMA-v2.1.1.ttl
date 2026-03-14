@@ -1,0 +1,611 @@
+@prefix : <https://saref.etsi.org/saref4inma/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix saref: <https://saref.etsi.org/core/> .
+@prefix s4inma: <https://saref.etsi.org/saref4inma/> .
+@prefix s4bldg: <https://saref.etsi.org/saref4bldg/> .
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+
+@base <https://saref.etsi.org/saref4inma/> .
+
+<https://saref.etsi.org/saref4inma/> rdf:type owl:Ontology ;
+                                      owl:versionIRI <https://saref.etsi.org/saref4inma/v2.1.1/> ;
+                                      owl:imports <https://saref.etsi.org/core/v4.1.1/> ,
+                                                  <https://saref.etsi.org/saref4bldg/v2.1.1/> ;
+                                      <http://purl.org/dc/terms/contributor> <http://purl.org/net/mpoveda> ,
+                                                                             <https://www.linkedin.com/in/matthijs-punter-0799902> ;
+                                      <http://purl.org/dc/terms/created> "2015-03-29"^^xsd:date ;
+                                      <http://purl.org/dc/terms/creator> <http://www.garcia-castro.com/foaf.rdf#me> ,
+                                                                         <https://www.linkedin.com/in/albafernandezizquierdo> ,
+                                                                         <https://www.linkedin.com/in/lauradaniele> ,
+                                                                         <https://www.linkedin.com/in/mderoode> ;
+                                      <http://purl.org/dc/terms/description> "SAREF4INMA is an extension of SAREF for the industry and manufacturing domain. SAREF4INMA focuses on extending SAREF for the industry and manufacturing domain to solve the lack of interoperability between various types of production equipment that produce items in a factory and, once outside the factory, between different organizations in the value chain to uniquely track back the produced items to the corresponding production equipment, batches, material and precise time in which they were manufactured. SAREF4INMA is specified and published by ETSI in the TS 103 410-5 associated to this ontology file. SAREF4INMA was created to be aligned with related initiatives in the smart industry and manufacturing domain in terms of modelling and standardization, such as the Reference Architecture Model for Industry 4.0 (RAMI), which combines several standards used by the various national initiatives in Europe that support digitalization in manufacturing. The full list of use cases, standards and requirements that guided the creation of SAREF4INMA are described in the associated ETSI TR 103 507. " ;
+                                      <http://purl.org/dc/terms/license> <https://forge.etsi.org/etsi-software-license> ;
+                                      <http://purl.org/dc/terms/modified> "2025-04-12"^^xsd:date ;
+                                      <http://purl.org/dc/terms/issued> "2025-04-25"^^xsd:date ;
+                                      <http://purl.org/dc/terms/publisher> <https://www.etsi.org/> ;
+                                      <http://purl.org/dc/terms/source> <https://saref.etsi.org/sources/saref4inma/> ;
+                                      <http://purl.org/dc/terms/title> "SAREF4INMA: an extension of SAREF for the industry and manufacturing domain"@en ;
+                                      vann:preferredNamespacePrefix "s4inma" ;
+                                      vann:preferredNamespaceUri "https://saref.etsi.org/saref4inma/" ;
+                                      rdfs:seeAlso <https://www.etsi.org/deliver/etsi_ts/103400_103499/10341005/02.01.01_60/ts_10341005v020101p.pdf> ;
+                                      owl:priorVersion <https://saref.etsi.org/saref4inma/v1.1.2/> ;
+                                      owl:versionInfo "v2.1.1" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/contributor
+<http://purl.org/dc/terms/contributor> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/issued
+<http://purl.org/dc/terms/issued> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+<http://purl.org/dc/terms/modified> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/publisher
+<http://purl.org/dc/terms/publisher> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/source
+<http://purl.org/dc/terms/source> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://saref.etsi.org/saref4inma/belongsToCategory
+s4inma:belongsToCategory rdf:type owl:ObjectProperty ;
+                         owl:inverseOf s4inma:isCategoryOf ;
+                         rdfs:comment "Link between an entity and its category"@en ;
+                         rdfs:label "belongs to category"@en .
+
+
+###  https://saref.etsi.org/saref4inma/containsItem
+s4inma:containsItem rdf:type owl:ObjectProperty ;
+               owl:inverseOf s4inma:belongsToItemBatch ;
+               rdfs:comment "A relation between a production process (e.g., Batch) that creates one or more tangible objects (e.g., Items)"@en ;
+               rdfs:label "contains item"@en .
+
+
+###  https://saref.etsi.org/saref4inma/hasGTIN12ID
+s4inma:hasGTIN12ID rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf s4inma:hasIdentifier ;
+                   rdfs:range s4inma:GTIN12ID ;
+                   rdfs:comment "A relationship determining the  GTIN-12 identifier"@en ;
+                   rdfs:label "has GTIN12ID "@en .
+
+
+###  https://saref.etsi.org/saref4inma/hasGTIN13ID
+s4inma:hasGTIN13ID rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf s4inma:hasIdentifier ;
+                   rdfs:range s4inma:GTIN13ID ;
+                   rdfs:comment "A relationship determining the  GTIN-13 identifier"@en ;
+                   rdfs:label "has GTIN13ID"@en .
+
+
+###  https://saref.etsi.org/saref4inma/hasGTIN14ID
+s4inma:hasGTIN14ID rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf s4inma:hasIdentifier ;
+                   rdfs:range s4inma:GTIN14ID ;
+                   rdfs:comment "A relationship determining the  GTIN-14 identifier"@en ;
+                   rdfs:label "has GTIN14ID"@en .
+
+
+###  https://saref.etsi.org/saref4inma/hasGTIN8ID
+s4inma:hasGTIN8ID rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf s4inma:hasIdentifier ;
+                  rdfs:range s4inma:GTIN8ID ;
+                  rdfs:comment "A relationship determining the  GTIN-8 identifier"@en ;
+                  rdfs:label "has GTIN8ID"@en .
+
+
+###  https://saref.etsi.org/saref4inma/hasIRDI
+s4inma:hasIRDI rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf s4inma:hasIdentifier ;
+               rdfs:range s4inma:IRDI ;
+               rdfs:comment "A relationship determining the  International Registration Data Identifier (IRDI)"@en ;
+               rdfs:label "has IRDI"@en .
+
+
+###  https://saref.etsi.org/saref4inma/hasIdentifier
+s4inma:hasIdentifier rdf:type owl:ObjectProperty ;
+                     rdfs:range s4inma:ID ;
+                     rdfs:comment "link between an entity and its unique identifier"@en ;
+                     rdfs:label "has identifier"@en .
+
+
+###  https://saref.etsi.org/saref4inma/hasSize
+s4inma:hasSize rdf:type owl:ObjectProperty ;
+               rdfs:comment "A relationship to count the amount of certain objects in a collection (e.g., size of a material batch)"@en ;
+               rdfs:label "has size"@en .
+
+
+###  https://saref.etsi.org/saref4inma/hasUUID
+s4inma:hasUUID rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf s4inma:hasIdentifier ;
+               rdfs:range s4inma:UUID ;
+               rdfs:comment "A relationship determining the Universally Unique Identifier (UUID)"@en ;
+               rdfs:label "has UUID"@en .
+
+
+###  https://saref.etsi.org/saref4inma/hasUpdate
+s4inma:hasUpdate rdf:type owl:ObjectProperty ;
+                 rdfs:comment "The newer version of a ItemCategory."@en ;
+                 rdfs:label "has update"@en .
+
+
+###  https://saref.etsi.org/saref4inma/isCategoryOf
+s4inma:isCategoryOf rdf:type owl:ObjectProperty ;
+                    rdfs:comment "Link between a category and its associated entity"@en ;
+                    rdfs:label "is category of"@en .
+
+
+###  https://saref.etsi.org/saref4inma/belongsToItemBatch
+s4inma:belongsToItemBatch rdf:type owl:ObjectProperty ;
+                   rdfs:comment "An Item is created in an ItemBatch."@en ;
+                   rdfs:label "is created in"@en .
+
+
+###  https://saref.etsi.org/saref4inma/isProducedBy
+s4inma:isProducedBy rdf:type owl:ObjectProperty ;
+                    owl:inverseOf s4inma:produces ;
+                    rdfs:comment "Items are produced using certain types of ProductionEquipmentCategories, for example: welding machines or laser cutting machines."@en ;
+                    rdfs:label "is produced by"@en .
+
+
+###  https://saref.etsi.org/saref4inma/needsEquipment
+s4inma:needsEquipment rdf:type owl:ObjectProperty ;
+                      rdfs:range s4inma:ProductionEquipment ;
+                      rdfs:comment "A relationship indicating that an entity needs a particular equipment to be produced"@en ;
+                      rdfs:label "needs equipment"@en .
+
+
+###  https://saref.etsi.org/saref4inma/produces
+s4inma:produces rdf:type owl:ObjectProperty ;
+                rdfs:comment "ProductionEquipmentCategory, such as welding machines or laser cutting machines, produce certain categories of items (inverse of s4inma:isProducedBy)"@en ;
+                rdfs:label "produces"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://saref.etsi.org/saref4inma/hasCertificate
+s4inma:hasCertificate rdf:type owl:DatatypeProperty ;
+                      rdfs:range xsd:string ;
+                      rdfs:comment "The MaterialBatch can contain material quality certificates, for example a NEN 10204:2004 3.1 steel certificate."@en ;
+                      rdfs:label "has certificate"@en .
+
+
+###  https://saref.etsi.org/saref4inma/hasGTIN12IDValue
+s4inma:hasGTIN12IDValue rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf s4inma:hasIDValue ;
+                        rdfs:range xsd:string ;
+                        rdfs:comment "A relation to express the value of an GTIN12 as a string"@en ;
+                        rdfs:label "has GTIN12ID value"@en .
+
+
+###  https://saref.etsi.org/saref4inma/hasGTIN13IDValue
+s4inma:hasGTIN13IDValue rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf s4inma:hasIDValue ;
+                        rdfs:range xsd:string ;
+                        rdfs:comment "A relation to express the value of an GTIN13 as a string"@en ;
+                        rdfs:label "has GTIN13ID value"@en .
+
+
+###  https://saref.etsi.org/saref4inma/hasGTIN14IDValue
+s4inma:hasGTIN14IDValue rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf s4inma:hasIDValue ;
+                        rdfs:range xsd:string ;
+                        rdfs:comment "A relation to express the value of an GTIN14 as a string"@en ;
+                        rdfs:label "has GTIN14ID value"@en .
+
+
+###  https://saref.etsi.org/saref4inma/hasGTIN8IDValue
+s4inma:hasGTIN8IDValue rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf s4inma:hasIDValue ;
+                       rdfs:range xsd:string ;
+                       rdfs:comment "A relation to express the value of an GTIN8 as a string"@en ;
+                       rdfs:label "has GTIN8ID value"@en .
+
+
+###  https://saref.etsi.org/saref4inma/hasIDValue
+s4inma:hasIDValue rdf:type owl:DatatypeProperty ;
+                  rdfs:range xsd:string ;
+                  rdfs:comment "A relation to express the value of an indentifier as a string (it can be used as alternative to or in combination with the s4inma:hasIdentifier object property"@en ;
+                  rdfs:label "has identifier value"@en .
+
+
+###  https://saref.etsi.org/saref4inma/hasIRDIValue
+s4inma:hasIRDIValue rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf s4inma:hasIDValue ;
+                    rdfs:range xsd:string ;
+                    rdfs:comment "A relation to express the value of an IRDI as a string"@en ;
+                    rdfs:label "has IRDI value"@en .
+
+
+###  https://saref.etsi.org/saref4inma/hasModelNumber
+s4inma:hasModelNumber rdf:type owl:DatatypeProperty ;
+                      rdfs:comment "A relation to express the model number of a certain object (item, product, equipment, etc.) "@en ;
+                      rdfs:label "has model number"@en .
+
+
+###  https://saref.etsi.org/saref4inma/hasSerialNumber
+s4inma:hasSerialNumber rdf:type owl:DatatypeProperty ;
+                       rdfs:comment "A relation to describe the serial number of a certain Item, which is unique per Item."@en ;
+                       rdfs:label "has serial number"@en .
+
+
+###  https://saref.etsi.org/saref4inma/hasUUIDValue
+s4inma:hasUUIDValue rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf s4inma:hasIDValue ;
+                    rdfs:range xsd:string ;
+                    rdfs:comment "A relation to express the value of an UUID as a string"@en ;
+                    rdfs:label "has UUID value"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://org.semanticweb.owlapi/error#Error1
+<http://org.semanticweb.owlapi/error#Error1> rdf:type owl:Class .
+
+
+###  http://www.opengis.net/ont/geosparql#SpatialObject
+geo:SpatialObject rdf:type owl:Class ;
+                  rdfs:comment "The class spatial-object represents everything that can have a spatial representation. It is superclass of feature and geometry."@en ;
+                  rdfs:isDefinedBy <http://www.opengis.net/ont/geosparql> ;
+                  rdfs:label "SpatialObject"@en .
+
+
+###  http://www.w3.org/2004/02/skos/core#ConceptScheme
+<http://www.w3.org/2004/02/skos/core#ConceptScheme> rdf:type owl:Class ;
+                                                    rdfs:comment "SKOS concept scheme can be viewed as an aggregation of one or more SKOS concepts."@en ;
+                                                    rdfs:label "Concept Scheme"@en .
+
+
+###  https://saref.etsi.org/saref4bldg/Building
+<https://saref.etsi.org/saref4bldg/Building> rdf:type owl:Class ;
+                                             rdfs:comment "A building represents a structure that provides shelter for its occupants or contents and stands in one place. The building is also used to provide a basic element within the spatial structure hierarchy for the components of a building project (together with site, storey, and space)."@en ;
+                                             rdfs:label "Building"@en .
+
+
+###  https://saref.etsi.org/saref4bldg/BuildingSpace
+<https://saref.etsi.org/saref4bldg/BuildingSpace> rdf:type owl:Class ;
+                                                  rdfs:comment "An entity used to define the physical spaces of the building. A building space contains devices or building objects."@en ;
+                                                  rdfs:label "Building space"@en .
+
+
+###  https://saref.etsi.org/saref4inma/Area
+s4inma:Area rdf:type owl:Class ;
+            rdfs:subClassOf <https://saref.etsi.org/saref4bldg/BuildingSpace> ;
+            rdfs:comment "A subclass of s4bldg:BuildingSpace used to define the physical spaces of the building. According to IEC 62264, areas are physical, geographical or logical groupings of resources determined by the site. A site can be divided in areas, whereas areas contain work centers.s."@en ;
+            rdfs:label "Area"@en .
+
+
+###  https://saref.etsi.org/saref4inma/Batch
+s4inma:Batch rdf:type owl:Class ;
+             rdfs:subClassOf owl:Thing ,
+                             saref:FeatureOfInterest ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty saref:consistsOf ;
+                               owl:allValuesFrom s4inma:Batch
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty s4inma:hasIdentifier ;
+                               owl:allValuesFrom s4inma:ID
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty s4inma:needsEquipment ;
+                               owl:allValuesFrom s4inma:ProductionEquipment
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty s4inma:hasSize ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass s4inma:Size
+                             ] ;
+             rdfs:comment "A uniform collection of tangible objects or Lot. This can either be a collection of produced items (i.e. the outflow of products) or a collection of raw material or required material (i.e. the inflow of products). It is assumed that the objects in a batch are similar and thus have shared attributes. Note that this definition is broader than the definition in IEC 61512, which defines a batch as the material that is being produced (whereas in SAREF4INMA a batch can be items or materials). "@en ;
+             rdfs:label "Batch"@en .
+
+
+###  https://saref.etsi.org/saref4inma/Factory
+s4inma:Factory rdf:type owl:Class ;
+               rdfs:subClassOf <https://saref.etsi.org/saref4bldg/Building> ;
+               rdfs:comment "A subclass of s4bldg:Building specialized for the purpose of SAREF4INMA, a factory represents one or more organizations sharing a definit mission, goals and objectives which provides an output such as a product (definition taken from IEC 62264). A factory can be divided in one or multiple sites. "@en ;
+               rdfs:label "Factory"@en .
+
+
+###  https://saref.etsi.org/saref4inma/GTIN12ID
+s4inma:GTIN12ID rdf:type owl:Class ;
+                rdfs:subClassOf s4inma:ID ;
+                rdfs:comment "GTIN-12 (UPC-A) is a 12-digit number used primarily in North America"@en ;
+                rdfs:label "GTIN12ID"@en .
+
+
+###  https://saref.etsi.org/saref4inma/GTIN13ID
+s4inma:GTIN13ID rdf:type owl:Class ;
+                rdfs:subClassOf s4inma:ID ;
+                rdfs:comment "GTIN-13 (EAN/UCC-13) is a 13-digit number used predominately outside of North America"@en ;
+                rdfs:label "GTIN13ID"@en .
+
+
+###  https://saref.etsi.org/saref4inma/GTIN14ID
+s4inma:GTIN14ID rdf:type owl:Class ;
+                rdfs:subClassOf s4inma:ID ;
+                rdfs:comment "GTIN-14 (EAN/UCC-14 or ITF-14 or also known as ITF Symbol, SCC-14, DUN-14, UPC Case Code, UPC Shipping Container Code, UCC Code 128, EAN Code 128) is a 14-digit number used to identify trade items at various packaging levels."@en ;
+                rdfs:label "GTIN14ID"@en .
+
+
+###  https://saref.etsi.org/saref4inma/GTIN8ID
+s4inma:GTIN8ID rdf:type owl:Class ;
+               rdfs:subClassOf s4inma:ID ;
+               rdfs:comment "GTIN-8 (EAN/UCC-8) is an 8-digit number used predominately outside of North America."@en ;
+               rdfs:label "GTIN18ID"@en .
+
+
+###  https://saref.etsi.org/saref4inma/ID
+s4inma:ID rdf:type owl:Class ;
+          rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#ConceptScheme> ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty s4inma:hasIDValue ;
+                            owl:someValuesFrom xsd:string
+                          ] ;
+          rdfs:comment "A unique identifier."@en ;
+          rdfs:label "Identifier"@en .
+
+
+###  https://saref.etsi.org/saref4inma/IRDI
+s4inma:IRDI rdf:type owl:Class ;
+            rdfs:subClassOf s4inma:ID ;
+            rdfs:comment "International Registration Data Identifier (IRDI) is based on the international standards ISO/IEC 11179-6, ISO 29002 and ISO 6532 and used in eCl@ss and the Asset Administration Shell as unique identifier."@en ;
+            rdfs:label "IRDI"@en .
+
+
+###  https://saref.etsi.org/saref4inma/Item
+s4inma:Item rdf:type owl:Class ;
+            rdfs:subClassOf saref:FeatureOfInterest ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty s4inma:hasIdentifier ;
+                              owl:someValuesFrom s4inma:ID
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty saref:consistsOf ;
+                              owl:allValuesFrom s4inma:Item
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty s4inma:hasIdentifier ;
+                              owl:allValuesFrom s4inma:ID
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty s4inma:belongsToItemBatch ;
+                              owl:allValuesFrom s4inma:ItemBatch
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty s4inma:belongsToItemBatch ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass s4inma:ItemBatch
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty s4inma:hasSerialNumber ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ;
+            rdfs:comment "A tangible object which can be unique identified, for example, with a GTIN in the form of a barcode/QR/RFID tag. An item product can be the result of the organization's production process (i.e. outflow of objects/goods) or can be uniquely identifiable material (i.e. inflow of objects/supplies). Each item is part of exactly one ItemBatch, whereas each ItemBatch contains only Items which have similar properties. An item can consists of multiple Batches and other Items (i.e. subassemblies)."@en ;
+            rdfs:label "Item"@en .
+
+
+###  https://saref.etsi.org/saref4inma/ItemBatch
+s4inma:ItemBatch rdf:type owl:Class ;
+                 rdfs:subClassOf s4inma:Batch ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty s4inma:belongsToCategory ;
+                                   owl:allValuesFrom s4inma:ItemCategory
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty s4inma:containsItem ;
+                                   owl:allValuesFrom s4inma:Item
+                                 ] ;
+                 rdfs:comment "A uniform collection of tangible objects which are relevant for the prodcution process. The ItemBatch consists of a set of objects with similar properties (e.g. a certain type of sensors or metal sheets). The difference between ItemBatch and MaterialBatch is that individual items can be traced in a ItemBatch, whereas this is not possible in a MaterialBatch, meaning that, for example, it is possible to trace the individual metal sheet used in a ItemBatch. This implies that the objects in an ItemBatch have an unique identifier (e.g. a GTIN code in the form of a barcode/QR-code or RFID tag)."@en ;
+                 rdfs:label "Item Batch"@en .
+
+
+###  https://saref.etsi.org/saref4inma/ItemCategory
+s4inma:ItemCategory rdf:type owl:Class ;
+                    rdfs:subClassOf <http://org.semanticweb.owlapi/error#Error1> ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty s4inma:hasIdentifier ;
+                                      owl:someValuesFrom s4inma:ID
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty s4inma:hasIdentifier ;
+                                      owl:allValuesFrom s4inma:ID
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty s4inma:hasUpdate ;
+                                      owl:allValuesFrom s4inma:ItemCategory
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty s4inma:isCategoryOf ;
+                                      owl:allValuesFrom s4inma:ItemBatch
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty s4inma:isProducedBy ;
+                                      owl:allValuesFrom s4inma:ProductionEquipmentCategory
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty s4inma:hasModelNumber ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ;
+                    rdfs:comment "An ItemCategory describes a single type of item in terms of its static properties. Each ItemCategory can have multiple related ItemBatches, which all contain individual Items. The essential properties of each Item in all ItemBatches are the same. However, each batch might use different MaterialBatches and/or different ProductionEquipment. Therefore, small deviations between batches might occur, while the essential properties of all Items related to an ItemCategory are similar."@en ;
+                    rdfs:label "Item category"@en .
+
+
+###  https://saref.etsi.org/saref4inma/MaterialBatch
+s4inma:MaterialBatch rdf:type owl:Class ;
+                     rdfs:subClassOf s4inma:Batch ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty s4inma:belongsToCategory ;
+                                       owl:allValuesFrom s4inma:MaterialCategory
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty s4inma:hasCertificate ;
+                                       owl:allValuesFrom xsd:string
+                                     ] ;
+                     rdfs:comment "A uniform collection of tangible raw material which are relevant for the prodcution process. The MaterialBatch can consists of a set of objects with similar properties (e.g. a certain type of screws) or a stock of homogeen material (e.g. oil, water). The difference between MaterialBatch and ItemBatch is that individual items cannot be traced in a MaterialBatch, whereas this is possible in an ItemBatch, meaning that, for example, it is not possible to trace the individual screw used in a MaterialBatch."@en ;
+                     rdfs:label "Material Batch"@en .
+
+
+###  https://saref.etsi.org/saref4inma/MaterialCategory
+s4inma:MaterialCategory rdf:type owl:Class ;
+                        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                          owl:onProperty s4inma:isCategoryOf ;
+                                          owl:allValuesFrom s4inma:MaterialBatch
+                                        ] ;
+                        rdfs:comment "A MaterialCategory describes a category of material in terms of its static properties. Examples are: a certain category of steel or plastic. Each MaterialCategory can have multiple related MaterialBatches, which represent the physical material. The essential properties of the material in all MaterialBatches are the same. However, each batch might use different MaterialBatches and/or different ProductionEquipment. Therefore, small deviations between batches might occur, while the essential properties of the material related to an MaterialCategory are similar."@en ;
+                        rdfs:label "Material category"@en .
+
+
+###  https://saref.etsi.org/saref4inma/ProductionEquipment
+s4inma:ProductionEquipment rdf:type owl:Class ;
+                           rdfs:subClassOf geo:SpatialObject ,
+                                           saref:Device ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty saref:hasFunction ;
+                                             owl:allValuesFrom s4inma:ProductionEquipmentFunction
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty saref:hasState ;
+                                             owl:allValuesFrom saref:State
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty saref:madeExecution ;
+                                             owl:someValuesFrom saref:Observation
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty saref:observes ;
+                                             owl:someValuesFrom saref:Property
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty s4inma:belongsToCategory ;
+                                             owl:allValuesFrom s4inma:ProductionEquipmentCategory
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty s4inma:hasIdentifier ;
+                                             owl:allValuesFrom s4inma:ID
+                                           ] ;
+                           rdfs:comment "A production equipment is a specialization of a saref:Device and s4bldg:PhysicalObject that can produce items in a manufacturing process. This class represents an individual production equipment device and includes their specification in terms of functions, states and services. Different types of machines can be defined under this class as needed, for example, LaserCuttingMachine (i.e., a type of production equipment to cut steel material), MillingMachine (i.e., to drill holes in steel material), MouldingMachine (i.e., to mold liquid material, such as iron or plastic, and let it harden in a certain shape), WeldingMachine (i.e., join parts of material, such as steel, together), etc."@en ;
+                           rdfs:label "ProductionEquipment"@en .
+
+
+###  https://saref.etsi.org/saref4inma/ProductionEquipmentCategory
+s4inma:ProductionEquipmentCategory rdf:type owl:Class ;
+                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                     owl:onProperty s4inma:isCategoryOf ;
+                                                     owl:allValuesFrom s4inma:ProductionEquipment
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty s4inma:hasModelNumber ;
+                                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                     owl:onDataRange xsd:string
+                                                   ] ;
+                                   rdfs:comment "A ProductionEquipmentCategory represents a certain type of production equipment, which is generally static over time. More concretely, the ProductionEquipmentCategory represents a certain model and brand of a production equipment. Each ProductionEquipmentCategory can have multiple related ProductionEquipment, which represent the actual individual machines. Moreover, each ItemCategory can be produced by multiple ProductionEquipmentCategories."@en ;
+                                   rdfs:label "Production equipment category"@en .
+
+
+###  https://saref.etsi.org/saref4inma/ProductionEquipmentFunction
+s4inma:ProductionEquipmentFunction rdf:type owl:Class ;
+                                   rdfs:subClassOf owl:Thing ,
+                                                   saref:Function ;
+                                   rdfs:comment "Functionallity neccessary to accomplish the task for which a production equipment is designed."@en ;
+                                   rdfs:label "Production equipment function"@en .
+
+
+###  https://saref.etsi.org/saref4inma/Site
+s4inma:Site rdf:type owl:Class ;
+            rdfs:subClassOf <https://saref.etsi.org/saref4bldg/BuildingSpace> ;
+            rdfs:comment "A subclass of s4bldg:BuildingSpace used to define the physical spaces of the building. According to IEC 62264, sites are identified physical, geographical, and/or logical component groupings of a manufacturing enterprise. A factory can be divided in sites, whereas sites can be divided areas"@en ;
+            rdfs:label "Site"@en .
+
+
+###  https://saref.etsi.org/saref4inma/Size
+s4inma:Size rdf:type owl:Class ;
+            rdfs:subClassOf saref:Property ;
+            rdfs:comment "The amount of certain objects in a collection (e.g., size of a material batch)."@en ;
+            rdfs:label "Size"@en .
+
+
+###  https://saref.etsi.org/saref4inma/UUID
+s4inma:UUID rdf:type owl:Class ;
+            rdfs:subClassOf s4inma:ID ;
+            rdfs:comment "A universally unique identifier (UUID) is a 128-bit number used to identify items and is also known as: globally unique identifier (GUID). In its canonical textual representation, the sixteen octets of a UUID are represented as 32 hexadecimal (base 16) digits, displayed in five groups separated by hyphens, in the form 8-4-4-4-12 for a total of 36 characters (32 alphanumeric characters and four hyphens). UUID are documented in ISO/IEC 11578:1996 \"Information technology – Open Systems Interconnection – Remote Procedure Call (RPC)\" and in ITU-T Rec. X.667 | ISO/IEC 9834-8:2005."@en ;
+            rdfs:label "UUID"@en .
+
+
+###  https://saref.etsi.org/saref4inma/WorkCenter
+s4inma:WorkCenter rdf:type owl:Class ;
+                  rdfs:subClassOf s4inma:ProductionEquipment ;
+                  rdfs:comment "A subclass of s4inma:ProductionEquipment (and therefore of s4bld:PhysicalObject). It is an equipment element under an area in a role-based equipment hierarchy that performs production, storage or material movement (definition taken from IEC 62264). An Area contains work centers."@en ;
+                  rdfs:label "Work center"@en .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+   owl:members ( s4inma:Area
+                 s4inma:Site
+                 s4inma:WorkCenter
+               )
+ ] .

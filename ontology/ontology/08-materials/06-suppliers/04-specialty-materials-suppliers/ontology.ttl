@@ -1,0 +1,26 @@
+# Semicont Ontology Module: 08-materials/06-suppliers/04-specialty-materials-suppliers
+
+@prefix semicont-08-materials-06-suppliers-04-specialty-materials-suppliers: <https://semicont.org/ontology/08-materials/06-suppliers/04-specialty-materials-suppliers/#> .
+@prefix semicont-08-materials-06-suppliers: <https://semicont.org/ontology/08-materials/06-suppliers/#> .
+@prefix semicont-core: <https://semicont.org/ontology/shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-08-materials-06-suppliers-04-specialty-materials-suppliers: a owl:Ontology ;
+    rdfs:label "specialty materials suppliers ontology" ;
+    rdfs:comment "Industry-general semantic category for specialty materials suppliers." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/shared> ;
+        dc:source "Public domain knowledge of semiconductor materials and chemicals" ;
+    dc:rights "Fair use: publicly known material concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-08-materials-06-suppliers-04-specialty-materials-suppliers:SpecialtyMaterialsSuppliersConcept a owl:Class ;
+    rdfs:label "specialty materials suppliers" ;
+    rdfs:comment "Open category class for specialty materials suppliers; company-specific instances should live in extension datasets." ;
+    rdfs:subClassOf semicont-08-materials-06-suppliers:SuppliersConcept ;
+    rdfs:isDefinedBy semicont-08-materials-06-suppliers-04-specialty-materials-suppliers: .

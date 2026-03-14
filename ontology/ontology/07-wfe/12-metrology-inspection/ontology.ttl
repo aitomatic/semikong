@@ -1,0 +1,144 @@
+# Metrology Inspection Ontology
+# Industry-general concepts for critical dimension and defect inspection equipment
+
+@prefix semicont-07-wfe-metrology-inspection: <https://semicont.org/ontology/07-wfe/12-metrology-inspection#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+# Module Metadata
+semicont-07-wfe-metrology-inspection: a owl:Ontology ;
+    rdfs:label "Metrology Inspection Ontology" ;
+    rdfs:comment "Industry-general concepts for critical dimension and defect inspection equipment" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+    dc:source "Public semiconductor engineering literature and industry-standard metrology classifications" ;
+    dc:rights "Fair use: industry-general metrology concepts" ;
+    prov:wasInformedBy "Model synthesis of public domain semiconductor metrology knowledge" ;
+    prov:hadPrimarySource <https://en.wikipedia.org/wiki/Semiconductor_device_fabrication#Metrology> ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Metrology Equipment
+semicont-07-wfe-metrology-inspection:MetrologyEquipment a owl:Class ;
+    rdfs:label "Metrology Equipment" ;
+    rdfs:comment "Equipment for measuring physical properties of semiconductor devices" ;
+    rdfs:subClassOf semicont-shared:Equipment ;
+    rdfs:isDefinedBy semicont-07-wfe-metrology-inspection: ;
+    dc:source "Public domain semiconductor equipment taxonomy" ;
+    dc:rights "Fair use: generic metrology equipment concept" ;
+    prov:wasInformedBy "Industry-standard semiconductor metrology equipment classifications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Critical Dimension SEM
+semicont-07-wfe-metrology-inspection:CDSEM a owl:Class ;
+    rdfs:label "CD SEM" ;
+    rdfs:comment "Critical Dimension Scanning Electron Microscope" ;
+    rdfs:subClassOf semicont-07-wfe-metrology-inspection:MetrologyEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-metrology-inspection: ;
+    dc:source "Public domain semiconductor metrology literature" ;
+    dc:rights "Fair use: generic CD SEM concept" ;
+    prov:wasInformedBy "Industry-standard critical dimension measurement technologies" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Overlay Measurement
+semicont-07-wfe-metrology-inspection:OverlayEquipment a owl:Class ;
+    rdfs:label "Overlay Equipment" ;
+    rdfs:comment "Equipment for measuring overlay alignment accuracy" ;
+    rdfs:subClassOf semicont-07-wfe-metrology-inspection:MetrologyEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-metrology-inspection: ;
+    dc:source "Public domain semiconductor metrology literature" ;
+    dc:rights "Fair use: generic overlay measurement concept" ;
+    prov:wasInformedBy "Industry-standard overlay measurement technologies" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Defect Inspection Equipment
+semicont-07-wfe-metrology-inspection:DefectInspectionEquipment a owl:Class ;
+    rdfs:label "Defect Inspection Equipment" ;
+    rdfs:comment "Equipment for detecting defects on semiconductor wafers" ;
+    rdfs:subClassOf semicont-07-wfe-metrology-inspection:MetrologyEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-metrology-inspection: ;
+    dc:source "Public domain semiconductor inspection literature" ;
+    dc:rights "Fair use: generic defect inspection concept" ;
+    prov:wasInformedBy "Industry-standard defect inspection technologies" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Optical Inspection
+semicont-07-wfe-metrology-inspection:BrightfieldOpticalInspection a owl:Class ;
+    rdfs:label "Brightfield Optical Inspection" ;
+    rdfs:comment "Brightfield optical defect inspection system" ;
+    rdfs:subClassOf semicont-07-wfe-metrology-inspection:DefectInspectionEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-metrology-inspection: ;
+    dc:source "Public domain semiconductor inspection literature" ;
+    dc:rights "Fair use: generic brightfield inspection concept" ;
+    prov:wasInformedBy "Industry-standard optical inspection methodologies" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-metrology-inspection:DarkfieldOpticalInspection a owl:Class ;
+    rdfs:label "Darkfield Optical Inspection" ;
+    rdfs:comment "Darkfield optical defect inspection system" ;
+    rdfs:subClassOf semicont-07-wfe-metrology-inspection:DefectInspectionEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-metrology-inspection: ;
+    dc:source "Public domain semiconductor inspection literature" ;
+    dc:rights "Fair use: generic darkfield inspection concept" ;
+    prov:wasInformedBy "Industry-standard optical inspection methodologies" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Electron Beam Inspection
+semicont-07-wfe-metrology-inspection:EBeamInspection a owl:Class ;
+    rdfs:label "E-beam Inspection" ;
+    rdfs:comment "Electron beam defect inspection system" ;
+    rdfs:subClassOf semicont-07-wfe-metrology-inspection:DefectInspectionEquipment ;
+    rdfs:isDefinedBy semicont-07-wfe-metrology-inspection: ;
+    dc:source "Public domain semiconductor inspection literature" ;
+    dc:rights "Fair use: generic e-beam inspection concept" ;
+    prov:wasInformedBy "Industry-standard electron beam inspection technologies" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Process Parameters
+semicont-07-wfe-metrology-inspection:hasMeasurementTime a owl:DatatypeProperty ;
+    rdfs:label "has measurement time" ;
+    rdfs:comment "Time required for measurement in seconds" ;
+    rdfs:domain semicont-07-wfe-metrology-inspection:MetrologyEquipment ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy semicont-07-wfe-metrology-inspection: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-metrology-inspection:hasResolution a owl:DatatypeProperty ;
+    rdfs:label "has resolution" ;
+    rdfs:comment "Measurement resolution in nanometers" ;
+    rdfs:domain semicont-07-wfe-metrology-inspection:MetrologyEquipment ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy semicont-07-wfe-metrology-inspection: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-metrology-inspection:hasMeasurementPrecision a owl:DatatypeProperty ;
+    rdfs:label "has measurement precision" ;
+    rdfs:comment "Measurement precision in percent" ;
+    rdfs:domain semicont-07-wfe-metrology-inspection:MetrologyEquipment ;
+    rdfs:range xsd:decimal ;
+    rdfs:isDefinedBy semicont-07-wfe-metrology-inspection: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Equipment Properties
+semicont-07-wfe-metrology-inspection:hasWaferSize a owl:DatatypeProperty ;
+    rdfs:label "has wafer size" ;
+    rdfs:comment "Wafer diameter in millimeters" ;
+    rdfs:domain semicont-07-wfe-metrology-inspection:MetrologyEquipment ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-metrology-inspection: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .

@@ -1,0 +1,52 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix semicont-test: <https://semicont.org/ontology/06-osat-packaging-test/02-testing-services/#> .
+@prefix semicont-ft: <https://semicont.org/ontology/06-osat-packaging-test/02-testing-services/00-final-test/#> .
+
+semicont-ft:FinalTestSessionShape a sh:NodeShape ;
+    sh:targetClass semicont-ft:final-test-session ;
+    sh:property [
+        sh:path semicont-test:has-session-id ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+    ] ;
+    sh:property [
+        sh:path semicont-test:tests-unit ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path semicont-test:executes-program ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path semicont-ft:has-test-mode ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+    ] ;
+    sh:property [
+        sh:path semicont-test:has-start-time ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:dateTime ;
+    ] ;
+    sh:property [
+        sh:path semicont-test:has-end-time ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:dateTime ;
+    ] ;
+    sh:sparql [
+        sh:message "Session end time must be later than start time." ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                $this semicont-test:has-start-time ?start ;
+                      semicont-test:has-end-time ?end .
+                FILTER(?end <= ?start)
+            }
+        """ ;
+    ] .

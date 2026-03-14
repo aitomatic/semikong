@@ -1,0 +1,26 @@
+# Semicont Ontology Module: 03-fabless/00-chip-design-companies/01-networking-fabless
+
+@prefix semicont-03-fabless-00-chip-design-companies-01-networking-fabless: <https://semicont.org/ontology/03-fabless/00-chip-design-companies/01-networking-fabless/#> .
+@prefix semicont-03-fabless-00-chip-design-companies: <https://semicont.org/ontology/03-fabless/00-chip-design-companies/#> .
+@prefix semicont-core: <https://semicont.org/ontology/shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+semicont-03-fabless-00-chip-design-companies-01-networking-fabless: a owl:Ontology ;
+    rdfs:label "networking fabless ontology" ;
+    rdfs:comment "Industry-general semantic category for networking fabless." ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/shared> ;
+        dc:source "Industry-general knowledge of fabless semiconductor business models" ;
+    dc:rights "Fair use: publicly known fabless concepts" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-curation> ;
+    prov:generatedAtTime "2026-03-09"^^xsd:date .
+
+semicont-03-fabless-00-chip-design-companies-01-networking-fabless:NetworkingFablessConcept a owl:Class ;
+    rdfs:label "networking fabless" ;
+    rdfs:comment "Open category class for networking fabless; company-specific instances should live in extension datasets." ;
+    rdfs:subClassOf semicont-03-fabless-00-chip-design-companies:ChipDesignCompaniesConcept ;
+    rdfs:isDefinedBy semicont-03-fabless-00-chip-design-companies-01-networking-fabless: .

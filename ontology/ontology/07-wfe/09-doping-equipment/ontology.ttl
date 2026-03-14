@@ -1,0 +1,150 @@
+# Doping Equipment Ontology
+# Industry-general concepts for thermal diffusion doping equipment and processes
+
+@prefix semicont-07-wfe-doping-equipment: <https://semicont.org/ontology/07-wfe/09-doping-equipment#> .
+@prefix semicont-shared: <https://semicont.org/ontology/00-shared#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+# Module Metadata
+semicont-07-wfe-doping-equipment: a owl:Ontology ;
+    rdfs:label "Doping Equipment Ontology" ;
+    rdfs:comment "Industry-general concepts for thermal diffusion doping equipment and processes" ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports <https://semicont.org/ontology/00-shared> ;
+    dc:source "Public semiconductor engineering literature and industry-standard diffusion doping classifications" ;
+    dc:rights "Fair use: industry-general thermal doping concepts" ;
+    prov:wasInformedBy "Model synthesis of public domain semiconductor diffusion knowledge" ;
+    prov:hadPrimarySource <https://en.wikipedia.org/wiki/Diffusion#Semiconductor_fabrication> ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Diffusion Furnaces
+semicont-07-wfe-doping-equipment:DiffusionFurnace a owl:Class ;
+    rdfs:label "Diffusion Furnace" ;
+    rdfs:comment "Furnace for thermal diffusion doping processes" ;
+    rdfs:subClassOf semicont-shared:Equipment ;
+    rdfs:isDefinedBy semicont-07-wfe-doping-equipment: ;
+    dc:source "Public domain semiconductor equipment taxonomy" ;
+    dc:rights "Fair use: generic diffusion furnace concept" ;
+    prov:wasInformedBy "Industry-standard thermal diffusion equipment classifications" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-doping-equipment:PredepositionFurnace a owl:Class ;
+    rdfs:label "Predeposition Furnace" ;
+    rdfs:comment "Furnace for predeposition diffusion process" ;
+    rdfs:subClassOf semicont-07-wfe-doping-equipment:DiffusionFurnace ;
+    rdfs:isDefinedBy semicont-07-wfe-doping-equipment: ;
+    dc:source "Public domain semiconductor diffusion literature" ;
+    dc:rights "Fair use: generic predeposition furnace concept" ;
+    prov:wasInformedBy "Industry-standard two-step diffusion processes" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-doping-equipment:DriveInFurnace a owl:Class ;
+    rdfs:label "Drive-in Furnace" ;
+    rdfs:comment "Furnace for drive-in diffusion process" ;
+    rdfs:subClassOf semicont-07-wfe-doping-equipment:DiffusionFurnace ;
+    rdfs:isDefinedBy semicont-07-wfe-doping-equipment: ;
+    dc:source "Public domain semiconductor diffusion literature" ;
+    dc:rights "Fair use: generic drive-in furnace concept" ;
+    prov:wasInformedBy "Industry-standard two-step diffusion processes" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Plasma Doping Tools (Alternative to Ion Implantation)
+semicont-07-wfe-doping-equipment:PlasmaDopingTool a owl:Class ;
+    rdfs:label "Plasma Doping Tool" ;
+    rdfs:comment "Tool for plasma-based doping without ion implantation" ;
+    rdfs:subClassOf semicont-shared:Equipment ;
+    rdfs:isDefinedBy semicont-07-wfe-doping-equipment: ;
+    dc:source "Public domain semiconductor doping technology literature" ;
+    dc:rights "Fair use: generic plasma doping concept" ;
+    prov:wasInformedBy "Industry-standard alternative doping technologies" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Doping Process Types
+semicont-07-wfe-doping-equipment:ThermalDopingProcess a owl:Class ;
+    rdfs:label "Thermal Doping Process" ;
+    rdfs:comment "Doping process using thermal diffusion" ;
+    rdfs:subClassOf semicont-shared:ProcessStep ;
+    rdfs:isDefinedBy semicont-07-wfe-doping-equipment: ;
+    dc:source "Public domain semiconductor process knowledge" ;
+    dc:rights "Fair use: industry-general thermal doping process concepts" ;
+    prov:wasInformedBy "Model synthesis of thermal diffusion processes" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-doping-equipment:PredepositionProcess a owl:Class ;
+    rdfs:label "Predeposition Process" ;
+    rdfs:comment "First step in two-step diffusion doping" ;
+    rdfs:subClassOf semicont-07-wfe-doping-equipment:ThermalDopingProcess ;
+    rdfs:isDefinedBy semicont-07-wfe-doping-equipment: ;
+    dc:source "Public domain semiconductor diffusion literature" ;
+    dc:rights "Fair use: generic predeposition process concept" ;
+    prov:wasInformedBy "Industry-standard two-step diffusion processes" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-doping-equipment:DriveInProcess a owl:Class ;
+    rdfs:label "Drive-in Process" ;
+    rdfs:comment "Second step in two-step diffusion doping" ;
+    rdfs:subClassOf semicont-07-wfe-doping-equipment:ThermalDopingProcess ;
+    rdfs:isDefinedBy semicont-07-wfe-doping-equipment: ;
+    dc:source "Public domain semiconductor diffusion literature" ;
+    dc:rights "Fair use: generic drive-in process concept" ;
+    prov:wasInformedBy "Industry-standard two-step diffusion processes" ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Process Parameters
+semicont-07-wfe-doping-equipment:hasTemperature a owl:DatatypeProperty ;
+    rdfs:label "has temperature" ;
+    rdfs:comment "Process temperature in Celsius" ;
+    rdfs:domain semicont-07-wfe-doping-equipment:ThermalDopingProcess ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-doping-equipment: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-doping-equipment:hasDuration a owl:DatatypeProperty ;
+    rdfs:label "has duration" ;
+    rdfs:comment "Process duration in minutes" ;
+    rdfs:domain semicont-07-wfe-doping-equipment:ThermalDopingProcess ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-doping-equipment: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-doping-equipment:hasAmbientGas a owl:DatatypeProperty ;
+    rdfs:label "has ambient gas" ;
+    rdfs:comment "Ambient gas composition (e.g., nitrogen, oxygen)" ;
+    rdfs:domain semicont-07-wfe-doping-equipment:ThermalDopingProcess ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy semicont-07-wfe-doping-equipment: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+# Equipment Properties
+semicont-07-wfe-doping-equipment:hasMaxTemperature a owl:DatatypeProperty ;
+    rdfs:label "has maximum temperature" ;
+    rdfs:comment "Maximum operating temperature in Celsius" ;
+    rdfs:domain semicont-07-wfe-doping-equipment:DiffusionFurnace ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-doping-equipment: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
+
+semicont-07-wfe-doping-equipment:hasWaferCapacity a owl:DatatypeProperty ;
+    rdfs:label "has wafer capacity" ;
+    rdfs:comment "Number of wafers processed per batch" ;
+    rdfs:domain semicont-07-wfe-doping-equipment:DiffusionFurnace ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy semicont-07-wfe-doping-equipment: ;
+    prov:wasGeneratedBy <https://semicont.org/prov/activity/semicont-ontology-build> ;
+    prov:generatedAtTime "2026-03-10"^^xsd:date .
