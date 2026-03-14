@@ -9,18 +9,6 @@ The intent is to make this repository the shared home for both the model work an
 
 SemiKong was developed in connection with the [AI Alliance](https://aialliance.org), an open community focused on open and responsible AI. The project reflects that open collaboration model while focusing specifically on semiconductor models and ontology assets.
 
-## What "Better" Means
-
-For a top-level README, "better" usually means:
-
-- it explains what the repository is in one screen without making the reader dig
-- it makes the directory structure and ownership obvious
-- it helps a new contributor find the right entrypoint quickly
-- it distinguishes current state from planned state
-- it documents the working branch and release flow clearly
-
-That is the goal of this README.
-
 ## Repository Areas
 
 - [model/](/Users/ctn/src/aitomatic/semikong/model): the semiconductor model work
