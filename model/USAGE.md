@@ -80,6 +80,9 @@ python -m vllm.entrypoints.api_server \
 
 ## Models, Datasets, and Paper
 
-- Model weights: <https://huggingface.co/pentagoniac/SEMIKONG-70B>, <https://huggingface.co/pentagoniac/SEMIKONG-8b-GPTQ>
+- Public model weights:
+  - Base 70B: <https://huggingface.co/pentagoniac/SEMIKONG-70B>
+  - Quantized 8B GPTQ: <https://huggingface.co/pentagoniac/SEMIKONG-8b-GPTQ>
+  - Quantized 8B instruct GPTQ: <https://huggingface.co/sitloboi2012/SEMIKONG-8B-Instruct-GPTQ>
 - Dataset and benchmark resources: <https://drive.google.com/drive/u/0/folders/1IjuVyP35-xBEe_i_KkG9MnE-4o7Eb7tq>
 - Tech report / paper: <https://arxiv.org/abs/2411.13802>
