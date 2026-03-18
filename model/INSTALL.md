@@ -4,6 +4,8 @@ This guide covers the current contents of the `model/` subtree.
 
 This documentation dedicated to instruct on how to setup the environment for training, evaluation and inference SEMIKONG model.
 
+For runnable commands after installation, see [USAGE.md](USAGE.md).
+
 ## Requirement Hardware
 
 - CUDA Version: use a current NVIDIA driver/runtime compatible with the PyTorch version pinned in `model/requirements.txt`
@@ -30,6 +32,21 @@ conda activate semikong-env
 make -C model install
 ~~~
 
+## Supported Package Versions
+
+The current dependency baseline in [requirements.txt](requirements.txt) includes:
+
+- `torch==2.8.0`
+- `torchaudio==2.8.0`
+- `torchvision==0.23.0`
+- `datasets`
+- `transformers`
+- `flash_attn`
+- `vllm`
+- `vllm-flash-attn`
+
+If you need a reproducible environment for debugging install issues, start from that file rather than mixing older PyTorch and torchaudio pins.
+
 ## Training
 ~~~
 1. Download the Meta-LLaMA/Meta-LLaMA base model first on HuggingFace Hub
@@ -49,3 +66,9 @@ python -m vllm.entrypoints.openai.api_server --model <path_to_model_or_HF_model_
 2. Using vLLM Server: 
 python -m vllm.entrypoints.api_server --model <path_to_model_or_HF_model_card_name> --device cuda --max-lora-rank 32 --dtype auto --port 8080
 ~~~
+
+## References
+
+- Usage guide: [USAGE.md](USAGE.md)
+- Dataset and benchmark resources: <https://drive.google.com/drive/u/0/folders/1IjuVyP35-xBEe_i_KkG9MnE-4o7Eb7tq>
+- Tech report / paper: <https://arxiv.org/abs/2411.13802>
